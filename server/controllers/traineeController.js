@@ -1,14 +1,43 @@
-const traineeData = require("../models/traineeData");
+const Trainee = require("../models/Trainee");
 
 //Create a function for the action of retrieve trainees
 const getTrainee = (req, res) => {
     const id = req.params.id;
     if (typeof id == "undefined") {
-        res.status(200).json({ trainees: traineeData.trainees });
+        Trainee.find({})
+            .exec()
+            .then((results) => {
+                res.status(200).json(results);
+            })
+            .catch((error) => {
+                res.status(500).json(error);
+            });
     } else {
-        const trainee = traineeData.trainees.find((x) => x.id == id);
-        res.status(200).json({ trainees: [trainee]});
+        Trainee.findOne({ _id: id })
+            .exec()
+            .then((results) => {
+                if (results != null) {
+                    res.status(200).json(results);
+                } else {
+                    res.status(404).json(results);
+                }
+            })
+            .catch((error) => {
+                res.status(500).json(error);
+            });
     }
 };
 
-module.exports = { getTrainee };
+const saveTrainee = (req, res) => {
+    let newTrainee = new Trainee(req.body);
+    newTrainee
+        .save()
+        .then((results) => {
+            res.status(201).json(results);
+        })
+        .catch((error) => {
+            res.status(500).json(error);
+        });
+};
+
+module.exports = { getTrainee, saveTrainee };

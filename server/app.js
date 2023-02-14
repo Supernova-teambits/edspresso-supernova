@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1", router); // like a prefix of the path
 
+// Summary of API Endpoints
 app.get("/", (req, res, next) => {
     res.content_type = "text/plain";
     res.render("index");
-    // res.send("Edspresso backend server!");
 })
 
 app.listen(8080, () => {

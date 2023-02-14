@@ -1,6 +1,5 @@
 const Trainee = require("../models/Trainee");
 
-//Create a function for the action of retrieve trainees
 const getTrainee = (req, res) => {
     const id = req.params.id;
     if (typeof id == "undefined") {
@@ -27,6 +26,7 @@ const getTrainee = (req, res) => {
             });
     }
 };
+
 
 const saveTrainee = (req, res) => {
     let newTrainee = new Trainee(req.body);

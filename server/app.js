@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const bodyParser = require("body-parser");
 const router = require("./routes");
@@ -8,6 +9,8 @@ require("./models/db");
 app.set("view engine", "ejs");
 
 app.use(express.json());
+
+app.use(cors()); // allow access from all domain
 
 // to be encoded into the URL-encoded format, allowing for
 // a JSON-like experience with URL-encoded.

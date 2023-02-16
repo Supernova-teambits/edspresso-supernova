@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { Dashboard } from "../pages/Dashboard";
+import Layout from "../components/Layout";
+import Dashboard from "../pages/Dashboard";
 import LogIn from "../pages/LogIn";
-import { MyTraining } from "../pages/MyTraining";
-import { NoMatch } from "../pages/NotMatch";
+import MyTraining from "../pages/MyTraining";
+import NoMatch from "../pages/NotMatch";
 
 const routes = [
   {

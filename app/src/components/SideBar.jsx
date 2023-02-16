@@ -1,12 +1,11 @@
-import React from "react";
+const Sidebar = () => {
 
 
-export class SideBar extends React.Component {
-  render() {
-    return (
+  return (
       <div>
         <h2>This is the Side Bar</h2>
       </div>
     );
-  }
-}
+};
+
+export default Sidebar;

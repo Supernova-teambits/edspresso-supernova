@@ -10,13 +10,13 @@ const lessons = [
     {
         id: 2,
         name: "Flat white",
-        progress_status: 0,
+        progress_status: 70,
         icon: "☕"
     },
     {
         id: 3,
         name: "Americano",
-        progress_status: 100,
+        progress_status: 80,
         icon: "☕"
     },
     {
@@ -61,6 +61,18 @@ const lessons = [
         progress_status: 100,
         icon: "☕"
     },
+    {
+        id: 11,
+        name: "Rilakkuma",
+        progress_status: 100,
+        icon: "☕"
+    },
+    {
+        id: 12,
+        name: "Cinnamoroll",
+        progress_status: 100,
+        icon: "☕"
+    }
 ];
 
 export default lessons;

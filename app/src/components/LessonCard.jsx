@@ -11,12 +11,12 @@ import Grid from "@mui/material/Grid";
 
 export default function LessonCard({ icon, name, progress, to }) {
   return (
-    <Grid item xs={3}>
+    <Grid item xs={2}>
       <Card sx={{ maxWidth: 200 }}>
         <CardActionArea component={Link} to={to}>
           <CardMedia component="img" height="140" image={icon} alt={name} />
           <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography gutterBottom variant="p" component="div">
               {name}
             </Typography>
             {0 < progress && progress < 100 ? (

@@ -40,4 +40,14 @@ const saveTrainee = (req, res) => {
         });
 };
 
-module.exports = { getTrainee, saveTrainee };
+const updateTrainee = (req, res) => {
+    Trainee.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((results) => {
+            res.status(201).json(results);
+        })
+        .catch((error) => {
+            res.status(500).json(error);
+        });
+}
+
+module.exports = { getTrainee, saveTrainee, updateTrainee };

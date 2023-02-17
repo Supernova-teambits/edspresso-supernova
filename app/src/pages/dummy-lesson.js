@@ -3,7 +3,7 @@
 const lessons = [
     {
         id: 1,
-        name: "Latte",
+        name: "3 Cups Chemex",
         progress_status: 30,
         icon: "☕"
     },
@@ -41,6 +41,24 @@ const lessons = [
         id: 7,
         name: "London Fog",
         progress_status: 0,
+        icon: "☕"
+    },
+    {
+        id: 8,
+        name: "Dalgona coffee",
+        progress_status: 10,
+        icon: "☕"
+    },
+    {
+        id: 9,
+        name: "Latte",
+        progress_status: 30,
+        icon: "☕"
+    },
+    {
+        id: 10,
+        name: "Hello Kitty",
+        progress_status: 100,
         icon: "☕"
     },
 ];

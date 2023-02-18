@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import LessonCard from "../components/Card/LessonCard";
 import assigned_lessons from "./dummy-lesson";
 import Typography from "@mui/material/Typography";
+import SearchBar from "../components/SearchBar";
 
 const CardCollection = ({ title, lessons }) => {
   const MAX_CARDS = 6;
@@ -13,9 +15,7 @@ const CardCollection = ({ title, lessons }) => {
         {title}
       </Typography>
       {MAX_CARDS < lessons.length ? (
-        <Link to={`/${title.toLowerCase()}`}>
-          See all
-        </Link>
+        <Link to={`/${title.toLowerCase()}`}>See all</Link>
       ) : null}
       <Grid container spacing={1}>
         {lessons.slice().map((lesson, index) => {
@@ -37,6 +37,12 @@ const CardCollection = ({ title, lessons }) => {
 };
 
 const MyTraining = () => {
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = (event) => {
+    setSearchText(event.target.value);
+  };
+
   const ongoing = assigned_lessons.filter(
     (lesson) => 0 < lesson.progress_status && lesson.progress_status < 100
   );
@@ -47,13 +53,30 @@ const MyTraining = () => {
     (lesson) => lesson.progress_status === 100
   );
 
+  function filteredArray(array) {
+    return array.filter((lesson) =>
+      lesson.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+
   return (
     <>
       <h1>My Training</h1>
 
-      <CardCollection title="Ongoing Lessons" lessons={ongoing} />
-      <CardCollection title="Lessons to take" lessons={toTake} />
-      <CardCollection title="Completed Lessons" lessons={completed} />
+      <SearchBar value={searchText} onChange={handleSearch} />
+
+      <CardCollection
+        title="Ongoing Lessons"
+        lessons={searchText ? filteredArray(ongoing) : ongoing}
+      />
+      <CardCollection
+        title="Lessons to take"
+        lessons={searchText ? filteredArray(toTake) : toTake}
+      />
+      <CardCollection
+        title="Completed Lessons"
+        lessons={searchText ? filteredArray(completed) : completed}
+      />
     </>
   );
 };

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import quizData from "./dummy-question";
-import CloseButton from "../components/CloseButton";
-import Pagination from "../components/Pagination";
-import ResultPage from "../components/ResultPage";
+import CloseButton from "../components/Buttons/CloseButton";
+import Pagination from "../components/Buttons/Pagination";
+import ResultPage from "../components/Buttons/ResultPage";
 
 const QuizPage = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [answers, setAnswers] = useState({});
-  const totalQuestions = quizData.length;
+  const totalPages = quizData.length;
   const [timeLeft, setTimeLeft] = useState(600);
   const [score, setScore] = useState(0);
 
@@ -33,11 +33,11 @@ const QuizPage = () => {
   };
 
   const handleNext = () => {
-    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
   const handleBack = () => {
-    setCurrentQuestion((prevQuestion) => prevQuestion - 1);
+    setCurrentPage((prevPage) => prevPage - 1);
   };
 
   const calculateScore = () => {
@@ -53,18 +53,16 @@ const QuizPage = () => {
 
   const handleSubmit = () => {
     calculateScore();
-    setCurrentQuestion(totalQuestions + 1);
+    setCurrentPage(totalPages + 1);
     console.log("handleSubmit called");
     // redirect to result page
   };
 
-  const currentQuiz = quizData.find(
-    (question) => question.id === currentQuestion
-  );
+  const currentQuiz = quizData.find((question) => question.id === currentPage);
 
   return (
     <div className="quiz-page">
-      {currentQuestion <= totalQuestions ? (
+      {currentPage <= totalPages ? (
         <>
           <header>
             <CloseButton />
@@ -72,7 +70,7 @@ const QuizPage = () => {
             <h2>3 Cups Chemex</h2>
             <div className="header-middle">
               <span>
-                Page {currentQuestion}/{totalQuestions}
+                Page {currentPage}/{totalPages}
               </span>
               &nbsp;
               <span>
@@ -93,8 +91,8 @@ const QuizPage = () => {
                         type="radio"
                         name="answer"
                         value={option}
-                        checked={answers[currentQuestion] === option}
-                        onChange={() => handleAnswer(currentQuestion, option)}
+                        checked={answers[currentPage] === option}
+                        onChange={() => handleAnswer(currentPage, option)}
                       />
                       {option}
                     </label>
@@ -103,8 +101,8 @@ const QuizPage = () => {
               </ul>
             </div>
             <Pagination
-              currentQuestion={currentQuestion}
-              totalQuestions={totalQuestions}
+              currentPage={currentPage}
+              totalPages={totalPages}
               onBack={handleBack}
               onNext={handleNext}
               onSubmit={handleSubmit}
@@ -112,7 +110,7 @@ const QuizPage = () => {
           </main>
         </>
       ) : (
-        <ResultPage score={score} totalQuestions={totalQuestions} />
+        <ResultPage score={score} totalQuestions={totalPages} />
       )}
     </div>
   );

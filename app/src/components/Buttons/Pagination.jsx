@@ -1,12 +1,6 @@
-const Pagination = ({
-  currentQuestion,
-  totalQuestions,
-  onBack,
-  onNext,
-  onSubmit,
-}) => {
-  const isLastQuestion = currentQuestion === totalQuestions;
-  const isFirstQuestion = currentQuestion === 1;
+const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
+  const isLastPage = currentPage === totalPages;
+  const isFirstPage = currentPage === 1;
 
   const handleBack = () => {
     onBack();
@@ -22,8 +16,8 @@ const Pagination = ({
 
   return (
     <div className="pagination">
-      {!isFirstQuestion && <button onClick={handleBack}>Back</button>}
-      {isLastQuestion ? (
+      {!isFirstPage && <button onClick={handleBack}>Back</button>}
+      {isLastPage ? (
         <button onClick={handleSubmit}>Submit</button>
       ) : (
         <button onClick={handleNext}>Next</button>

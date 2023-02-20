@@ -1,5 +1,25 @@
 const Trainee = require("../models/Trainee");
 
+const getTraineeAccordingToManagerCode = (req, res) => {
+    const id = req.params.id;
+    if (typeof id == "undefined") {
+        res.status(404).json("Manager code not found");
+    } else {
+        Trainee.find({ manager_code: id })
+        .exec()
+        .then((results) => {
+            if (results != null) {
+                res.status(200).json(results);
+            } else {
+                res.status(404).json("Trainee not found");
+            }
+        })
+        .catch((error) => {
+            res.status(500).json(error);
+        });
+    }
+};
+
 const getTrainee = (req, res) => {
     const id = req.params.id;
     if (typeof id == "undefined") {
@@ -50,4 +70,4 @@ const updateTrainee = (req, res) => {
         });
 }
 
-module.exports = { getTrainee, saveTrainee, updateTrainee };
+module.exports = { getTraineeAccordingToManagerCode, getTrainee, saveTrainee, updateTrainee };

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import quizData from "./dummy-question";
 import CloseButton from "../components/Buttons/CloseButton";
 import Pagination from "../components/Buttons/Pagination";
-import ResultPage from "../components/Buttons/ResultPage";
+import ResultPage from "./ResultPage";
 
 const QuizPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +33,22 @@ const QuizPage = () => {
   };
 
   const handleNext = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    if (answers[currentPage]) {
+      setCurrentPage((prevPage) => prevPage + 1);
+      hideErrorMessage();
+    } else {
+      displayErrorMessage();
+    }
+  };
+
+  const displayErrorMessage = () => {
+    const messageBox = document.getElementById("error-message");
+    messageBox.style.display = "block";
+  };
+
+  const hideErrorMessage = () => {
+    const messageBox = document.getElementById("error-message");
+    messageBox.style.display = "none";
   };
 
   const handleBack = () => {
@@ -47,15 +62,20 @@ const QuizPage = () => {
         finalScore++;
       }
     });
-    console.log("final score is: ", finalScore);
     setScore(finalScore);
   };
 
   const handleSubmit = () => {
-    calculateScore();
-    setCurrentPage(totalPages + 1);
-    console.log("handleSubmit called");
-    // redirect to result page
+    const unansweredQuestions = quizData.filter(
+      (question) => !answers[question.id]
+    );
+    if (unansweredQuestions.length === 0) {
+      calculateScore();
+      setCurrentPage(totalPages + 1);
+      hideErrorMessage();
+    } else {
+      displayErrorMessage();
+    }
   };
 
   const currentQuiz = quizData.find((question) => question.id === currentPage);
@@ -65,7 +85,7 @@ const QuizPage = () => {
       {currentPage <= totalPages ? (
         <>
           <header>
-            <CloseButton />
+            <CloseButton message="Do you want to leave the test? Your answers will not be saved." />
             <h3>Questionnaire:</h3>
             <h2>3 Cups Chemex</h2>
             <div className="header-middle">
@@ -92,13 +112,19 @@ const QuizPage = () => {
                         name="answer"
                         value={option}
                         checked={answers[currentPage] === option}
-                        onChange={() => handleAnswer(currentPage, option)}
+                        onChange={() => {
+                          handleAnswer(currentPage, option);
+                          hideErrorMessage();
+                        }}
                       />
                       {option}
                     </label>
                   </li>
                 ))}
               </ul>
+            </div>
+            <div id="error-message" style={{ display: "none" }}>
+              Please choose an answer.
             </div>
             <Pagination
               currentPage={currentPage}

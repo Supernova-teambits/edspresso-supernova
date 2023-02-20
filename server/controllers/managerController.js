@@ -20,11 +20,6 @@ const getManager = (req, res) => {
     }
 };
 
-const getTraineeList = (req, res) => {
-    // 1.find trainee _id
-    res.status(201).json("TODO");
-}
-
 const saveManager = (req, res) => {
     const newManager = new Manager(req.body);
     newManager
@@ -47,4 +42,4 @@ const updateManager = (req, res) => {
         });
 }
 
-module.exports = { getManager, getTraineeList, saveManager, updateManager };
+module.exports = { getManager, saveManager, updateManager };

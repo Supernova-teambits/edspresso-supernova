@@ -10,9 +10,6 @@ router.get("/manager", managerCtrl.getManager);
 // GET: /manager/:id
 router.get("/manager/:id", managerCtrl.getManager);
 
-// GET: /manager/trainees
-router.get("/manager-trainees", managerCtrl.getTraineeList);
-
 // POST: /manager
 router.post("/manager", managerCtrl.saveManager);
 

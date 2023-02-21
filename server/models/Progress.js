@@ -8,6 +8,7 @@ const ProgressSchema = new Schema({
     manager_code: { type: String, required: true },
     progress_status: { type: Number, required: true },
     certification: { type: String },
+    certification_date: { type: Date },
     test_result: { type: Number },
     step_progress: { type: Array, required: true },
 });

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { getUser } from "../services/loginService";
 
 const theme = createTheme();
 
@@ -21,11 +21,8 @@ export default function LogIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     setLoading(true);
-    axios
-      .post("http://204.236.129.120:8080/api/v1/login", {
-        name: data.get("name"),
-        password: data.get("password"),
-      })
+
+    getUser(data.get("name"), data.get("password"))
       .then((result) => {
         if (result.data.loginSuccess) {
           navigate("/app");

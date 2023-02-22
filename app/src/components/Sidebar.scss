@@ -1,0 +1,28 @@
+$primary-color: #ffffff;
+
+.menu-item {
+  display: inline-block;
+}
+
+.sidebar-menu {
+  background-color: #373a47;
+  color: $primary-color;
+  width: 20%;
+  height: 100%;
+
+  a {
+    color: $primary-color;
+  }
+}
+
+* {
+  padding: 5px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+
+

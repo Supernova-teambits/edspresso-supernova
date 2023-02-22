@@ -3,7 +3,8 @@ const Header = () => {
 
   return (
       <div>
-        <h2>This is the header</h2>
+        <img src="logo" alt="LogoIcon" />
+        <h2>Edspresso</h2>
       </div>
     );
 };

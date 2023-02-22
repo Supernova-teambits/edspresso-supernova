@@ -42,7 +42,10 @@ const deleteStepProgress = (req, res) => {
         if (results != null) {
             res.status(200).json("Delete completed");
         } else {
-            res.status(404).json("Delete fail: Step not found");
+            res.status(404).json({
+                deleteSuccess: false,
+                message: "Step not found."
+            });
         }
     })
     .catch(error => {

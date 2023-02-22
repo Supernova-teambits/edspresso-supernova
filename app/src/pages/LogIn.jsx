@@ -11,12 +11,16 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getUser } from "../services/loginService";
+import { loginBackground } from "../assets/images";
 
 const theme = createTheme();
 
 export default function LogIn() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  const checkExist = () => {};
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -44,8 +48,7 @@ export default function LogIn() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              "url(https://edspresso-bucket.s3.us-west-1.amazonaws.com/bg_login.jpg)",
+            backgroundImage: loginBackground,
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"

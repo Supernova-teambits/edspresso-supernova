@@ -10,7 +10,9 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { getUser } from "../services/loginService";
+import { getUser, updateUser } from "../services/loginService";
+import { createManagerInfo } from "../services/managerService";
+import { createTraineeInfo } from "../services/traineeService";
 import { loginBackground } from "../assets/images";
 
 const theme = createTheme();
@@ -19,7 +21,45 @@ export default function LogIn() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const checkExist = () => {};
+  const createManager = (name, userRoleId) => {
+    createManagerInfo(name)
+      .then((managerInfo) => {
+        // Update user id to userRole collection
+        updateUser(userRoleId, managerInfo.data._id)
+          .then((results) => {
+            setLoading(false);
+            navigate("/app", { state: { userId: results.data._id } });
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
+
+  const createTrainee = (name, userRoleId) => {
+    createTraineeInfo(name)
+      .then((traineeInfo) => {
+        // Update user id to userRole collection
+        updateUser(userRoleId, traineeInfo.data._id)
+          .then((results) => {
+            setLoading(false);
+            navigate("/app", { state: { userId: results.data._id } });
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,9 +67,20 @@ export default function LogIn() {
     setLoading(true);
 
     getUser(data.get("name"), data.get("password"))
-      .then((result) => {
-        if (result.data.loginSuccess) {
-          navigate("/app");
+      .then((user) => {
+        if (user.data.loginSuccess) {
+          // Check user info in exist database
+          if (user.data.user_id == "") {
+            // Create user info in (admin or trainee) collection
+            if (user.data.role == "manager") {
+              createManager(data.get("name"), user.data._id);
+            } else {
+              createTrainee(data.get("name"), user.data._id);
+            }
+          } else {
+            setLoading(false);
+            navigate("/app", { state: { userId: user.data.user_id } });
+          }
         }
       })
       .catch((error) => {

@@ -6,7 +6,8 @@ const saltRounds = 10;
 const UserRoleSchema = new Schema({
     name: { type: String, required: true, minLength:1 },
     password: { type: String, required: true },
-    role: {type: String, enum:["manager", "trainee"], default:"trainee"},
+    role: { type: String, enum:["manager", "trainee"], default:"trainee" },
+    user_id: { type: String },
 });
 
 UserRoleSchema.pre("save", function(next) {

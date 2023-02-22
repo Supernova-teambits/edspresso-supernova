@@ -22,8 +22,10 @@ const logIn = (req, res) => {
                     } else {
                         res.status(200).json({
                             loginSuccess: true,
+                            _id: userInfo._id,
                             name: userInfo.name,
-                            role: userInfo.role
+                            role: userInfo.role,
+                            user_id: userInfo.user_id
                         })
                     }
                 })
@@ -43,7 +45,8 @@ const saveUserRole = (req, res) => {
                 save: true,
                 _id: results._id,
                 name: results.name,
-                role: results.role
+                role: results.role,
+                user_id: results.user_id
             });
         })
         .catch((error) => {
@@ -51,4 +54,14 @@ const saveUserRole = (req, res) => {
         });
 };
 
-module.exports = { logIn, saveUserRole };
+const updateUserRole = (req, res) => {
+    UserRole.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((results) => {
+            res.status(201).json(results);
+        })
+        .catch((error) => {
+            res.status(500).json(error);
+        });
+}
+
+module.exports = { logIn, saveUserRole, updateUserRole };

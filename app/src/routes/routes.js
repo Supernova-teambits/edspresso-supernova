@@ -6,7 +6,7 @@ import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";
 import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
-import QuizPage from "../pages/Questionnaire";
+import QuizPage from "../pages/QuizPage";
 
 const routes = [
   {
@@ -25,10 +25,10 @@ const routes = [
         index: true,
         element: <MyTraining />
       },
-      // {
-      //   path: 'training/:id',
-      //   element: <MyTraining />
-      // },
+      {
+        path: 'training/:id',
+        element: <MyTraining />
+      },
       {
         path: 'lesson/:id',
         element: <TrainingDetails />,

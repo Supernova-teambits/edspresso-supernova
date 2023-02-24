@@ -23,7 +23,7 @@ const CardCollection = ({ title, lessons }) => {
                 key={lesson.id}
                 name={lesson.name}
                 progress={lesson.progress_status}
-                to={`/lesson/${lesson.id}`}
+                to={`/app/lesson/${lesson.id}`}
               />
             );
           }

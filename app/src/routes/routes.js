@@ -6,6 +6,7 @@ import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";
 import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
+import QuizPage from "../pages/Questionnaire";
 
 const routes = [
   {
@@ -30,7 +31,7 @@ const routes = [
       // },
       {
         path: 'lesson/:id',
-        element: <TrainingDetails />
+        element: <TrainingDetails />,
       },
       {
         path: 'step/:id',
@@ -39,6 +40,10 @@ const routes = [
       {
         path: 'dashboard',
         element: <Dashboard />
+      },
+      {
+        path: 'quiz/:id',
+        element: <QuizPage />
       },
     ]
   },

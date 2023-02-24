@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
+import {
+  Grid,
+  Box,
+  Typography,
+  Breadcrumbs,
+  Link,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import {
   DetailsCardColored,
   DetailsCard,
   IngredientAndEquipCard,
 } from "./Card/DetailsCard";
-import ErrorIcon from "@mui/icons-material/Error";
-import Button from "@mui/material/Button";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import RecipeAccordion from "./Accordion/Accordion";
+import { QuizSection } from "./RecipeExecution/StepsMedia";
 
 const RecipeDetails = () => {
   const matches = useMediaQuery("(min-width:600px)");
@@ -33,7 +35,7 @@ const RecipeDetails = () => {
   return (
     <>
       <div>
-        <h2>3 Cups Chemex</h2>
+        <h4>3 Cups Chemex</h4>
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="">
             My Learnings
@@ -85,7 +87,7 @@ const RecipeDetails = () => {
       <div>
         {matches ? (
           <>
-            <h3>Ingredients/Equipment</h3>{" "}
+            <h3>Ingredients/Equipment</h3>
             <Grid container>
               <IngredientAndEquipCard name="Chemex" amount="3 Cups" />
               <IngredientAndEquipCard name="Grinder" amount="Medium" />
@@ -103,44 +105,11 @@ const RecipeDetails = () => {
       {/* test verification section */}
       <div>
         <h2>Test your knowledge</h2>
-        <p>You can start the test when you are ready</p>
-        <p>
-          You need at least 80% to approve the test and get a ecrtification.
-        </p>
-        <h4>Mentor verification</h4>
-        <p>
-          The mentor verification will be sent after approving the Questionnaire
-          successfully.
-        </p>
-        <Grid container>
-          <Grid item md={6}>
-            <div>
-              <h3>Chemex Test</h3>
-              <p>
-                Cehemex brewing method, Ratio, Pouring, Chemex consideration.
-              </p>
-              <ErrorIcon />
-              <p>Finish this lesson to be able to do a test.</p>
-              <Button variant="contained" color="primary" disabled>
-                Start test
-              </Button>
-            </div>
-          </Grid>
-          <Grid item md={6}>
-            <div>
-              <h3>Mentor Verification</h3>
-              <Breadcrumbs separator="›" aria-label="breadcrumb">
-                {breadcrumbs}
-              </Breadcrumbs>
-              <p>Barista Flavia C.</p>
-              <p>27/01/2023</p>
-            </div>
-          </Grid>
-        </Grid>
+        <QuizSection breadcrumbs={breadcrumbs} buttonDisable={true} />
       </div>
 
       <div>
-        <Button variant="contained" onClick={()=>navigate("/app/step/1")}>
+        <Button variant="contained" onClick={() => navigate("/app/step/1")}>
           Start Training
         </Button>
       </div>

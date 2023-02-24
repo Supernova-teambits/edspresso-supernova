@@ -26,30 +26,30 @@ const ItemColored = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function DifficultyIcon(props) {
-  const numColoredIcons = props.difficulty;
+function DifficultyIcon(difficulty) {
+  const numColoredIcons = difficulty;
   const numOutlinedIcons = 5 - numColoredIcons;
 
   return (
     <>
       {[...Array(numColoredIcons)].map((_, index) => (
-        <CoffeeIcon key={`star-${index}`} />
+        <CoffeeIcon key={`cup-${index}`} />
       ))}
       {[...Array(numOutlinedIcons)].map((_, index) => (
-        <CoffeeOutlinedIcon key={`dash-${index}`} />
+        <CoffeeOutlinedIcon key={`outline-${index}`} />
       ))}
     </>
   );
 }
 
-export const DetailsCardColored = (props) => {
+export const DetailsCardColored = ({ title , text, difficulty}) => {
   return (
     <>
       <Grid item sm={4}>
         <ItemColored>
-          <h4>{props.title}</h4>
-          {props.text && <p>{props.text}</p>}
-          {props.difficulty && DifficultyIcon(props)}
+          <h4>{title}</h4>
+          {text && <p>{text}</p>}
+          {difficulty && DifficultyIcon(difficulty)}
         </ItemColored>
       </Grid>
     </>
@@ -62,15 +62,15 @@ const style = {
   bgcolor: "background.paper",
 };
 
-export const DetailsCard = (props) => {
+export const DetailsCard = ({ title, text, to, link, requirements }) => {
   return (
     <>
       <Grid item sm={4}>
         <Item>
-          <h4>{props.title}</h4>
-          {props.text && <p>{props.text}</p>}
-          {props.link && <Link to={props.to}>{props.link}</Link>}
-          {props.requirements && (
+          <h4>{title}</h4>
+          {text && <p>{text}</p>}
+          {link && <Link to={to}>{link}</Link>}
+          {requirements && (
             <List sx={style} component="nav" aria-label="mailbox folders">
               <ListItem button>
                 <ListItemText primary="Coffee Basics" />
@@ -87,7 +87,7 @@ export const DetailsCard = (props) => {
   );
 };
 
-export const IngredientAndEquipCard = (props) => {
+export const IngredientAndEquipCard = ({ imagesrc, name, amount }) => {
   return (
     <>
       <Grid item lg={2}>
@@ -95,15 +95,15 @@ export const IngredientAndEquipCard = (props) => {
           <CardMedia
             component="img"
             height="78"
-            image={props.imagesrc}
-            alt={props.name}
+            image={imagesrc}
+            alt={name}
           />
           <CardContent>
             <Typography gutterBottom variant="p" component="div">
-              {props.name}
+              {name}
             </Typography>
             <Typography gutterBottom variant="p" component="div">
-              {props.amount}
+              {amount}
             </Typography>
           </CardContent>
         </Card>

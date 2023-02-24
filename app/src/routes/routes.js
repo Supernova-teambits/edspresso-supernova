@@ -6,7 +6,6 @@ import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";
 import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
-import QuizPage from "../pages/QuizPage";
 
 const routes = [
   {

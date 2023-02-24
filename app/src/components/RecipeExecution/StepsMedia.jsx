@@ -8,7 +8,6 @@ import {
   TableHead,
   TableRow,
   Checkbox,
-  Box,
   Paper,
   Button,
   Input,

@@ -27,7 +27,8 @@ import ErrorIcon from "@mui/icons-material/Error";
 export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
     const navigate = useNavigate();
   const handleToQuiz = () => {
-    navigate("/app/quiz/1");
+    navigate("/app/lesson/1");
+    // I'll set axios to retrieve lesson data to display quiz in it
   };
 
   return (

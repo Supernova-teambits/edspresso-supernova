@@ -41,10 +41,6 @@ const routes = [
         path: 'dashboard',
         element: <Dashboard />
       },
-      {
-        path: 'quiz/:id',
-        element: <QuizPage />
-      },
     ]
   },
   { path: "*", element: <NoMatch /> },

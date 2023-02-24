@@ -4,6 +4,8 @@ import Dashboard from "../pages/Dashboard";
 import LogIn from "../pages/LogIn";
 import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";
+import TrainingDetails from "../pages/TrainingDetails";
+import RecipeExecution from "../components/RecipeExecution";
 
 const routes = [
   {
@@ -25,6 +27,14 @@ const routes = [
       {
         path: 'training/:id',
         element: <MyTraining />
+      },
+      {
+        path: 'lesson/:id',
+        element: <TrainingDetails />,
+      },
+      {
+        path: 'step/:id',
+        element: <RecipeExecution />
       },
       {
         path: 'dashboard',

@@ -1,11 +1,9 @@
+import RecipeDetails from "../components/RecipeDetails";
+
 const TrainingDetails = () => {
   return (
-      <>
-        <div>
-          <h2>This is training details</h2>
-        </div>
-      </>
-    );
+      <RecipeDetails/>
+  );
 };
 
 export default TrainingDetails;

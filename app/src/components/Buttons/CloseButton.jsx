@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CloseButton = ({ onClose, message }) => {
+const CloseButton = ({ onClose, buttonName, message }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -10,7 +10,7 @@ const CloseButton = ({ onClose, message }) => {
 
   return (
     <>
-      <button onClick={handleOpen}>X</button>
+      <button onClick={handleOpen}>{buttonName}</button>
       {isOpen && (
         <div className="modal">
           <div className="modal-content">

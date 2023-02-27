@@ -21,7 +21,6 @@ const routes = [
     element: <Layout />,
     children: [
       {
-        // index: true,
         path: "myTraining",
         element: <MyTraining />,
       },

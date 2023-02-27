@@ -9,38 +9,38 @@ import RecipeExecution from "../components/RecipeExecution";
 
 const routes = [
   {
-    path: '/',
-    element: <Navigate replace to="/login" />
+    path: "/",
+    element: <Navigate replace to="/login" />,
   },
   {
     path: "/login",
     element: <LogIn />,
   },
   {
-    path: '/app',
+    path: "/app",
     element: <Layout />,
     children: [
       {
-        index: true,
-        element: <MyTraining />
+        path: "myTraining",
+        element: <MyTraining />,
       },
       {
-        path: 'training/:id',
-        element: <MyTraining />
+        path: "training/:id",
+        element: <MyTraining />,
       },
       {
-        path: 'lesson/:id',
+        path: "lesson/:id",
         element: <TrainingDetails />,
       },
       {
-        path: 'step/:id',
-        element: <RecipeExecution />
+        path: "step/:id",
+        element: <RecipeExecution />,
       },
       {
-        path: 'dashboard',
-        element: <Dashboard />
+        path: "dashboard",
+        element: <Dashboard />,
       },
-    ]
+    ],
   },
   { path: "*", element: <NoMatch /> },
 ];

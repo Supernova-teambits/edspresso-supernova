@@ -23,7 +23,7 @@ const RecipeExecution = () => {
       component = <Step5 />;
       break;
     default:
-      navigate("/app");
+      navigate("/app/myTraining");
   }
 
   return component;

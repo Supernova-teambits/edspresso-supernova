@@ -14,12 +14,15 @@ import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
 import { loginBackground } from "../assets/images";
+import { useSetRecoilState } from "recoil";
+import { userRoleState } from "../recoil/atoms";
 
 const theme = createTheme();
 
 export default function LogIn() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const setUserRole = useSetRecoilState(userRoleState);
 
   const createManager = (name, userRoleId) => {
     createManagerInfo(name)
@@ -28,7 +31,8 @@ export default function LogIn() {
         updateUser(userRoleId, managerInfo.data._id)
           .then((results) => {
             setLoading(false);
-            navigate("/app", { state: { userId: results.data._id } });
+            setUserRole(results);
+            navigate("/app/dashboard");
           })
           .catch((error) => {
             setLoading(false);
@@ -48,7 +52,8 @@ export default function LogIn() {
         updateUser(userRoleId, traineeInfo.data._id)
           .then((results) => {
             setLoading(false);
-            navigate("/app", { state: { userId: results.data._id } });
+            setUserRole(results);
+            navigate("/app/myTraining");
           })
           .catch((error) => {
             setLoading(false);
@@ -70,16 +75,21 @@ export default function LogIn() {
       .then((user) => {
         if (user.data.loginSuccess) {
           // Check user info in exist database
-          if (user.data.user_id == "") {
+          if (user.data.user_id === "") {
             // Create user info in (admin or trainee) collection
-            if (user.data.role == "manager") {
+            if (user.data.role === "manager") {
               createManager(data.get("name"), user.data._id);
             } else {
               createTrainee(data.get("name"), user.data._id);
             }
           } else {
             setLoading(false);
-            navigate("/app", { state: { userId: user.data.user_id } });
+            setUserRole(user.data);
+            if (user.data.role === "manager") {
+              navigate("/app/dashboard");
+            } else {
+              navigate("/app/myTraining");
+            }
           }
         }
       })

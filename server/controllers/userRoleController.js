@@ -25,7 +25,8 @@ const logIn = (req, res) => {
                             _id: userInfo._id,
                             name: userInfo.name,
                             role: userInfo.role,
-                            user_id: userInfo.user_id
+                            user_id: userInfo.user_id,
+                            manager_code: userInfo.manager_code
                         })
                     }
                 })

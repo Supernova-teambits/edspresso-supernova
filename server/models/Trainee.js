@@ -6,6 +6,7 @@ const TraineeSchema = new Schema({
     login_token: { type: String },
     photo: { type: String },
     mobile: { type: String },
+    email: { type: String },
     assigned_lessons: { type: Array },
     trainee_lessons_progress: { type: Array },
     badges: { type: Array },

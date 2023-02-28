@@ -7,7 +7,8 @@ const UserRoleSchema = new Schema({
     name: { type: String, required: true, minLength:1 },
     password: { type: String, required: true },
     role: { type: String, enum:["manager", "trainee"], default:"trainee" },
-    user_id: { type: String },
+    user_id: { type: String, default:"" },
+    manager_code: { type: String, default:"" }
 });
 
 UserRoleSchema.pre("save", function(next) {

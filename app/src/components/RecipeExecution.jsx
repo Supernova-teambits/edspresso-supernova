@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Step1, Step2, Step3, Step4, Step5 } from "./LessonSteps/LessonSteps";
+import QuizPage from "../pages/QuizPage";
 
 const RecipeExecution = () => {
   const { id } = useParams();
@@ -21,6 +22,9 @@ const RecipeExecution = () => {
       break;
     case "5":
       component = <Step5 />;
+      break;
+    case "6":
+      component = <QuizPage />;
       break;
     default:
       navigate("/app/myTraining");

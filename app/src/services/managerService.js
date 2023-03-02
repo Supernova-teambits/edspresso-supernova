@@ -3,10 +3,10 @@ import axios from "axios";
 
 const MANAGER_ENDPOINT = `${BASE_URL}/manager`;
 
-const createManagerInfo = (inputName) => {
+const createManagerInfo = (inputName, inputManagerCode) => {
   const data = {
     name: inputName,
-    manager_code: inputName,
+    manager_code: inputManagerCode,
   };
 
   return axios.post(MANAGER_ENDPOINT, data);

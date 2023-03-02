@@ -24,8 +24,8 @@ export default function LogIn() {
   const [loading, setLoading] = useState(false);
   const setUserRole = useSetRecoilState(userRoleState);
 
-  const createManager = (name, userRoleId) => {
-    createManagerInfo(name)
+  const createManager = (name, managerCode, userRoleId) => {
+    createManagerInfo(name, managerCode)
       .then((managerInfo) => {
         // Update user id to userRole collection
         updateUser(userRoleId, managerInfo.data._id)
@@ -78,9 +78,13 @@ export default function LogIn() {
           if (user.data.user_id === "") {
             // Create user info in (admin or trainee) collection
             if (user.data.role === "manager") {
-              createManager(data.get("name"), user.data._id);
+              createManager(
+                user.data.name,
+                user.data.manager_code,
+                user.data._id
+              );
             } else {
-              createTrainee(data.get("name"), user.data._id);
+              createTrainee(user.data.name, user.data._id);
             }
           } else {
             setLoading(false);

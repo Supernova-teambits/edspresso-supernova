@@ -1,24 +1,33 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import step from "../pages/dummy-steps";
+
 import {
   Grid,
-  Box,
   Typography,
-  Breadcrumbs,
-  Link,
-  Button,
+  Accordion,
+  AccordionSummary,
   useMediaQuery,
 } from "@mui/material";
-import {
-  DetailsCardColored,
-  DetailsCard,
-  IngredientAndEquipCard,
-} from "./Card/DetailsCard";
-import RecipeAccordion from "./Accordion/Accordion";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import { QuizSection } from "./RecipeExecution/StepsMedia";
+import { PrimaryButton } from "./Buttons/Button";
+import {
+  StepSubContent,
+  StepHeaderForDesktop,
+} from "./LessonSteps/LessonSteps";
+import LessonCard from "./Card/LessonCard";
 
 const RecipeDetails = () => {
   const matches = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
+  // Control accordion expand
+  const [expanded, setExpanded] = useState("panel");
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   const breadcrumbs = [
     <Typography key="1" color="inherit">
@@ -34,84 +43,97 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <div>
-        <h4>3 Cups Chemex</h4>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="">
-            My Learnings
-          </Link>
-          <Typography color="text.primary">Chemex</Typography>
-        </Breadcrumbs>
-      </div>
+      <StepHeaderForDesktop />
 
-      {/* image and desc */}
-      <div>
-        <img src="" alt="" />
-        <p>
-          The Chemex Coffeemaker is a manual pour-over style glass coffeemaker,
-          invented by Peter Schlumbohm in 1941, manufactured by the Chemex
-          Corporation in Chicopee, Massachusetts.
-        </p>
-      </div>
+      <Grid container>
+        <Grid item md={4}>
+          {/* image and desc */}
+          <div>
+            <img src="" alt="" />
+            <PrimaryButton
+              label={"Start Lesson"}
+              onClick={() => navigate("/app/step/1")}
+            />
+          </div>
+        </Grid>
+        <Grid item md={8}>
+          <h4>About the lesson</h4>
+          <p>
+            The Chemex Coffeemaker is a manual pour-over style glass
+            coffeemaker, invented by Peter Schlumbohm in 1941, manufactured by
+            the Chemex Corporation in Chicopee, Massachusetts.
+          </p>
 
-      {/* training & ingredient/equip details */}
-      <div>
-        <h3>Training Desctription</h3>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
-            <DetailsCardColored title="Status" text="Not Status" />
-            <DetailsCardColored title="Progress" text="0%" />
-            <DetailsCardColored title="Difficulty" difficulty={3} />
+          {/* training & ingredient/equip details */}
+          <Grid container>
+            <DetailsCardColored title="Status" text="Not Status" size={4} />
+            <DetailsCardColored title="Progress" text="0%" size={4} />
+            <DetailsCardColored title="Difficulty" difficulty={2} size={4} />
           </Grid>
-          <Grid container spacing={2}>
-            <DetailsCard
-              title="Certification"
-              text="✔Achieve 80% or above to get a certification"
-            />
-            <DetailsCard
-              title="Category"
-              link="Brewing Methods"
-              to="/category"
-            />
-            <DetailsCard
-              title="Requirement"
-              requirements={["Coffee Basics", "Grinder and weight"]}
-            />
-          </Grid>
-          <Grid container spacing={2}>
-            <DetailsCard title="Preparation Time" text="6 minutes" />
-            <DetailsCard title="Mentor" link="Flavia C." to="/" />
-          </Grid>
-        </Box>
-      </div>
-      <div>
-        {matches ? (
-          <>
-            <h3>Ingredients/Equipment</h3>
+        </Grid>
+      </Grid>
+
+      <Accordion
+        expanded={expanded === "panel"}
+        onChange={handleChange("panel")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>
+            {expanded === "panel" ? "See less details" : "See more deatils"}
+          </Typography>
+        </AccordionSummary>
+        <Grid container>
+          <Grid item md={8}>
             <Grid container>
-              <IngredientAndEquipCard name="Chemex" amount="3 Cups" />
-              <IngredientAndEquipCard name="Grinder" amount="Medium" />
-              <IngredientAndEquipCard name="Coffee Beans" amount="64 grams" />
-              <IngredientAndEquipCard name="Weight" amount="Oz" />
-              <IngredientAndEquipCard name="Kettle" amount="4 Oz Water" />
-              <IngredientAndEquipCard name="Chemex Filter" amount="1 qty" />
+              <DetailsCard title="Preparation Time" text="6 minutes" size={4} />
+              <DetailsCard title="Mentor" link="Flavia C." to="/" size={4} />
+              <DetailsCard
+                title="Category"
+                link="Brewing Methods"
+                to="/category"
+                size={4}
+              />
             </Grid>
-          </>
-        ) : (
-          <RecipeAccordion />
-        )}
-      </div>
-
+            <Grid container>
+              <DetailsCard
+                title="Certification"
+                text="✔Achieve 80% or above to get a certification"
+                size={6}
+              />
+              <DetailsCard
+                title="Requirement"
+                requirements={["Coffee Basics", "Grinder and weight"]}
+                size={6}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <div>
+          {matches ? (
+            <>
+              <h4>What you will need</h4>
+              <Grid container>
+                {step[0].content_detail[0].sub_content[1].content.map(
+                  (element) => (
+                    <LessonCard title={element.title} value={element.value} />
+                  )
+                )}
+              </Grid>
+            </>
+          ) : (
+            <StepSubContent
+              content={step[0].content_detail[0].sub_content[1]}
+            />
+          )}
+        </div>
+      </Accordion>
       {/* test verification section */}
       <div>
-        <h2>Test your knowledge</h2>
         <QuizSection breadcrumbs={breadcrumbs} buttonDisable={true} />
-      </div>
-
-      <div>
-        <Button variant="contained" onClick={() => navigate("/app/step/1")}>
-          Start Training
-        </Button>
       </div>
     </>
   );

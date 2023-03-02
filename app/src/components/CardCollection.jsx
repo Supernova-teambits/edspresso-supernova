@@ -21,7 +21,7 @@ const CardCollection = ({ title, lessons }) => {
             return (
               <LessonCard
                 key={lesson.id}
-                name={lesson.name}
+                title={lesson.title}
                 progress={lesson.progress_status}
                 to={`/app/lesson/${lesson.id}`}
               />

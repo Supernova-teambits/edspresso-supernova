@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import Layout from "../components/Layout";
-import Dashboard from "../pages/Dashboard";
+import Dashboard from "../pages/dashboard/Dashboard";
 import LogIn from "../pages/LogIn";
 import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";

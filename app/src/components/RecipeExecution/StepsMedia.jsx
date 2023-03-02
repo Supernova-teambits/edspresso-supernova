@@ -1,30 +1,25 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Checkbox,
-  Paper,
   Button,
-  Input,
-  Typography,
   Radio,
   RadioGroup,
   FormControlLabel,
   FormControl,
-  Container,
   Grid,
   Breadcrumbs,
+  CardMedia,
+  TextField,
+  useMediaQuery,
 } from "@mui/material";
 
-import ErrorIcon from "@mui/icons-material/Error";
+import { PrimaryButton } from "../Buttons/Button";
+import LessonCard from "../Card/LessonCard";
+import { DoubleArrowLeft, DoubleArrowRight, Help } from "../../assets/Icons";
 
 export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleToQuiz = () => {
     navigate("/app/lesson/1");
     // I'll set axios to retrieve lesson data to display quiz in it
@@ -50,12 +45,16 @@ export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
               <p>
                 Cehemex brewing method, Ratio, Pouring, Chemex consideration.
               </p>
-              <ErrorIcon />
+              <Help fillColor="#10494C" />
               <p>Finish this lesson to be able to do a test.</p>
               {buttonDisable ? (
-                <Button variant="contained" color="primary" disabled>
-                  Start test
-                </Button>
+                <PrimaryButton
+                  label="Start Test"
+                  onClick={() => {
+                    navigate("/lesson/1");
+                  }}
+                  disabled
+                />
               ) : (
                 <Button
                   variant="contained"
@@ -88,147 +87,190 @@ export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
   );
 };
 
-export const CoarseTable = () => {
+// Step 1
+export const PainText = ({ content }) => {
   return (
-    <TableContainer>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>GRIND SIZE</TableCell>
-            <TableCell>BRWING METHODS</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell component="th" scope="row">
-              Extra coarse
-            </TableCell>
-            <TableCell>Cold Brew Coffee, Cowboy Coffee</TableCell>
-            <TableCell>
-              <a href="/">see image</a>
-            </TableCell>
-          </TableRow>
-          <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell component="th" scope="row">
-              Coarse
-            </TableCell>
-            <TableCell>French Press, Percolator, Coffee Cupping</TableCell>
-            <TableCell>
-              <a href="/">see image</a>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      <h4>{content.title}</h4>
+      <p>{content.content}</p>
+    </>
   );
 };
 
-export const MediaCarousel = () => {
-  var items = [
-    {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!",
-    },
-  ];
+// Step 2
+export const IngredientsCard = ({ content }) => {
+  const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <Carousel>
-      {items.map((item, i) => (
-        <Item key={i} item={item} />
-      ))}
-    </Carousel>
+    <>
+      {matches ? (
+        <>
+          <h4>{content.title}</h4>
+          <Grid container>
+            {content.content.map((el, index) => (
+              <LessonCard
+                key={index}
+                title={el.title}
+                value={el.value}
+                size={4}
+              />
+            ))}
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid container>
+            <Grid item xs={12}>
+              <h4>{content.title}</h4>
+              <ul>
+                {content.content.map((el, index) => (
+                  <li key={index}>
+                    {el.title} - {el.value}
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          </Grid>
+        </>
+      )}
+    </>
+  );
+};
+
+// Step 2 & 3
+export const MediaCarousel = ({ content }) => {
+  return (
+    <>
+      <h4>{content.title}</h4>
+      <p>{content.content[0].description}</p>
+      <Carousel>
+        {content.content[0].medias.map((item, i) => (
+          <Item key={i} item={item} />
+        ))}
+      </Carousel>
+    </>
   );
 };
 
 function Item({ item }) {
   return (
-    <Paper>
-      <h2>{item.name}</h2>
-      <p>{item.description}</p>
-
-      <Button className="CheckButton">Check it out!</Button>
-    </Paper>
+    <>
+      <CardMedia component="img" alt="" height="140" image={item.source} />
+      <p>{item.caption}</p>
+    </>
   );
 }
 
-export const RatioCalcTable = () => {
+// Step 4 & 5
+export const DescWithRef = ({ content }) => {
   return (
     <>
-      <TableContainer>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell style={{ backgroundColor: "#f5f5f5" }}>
-                #CUPS
-              </TableCell>
-              <TableCell>COFFEE(g)</TableCell>
-              <TableCell>WATER(ml)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <Checkbox /> 1
-              </TableCell>
-              <TableCell>25.7g</TableCell>
-              <TableCell>428.33ml</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <Checkbox /> 2
-              </TableCell>
-              <TableCell>51.4g</TableCell>
-              <TableCell>856.67ml</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <p>
-        The ratio of ground coffee to water differs greatly between brew methods
-        and personal taste. The ratios on this page are based on a mixture of
-        consensus and official sources.
-      </p>
+      <h4>{content.title}</h4>
+      <p>{content.content[0].description}</p>
+      <p>{content.content[0].reference}</p>
     </>
   );
 };
 
-export const RatioCalc = () => {
+// Step 5
+export const RatioCalculater = ({ content }) => {
+  // control inputs
+  const [ratio, setRatio] = useState(content.content[0].default_ratio);
+  const [coffeeAmount, setCoffeeAmount] = useState("");
+  const [waterAmount, setWaterAmount] = useState("");
+  // control arrowdirection
+  const [arrowLeft, setArrowLeft] = useState(false);
+  // check if user input water amount before selecting ratio
+  const [waterInputByUser, setWaterInputByUser] = useState("");
+
+  const handleRatioChange = (event) => {
+    const newRadioValue = event.target.value;
+    setRatio(newRadioValue);
+
+    if (waterInputByUser !== "") {
+      const newWaterAmount = parseFloat(waterAmount);
+      const newRatio = parseFloat(newRadioValue);
+      const newCoffeeAmount = newWaterAmount / newRatio;
+      setCoffeeAmount(newCoffeeAmount.toFixed(2).toString());
+    } else if (coffeeAmount !== "") {
+      const newCoffeeAmount = parseFloat(coffeeAmount);
+      const newRatio = parseFloat(newRadioValue);
+      const newWaterAmount = newCoffeeAmount * newRatio;
+      setWaterAmount(newWaterAmount.toFixed(2).toString());
+    }
+  };
+
+  const handleCoffeeAmountChange = (event) => {
+    const input = event.target.value;
+    if (input !== "") {
+      const coffeeAmount = parseFloat(input);
+      const waterAmount = coffeeAmount * ratio;
+      setCoffeeAmount(coffeeAmount);
+      setWaterAmount(waterAmount);
+      setArrowLeft(false);
+      setWaterInputByUser("");
+    } else {
+      setCoffeeAmount("");
+      setWaterAmount("");
+      setWaterInputByUser("");
+    }
+  };
+
+  const handleWaterAmountChange = (event) => {
+    const input = event.target.value;
+    if (input !== "") {
+      const waterAmount = parseFloat(input);
+      const coffeeAmount = (waterAmount / ratio).toFixed(1);
+      setWaterAmount(waterAmount);
+      setCoffeeAmount(coffeeAmount);
+      setArrowLeft(true);
+      setWaterInputByUser(input);
+    } else {
+      setCoffeeAmount("");
+      setWaterAmount("");
+      setWaterInputByUser("");
+    }
+  };
+
   return (
     <>
-      <Input id="coffee" placeholder="Cofee(gr)" variant="soft" /> :
-      <Input placeholder="Water(ml" variant="soft" />
-      <Typography>or</Typography>
-      <p>Select a predefined Ratio</p>
+      <h6>Calculate how much coffee and water do you need:</h6>
+      <TextField
+        id="outlined-search"
+        type="search"
+        label="Coffee (g)"
+        value={coffeeAmount}
+        onChange={handleCoffeeAmountChange}
+      />
+      {arrowLeft ? (
+        <DoubleArrowLeft fillColor="#10494C" />
+      ) : (
+        <DoubleArrowRight fillColor="#10494C" />
+      )}
+      <TextField
+        id="outlined-search"
+        type="search"
+        label="Water (ml)"
+        value={waterAmount}
+        onChange={handleWaterAmountChange}
+      />
+
+      <h6>Know the ratio value? Select below instead:</h6>
+
       <FormControl>
         <RadioGroup
           row
-          aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          aria-label="ratio"
+          name="ratio"
+          value={ratio}
+          onChange={handleRatioChange}
         >
-          <FormControlLabel value="16" control={<Radio />} label="1:6" />
+          <FormControlLabel value="6" control={<Radio />} label="1:6" />
           <FormControlLabel value="12" control={<Radio />} label="1:12" />
-          <FormControlLabel
-            value="17"
-            control={<Radio />}
-            label="1:17"
-            checked
-          />
+          <FormControlLabel value="17" control={<Radio />} label="1:17" />
           <FormControlLabel value="10" control={<Radio />} label="1:10" />
         </RadioGroup>
       </FormControl>
     </>
-  );
-};
-
-export const PouringPic = () => {
-  return (
-    <Container maxWidth="sm">
-      <img src="app/src/assets/images.js" alt="" />
-    </Container>
   );
 };

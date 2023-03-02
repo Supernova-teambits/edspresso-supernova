@@ -1,6 +1,6 @@
 import { useState } from "react";
 import assigned_lessons from "./dummy-lesson";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBar/SearchBar";
 import CardCollection from "../components/CardCollection";
 
 
@@ -11,6 +11,14 @@ const MyTraining = () => {
     setSearchText(event.target.value);
   };
 
+  // search function
+  function filteredArray(array) {
+    return array.filter((lesson) =>
+      lesson.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+
+  // Make arrays by filtering lessons depending on progress
   const ongoing = assigned_lessons.filter(
     (lesson) => 0 < lesson.progress_status && lesson.progress_status < 100
   );
@@ -20,12 +28,6 @@ const MyTraining = () => {
   const completed = assigned_lessons.filter(
     (lesson) => lesson.progress_status === 100
   );
-
-  function filteredArray(array) {
-    return array.filter((lesson) =>
-      lesson.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-  }
 
   return (
     <>

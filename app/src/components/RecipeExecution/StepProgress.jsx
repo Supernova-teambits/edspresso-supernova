@@ -1,24 +1,33 @@
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import DoneIcon from "@mui/icons-material/Done";
-
-import Typography from "@mui/material/Typography";
-
-import LinearProgress from "@mui/material/LinearProgress";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  LinearProgress,
+} from "@mui/material";
+import { Check, Coffee } from "../../assets/Icons";
 
 export const StepProgresesDesktop = ({ stepArr, done }) => {
   const steps = stepArr.map((step, index) => {
     let style = {};
-    if (index < done) {
+    if (index === done) {
       style = {
         fontWeight: "bold",
       };
       return (
         <ListItem key={index} style={style}>
           <ListItemIcon>
-            <DoneIcon />
+            <Coffee fillColor="#10494C" />
+          </ListItemIcon>
+          <ListItemText>{step.title}</ListItemText>
+        </ListItem>
+      );
+    } else if (index < done) {
+      return (
+        <ListItem key={index} style={style}>
+          <ListItemIcon>
+            <Check fillColor="#10494C" />
           </ListItemIcon>
           <ListItemText>{step.title}</ListItemText>
         </ListItem>
@@ -26,7 +35,9 @@ export const StepProgresesDesktop = ({ stepArr, done }) => {
     } else {
       return (
         <ListItem key={index} style={style}>
-          <ListItemIcon></ListItemIcon>
+          <ListItemIcon>
+            <Coffee fillColor="#709294" />
+          </ListItemIcon>
           <ListItemText>{step.title}</ListItemText>
         </ListItem>
       );
@@ -35,24 +46,14 @@ export const StepProgresesDesktop = ({ stepArr, done }) => {
   return <List>{steps}</List>;
 };
 
-export const ProgressBarDesktop = ({ value, totalStep, currentStep }) => {
+export const ProgressBar = ({ value, totalStep, currentStep, title }) => {
   return (
     <>
       <LinearProgress variant="determinate" value={value} />
       <Typography>
-        Step {currentStep}/{totalStep}
+        Step {currentStep}/{totalStep} - {title}
       </Typography>
     </>
   );
 };
 
-export const ProgressBarMobile = ({ stepArr, value, currentStep }) => {
-  return (
-    <>
-      <LinearProgress variant="determinate" value={value} />
-      <Typography align="center">
-        Step {currentStep} - {stepArr[currentStep - 1].title}
-      </Typography>
-    </>
-  );
-};

@@ -1,66 +1,64 @@
 // dummy data for lessons (cards)
+const assigned_lessons = [{
+    id: 1,
+    title: "Chemex methods",
+    progress_status: 0
+},
+{
+    id: 2,
+    title: "Hario V60",
+    progress_status: 40
+},
+{
+    id: 3,
+    title: "Siphon",
+    progress_status: 20
+},
+{
+    id: 4,
+    title: "Aeropress",
+    progress_status: 60
+},
+{
+    id: 5,
+    title: "Kalita Wave",
+    progress_status: 0
+},
+{
+    id: 6,
+    title: "Cleaning Practice",
+    progress_status: 0
+},
+{
+    id: 7,
+    title: "French Press",
+    progress_status: 0
+},
+{
+    id: 8,
+    title: "Cold Coffees",
+    progress_status: 0
+},
+{
+    id: 9,
+    title: "Steaming Milk",
+    progress_status: 0
+},
+{
+    id: 10,
+    title: "Pumpkin Pie Latte",
+    progress_status: 100
+},
+{
+    id: 11,
+    title: "Safety Practices",
+    progress_status: 100
+},
+{
+    id: 12,
+    title: "Avoiding Mitakes",
+    progress_status: 100
+}];
 
-const lessons = [
-    {
-        id: 1,
-        name: "3 Cups Chemex",
-        progress_status: 30,
-    },
-    {
-        id: 2,
-        name: "Flat white",
-        progress_status: 70,
-    },
-    {
-        id: 3,
-        name: "Americano",
-        progress_status: 80,
-    },
-    {
-        id: 4,
-        name: "Espresso",
-        progress_status: 40,
-    },
-    {
-        id: 5,
-        name: "Mocha",
-        progress_status: 70,
-    },
-    {
-        id: 6,
-        name: "Caramel macciato",
-        progress_status: 100,
-    },
-    {
-        id: 7,
-        name: "London Fog",
-        progress_status: 0,
-    },
-    {
-        id: 8,
-        name: "Dalgona coffee",
-        progress_status: 10,
-    },
-    {
-        id: 9,
-        name: "Latte",
-        progress_status: 30,
-    },
-    {
-        id: 10,
-        name: "Hello Kitty",
-        progress_status: 100,
-    },
-    {
-        id: 11,
-        name: "Rilakkuma",
-        progress_status: 100,
-    },
-    {
-        id: 12,
-        name: "Cinnamoroll",
-        progress_status: 100,
-    }
-];
 
-export default lessons;
+export default assigned_lessons;

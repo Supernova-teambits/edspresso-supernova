@@ -6,6 +6,7 @@ import MyTraining from "../pages/MyTraining";
 import NoMatch from "../pages/NotMatch";
 import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
+import ProgressUpdate from "../pages/ProgressUpdate";
 
 const routes = [
   {
@@ -35,6 +36,10 @@ const routes = [
       {
         path: "step/:id",
         element: <RecipeExecution />,
+      },
+      {
+        path: "progress/:id",
+        element: <ProgressUpdate />,
       },
       {
         path: "dashboard",

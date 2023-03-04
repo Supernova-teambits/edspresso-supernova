@@ -1,5 +1,12 @@
 import React from "react";
-import { Card, CardMedia, CardActions, Button } from "@mui/material";
+import {
+  Card,
+  CardMedia,
+  CardActions,
+  Button,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 const ShortcutCard = (props) => {
   const { imageSrc, buttonText, buttonOnClick } = props;

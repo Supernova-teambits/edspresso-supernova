@@ -1,5 +1,8 @@
 import Grid from "@mui/material/Grid";
 import ShortcutContainer from "./ShortcutContainer";
+import CreateLessonCard from "../../components/Card/CreateLessonCard";
+
+
 
 const DashboardDetail = () => {
   return (
@@ -8,7 +11,7 @@ const DashboardDetail = () => {
         <h2>Dashboard</h2>
       </Grid>
       <Grid item xs={12} md={6}>
-        <p>Image</p>
+        <CreateLessonCard />
       </Grid>
       <Grid item xs={12} md={6}>
         <ShortcutContainer />

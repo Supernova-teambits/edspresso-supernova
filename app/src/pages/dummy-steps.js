@@ -45,25 +45,25 @@ const step = [
                     content: [{
                         description: "The following seven grind sizes are all you’ll need to brew great cups using different brewing methods.",
                         medias: [{
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Coarse and extra course should be  the size of your coffee grain."
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 2"
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 3"
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 4"
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 5"
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 6"
                         }, {
-                            source: "app/src/assets/groundCoffee.jpg", // path
+                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
                             caption: "Test 7"
                         }]
                     }]
@@ -80,14 +80,14 @@ const step = [
                     content: [{
                         description: "Boil water up to 192 ºF (88 ºC), and avoid passing the boiling temperature.",
                         medias: [{
-                            source: "", // path
+                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
                             caption: "Water temperature plays an important part on the taste of your coffee."
                         }, {
-                            source: "", // path
-                            caption: ""
+                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
+                            caption: "test 2"
                         }, {
-                            source: "", // path
-                            caption: ""
+                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
+                            caption: "test 3"
                         }]
                     }]
                 }

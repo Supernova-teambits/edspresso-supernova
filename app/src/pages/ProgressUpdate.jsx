@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { chemex } from "../assets/images";
 import { StepPagination } from "../components/Buttons/Button";
 
 const ProgressUpdate = () => {
@@ -15,7 +16,7 @@ const ProgressUpdate = () => {
           later.
         </p>
         <img
-          src="https://images.pexels.com/photos/3749174/pexels-photo-3749174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src={chemex}
           alt="Coffee cup on wooden table at dawn"
           height={428}
         />

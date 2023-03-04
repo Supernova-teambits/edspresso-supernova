@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const CloseButton = ({ onClose, buttonName, message }) => {
+const CloseButton = ({ buttonName, message }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
+  const navigate = useNavigate();
   const handleLeaveQuiz = () => {
-    //Redirect to main page
+    navigate("/app/lesson/1");
   };
 
   return (

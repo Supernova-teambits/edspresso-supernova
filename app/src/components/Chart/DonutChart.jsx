@@ -1,18 +1,14 @@
-import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 
-const data = [
-  { name: "A", value: 40 },
-  { name: "B", value: 30 },
-  { name: "C", value: 20 },
-  { name: "D", value: 10 },
-];
+const COLORS = ["#10494C", "#FFDAAC", "#B84B11"];
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const DonutChart = (props) => {
+  const { data } = props;
 
-const DonutChart = () => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="80%" height={300}>
       <PieChart>
+        <Legend height={36} iconType="circle" iconSize={10} padding={5} />
         <Pie
           data={data}
           innerRadius={60}

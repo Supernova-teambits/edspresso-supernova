@@ -9,7 +9,6 @@ import { getProgressAccToMngrCode } from "../../services/progressService";
 const Dashboard = () => {
   const manager = useRecoilValue(userRoleState);
   const setTraineeProgress = useSetRecoilState(traineeProgressState);
-  console.log("[knulp]Manager code: ", manager.manager_code);
 
   const getTraineeProgress = (managerCode) => {
     getProgressAccToMngrCode(managerCode)

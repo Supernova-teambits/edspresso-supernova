@@ -1,0 +1,116 @@
+@import url("https://use.typekit.net/msm7nfk.css");
+
+/* Fonts */
+$headline-font: "komet", sans-serif;
+$subtitle-font: "source-sans-pro", sans-serif;
+
+/* Headline styles */
+.headline-1 {
+  font-family: $headline-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 44px;
+}
+
+.headline-2 {
+  @extend .headline-1;
+  font-size: 38px;
+  line-height: 37px;
+}
+
+.headline-3 {
+  @extend .headline-1;
+  font-size: 30px;
+  line-height: 31px;
+}
+
+.headline-4 {
+  @extend .headline-1;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+.headline-5 {
+  @extend .headline-1;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.headline-6 {
+  @extend .headline-1;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Subtitle styles */
+.subtitle-1 {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.subtitle-2 {
+  @extend .subtitle-1;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* Body styles */
+.body-1 {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.body-2 {
+  @extend .body-1;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.body-1-italic {
+  @extend .body-1;
+  font-style: italic;
+}
+
+.body-2-italic {
+  @extend .body-2;
+  font-style: italic;
+}
+
+.body-1-bold {
+  @extend .body-1;
+  font-weight: 700;
+}
+
+.body-2-bold {
+  @extend .body-2;
+  font-weight: 700;
+}
+
+/* Button styles */
+.button {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Caption and overline styles */
+.caption {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.overline {
+  @extend .caption;
+  font-style: italic;
+}

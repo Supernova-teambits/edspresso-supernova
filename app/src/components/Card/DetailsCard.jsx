@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Chip, Grid, styled, Paper, Box } from "@mui/material";
+import { Chip, Grid, Box } from "@mui/material";
 import { Coffee } from "../../assets/Icons";
 
 function DifficultyIcon(difficulty) {

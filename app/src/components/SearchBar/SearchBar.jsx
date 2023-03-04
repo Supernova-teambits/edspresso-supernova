@@ -18,7 +18,7 @@ export default function SearchBar({ value, onChange }) {
         onChange={onChange}
         InputProps={{
           startAdornment: (
-            <InputAdornment>
+            <InputAdornment position="start">
               <Search fillColor="#000" />
             </InputAdornment>
           ),

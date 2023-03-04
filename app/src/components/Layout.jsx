@@ -11,7 +11,6 @@ const Layout = () => {
         <SideBar />
       </div>
       <div>
-        <h2>This is the Layout wrapper</h2>
         <Outlet />
       </div>
     </div>

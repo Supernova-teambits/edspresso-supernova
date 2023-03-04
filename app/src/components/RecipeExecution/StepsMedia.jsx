@@ -9,7 +9,6 @@ import {
   FormControl,
   Grid,
   Breadcrumbs,
-  CardMedia,
   TextField,
   useMediaQuery,
 } from "@mui/material";
@@ -43,7 +42,7 @@ export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
             <div>
               <h3>Chemex Test</h3>
               <p>
-                Cehemex brewing method, Ratio, Pouring, Chemex consideration.
+                Chemex brewing method, Ratio, Pouring, Chemex consideration.
               </p>
               <Help fillColor="#10494C" />
               <p>Finish this lesson to be able to do a test.</p>
@@ -155,7 +154,7 @@ export const MediaCarousel = ({ content }) => {
 function Item({ item }) {
   return (
     <>
-      <CardMedia component="img" alt="" height="140" image={item.source} />
+      <img src={item.source} alt={item.source} width={500} />
       <p>{item.caption}</p>
     </>
   );
@@ -191,12 +190,12 @@ export const RatioCalculater = ({ content }) => {
       const newWaterAmount = parseFloat(waterAmount);
       const newRatio = parseFloat(newRadioValue);
       const newCoffeeAmount = newWaterAmount / newRatio;
-      setCoffeeAmount(newCoffeeAmount.toFixed(2).toString());
+      setCoffeeAmount(newCoffeeAmount.toFixed(1));
     } else if (coffeeAmount !== "") {
       const newCoffeeAmount = parseFloat(coffeeAmount);
       const newRatio = parseFloat(newRadioValue);
       const newWaterAmount = newCoffeeAmount * newRatio;
-      setWaterAmount(newWaterAmount.toFixed(2).toString());
+      setWaterAmount(newWaterAmount.toFixed(1));
     }
   };
 

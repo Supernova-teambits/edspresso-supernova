@@ -5,16 +5,16 @@ const ShortcutContainer = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={6}>
-        <ShortcutCard />
+        <ShortcutCard name = "Manage Lesson "/>
       </Grid>
       <Grid item xs={12} md={6}>
-        <ShortcutCard />
+        <ShortcutCard name = "Assign Lesson" />
       </Grid>
       <Grid item xs={12} md={6}>
-        <ShortcutCard />
+        <ShortcutCard name = "Manage Trainee" />
       </Grid>
       <Grid item xs={12} md={6}>
-        <ShortcutCard />
+        <ShortcutCard  name = "Add Trainee" />
       </Grid>
     </Grid>
   );

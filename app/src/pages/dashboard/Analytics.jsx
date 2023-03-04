@@ -1,20 +1,17 @@
 import Grid from "@mui/material/Grid";
 import { useRecoilValue } from "recoil";
+import DonutChart from "../../components/Chart/DonutChart";
 import {
-  filteredProgressState,
   filteredProgressByTraineeState,
+  filteredProgressForChart,
 } from "../../recoil/selectors";
 import TraineeProgressFilter from "./TraineeProgressFilter";
 
 const Analytics = () => {
-  const filteredProgressList = useRecoilValue(filteredProgressState);
   const filteredProgressByTraineeList = useRecoilValue(
     filteredProgressByTraineeState
   );
-  console.log(
-    "[knulp]filteredProgressByTraineeList : ",
-    filteredProgressByTraineeList
-  );
+  const progressForChart = useRecoilValue(filteredProgressForChart);
 
   return (
     <Grid container spacing={2}>
@@ -24,6 +21,7 @@ const Analytics = () => {
       <Grid item xs={12} md={6}>
         <p>Lessons</p>
         <TraineeProgressFilter />
+        <DonutChart data={progressForChart} />
       </Grid>
       <Grid item xs={12} md={6}>
         <p>Learning process</p>

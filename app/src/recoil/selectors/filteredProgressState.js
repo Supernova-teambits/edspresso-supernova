@@ -72,7 +72,6 @@ export const filteredProgressByTraineeState = selector({
         }, {})
       ).map((item) => ({
         trainee_name: item.trainee_name,
-        statusAvg: item.statusSum / item.count,
         status:
           item.statusSum / item.count === 0
             ? "Pending"
@@ -84,7 +83,6 @@ export const filteredProgressByTraineeState = selector({
     } else {
       return filteredProgress.map((item) => ({
         trainee_name: item.trainee_name,
-        statusAvg: item.progress_status,
         status:
           item.progress_status === 0
             ? "Pending"
@@ -93,5 +91,23 @@ export const filteredProgressByTraineeState = selector({
             : "In progress",
       }));
     }
+  },
+});
+
+export const filteredProgressForChart = selector({
+  key: "filteredProgressForChart",
+  get: ({ get }) => {
+    const filteredProgressByTrainee = get(filteredProgressByTraineeState);
+
+    const progressForChart = Object.values(
+      filteredProgressByTrainee.reduce((result, item) => {
+        if (!result[item.status]) {
+          result[item.status] = { name: item.status, value: 0 };
+        }
+        result[item.status].value++;
+        return result;
+      }, {})
+    );
+    return progressForChart;
   },
 });

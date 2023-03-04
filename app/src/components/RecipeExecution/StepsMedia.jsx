@@ -190,12 +190,12 @@ export const RatioCalculater = ({ content }) => {
       const newWaterAmount = parseFloat(waterAmount);
       const newRatio = parseFloat(newRadioValue);
       const newCoffeeAmount = newWaterAmount / newRatio;
-      setCoffeeAmount(newCoffeeAmount.toFixed(2).toString());
+      setCoffeeAmount(newCoffeeAmount.toFixed(1));
     } else if (coffeeAmount !== "") {
       const newCoffeeAmount = parseFloat(coffeeAmount);
       const newRatio = parseFloat(newRadioValue);
       const newWaterAmount = newCoffeeAmount * newRatio;
-      setWaterAmount(newWaterAmount.toFixed(2).toString());
+      setWaterAmount(newWaterAmount.toFixed(1));
     }
   };
 

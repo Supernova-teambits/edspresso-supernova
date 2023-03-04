@@ -3,7 +3,7 @@ import { Card, CardContent, Grid } from "@mui/material";
 
 const CreateLessonCard = () => {
     return (
-        <Card>
+      <Card sx={{ height: "100%" }}>
       <CardContent>
       <div class="admin_dash_img">
         <h1>Hi Admin</h1>

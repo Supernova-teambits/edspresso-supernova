@@ -9,7 +9,19 @@ const getProgressAccordingToManagerCode = (req, res) => {
         .exec()
         .then((results) => {
             if (results != null) {
-                res.status(200).json(results);
+                res.status(200).json( results.map(({
+                    trainee_name, 
+                    lesson_title,
+                    progress_status,
+                    completed_date,
+                    completed_time
+                }) => ({
+                    trainee_name, 
+                    lesson_title,
+                    progress_status,
+                    completed_date,
+                    completed_time
+                })) );
             } else {
                 res.status(404).json("Progress not found");
             }

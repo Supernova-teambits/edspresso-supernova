@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 mongoose.set("strictQuery", true);
 
-const dbURI = 
-    "mongodb+srv://Jay:FcPc8SwoEb3P9lrF@edspresso.cfvv4zd.mongodb.net/?retryWrites=true&w=majority";
+const dbURI = process.env.DB_CONNECTION;
 mongoose.connect(dbURI, {useNewUrlParser: true});
 
 // Callback method

@@ -84,6 +84,7 @@ const QuizPage = () => {
             <header>
               <CloseButton
                 buttonName="X"
+                messageHeader="Leave the Test"
                 message="Do you want to leave the test? Your answers will not be saved."
               />
               <h3>Quiz:</h3>
@@ -186,13 +187,9 @@ const QuizPage = () => {
                 )}
               </div>
             ))}
-            {errorMessage && Object.keys(answers).length < quizData.length && (
-              <div style={{ color: "red" }} className="error-message">
-                Please answer all questions.
-              </div>
-            )}
             <CloseButton
               buttonName="Close"
+              messageHeader="Leave the test"
               message="Do you want to leave the test? Your answers will not be saved."
             />
             <button className="submit-btn" onClick={handleSubmit}>

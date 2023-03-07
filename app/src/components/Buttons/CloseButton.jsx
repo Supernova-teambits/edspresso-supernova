@@ -1,23 +1,28 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "@mui/material";
-import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
+import { styled } from "@mui/system";
 
-const CloseButton = ({ buttonName, message }) => {
+const ModalWrapper = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "white",
+  boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+  padding: "24px",
+  borderRadius: "8px",
+  width: "200px",
+  height: "200px",
+  margin: "auto",
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+});
+
+const CloseButton = ({ buttonName, messageHeader, message }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const classes = useStyles();
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
   const handleLeaveQuiz = () => {
@@ -31,17 +36,30 @@ const CloseButton = ({ buttonName, message }) => {
         {buttonName}
       </Button>
       <Modal
-        className={classes.modal}
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <div className={classes.paper}>
+        <ModalWrapper
+          sx={{
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <h3>{messageHeader}</h3>
           <p>{message}</p>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleLeaveQuiz}>Leave</Button>
-        </div>
+          <div sx={{ display: "flex", padding: "15px" }}>
+            <Button sx={{ padding: "15px" }} onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button sx={{ padding: "15px" }} onClick={handleLeaveQuiz}>
+              Leave
+            </Button>
+          </div>
+        </ModalWrapper>
       </Modal>
     </>
   );

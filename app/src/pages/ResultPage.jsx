@@ -71,6 +71,7 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
       <div>
         <CloseButton
           buttonName="Close"
+          messageHeader="Leave result page"
           message="Leave this page and go back to lesson?"
         />
       </div>

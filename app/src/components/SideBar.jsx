@@ -13,12 +13,12 @@ function Sidebar() {
        <p>_______________________</p>
     <ul class="menu-item">
       <li><a href="/app/dashboard">Dashboard</a></li>
-      <li><a href="/administration">Administration</a></li>
-      <li><a href="/management">Training Management</a></li>
-      <li><a href="/settings">Settings</a></li>
-      <li style={{ marginTop: '50px' }}><a href="/notifications">Notifications</a></li>
-      <li><a href="/help">Help</a></li>
-      <li><a href="/logout">Logout</a></li>
+      <li><a href="#" disabled>Administration</a></li>
+      <li><a href="#" disabled>Training Management</a></li>
+      <li><a href="#" disabled>Settings</a></li>
+      <li style={{ marginTop: '50px' }}><a href="#" disabled>Notifications</a></li>
+      <li><a href="#" disabled>Help</a></li>
+      <li><a href="/">Logout</a></li>
     </ul>
     </div>
   );
@@ -30,9 +30,9 @@ function Sidebar() {
        <p>_______________________</p>
        <ul class="menu-item">
          <li><a href="/app/myTraining"><img src = "bookicon"></img>My Learnings</a></li>
-         <li><a href="/Dashboard"><img src = "charticon"></img>Trainee Progress</a></li>
-         <li style={{ marginTop: '50px' }}><a class="menu-item" href="/Notifications"><img src = "bellicon"></img>Notifications</a></li>
-         <li><a href="/Help"><img src = "helpicon"></img>Help</a></li>
+         <li><a href="#" disabled><img src = "charticon"></img>Trainee Progress</a></li>
+         <li style={{ marginTop: '50px' }}><a class="menu-item" href="#" disabled><img src = "bellicon"></img>Notifications</a></li>
+         <li><a href="#" disabled><img src = "helpicon"></img>Help</a></li>
          <li><a  href="/"><img src = "logouticon"></img>Logout</a></li>
        </ul>
      </div>

@@ -1,29 +1,37 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import {
+  Avatar,
+  Box,
+  Button,
+  CssBaseline,
+  Grid,
+  Paper,
+  TextField,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
 import { loginBackground } from "../assets/images";
 import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
+import AlertDialog from "../components/Dialog/AlertDialog";
 
 const theme = createTheme();
 
 export default function LogIn() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
   const setUserRole = useSetRecoilState(userRoleState);
 
+  const handleAlertClose = () => {
+    setAlertOpen(false);
+  };
   const createManager = (name, managerCode, userRoleId) => {
     createManagerInfo(name, managerCode)
       .then((managerInfo) => {
@@ -95,9 +103,12 @@ export default function LogIn() {
               navigate("/app/myTraining");
             }
           }
+        } else {
+          setAlertOpen(true);
         }
       })
       .catch((error) => {
+        setAlertOpen(true);
         setLoading(false);
         console.log(error);
       });
@@ -177,6 +188,12 @@ export default function LogIn() {
           </Box>
         </Grid>
       </Grid>
+      <AlertDialog
+        open={alertOpen}
+        title={"Login Failed"}
+        desc={"The username or password you entered is incorrect."}
+        onClose={handleAlertClose}
+      />
     </ThemeProvider>
   );
 }

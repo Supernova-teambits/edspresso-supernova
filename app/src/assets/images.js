@@ -1,6 +1,8 @@
-const loginBackground =
-  "url(https://edspresso-bucket.s3.us-west-1.amazonaws.com/bg_login.jpg)";
+const chemex =
+  "https://images.pexels.com/photos/3749174/pexels-photo-3749174.jpeg";
 
-const chemex = " https://images.pexels.com/photos/3749174/pexels-photo-3749174.jpeg";
+const loginBgTop = "url(/images/bg_login_top.svg)";
 
-export { loginBackground, chemex };
+const LoginBgBottom = "url(/images/bg_login_bottom.svg)";
+
+export { chemex, loginBgTop, LoginBgBottom };

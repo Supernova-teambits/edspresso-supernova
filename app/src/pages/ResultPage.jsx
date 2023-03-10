@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../utils/Constants";
 import { useNavigate } from "react-router-dom";
 import quizData from "./dummy-question";
 
@@ -13,13 +14,10 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
   const navigate = useNavigate();
   const updateTestResult = async () => {
     try {
-      await axios.put(
-        `http://204.236.129.120:8080/api/v1/progress/64014cf8898a8420af6ab7f4`,
-        {
-          lesson_title: "Chemex",
-          test_result: percentage,
-        }
-      );
+      await axios.put(`${BASE_URL}/progress/64014cf8898a8420af6ab7f4`, {
+        lesson_title: "Chemex",
+        test_result: percentage,
+      });
     } catch (error) {
       console.error(error);
     }

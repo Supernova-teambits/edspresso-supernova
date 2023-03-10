@@ -101,8 +101,14 @@ export const filteredProgressForChart = selector({
 
     const progressForChart = Object.values(
       filteredProgressByTrainee.reduce((result, item) => {
-        if (!result[item.status]) {
-          result[item.status] = { name: item.status, value: 0 };
+        if (!result["Completed"]) {
+          result["Completed"] = { name: "Completed", value: 0 };
+        }
+        if (!result["In progress"]) {
+          result["In progress"] = { name: "In progress", value: 0 };
+        }
+        if (!result["Pending"]) {
+          result["Pending"] = { name: "Pending", value: 0 };
         }
         result[item.status].value++;
         return result;

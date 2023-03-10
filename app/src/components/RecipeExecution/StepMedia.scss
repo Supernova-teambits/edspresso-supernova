@@ -1,0 +1,17 @@
+.MediaCarousel {
+    max-width: 557px;
+
+    .Project {
+        max-width: 100%;
+        position: relative;
+        height: 428px;
+        overflow: hidden;
+        padding: 20px;
+
+        img {
+            max-width: 460px;
+            position: relative;
+            max-height: 360px;
+        }
+    }
+}

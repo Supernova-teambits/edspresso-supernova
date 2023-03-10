@@ -14,15 +14,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import { QuizSection } from "./RecipeExecution/StepsMedia";
 import { PrimaryButton } from "./Buttons/Button";
-import {
-  StepSubContent,
-  StepHeader,
-} from "./LessonSteps/LessonSteps";
+import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
+import { StepHeader } from "./Breadcrumbs/Breadcrumbs";
 
 const RecipeDetails = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:1000px)");
   const navigate = useNavigate();
   // Control accordion expand
   const [expanded, setExpanded] = useState("panel");

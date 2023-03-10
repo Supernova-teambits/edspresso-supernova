@@ -2,7 +2,7 @@ import { ArrowLineLeft } from "../../assets/Icons";
 import { useMediaQuery } from "@mui/material";
 import step from "../../pages/dummy-steps";
 
-export const Breadcrumbs = ({ items }) => {
+const Breadcrumbs = ({ items }) => {
   return (
     <ul>
       {items.map((item, index) => (

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import step from "../../pages/dummy-steps";
 import assigned_lessons from "../../pages/dummy-lesson";
 
@@ -16,8 +16,8 @@ import {
   RatioCalculater,
 } from "../RecipeExecution/StepsMedia";
 import TipsCard from "../Card/TipsCard";
+import { ArrowLineLeft } from "../../assets/Icons";
 import { StepPagination } from "../Buttons/Button";
-import { StepHeader } from "../Breadcrumbs/Breadcrumbs";
 
 export const StepSubContent = ({ content }) => {
   let component;
@@ -64,7 +64,20 @@ const stepArr = [
   },
 ];
 
+export const StepHeader = ({ lesson, index }) => {
+  const matches = useMediaQuery("(min-width:600px)");
 
+  return (
+    <div>
+      <Link href="/app/myTraining">
+        <ArrowLineLeft fillColor="#10494C" />
+        My Learning
+      </Link>
+      <h4>{lesson.title}</h4>
+      {matches ? null : <p>{step[index].title}</p>}
+    </div>
+  );
+};
 
 export const Step1 = () => {
   const navigate = useNavigate();
@@ -72,7 +85,7 @@ export const Step1 = () => {
 
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <StepHeader lesson={assigned_lessons[0]} index={0} />
 
       <Box sx={{ width: "100%" }}>
         <ProgressBar
@@ -118,9 +131,11 @@ export const Step1 = () => {
 
 export const Step2 = () => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width:600px)");
+
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <StepHeader lesson={assigned_lessons[0]} index={0} />
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -132,15 +147,18 @@ export const Step2 = () => {
       </Box>
       <Grid container>
         <Grid item md={4}>
-          <StepProgresesDesktop stepArr={stepArr} done={0} />
-          <TipsCard content={step[0].content_detail[1].note} />
+          {matches ? (
+            <>
+              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <TipsCard content={step[0].content_detail[1].note} />
+            </>
+          ) : null}
         </Grid>
         <Grid item md={8}>
-          <div>
-            <StepSubContent
-              content={step[0].content_detail[1].sub_content[0]}
-            />
-          </div>
+          <StepSubContent content={step[0].content_detail[1].sub_content[0]} />
+          {matches ? null : (
+            <TipsCard content={step[0].content_detail[1].note} />
+          )}
         </Grid>
         <Grid item>
           <StepPagination
@@ -161,9 +179,11 @@ export const Step2 = () => {
 
 export const Step3 = () => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width:600px)");
+
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <StepHeader lesson={assigned_lessons[0]} index={0} />
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -175,15 +195,18 @@ export const Step3 = () => {
       </Box>
       <Grid container>
         <Grid item md={4}>
-          <StepProgresesDesktop stepArr={stepArr} done={0} />
-          <TipsCard content={step[0].content_detail[2].note} />
+          {matches ? (
+            <>
+              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <TipsCard content={step[0].content_detail[2].note} />
+            </>
+          ) : null}
         </Grid>
         <Grid item md={8}>
-          <div>
-            <StepSubContent
-              content={step[0].content_detail[2].sub_content[0]}
-            />
-          </div>
+          <StepSubContent content={step[0].content_detail[2].sub_content[0]} />
+          {matches ? null : (
+            <TipsCard content={step[0].content_detail[2].note} />
+          )}
         </Grid>
         <Grid item>
           <StepPagination
@@ -204,10 +227,11 @@ export const Step3 = () => {
 
 export const Step4 = () => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width:600px)");
 
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <StepHeader lesson={assigned_lessons[0]} index={1} />
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -219,12 +243,19 @@ export const Step4 = () => {
       </Box>
       <Grid container>
         <Grid item md={4}>
-          <StepProgresesDesktop stepArr={stepArr} done={1} />
-          <TipsCard content={step[1].content_detail[0].note} />
+          {matches ? (
+            <>
+              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <TipsCard content={step[1].content_detail[0].note} />
+            </>
+          ) : null}
         </Grid>
         <Grid item md={8}>
           <StepSubContent content={step[1].content_detail[0].sub_content[0]} />
           <StepSubContent content={step[1].content_detail[0].sub_content[1]} />
+          {matches ? null : (
+            <TipsCard content={step[1].content_detail[0].note} />
+          )}
         </Grid>
         <StepPagination
           labelLeft="Back"
@@ -243,10 +274,11 @@ export const Step4 = () => {
 
 export const Step5 = () => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width:600px)");
 
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <StepHeader lesson={assigned_lessons[0]} index={1} />
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -258,20 +290,19 @@ export const Step5 = () => {
       </Box>
       <Grid container>
         <Grid item md={4}>
-          <StepProgresesDesktop stepArr={stepArr} done={1} />
-          <TipsCard content={step[1].content_detail[1].note} />
+          {matches ? (
+            <>
+              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <TipsCard content={step[1].content_detail[1].note} />
+            </>
+          ) : null}
         </Grid>
         <Grid item md={8}>
-          <div>
-            <StepSubContent
-              content={step[1].content_detail[1].sub_content[0]}
-            />
-          </div>
-          <div>
-            <StepSubContent
-              content={step[1].content_detail[1].sub_content[1]}
-            />
-          </div>
+          <StepSubContent content={step[1].content_detail[1].sub_content[0]} />
+          <StepSubContent content={step[1].content_detail[1].sub_content[1]} />
+          {matches ? null : (
+            <TipsCard content={step[1].content_detail[1].note} />
+          )}
         </Grid>
         <StepPagination
           labelLeft="Back"

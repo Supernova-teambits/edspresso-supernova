@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import step from "../pages/dummy-steps";
-import assigned_lessons from "../pages/dummy-lesson";
 
 import {
   Grid,
@@ -17,7 +16,7 @@ import { PrimaryButton } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
-import { StepHeader } from "./Breadcrumbs/Breadcrumbs";
+import { ArrowLineLeft } from "../assets/Icons";
 
 const RecipeDetails = () => {
   const matches = useMediaQuery("(min-width:1000px)");
@@ -43,7 +42,14 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <StepHeader lesson={assigned_lessons[0]} />
+      <div>
+        <Link href="/app/myTraining">
+          <ArrowLineLeft fillColor="#10494C" />
+          My Learning
+        </Link>
+        <h4>Chemex method</h4>
+        
+      </div>
 
       <Grid container>
         <Grid item md={4}>

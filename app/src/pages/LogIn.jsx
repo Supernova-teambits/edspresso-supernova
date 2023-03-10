@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Avatar,
   Box,
   Button,
   CssBaseline,
@@ -15,7 +14,7 @@ import {
 import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
-import { loginBgTop, LoginBgBottom } from "../assets/images";
+import { loginBg } from "../assets/images";
 import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import AlertDialog from "../components/Dialog/AlertDialog";
@@ -122,12 +121,10 @@ export default function LogIn() {
         alignItems="center"
         sx={{
           height: "100vh",
-          backgroundImage: `${loginBgTop}, ${LoginBgBottom}`,
-          loginBgTop,
+          backgroundImage: loginBg,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "top center, bottom 0 center",
-          backgroundSize: "contain",
+          backgroundPosition: "center",
         }}
       >
         <CssBaseline />
@@ -143,12 +140,6 @@ export default function LogIn() {
           >
             <Typography component="h1" variant="h3">
               Login
-            </Typography>
-            <Typography component="h1" variant="h5">
-              We can be excellent together.
-            </Typography>
-            <Typography component="h1" variant="h6">
-              Great staff makes great coffees.
             </Typography>
             <Box
               component="form"

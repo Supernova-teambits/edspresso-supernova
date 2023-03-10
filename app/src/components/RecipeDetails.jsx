@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import step from "../pages/dummy-steps";
+import assigned_lessons from "../pages/dummy-lesson";
 
 import {
   Grid,
@@ -15,7 +16,7 @@ import { QuizSection } from "./RecipeExecution/StepsMedia";
 import { PrimaryButton } from "./Buttons/Button";
 import {
   StepSubContent,
-  StepHeaderForDesktop,
+  StepHeader,
 } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
@@ -44,7 +45,7 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <StepHeaderForDesktop />
+      <StepHeader lesson={assigned_lessons[0]} />
 
       <Grid container>
         <Grid item md={4}>

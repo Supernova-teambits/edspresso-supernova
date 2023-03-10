@@ -51,7 +51,7 @@ export const ProgressBar = ({ value, totalStep, currentStep, title }) => {
     <>
       <LinearProgress variant="determinate" value={value} />
       <Typography>
-        Step {currentStep}/{totalStep} - {title}
+        Step {currentStep} of {totalStep} - {title}
       </Typography>
     </>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./StepMedia.scss";
 import Carousel from "react-material-ui-carousel";
 import {
   Button,
@@ -10,6 +11,7 @@ import {
   Grid,
   Breadcrumbs,
   TextField,
+  Paper,
   useMediaQuery,
 } from "@mui/material";
 
@@ -142,7 +144,7 @@ export const MediaCarousel = ({ content }) => {
     <>
       <h4>{content.title}</h4>
       <p>{content.content[0].description}</p>
-      <Carousel>
+      <Carousel className="MediaCarousel">
         {content.content[0].medias.map((item, i) => (
           <Item key={i} item={item} />
         ))}
@@ -153,10 +155,10 @@ export const MediaCarousel = ({ content }) => {
 
 function Item({ item }) {
   return (
-    <>
-      <img src={item.source} alt={item.source} width={500} />
+    <Paper className="Project">
+      <img src={item.source} alt={item.source} />
       <p>{item.caption}</p>
-    </>
+    </Paper>
   );
 }
 

@@ -15,3 +15,23 @@
         }
     }
 }
+
+
+@media screen and (max-width: 600px) {
+    .MediaCarousel {
+        max-width: 328px;
+
+        .Project {
+                max-width: 100%;
+                position: relative;
+                height: auto;
+                overflow: hidden;
+        
+                img {
+                    max-width: 264px;
+                    position: relative;
+                    max-height: 232px;
+                }
+            }
+    }
+}

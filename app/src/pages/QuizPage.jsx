@@ -4,6 +4,7 @@ import CloseButton from "../components/Buttons/CloseButton";
 import Pagination from "../components/Buttons/Pagination";
 import ResultPage from "./ResultPage";
 import { useMediaQuery } from "react-responsive";
+import { LinearProgress } from "@mui/material";
 
 const QuizPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -90,6 +91,10 @@ const QuizPage = () => {
               <h3>Quiz:</h3>
               <h2>3 Cups Chemex</h2>
               <div className="header-middle">
+                <LinearProgress
+                  variant="determinate"
+                  value={(currentPage / totalPages) * 100}
+                />
                 <span>
                   Page {currentPage}/{totalPages}
                 </span>

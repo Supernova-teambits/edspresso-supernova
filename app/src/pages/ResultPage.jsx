@@ -1,11 +1,27 @@
 import { useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "../utils/Constants";
+import { useNavigate } from "react-router-dom";
 import quizData from "./dummy-question";
-import CloseButton from "../components/Buttons/CloseButton";
 
 const ResultPage = ({ score, totalQuestions, answers }) => {
   const percentage = Math.round((score / totalQuestions) * 100);
   const passed = score / totalQuestions >= 0.8;
   const [showAnswers, setShowAnswers] = useState(false);
+  const leaveResult = () => {
+    navigate("/app/lesson/1");
+  };
+  const navigate = useNavigate();
+  const updateTestResult = async () => {
+    try {
+      await axios.put(`${BASE_URL}/progress/64014cf8898a8420af6ab7f4`, {
+        lesson_title: "Chemex",
+        test_result: percentage,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const getPassingMessage = () =>
     `Congratulations on completing your coffee training! We hope that you found the training informative and engaging, and that you gained new insights and skills that will help you excel in your role as a coffee professional.\n\nYour commitment to learning and professional development is commendable, and we are proud to have you as part of our team. By completing this training, you have demonstrated a strong dedication to delivering the highest quality coffee products and services to our customers.`;
@@ -69,11 +85,15 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
         )}
       </div>
       <div>
-        <CloseButton
-          buttonName="Close"
-          messageHeader="Leave result page"
-          message="Leave this page and go back to lesson?"
-        />
+        <button
+          className="close-btn"
+          onClick={(event) => {
+            leaveResult();
+            updateTestResult();
+          }}
+        >
+          Close
+        </button>
       </div>
     </>
   );

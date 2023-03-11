@@ -60,7 +60,7 @@ const stepArr = [
     title: "Serving",
   },
   {
-    title: "Test",
+    title: "Quiz",
   },
 ];
 

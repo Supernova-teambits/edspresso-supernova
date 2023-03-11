@@ -23,6 +23,7 @@ const theme = createTheme();
 
 export default function LogIn() {
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const setUserRole = useSetRecoilState(userRoleState);

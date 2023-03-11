@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import ShortcutCard from "../../components/Card/ShortcutCard";
 
 const ShortcutContainer = () => {

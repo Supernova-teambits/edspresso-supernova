@@ -9,6 +9,7 @@ const today = new Date();
 
 const getTimeFilteredList = (list, timeFilter) => {
   let condition = true;
+  // eslint-disable-next-line no-unused-vars
   let dayDiff;
   switch (timeFilter) {
     case "Today":
@@ -30,6 +31,7 @@ const getTimeFilteredList = (list, timeFilter) => {
     const completedDate = new Date(item.completed_date);
     const timeDiff = today.getTime() - completedDate.getTime();
     dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    // eslint-disable-next-line no-eval
     return eval(condition);
   });
 };

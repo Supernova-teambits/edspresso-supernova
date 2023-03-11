@@ -14,7 +14,7 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
   const navigate = useNavigate();
   const updateTestResult = async () => {
     try {
-      await axios.put(`${BASE_URL}/progress/64014cf8898a8420af6ab7f4`, {
+      await axios.put(`${BASE_URL}/progress/64014b7e898a8420af6ab7f0`, {
         lesson_title: "Chemex",
         test_result: percentage,
       });

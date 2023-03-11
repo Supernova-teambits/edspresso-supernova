@@ -12,21 +12,21 @@ const MentoVerification = () => {
   const [score, setScore] = useState(0);
   const [isDisabled, setIsDisablled] = useState(false);
 
-  useEffect(() => {
-    // get time_spent and test_result
-    axios
-      .get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`)
-      .then((result) => {
-        let progress = result.data;
-        setScore(progress.test_result);
-        setTimeSpent(progress.completed_time);
-        setIsDisablled(progress.completed_time === 0);
-        console.log(progress);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+useEffect(() => {
+  Promise.all([
+    axios.get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`),
+  ])
+    .then(([result]) => {
+      let progress = result.data;
+      setScore(progress.test_result);
+      setTimeSpent(progress.completed_time);
+      setIsDisablled(progress.completed_time === 0 && progress.test_result === 0);
+      console.log(progress);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}, []);
 
   // Breadcumb
   const breadcrumbStyle = {
@@ -108,7 +108,7 @@ const MentoVerification = () => {
                   )}
                 </>
               ) : (
-                <p>Passed on 02/24/2023</p>
+                <p>Passed on 03/11/2023</p>
               )}
             </div>
           </Grid>

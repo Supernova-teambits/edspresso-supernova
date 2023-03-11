@@ -3,6 +3,8 @@ import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
 import { StepPagination } from "../components/Buttons/Button";
 import { StepProgresesDesktop } from "../components/RecipeExecution/StepProgress";
+import { StepHeader } from "../components/LessonSteps/LessonSteps";
+import assigned_lessons from "./dummy-lesson";
 
 const stepArr = [
   {
@@ -46,6 +48,7 @@ const ProgressUpdate = () => {
   if (id === "1") {
     return (
       <>
+        <StepHeader lesson={assigned_lessons[0]} index={0} />
         <Grid container>
           {matches ? (
             <>
@@ -92,6 +95,7 @@ const ProgressUpdate = () => {
   } else {
     return (
       <>
+        <StepHeader lesson={assigned_lessons[0]} index={0} />
         <Grid container>
           {matches ? (
             <>

@@ -1,10 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
 import { StepPagination } from "../components/Buttons/Button";
 import { StepProgresesDesktop } from "../components/RecipeExecution/StepProgress";
-import { StepHeader } from "../components/LessonSteps/LessonSteps";
-import assigned_lessons from "./dummy-lesson";
+import { ArrowLineLeft } from "../assets/Icons";
 
 const stepArr = [
   {
@@ -20,7 +19,7 @@ const stepArr = [
     title: "Serving",
   },
   {
-    title: "Test",
+    title: "Quiz",
   },
 ];
 
@@ -48,7 +47,14 @@ const ProgressUpdate = () => {
   if (id === "1") {
     return (
       <>
-        <StepHeader lesson={assigned_lessons[0]} index={0} />
+        <div>
+          <Link to="/app/myTraining">
+            <ArrowLineLeft fillColor="#10494C" />
+            My Learning
+          </Link>
+          <h4>Chemex method</h4>
+        </div>
+
         <Grid container>
           {matches ? (
             <>
@@ -95,7 +101,14 @@ const ProgressUpdate = () => {
   } else {
     return (
       <>
-        <StepHeader lesson={assigned_lessons[0]} index={0} />
+        <div>
+          <Link to="/app/myTraining">
+            <ArrowLineLeft fillColor="#10494C" />
+            My Learning
+          </Link>
+          <h4>Chemex method</h4>
+        </div>
+
         <Grid container>
           {matches ? (
             <>

@@ -1,92 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./StepMedia.scss";
 import Carousel from "react-material-ui-carousel";
 import {
-  Button,
   Radio,
   RadioGroup,
   FormControlLabel,
   FormControl,
   Grid,
-  Breadcrumbs,
   TextField,
   Paper,
   useMediaQuery,
 } from "@mui/material";
 
-import { PrimaryButton } from "../Buttons/Button";
 import LessonCard from "../Card/LessonCard";
-import { DoubleArrowLeft, DoubleArrowRight, Help } from "../../assets/Icons";
+import { DoubleArrowLeft, DoubleArrowRight } from "../../assets/Icons";
 
-export const QuizSection = ({ buttonDisable, breadcrumbs }) => {
-  const navigate = useNavigate();
-  const handleToQuiz = () => {
-    navigate("/app/lesson/1");
-    // I'll set axios to retrieve lesson data to display quiz in it
-  };
-
-  return (
-    <>
-      <div>
-        <h2>Test your knowledge</h2>
-        <p>You can start the test when you are ready</p>
-        <p>
-          You need at least 80% to approve the test and get a ecrtification.
-        </p>
-        <h4>Mentor verification</h4>
-        <p>
-          The mentor verification will be sent after approving the Questionnaire
-          successfully.
-        </p>
-        <Grid container>
-          <Grid item md={6}>
-            <div>
-              <h3>Chemex Test</h3>
-              <p>
-                Chemex brewing method, Ratio, Pouring, Chemex consideration.
-              </p>
-              <Help fillColor="#10494C" />
-              <p>Finish this lesson to be able to do a test.</p>
-              {buttonDisable ? (
-                <PrimaryButton
-                  label="Start Test"
-                  onClick={() => {
-                    navigate("/lesson/1");
-                  }}
-                  disabled
-                />
-              ) : (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleToQuiz}
-                >
-                  Start test
-                </Button>
-              )}
-            </div>
-          </Grid>
-          <Grid item md={6}>
-            <div>
-              <h3>Mentor Verification</h3>
-              {breadcrumbs ? (
-                <Breadcrumbs separator="›" aria-label="breadcrumb">
-                  {breadcrumbs}
-                </Breadcrumbs>
-              ) : (
-                <p>Unverified</p>
-              )}
-
-              <p>Barista Flavia C.</p>
-              <p>27/01/2023</p>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-    </>
-  );
-};
 
 // Step 1
 export const PainText = ({ content }) => {

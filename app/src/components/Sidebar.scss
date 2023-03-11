@@ -1,24 +1,102 @@
-$primary-color: #ffffff;
+$sidebar-width: 264px;
+$sidebar-height: 720px;
+$sidebar-padding: 24px 16px 64px 24px;
+$sidebar-gap: 48px;
+$sidebar-bg-color: #10494C;
+$sidebar-shadow: 20px 0px 24px -4px rgba(16, 24, 40, 0.1), 8px 0px 8px -4px rgba(16, 24, 40, 0.04);
+$sidebar-border-radius: 0px 20px 20px 0px;
+
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: $sidebar-padding;
+  gap: $sidebar-gap;
+
+  position: absolute;
+  width: $sidebar-width;
+  height: $sidebar-height;
+  left: 0px;
+  top: 0px;
+
+  background: $sidebar-bg-color;
+  box-shadow: $sidebar-shadow;
+  border-radius: $sidebar-border-radius;
+}
 
 .sidebar-menu {
-  background-color: #373a47;
-  color: $primary-color;
-  height: 100%;
+  h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    
+    svg {
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
+    }
+  }
 
+  p {
+    margin: 0px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+  }
 
-  a {
-    color: $primary-color;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      font-size: 14px;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      svg {
+        margin-right: 16px;
+        width: 16px;
+        height: 16px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #FFFFFF;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.active {
+        font-weight: 500;
+        text-decoration: underline;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: default;
+
+        a {
+          cursor: default;
+        }
+      }
+    }
   }
 }
-
-* {
-  padding: 5px;
-}
-
-ul {
-  list-style-type: none;
-}
-
-
-
 

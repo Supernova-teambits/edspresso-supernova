@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 const ShortcutCard = (props) => {
-  const { imageSrc, buttonText, buttonOnClick } = props;
+  const { imageSrc, buttonText, buttonOnClick,icon: Icon } = props;
 
   return (
     <Card>
@@ -19,10 +19,11 @@ const ShortcutCard = (props) => {
         image={imageSrc}
         alt="example image"
       />
-      <CardActions>
+      <CardActions className="my-card-actions">
         <Button variant="contained" onClick={buttonOnClick}>
           {buttonText}
         </Button>
+        {Icon && <Icon />}
       </CardActions>
     </Card>
   );

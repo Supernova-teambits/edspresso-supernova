@@ -7,6 +7,8 @@ import {
   filteredProgressStatsState,
 } from "../../recoil/selectors";
 import TraineeProgressFilter from "./TraineeProgressFilter";
+import { User } from "../../assets/Icons";
+
 
 const Analytics = () => {
   const filteredProgressByTraineeList = useRecoilValue(
@@ -14,7 +16,6 @@ const Analytics = () => {
   );
   const progressForChart = useRecoilValue(filteredProgressForChart);
   const progressStats = useRecoilValue(filteredProgressStatsState);
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -42,6 +43,7 @@ const Analytics = () => {
         <ul>
           {filteredProgressByTraineeList.map((item) => (
             <li key={item.trainee_name + item.lesson_title}>
+              <User fillColor="#4E4F54" />
               {item.trainee_name} | {item.status}
             </li>
           ))}

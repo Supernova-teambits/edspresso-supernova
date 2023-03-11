@@ -1,0 +1,46 @@
+$primary-500: #10494c;
+
+.card-media1,
+.card-media2,
+.card-media3 {
+  z-index: 1;
+}
+
+.card-media1 {
+  left: 47.8%;
+  right: 38.95%;
+  top: 29.1%;
+  bottom: 16.61%;
+}
+
+.card-media2 {
+  left: 73.47%;
+  right: 0.66%;
+  top: 42.36%;
+  bottom: 16.65%;
+}
+
+.card-media3 {
+  left: 51.74%;
+  right: 10.47%;
+  top: 13.03%;
+  bottom: -5.11%;
+  z-index: 2;
+}
+
+.my-card-actions button {
+  background: none;
+  color: $primary-500;
+}
+
+.my-card {
+  background-color: $primary-500;
+}
+
+.CreateLessonText {
+  color: #ffffff;
+  border-radius: 8px;
+  width: 464px;
+  height: 240px;
+  padding: 10px;
+}

@@ -21,6 +21,7 @@ const MentoVerification = () => {
         setScore(progress.test_result);
         setTimeSpent(progress.completed_time);
         setIsDisablled(progress.completed_time === 0);
+        console.log(progress);
       })
       .catch((error) => {
         console.log(error);

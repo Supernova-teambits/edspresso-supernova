@@ -60,7 +60,7 @@ const stepArr = [
     title: "Serving",
   },
   {
-    title: "Test",
+    title: "Quiz",
   },
 ];
 
@@ -69,7 +69,7 @@ export const StepHeader = ({ lesson, index }) => {
 
   return (
     <div>
-      <Link href="/app/myTraining">
+      <Link to="/app/myTraining">
         <ArrowLineLeft fillColor="#10494C" />
         My Learning
       </Link>

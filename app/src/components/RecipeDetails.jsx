@@ -11,7 +11,8 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
-import { QuizSection } from "./RecipeExecution/StepsMedia";
+import MentoVerification from "./MentorVerification/MentorVerification";
+
 import { PrimaryButton } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
@@ -28,27 +29,14 @@ const RecipeDetails = () => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const breadcrumbs = [
-    <Typography key="1" color="inherit">
-      Unverified
-    </Typography>,
-    <Typography key="2" color="inherit">
-      On Progress
-    </Typography>,
-    <Typography key="3" color="inherit">
-      Verified
-    </Typography>,
-  ];
-
   return (
     <>
       <div>
-        <Link href="/app/myTraining">
+        <Link to="/app/myTraining">
           <ArrowLineLeft fillColor="#10494C" />
           My Learning
         </Link>
         <h4>Chemex method</h4>
-        
       </div>
 
       <Grid container>
@@ -143,7 +131,7 @@ const RecipeDetails = () => {
       </Accordion>
       {/* test verification section */}
       <div>
-        <QuizSection breadcrumbs={breadcrumbs} buttonDisable={true} />
+        <MentoVerification />
       </div>
     </>
   );

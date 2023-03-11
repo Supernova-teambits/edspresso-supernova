@@ -4,8 +4,6 @@ import {
   CardMedia,
   CardActions,
   Button,
-  CardContent,
-  Typography,
 } from "@mui/material";
 
 const ShortcutCard = (props) => {

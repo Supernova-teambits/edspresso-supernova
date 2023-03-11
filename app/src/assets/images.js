@@ -162,5 +162,6 @@ const expressoMachine = () => {
   );
 };
 
-export { chemex, loginBg, barista, grinder, expressoMachine };
+export { chemex, loginBg };
+export { barista, grinder, expressoMachine };
 

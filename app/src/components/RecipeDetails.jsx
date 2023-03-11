@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import step from "../pages/dummy-steps";
 
 import {
@@ -13,15 +13,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import { QuizSection } from "./RecipeExecution/StepsMedia";
 import { PrimaryButton } from "./Buttons/Button";
-import {
-  StepSubContent,
-  StepHeaderForDesktop,
-} from "./LessonSteps/LessonSteps";
+import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
+import { ArrowLineLeft } from "../assets/Icons";
 
 const RecipeDetails = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:1000px)");
   const navigate = useNavigate();
   // Control accordion expand
   const [expanded, setExpanded] = useState("panel");
@@ -44,7 +42,14 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <StepHeaderForDesktop />
+      <div>
+        <Link href="/app/myTraining">
+          <ArrowLineLeft fillColor="#10494C" />
+          My Learning
+        </Link>
+        <h4>Chemex method</h4>
+        
+      </div>
 
       <Grid container>
         <Grid item md={4}>

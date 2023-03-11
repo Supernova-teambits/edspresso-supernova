@@ -1,5 +1,5 @@
-const loginBackground =
-  "url(https://edspresso-bucket.s3.us-west-1.amazonaws.com/bg_login.jpg)";
+const loginBg = "url(/images/bg_login.svg)";
+
 
 const chemex =
   "https://images.pexels.com/photos/3749174/pexels-photo-3749174.jpeg";
@@ -163,4 +163,4 @@ const expressoMachine = () => {
   );
 };
 
-export { loginBackground, chemex, barista, grinder , expressoMachine};
+export { loginBg, chemex, barista, grinder , expressoMachine};

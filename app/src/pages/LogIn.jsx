@@ -16,6 +16,7 @@ import { createTraineeInfo } from "../services/traineeService";
 import { loginBackground } from "../assets/images";
 import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
+import { loginBg } from "../assets/images";
 
 const theme = createTheme();
 
@@ -113,7 +114,7 @@ export default function LogIn() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: loginBackground,
+            backgroundImage: loginBg,
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"

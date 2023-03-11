@@ -3,7 +3,7 @@ const chemex =
 
 const loginBg = "url(/images/bg_login.svg)";
 
-const barista = () => {
+export const barista = () => {
   return (
     <svg
       width="176"
@@ -60,7 +60,7 @@ const barista = () => {
   );
 };
 
-const grinder = () => {
+export const grinder = () => {
   return (
     <svg
       width="63"
@@ -101,7 +101,7 @@ const grinder = () => {
   );
 };
 
-const expressoMachine = () => {
+export const expressoMachine = () => {
   return (
     <svg
       width="121"
@@ -163,5 +163,4 @@ const expressoMachine = () => {
 };
 
 export { chemex, loginBg };
-export { barista, grinder, expressoMachine };
 

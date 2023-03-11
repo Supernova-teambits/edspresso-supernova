@@ -22,6 +22,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getTraineeProgress(manager.manager_code);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

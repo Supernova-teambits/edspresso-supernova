@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import DonutChart from "../../components/Chart/DonutChart";
 import {
@@ -39,7 +39,6 @@ const Analytics = () => {
         </Grid>
       </Grid>
       <Grid item xs={12} md={6}>
-        <p>Learning process</p>
         <ul>
           {filteredProgressByTraineeList.map((item) => (
             <li key={item.trainee_name + item.lesson_title}>

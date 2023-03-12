@@ -354,7 +354,7 @@ export const Navigation = ({ fillColor }) => {
 };
 
 
-export const Nortification = ({ fillColor }) => {
+export const Notification = ({ fillColor }) => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.0008 19.5C15.0008 20.87 13.6508 22 12.0008 22C10.3508 22 9.00077 20.87 9.00077 19.5H15.0008Z" fill={fillColor} />
@@ -423,7 +423,7 @@ export const Trash = ({ fillColor }) => {
     );
 };
 
-export const Usre = ({ fillColor }) => {
+export const User = ({ fillColor }) => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.995 13.26C14.8323 13.26 17.1324 10.7394 17.1324 7.63C17.1324 4.52064 14.8323 2 11.995 2C9.15768 2 6.85757 4.52064 6.85757 7.63C6.85757 10.7394 9.15768 13.26 11.995 13.26Z" fill={fillColor} />

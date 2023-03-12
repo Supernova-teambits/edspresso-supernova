@@ -2,46 +2,66 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import "./Sidebar.scss";
+import {
+  User,
+  Book,
+  GraphDonut,
+  Admin,
+  Setting,
+  Notification,
+  Help,
+  Logout,
+} from "../assets/Icons";
+import Header from "./Header";
 
 function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
 
   const adminMenu = (
     <div className="sidebar-menu">
+      <Header />
       <h4>
-        <img src="adminicon" alt="admin"></img>Admin
+        <User fillColor="#FFF0DE" />
+        Admin
       </h4>
       <p>_______________________</p>
       <ul className="menu-item">
         <li>
+          <GraphDonut fillColor="#FFF0DE" />
           <a href="/app/dashboard">Dashboard</a>
         </li>
         <li>
+          <Admin fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Administration
           </a>
         </li>
         <li>
+          <Book fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Training Management
           </a>
         </li>
         <li>
+          <Setting fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Settings
           </a>
         </li>
         <li style={{ marginTop: "50px" }}>
+          <Notification fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Notifications
           </a>
         </li>
         <li>
+          <Help fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Help
           </a>
         </li>
         <li>
+          <Logout fillColor="#FFF0DE" />
           <a href="/">Logout</a>
         </li>
       </ul>
@@ -51,42 +71,49 @@ function Sidebar() {
   const traineeMenu = (
     <>
       <div className="sidebar-menu">
+        <Header />
         <h4>
-          <img src="traineeicon" alt="icon"></img>Trainee
+          <User fillColor="#FFF0DE" />
+          Trainee
         </h4>
         <p>_______________________</p>
         <ul className="menu-item">
           <li>
-            <a href="/app/myTraining">
-              <img src="bookicon" alt="icon"></img>My Learnings
-            </a>
+            <Book fillColor="#FFF0DE" />
+            <a href="/app/myTraining">My Learnings</a>
           </li>
           <li>
+            <GraphDonut fillColor="#FFF0DE" />
             <a href="/app/myTraining" disabled>
-              <img src="charticon" alt="icon"></img>Trainee Progress
+              Trainee Progress
             </a>
           </li>
           <li style={{ marginTop: "50px" }}>
+            <Notification fillColor="#FFF0DE" />
             <a className="menu-item" href="/app/myTraining" disabled>
-              <img src="bellicon" alt="icon"></img>Notifications
+              Notifications
             </a>
           </li>
           <li>
+            <Help fillColor="#FFF0DE" />
             <a href="/app/myTraining" disabled>
-              <img src="helpicon" alt="icon"></img>Help
+              Help
             </a>
           </li>
           <li>
-            <a href="/">
-              <img src="logouticon" alt="icon"></img>Logout
-            </a>
+            <Logout fillColor="#FFF0DE" />
+            <a href="/">Logout</a>
           </li>
         </ul>
       </div>
     </>
   );
 
-  return <nav>{userRole.role === "manager" ? adminMenu : traineeMenu}</nav>;
+  return (
+    <nav className="sidebar">
+      {userRole.role === "manager" ? adminMenu : traineeMenu}
+    </nav>
+  );
 }
 
 export default Sidebar;

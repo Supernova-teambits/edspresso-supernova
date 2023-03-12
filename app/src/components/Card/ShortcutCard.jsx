@@ -5,6 +5,8 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
+import { ArrowLineRight } from "../../assets/Icons";
+import './AdminDashboard.scss'
 
 const ShortcutCard = (props) => {
   const { imageSrc, buttonText, buttonOnClick } = props;
@@ -17,10 +19,11 @@ const ShortcutCard = (props) => {
         image={imageSrc}
         alt="example image"
       />
-      <CardActions>
-        <Button variant="contained" onClick={buttonOnClick}>
+      <CardActions >
+        <Button variant="contained" onClick={buttonOnClick} className="short-cut-button">
           {buttonText}
         </Button>
+        <ArrowLineRight fillColor={"#10494C"}/>
       </CardActions>
     </Card>
   );

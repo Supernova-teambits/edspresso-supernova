@@ -88,7 +88,7 @@ const QuizPage = () => {
                 messageHeader="Leave the Test"
                 message="Do you want to leave the test? Your answers will not be saved."
               />
-              <h3>Quiz:</h3>
+              <h3>QUIZ</h3>
               <h2>3 Cups Chemex</h2>
               <div className="header-middle">
                 <LinearProgress
@@ -96,18 +96,16 @@ const QuizPage = () => {
                   value={(currentPage / totalPages) * 100}
                 />
                 <span>
-                  Page {currentPage}/{totalPages}
-                </span>
-                &nbsp;
-                <span>
-                  - {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
+                  Question {currentPage} of {totalPages} -{" "}
+                  {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
                   {timeLeft % 60}
-                  min left
+                  &nbsp;min left
                 </span>
               </div>
             </header>
             <main>
               <div className="question-container">
+                <p>Select one option in each question.</p>
                 <h3>{currentQuiz.question}</h3>
                 <div className="options">
                   {currentQuiz.options.map((option, index) => (
@@ -152,7 +150,7 @@ const QuizPage = () => {
       ) : currentPage <= totalPages ? (
         <>
           <header>
-            <h3>Quiz:</h3>
+            <h3>QUIZ</h3>
             <h2>3 Cups Chemex</h2>
             <div className="header-middle">
               <strong>
@@ -164,6 +162,7 @@ const QuizPage = () => {
             </div>
           </header>
           <main>
+            <p>Select one option in each question.</p>
             {quizData.map((question) => (
               <div key={question.id} className="question-container">
                 <h3>{question.question}</h3>
@@ -193,7 +192,7 @@ const QuizPage = () => {
               </div>
             ))}
             <CloseButton
-              buttonName="Close"
+              buttonName="Cancel"
               messageHeader="Leave the test"
               message="Do you want to leave the test? Your answers will not be saved."
             />

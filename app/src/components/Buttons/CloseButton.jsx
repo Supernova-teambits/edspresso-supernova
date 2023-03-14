@@ -32,7 +32,16 @@ const CloseButton = ({ buttonName, messageHeader, message }) => {
 
   return (
     <>
-      <Button variant="contained" onClick={handleOpen}>
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          color: "#10494C",
+          boxShadow: "none",
+          "&:hover": { backgroundColor: "transparent", boxShadow: "none" },
+        }}
+        variant="contained"
+        onClick={handleOpen}
+      >
         {buttonName}
       </Button>
       <Modal

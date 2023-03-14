@@ -2,12 +2,30 @@ import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/Constants";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import { StepPagination } from "../components/Buttons/Button";
 import quizData from "./dummy-question";
 
 const ResultPage = ({ score, totalQuestions, answers }) => {
   const percentage = Math.round((score / totalQuestions) * 100);
   const passed = score / totalQuestions >= 0.8;
   const [showAnswers, setShowAnswers] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const handlePrevClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const pageSize = 1;
+  const totalPages = Math.ceil(quizData.length / pageSize);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
   const leaveResult = () => {
     navigate("/app/lesson/1");
   };
@@ -34,9 +52,10 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
       <div className="result-page">
         <h2>Your Results</h2>
         <p>{passed ? "Great job!" : "Nice try"}</p>
-        <p>You got {percentage}%</p>
+        <p>{percentage}%</p>
         <p>
-          ({score}/{totalQuestions}) correct answers
+          You got ({score}/{totalQuestions})<br />
+          correct answers
         </p>
         <p style={{ whiteSpace: "pre-line" }}>
           {passed ? getPassingMessage() : getFailingMessage()}
@@ -46,41 +65,93 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
         </button>
         {showAnswers && (
           <>
-            <div>
-              {quizData.map((question) => (
-                <div key={question.id}>
+            {isMobile ? (
+              <div>
+                <p>
                   <strong>
-                    {question.question}
-                    {answers[question.id] === question.answer ? (
-                      <span style={{ color: "green" }}> - Correct</span>
-                    ) : (
-                      <span style={{ color: "red" }}> - Incorrect</span>
-                    )}
+                    Question {currentPage}/{totalPages}
                   </strong>
-                  <div>
-                    {question.options.map((option) => (
-                      <div key={option}>
-                        <label>
-                          <input
-                            type="radio"
-                            name={`answer-${question.id}`}
-                            value={option}
-                            checked={answers[question.id] === option}
-                            readOnly
-                          />
-                          {option}
-                        </label>
-                        {option === question.answer && (
-                          <span style={{ color: "green" }}>
-                            {" (correct answer)"}
-                          </span>
+                </p>
+                {quizData
+                  .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+                  .map((question) => (
+                    <div key={question.id}>
+                      <strong>
+                        {question.question}
+                        {answers[question.id] === question.answer ? (
+                          <span style={{ color: "green" }}> Correct</span>
+                        ) : (
+                          <span style={{ color: "red" }}> Incorrect</span>
                         )}
+                      </strong>
+                      <div>
+                        {question.options.map((option) => (
+                          <div key={option}>
+                            <label>
+                              <input
+                                type="radio"
+                                value={option}
+                                checked={answers[question.id] === option}
+                                readOnly
+                              />
+                              {option}
+                            </label>
+                            {option === question.answer && (
+                              <span style={{ color: "green" }}>
+                                {" (correct answer)"}
+                              </span>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                  ))}
+                <StepPagination
+                  labelLeft="Back"
+                  onClickLeft={handlePrevClick}
+                  labelRight="Next"
+                  onClickRight={handleNextClick}
+                />
+              </div>
+            ) : (
+              <div>
+                {quizData.map((question) => (
+                  <div key={question.id}>
+                    <strong>
+                      {question.question}
+                      {answers[question.id] === question.answer ? (
+                        <span style={{ color: "green" }}> Correct</span>
+                      ) : (
+                        <span style={{ color: "red" }}> Incorrect</span>
+                      )}
+                    </strong>
+                    <div>
+                      {question.options.map((option) => (
+                        <div key={option}>
+                          <label>
+                            <input
+                              type="radio"
+                              name={`answer-${question.id}`}
+                              value={option}
+                              checked={answers[question.id] === option}
+                              readOnly
+                            />
+                            {option}
+                          </label>
+                          {option === question.answer && (
+                            <span style={{ color: "green" }}>
+                              {" (correct answer)"}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+                Note: You can access to these results from the lesson details
+                page.
+              </div>
+            )}
           </>
         )}
       </div>

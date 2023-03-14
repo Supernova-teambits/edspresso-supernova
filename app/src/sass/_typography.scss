@@ -25,6 +25,12 @@ $subtitle-font: "source-sans-pro", sans-serif;
   line-height: 31px;
 }
 
+@mixin headline-3() {
+  @extend .headline-1;
+  font-size: 30px;
+  line-height: 31px;
+}
+
 .headline-4 {
   @extend .headline-1;
   font-size: 24px;

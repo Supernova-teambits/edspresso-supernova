@@ -1,0 +1,12 @@
+@import "../sass/main.scss";
+
+.Login-form-title {
+  @extend .headline-2;
+  color: $primary-500;
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .Login-form-title {
+    @include headline-3();
+  }
+}

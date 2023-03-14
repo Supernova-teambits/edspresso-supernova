@@ -3,23 +3,21 @@ import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
-  CssBaseline,
   Grid,
   Paper,
   TextField,
-  ThemeProvider,
   Typography,
-  createTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
-import { loginBg } from "../assets/images";
+import { loginBg, LoginLogoDesktop, LoginLogoMobile } from "../assets/images";
 import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import AlertDialog from "../components/Dialog/AlertDialog";
-
-const theme = createTheme();
+import { MAX_WIDTH_FOR_MOBILE } from "../utils/Constants";
+import "./Login.scss";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -27,6 +25,7 @@ export default function LogIn() {
   const [loading, setLoading] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const setUserRole = useSetRecoilState(userRoleState);
+  const isMobile = useMediaQuery(`(max-width:${MAX_WIDTH_FOR_MOBILE})`);
 
   const handleAlertClose = () => {
     setAlertOpen(false);
@@ -114,9 +113,10 @@ export default function LogIn() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Grid
         container
+        direction="column"
         component="main"
         justifyContent="center"
         alignItems="center"
@@ -128,8 +128,24 @@ export default function LogIn() {
           backgroundPosition: "center",
         }}
       >
-        <CssBaseline />
-        <Grid item xs={12} sm={5} component={Paper} elevation={6} square>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {isMobile ? <LoginLogoMobile /> : <LoginLogoDesktop />}
+        </Grid>
+        <Grid
+          item
+          xs={10}
+          sm={5}
+          component={Paper}
+          elevation={6}
+          borderRadius={6}
+        >
           <Box
             sx={{
               my: 8,
@@ -139,9 +155,7 @@ export default function LogIn() {
               alignItems: "center",
             }}
           >
-            <Typography component="h1" variant="h3">
-              Login
-            </Typography>
+            <p className="Login-form-title">Login</p>
             <Box
               component="form"
               noValidate
@@ -186,6 +200,6 @@ export default function LogIn() {
         desc={"The username or password you entered is incorrect."}
         onClose={handleAlertClose}
       />
-    </ThemeProvider>
+    </>
   );
 }

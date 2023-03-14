@@ -1,6 +1,7 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const app = express();
+const port = process.env.PORT || 3333;
 const bodyParser = require("body-parser");
 const router = require("./routes");
 
@@ -20,10 +21,10 @@ app.use("/api/v1", router); // like a prefix of the path
 
 // Summary of API Endpoints
 app.get("/", (req, res, next) => {
-    res.content_type = "text/plain";
-    res.render("index");
-})
+  res.content_type = "text/plain";
+  res.render("index");
+});
 
-app.listen(8080, () => {
-    console.log("Server running on port 8080.");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}.`);
 });

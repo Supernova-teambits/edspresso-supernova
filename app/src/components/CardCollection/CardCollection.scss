@@ -1,0 +1,6 @@
+@import "../../sass/main.scss";
+
+.My-Learnings-subtitle {
+    @extend .headline-5;
+    color: $primary-500;
+}

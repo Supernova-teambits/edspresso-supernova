@@ -1,7 +1,6 @@
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import { Bookmark } from "../../assets/Icons";
-
-const COLORS = ["#10494C", "#FFDAAC", "#B84B11"];
+import { STATUS_COLOR } from "../../utils/Constants";
 
 const DonutChart = (props) => {
   const { data } = props;
@@ -16,7 +15,7 @@ const DonutChart = (props) => {
           padding={5}
           payload={data.map((item, index) => ({
             value: `${item.value} trainee ${item.name}`,
-            legendIcon: <Bookmark fillColor={COLORS[index]} />,
+            legendIcon: <Bookmark fillColor={STATUS_COLOR[index]} />,
           }))}
         />
         <Pie
@@ -27,7 +26,10 @@ const DonutChart = (props) => {
           dataKey="value"
         >
           {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            <Cell
+              key={`cell-${index}`}
+              fill={STATUS_COLOR[index % STATUS_COLOR.length]}
+            />
           ))}
         </Pie>
       </PieChart>

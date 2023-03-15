@@ -1,9 +1,12 @@
-$text-color: #ffffff;
+@import "../../sass/main.scss";
 
-.short-cut-button
-{
-    background-color:"none";
+$text-color: $primary-500;
+
+.short-cut-button {
+  background-color: "none";
 }
-h1,h2{
-    color: $text-color;
+
+h1,
+h2 {
+  color: $text-color;
 }

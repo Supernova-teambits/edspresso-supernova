@@ -1,0 +1,39 @@
+@import "../../sass/main.scss";
+
+.StepPagenation-Back {
+    @extend .button;
+}
+
+.StepPagenation-Next {
+    @extend .button;
+}
+
+.PrimaryButton {
+    @extend .button;
+    background-color: $accent-700;
+    color: $neutral-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 6px 8px 6px;
+    border: none;
+}
+
+.BackButton {
+    @extend .button;
+    color: $primary-500;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 6px 8px 6px;
+    border: none;
+
+    &:hover {
+        background-color: $hover-primary-010;
+        cursor: pointer;
+        transform: translateY(-5px);
+    }
+}

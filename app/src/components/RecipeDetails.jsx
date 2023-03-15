@@ -4,12 +4,10 @@ import step from "../pages/dummy-steps";
 
 import {
   Grid,
-  Typography,
   Accordion,
   AccordionSummary,
   useMediaQuery,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import MentoVerification from "./MentorVerification/MentorVerification";
 
@@ -17,6 +15,8 @@ import { PrimaryButton, BackButton } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
+import { ArrowLineRight } from "../assets/Icons";
+import "./RecipeDetails.scss";
 
 const RecipeDetails = () => {
   const matches = useMediaQuery("(min-width:1000px)");
@@ -30,28 +30,34 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <div>
+      <div className="RecipeDetails-header">
         <BackButton
           label="My Learnings"
           onClick={() => navigate("/app/myTraining")}
         />
-        <h4>Chemex method</h4>
+        <h4 className="RecipeDetails-title">Chemex method</h4>
       </div>
 
       <Grid container>
         <Grid item md={4}>
           {/* image and desc */}
           <div>
-            <img src={chemex} alt="chemex" width={250} />
+            <img
+              className="RecipeDetails-img"
+              src={chemex}
+              alt="chemex"
+              width={250}
+            />
             <PrimaryButton
+              className="RecipeDetails-start-btn"
               label={"Start Lesson"}
               onClick={() => navigate("/app/step/1")}
             />
           </div>
         </Grid>
         <Grid item md={8}>
-          <h4>About the lesson</h4>
-          <p>
+          <h4 className="RecipeDetails-title">About the lesson</h4>
+          <p className="RecipeDetails-body">
             The Chemex Coffeemaker is a manual pour-over style glass
             coffeemaker, invented by Peter Schlumbohm in 1941, manufactured by
             the Chemex Corporation in Chicopee, Massachusetts.
@@ -61,7 +67,7 @@ const RecipeDetails = () => {
           <Grid container>
             <DetailsCardColored title="Status" text="Not Status" size={4} />
             <DetailsCardColored title="Progress" text="0%" size={4} />
-            <DetailsCardColored title="Difficulty" difficulty={2} size={4} />
+            <DetailsCardColored title="Difficulty" difficulty={5} size={4} />
           </Grid>
         </Grid>
       </Grid>
@@ -71,13 +77,14 @@ const RecipeDetails = () => {
         onChange={handleChange("panel")}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
+          className="Accordion-text-container"
         >
-          <Typography>
+          <p className="Accordion-text">
             {expanded === "panel" ? "See less details" : "See more deatils"}
-          </Typography>
+            <ArrowLineRight fillColor="#10494C" />
+          </p>
         </AccordionSummary>
         <Grid container>
           <Grid item md={8}>
@@ -92,12 +99,12 @@ const RecipeDetails = () => {
               />
             </Grid>
             <Grid container>
-              <DetailsCard
+              <DetailsCardColored
                 title="Certification"
                 text="✔Achieve 80% or above to get a certification"
                 size={6}
               />
-              <DetailsCard
+              <DetailsCardColored
                 title="Requirement"
                 requirements={["Coffee Basics", "Grinder and weight"]}
                 size={6}
@@ -108,7 +115,7 @@ const RecipeDetails = () => {
         <div>
           {matches ? (
             <>
-              <h4>What you will need</h4>
+              <h4 className="RecipeDetails-title">What you will need</h4>
               <Grid container>
                 {step[0].content_detail[0].sub_content[1].content.map(
                   (element, index) => (
@@ -129,7 +136,7 @@ const RecipeDetails = () => {
         </div>
       </Accordion>
       {/* test verification section */}
-      <div>
+      <div className="RecipeDetails-Test-section">
         <MentoVerification />
       </div>
     </>

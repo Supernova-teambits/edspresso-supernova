@@ -1,4 +1,5 @@
 import { ArrowLineLeft, ArrowLineRight } from "../../assets/Icons";
+import "./Button.scss";
 
 export const StepPagination = ({
   labelLeft,
@@ -8,10 +9,10 @@ export const StepPagination = ({
 }) => {
   return (
     <>
-      <button onClick={onClickLeft}>
+      <button className="StepPagenation-Back" onClick={onClickLeft}>
         <ArrowLineLeft fillColor="#10494C" /> {labelLeft}
       </button>
-      <button onClick={onClickRight}>
+      <button className="StepPagenation-Next" onClick={onClickRight}>
         {labelRight} <ArrowLineRight fillColor="#FFFFFF" />
       </button>
     </>
@@ -19,12 +20,12 @@ export const StepPagination = ({
 };
 
 export const PrimaryButton = ({ label, onClick }) => {
-  return <button onClick={onClick}>{label}</button>;
+  return <button className="PrimaryButton" onClick={onClick}>{label}</button>;
 };
 
 export const BackButton = ({ label, onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button className="BackButton" onClick={onClick}>
       <ArrowLineLeft fillColor="#10494C" /> {label}
     </button>
   );

@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils/Constants";
 import { Grid, Breadcrumbs, Typography } from "@mui/material";
 import { Help, ArrowLineRight } from "../../assets/Icons";
+import "./MentorVerification.scss";
 
 const MentoVerification = () => {
   const navigate = useNavigate();
@@ -12,21 +13,23 @@ const MentoVerification = () => {
   const [score, setScore] = useState(0);
   const [isDisabled, setIsDisablled] = useState(false);
 
-useEffect(() => {
-  Promise.all([
-    axios.get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`),
-  ])
-    .then(([result]) => {
-      let progress = result.data;
-      setScore(progress.test_result);
-      setTimeSpent(progress.completed_time);
-      setIsDisablled(progress.completed_time === 0 && progress.test_result === 0);
-      console.log(progress);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}, []);
+  useEffect(() => {
+    Promise.all([
+      axios.get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`),
+    ])
+      .then(([result]) => {
+        let progress = result.data;
+        setScore(progress.test_result);
+        setTimeSpent(progress.completed_time);
+        setIsDisablled(
+          progress.completed_time === 0 && progress.test_result === 0
+        );
+        console.log(progress);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   // Breadcumb
   const breadcrumbStyle = {
@@ -78,17 +81,19 @@ useEffect(() => {
   return (
     <>
       <div>
-        <h4>Test your knowledge</h4>
-        <p>You can start the test when you are ready</p>
-        <p>
+        <h4 className="MentorVerification-title">Test your knowledge</h4>
+        <p className="MentorVerification-body">
+          You can start the test when you are ready
+        </p>
+        <p className="MentorVerification-body-1">
           You need at least 80% to approve the test and get a ecrtification.
         </p>
 
         <Grid container>
           <Grid item md={6}>
-            <div>
-              <h4>Cerification Quiz</h4>
-              <p>
+            <div className="MentorVerification-card">
+              <h4 className="MentorVerification-title">Cerification Quiz</h4>
+              <p className="MentorVerification-body-1">
                 Chemex brewing method, Ratio, Pouring, Chemex consideration.
               </p>
 
@@ -113,8 +118,8 @@ useEffect(() => {
             </div>
           </Grid>
           <Grid item md={6}>
-            <div>
-              <h3>Mentor Verification</h3>
+            <div className="MentorVerification-card">
+              <h3 className="MentorVerification-title">Mentor Verification</h3>
               <Breadcrumbs
                 separator={<ArrowLineRight fillColor="#709294" />}
                 aria-label="breadcrumb"
@@ -122,7 +127,7 @@ useEffect(() => {
                 {breadcrumbs}
               </Breadcrumbs>
 
-              <p>
+              <p> 
                 <Help fillColor="#10494C" />
                 After finishing your test, a mentor will verify your answers.
               </p>

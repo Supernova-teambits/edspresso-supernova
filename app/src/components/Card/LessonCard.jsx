@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import {
-  Card,
-  CardContent,
-  CardMedia,
-  CardActionArea,
-  Box,
   LinearProgress,
   Grid,
 } from "@mui/material";
+import "./LessonCard.scss";
+import { MediaImage } from "../../assets/images";
 
 export default function LessonCard({
   icon,
@@ -19,20 +16,29 @@ export default function LessonCard({
 }) {
   return (
     <Grid item xs={size}>
-      <Card sx={{ maxWidth: 200 }}>
-        <CardActionArea component={Link} to={to}>
-          <CardMedia component="img" height="140" image={icon} alt={title} />
-          <CardContent>
-            <p>{title}</p>
+      <div className="LessonCard">
+        <Link to={to}>
+          {icon ? (
+            <img className="LessonCard-img" src={icon} alt={title} />
+          ) : (
+            <div className="LessonCard-img">
+              <MediaImage className="LessonCard-img" />
+            </div>
+          )}
+
+          <div>
+            <p className="LessonCard-title">{title}</p>
             {value && <p>{value}</p>}
             {0 < progress && progress < 100 ? (
-              <Box sx={{ width: "100%" }}>
-                <LinearProgress variant="determinate" value={progress} />
-              </Box>
+              <LinearProgress
+                className="LessonCard-ProgressBar"
+                variant="determinate"
+                value={progress}
+              />
             ) : null}
-          </CardContent>
-        </CardActionArea>
-      </Card>
+          </div>
+        </Link>
+      </div>
     </Grid>
   );
 }

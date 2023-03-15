@@ -1,8 +1,11 @@
+import { chemex } from "../assets/images";
+
 // dummy data for lessons (cards)
 const assigned_lessons = [{
     id: 1,
     title: "Chemex methods",
-    progress_status: 0
+    progress_status: 0,
+    image_src: chemex
 },
 {
     id: 2,

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import assigned_lessons from "./dummy-lesson";
+import { Grid } from "@mui/material";
 import SearchBar from "../components/SearchBar/SearchBar";
-import CardCollection from "../components/CardCollection";
-
+import CardCollection from "../components/CardCollection/CardCollection";
+import "./MyTraining.scss";
 
 const MyTraining = () => {
   const [searchText, setSearchText] = useState("");
@@ -31,22 +32,36 @@ const MyTraining = () => {
 
   return (
     <>
-      <h1>My Training</h1>
-
-      <SearchBar value={searchText} onChange={handleSearch} />
-
-      <CardCollection
-        title="Ongoing Lessons"
-        lessons={searchText ? filteredArray(ongoing) : ongoing}
-      />
-      <CardCollection
-        title="Lessons to take"
-        lessons={searchText ? filteredArray(toTake) : toTake}
-      />
-      <CardCollection
-        title="Completed Lessons"
-        lessons={searchText ? filteredArray(completed) : completed}
-      />
+      <div className="My-Learnings-container-colored">
+        <Grid container>
+          <Grid item xs={8}>
+            <h4 className="My-Lernings-title">My Learnings</h4>
+          </Grid>
+          <Grid item xs={4}>
+            <SearchBar
+              className="MyLearnings-searchBar"
+              value={searchText}
+              onChange={handleSearch}
+            />
+          </Grid>
+        </Grid>
+        <CardCollection
+          title="Ongoing Lessons"
+          lessons={searchText ? filteredArray(ongoing) : ongoing}
+        />
+      </div>
+      <div>
+        <CardCollection
+          title="Lessons to take"
+          lessons={searchText ? filteredArray(toTake) : toTake}
+        />
+      </div>
+      <div className="My-Learnings-container-colored">
+        <CardCollection
+          title="Completed Lessons"
+          lessons={searchText ? filteredArray(completed) : completed}
+        />
+      </div>
     </>
   );
 };

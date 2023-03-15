@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import step from "../../pages/dummy-steps";
 import assigned_lessons from "../../pages/dummy-lesson";
 
@@ -16,8 +16,7 @@ import {
   RatioCalculater,
 } from "../RecipeExecution/StepsMedia";
 import TipsCard from "../Card/TipsCard";
-import { ArrowLineLeft } from "../../assets/Icons";
-import { StepPagination } from "../Buttons/Button";
+import { BackButton, StepPagination } from "../Buttons/Button";
 
 export const StepSubContent = ({ content }) => {
   let component;
@@ -65,14 +64,15 @@ const stepArr = [
 ];
 
 export const StepHeader = ({ lesson, index }) => {
+  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
     <div>
-      <Link to="/app/myTraining">
-        <ArrowLineLeft fillColor="#10494C" />
-        My Learning
-      </Link>
+      <BackButton
+        label="My Learnings"
+        onClick={() => navigate("/app/myTraining")}
+      />
       <h4>{lesson.title}</h4>
       {matches ? null : <p>{step[index].title}</p>}
     </div>

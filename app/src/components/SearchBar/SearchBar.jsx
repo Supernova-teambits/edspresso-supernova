@@ -16,6 +16,7 @@ export default function SearchBar({ value, onChange }) {
       <TextField
         value={value}
         onChange={onChange}
+        placeholder="Search for a lesson"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

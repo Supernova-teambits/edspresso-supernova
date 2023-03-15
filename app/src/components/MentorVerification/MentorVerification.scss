@@ -1,0 +1,21 @@
+@import "../../sass/main.scss";
+
+.MentorVerification-title {
+  @extend .headline-4;
+  color: $primary-500;
+}
+
+.MentorVerification-body {
+  @extend .body-1;
+  color: $neutral-grey-dark-2;
+}
+
+.MentorVerification-card {
+  background-color: $neutral-white;
+  border-radius: 12px;
+}
+
+.MentorVerification-card > p {
+  @extend .body-1;
+  color: $primary-500;
+}

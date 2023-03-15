@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Chip, Grid, Box } from "@mui/material";
-import { Coffee } from "../../assets/Icons";
+import { Coffee, Profile } from "../../assets/Icons";
+import "./DetailsCard.scss";
 
 function DifficultyIcon(difficulty) {
   const numColoredIcons = difficulty;
@@ -23,38 +24,40 @@ export const DetailsCardColored = ({
   text,
   difficulty,
   size,
+  requirements,
 }) => {
   return (
     <>
-      <Grid item md={size}>
-          <h4>{title}</h4>
-          {text && <p>{text}</p>}
-          {difficulty && DifficultyIcon(difficulty)}
+      <Grid item md={size} className="DetailsCardColored">
+        <h4 className="DetailsCardColored-title">{title}</h4>
+        {text && <p className="DetailsCardColored-body">{text}</p>}
+        {difficulty && DifficultyIcon(difficulty)}
+        {requirements && (
+          <Box
+            sx={{
+              display: "flex",
+            }}
+            component="ul"
+          >
+            {requirements.map((data, index) => {
+              let icon;
+              return <Chip key={index} icon={icon} label={data} />;
+            })}
+          </Box>
+        )}
       </Grid>
     </>
   );
 };
 
-export const DetailsCard = ({ title, text, to, link, size, requirements }) => {
+export const DetailsCard = ({ title, text, to, link, size }) => {
   return (
     <>
-      <Grid item md={size}>
-          <h4>{title}</h4>
-          {text && <p>{text}</p>}
-          {link && <Link to={to}>{link}</Link>}
-          {requirements && (
-            <Box
-              sx={{
-                display: "flex",
-              }}
-              component="ul"
-            >
-              {requirements.map((data, index) => {
-                let icon;
-                return <Chip key={index} icon={icon} label={data} />;
-              })}
-            </Box>
-          )}
+      <Grid className="DetailsCard" item md={size}>
+        <h4 className="DetailsCardColored-title">{title}</h4>
+        {title === "Mentor" ? <Profile fillColor="#171717" /> : null}
+        {text && <p>{text}</p>}
+        {link && <Link to={to}>{link}</Link>}
       </Grid>
     </>
   );

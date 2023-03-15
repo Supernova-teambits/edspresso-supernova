@@ -72,6 +72,14 @@ $subtitle-font: "source-sans-pro", sans-serif;
   line-height: 18px;
 }
 
+@mixin body-1() {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .body-2 {
   @extend .body-1;
   font-size: 16px;
@@ -100,6 +108,14 @@ $subtitle-font: "source-sans-pro", sans-serif;
 
 /* Button styles */
 .button {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin button() {
   font-family: $subtitle-font;
   font-style: normal;
   font-weight: 700;

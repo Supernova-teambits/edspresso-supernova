@@ -5,6 +5,7 @@ import Pagination from "../components/Buttons/Pagination";
 import ResultPage from "./ResultPage";
 import { useMediaQuery } from "react-responsive";
 import { LinearProgress } from "@mui/material";
+import "./QuizPage.scss";
 
 const QuizPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,22 +88,49 @@ const QuizPage = () => {
                 buttonName="X"
                 messageHeader="Leave the Test"
                 message="Do you want to leave the test? Your answers will not be saved."
+                buttonStyle={{
+                  display: "flex",
+                  position: "absolute",
+                  top: 20,
+                  right: 20,
+                  width: "50px",
+                  border: "none",
+                  color: "#FFF0DE",
+                  backgroundColor: "transparent",
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                  },
+                }}
               />
               <h3>QUIZ</h3>
               <h2>3 Cups Chemex</h2>
-              <div className="header-middle">
-                <LinearProgress
-                  variant="determinate"
-                  value={(currentPage / totalPages) * 100}
-                />
-                <span>
-                  Question {currentPage} of {totalPages} -{" "}
-                  {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
-                  {timeLeft % 60}
-                  &nbsp;min left
-                </span>
-              </div>
             </header>
+            <div className="header-middle-mobile">
+              <LinearProgress
+                variant="determinate"
+                value={(currentPage / totalPages) * 100}
+                sx={{
+                  height: 8,
+                  borderRadius: 8,
+                  backgroundColor: "#FFF0DE",
+                  "& .MuiLinearProgress-bar": {
+                    borderRadius: 8,
+                    backgroundColor: "#FF9B57",
+                    width: "100%",
+                  },
+                  marginLeft: "35px",
+                }}
+              />
+              <div className="question-mobile">
+                Question {currentPage} of {totalPages} -{" "}
+                {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
+                {timeLeft % 60}
+                &nbsp;min left
+              </div>
+            </div>
+
             <main>
               <div className="question-container">
                 <p>Select one option in each question.</p>
@@ -131,6 +159,8 @@ const QuizPage = () => {
                   Please choose an answer.
                 </p>
               )}
+            </main>
+            <footer>
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
@@ -138,7 +168,7 @@ const QuizPage = () => {
                 onNext={handleNext}
                 onSubmit={handleSubmit}
               />
-            </main>
+            </footer>
           </>
         ) : (
           <ResultPage
@@ -150,15 +180,19 @@ const QuizPage = () => {
       ) : currentPage <= totalPages ? (
         <>
           <header>
-            <h3>QUIZ</h3>
-            <h2>3 Cups Chemex</h2>
-            <div className="header-middle">
-              <strong>
-                Time Left {Math.floor(timeLeft / 60)}:
-                {timeLeft % 60 < 10 ? "0" : ""}
-                {timeLeft % 60}
-                &nbsp;min
-              </strong>
+            <div class="header-wrapper">
+              <div class="header-left">
+                <h3>QUIZ</h3>
+                <h2>3 Cups Chemex</h2>
+              </div>
+              <div className="header-middle">
+                <strong>
+                  Time Left {Math.floor(timeLeft / 60)}:
+                  {timeLeft % 60 < 10 ? "0" : ""}
+                  {timeLeft % 60}
+                  &nbsp;min
+                </strong>
+              </div>
             </div>
           </header>
           <main>
@@ -169,7 +203,7 @@ const QuizPage = () => {
                 <div className="options">
                   {question.options.map((option, index) => (
                     <div key={index}>
-                      <label>
+                      <label className="radio-button">
                         <input
                           type="radio"
                           name={`answer-${question.id}`}
@@ -191,15 +225,35 @@ const QuizPage = () => {
                 )}
               </div>
             ))}
-            <CloseButton
-              buttonName="Cancel"
-              messageHeader="Leave the test"
-              message="Do you want to leave the test? Your answers will not be saved."
-            />
-            <button className="submit-btn" onClick={handleSubmit}>
-              Submit
-            </button>
           </main>
+          <footer>
+            <div class="footer-wrapper">
+              <CloseButton
+                buttonName="Cancel"
+                messageHeader="Leave the test"
+                message="Do you want to leave the test? Your answers will not be saved."
+                buttonStyle={{
+                  border: "none",
+                  fontFamily: "Source Sans Pro",
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                  color: "#10494c",
+                  cursor: "pointer",
+                  backgroundColor: "transparent",
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                  },
+                }}
+              />
+              <button className="submit-btn" onClick={handleSubmit}>
+                Submit
+              </button>
+            </div>
+          </footer>
         </>
       ) : (
         <ResultPage

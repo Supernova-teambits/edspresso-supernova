@@ -1,0 +1,10 @@
+@import "../sass/main.scss";
+
+.My-Lernings-title {
+    @extend .headline-4;
+    color: $primary-500;
+}
+
+.My-Learnings-container-colored {
+    background-color: $secondary-050;
+}

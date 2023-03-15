@@ -1,0 +1,42 @@
+@import "../sass/main.scss";
+
+.RecipeDetails-header{
+    background-color: $secondary-050;
+}
+
+.RecipeDetails-title {
+    @extend .headline-4;
+    color: $primary-500;
+}
+
+.RecipeDetails-body {
+    @extend .body-2;
+    color: $neutral-grey-dark-2;
+}
+
+.RecipeDetails-img {
+    height: 250px;
+    width: 264px;
+    object-fit: cover;
+    border-radius: 11px;
+}
+
+.RecipeDetails-start-btn {
+    width: 146px;
+    height: 40px;
+}
+
+.Accordion-text-container > div{
+    display: flex;
+        justify-content: center;
+}
+
+.Accordion-text {
+    align-items: center;
+    @extend .button;
+    color: $primary-500;
+}
+
+.RecipeDetails-Test-section {
+    background-color: $secondary-100;
+}

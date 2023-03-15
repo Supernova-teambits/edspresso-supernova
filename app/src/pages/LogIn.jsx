@@ -6,7 +6,6 @@ import {
   Grid,
   Paper,
   TextField,
-  Typography,
   useMediaQuery,
 } from "@mui/material";
 import { getUser, updateUser } from "../services/loginService";

@@ -7,6 +7,7 @@ import NoMatch from "../pages/NotMatch";
 import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
 import ProgressUpdate from "../pages/ProgressUpdate";
+import QuizPage from "../pages/QuizPage";
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: "app/step/6",
+    element: <QuizPage />,
+  },
+
   { path: "*", element: <NoMatch /> },
 ];
 export default routes;

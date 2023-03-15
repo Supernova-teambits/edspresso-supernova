@@ -21,7 +21,7 @@ const ModalWrapper = styled("div")({
   right: 0,
 });
 
-const CloseButton = ({ buttonName, messageHeader, message }) => {
+const CloseButton = ({ buttonName, messageHeader, message, buttonStyle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -32,16 +32,7 @@ const CloseButton = ({ buttonName, messageHeader, message }) => {
 
   return (
     <>
-      <Button
-        sx={{
-          backgroundColor: "transparent",
-          color: "#10494C",
-          boxShadow: "none",
-          "&:hover": { backgroundColor: "transparent", boxShadow: "none" },
-        }}
-        variant="contained"
-        onClick={handleOpen}
-      >
+      <Button sx={buttonStyle} variant="contained" onClick={handleOpen}>
         {buttonName}
       </Button>
       <Modal

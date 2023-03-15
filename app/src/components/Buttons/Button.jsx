@@ -21,3 +21,11 @@ export const StepPagination = ({
 export const PrimaryButton = ({ label, onClick }) => {
   return <button onClick={onClick}>{label}</button>;
 };
+
+export const BackButton = ({ label, onClick }) => {
+  return (
+    <button onClick={onClick}>
+      <ArrowLineLeft fillColor="#10494C" /> {label}
+    </button>
+  );
+};

@@ -1,9 +1,8 @@
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
-import { StepPagination } from "../components/Buttons/Button";
+import { BackButton, StepPagination } from "../components/Buttons/Button";
 import { StepProgresesDesktop } from "../components/RecipeExecution/StepProgress";
-import { ArrowLineLeft } from "../assets/Icons";
 
 const stepArr = [
   {
@@ -48,10 +47,10 @@ const ProgressUpdate = () => {
     return (
       <>
         <div>
-          <Link to="/app/myTraining">
-            <ArrowLineLeft fillColor="#10494C" />
-            My Learning
-          </Link>
+          <BackButton
+            label="My Learnings"
+            onClick={() => navigate("/app/myTraining")}
+          />
           <h4>Chemex method</h4>
         </div>
 
@@ -102,10 +101,10 @@ const ProgressUpdate = () => {
     return (
       <>
         <div>
-          <Link to="/app/myTraining">
-            <ArrowLineLeft fillColor="#10494C" />
-            My Learning
-          </Link>
+          <BackButton
+            label="My Learnings"
+            onClick={() => navigate("/app/myTraining")}
+          />
           <h4>Chemex method</h4>
         </div>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import step from "../pages/dummy-steps";
 
 import {
@@ -13,11 +13,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import MentoVerification from "./MentorVerification/MentorVerification";
 
-import { PrimaryButton } from "./Buttons/Button";
+import { PrimaryButton, BackButton } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
-import { ArrowLineLeft } from "../assets/Icons";
 
 const RecipeDetails = () => {
   const matches = useMediaQuery("(min-width:1000px)");
@@ -32,10 +31,10 @@ const RecipeDetails = () => {
   return (
     <>
       <div>
-        <Link to="/app/myTraining">
-          <ArrowLineLeft fillColor="#10494C" />
-          My Learning
-        </Link>
+        <BackButton
+          label="My Learnings"
+          onClick={() => navigate("/app/myTraining")}
+        />
         <h4>Chemex method</h4>
       </div>
 

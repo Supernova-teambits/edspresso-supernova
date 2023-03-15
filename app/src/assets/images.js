@@ -292,6 +292,16 @@ const expressoMachine = () => {
   );
 };
 
+const MediaImage = () => {
+  return (
+    <svg width="121" height="94" viewBox="0 0 121 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.5" width="120" height="94" rx="11" fill="#FFF0DE" />
+      <path d="M45.5 65C44.7 65 44 64.7 43.4 64.1C42.8 63.5 42.5 62.8 42.5 62V32C42.5 31.2 42.8 30.5 43.4 29.9C44 29.3 44.7 29 45.5 29H75.5C76.3 29 77 29.3 77.6 29.9C78.2 30.5 78.5 31.2 78.5 32V62C78.5 62.8 78.2 63.5 77.6 64.1C77 64.7 76.3 65 75.5 65H45.5ZM48.3 57.15H72.75L65.4 47.35L58.8 55.9L54.15 49.55L48.3 57.15Z" fill="#FFDAAC" />
+    </svg>
+  );
+};
+
+
 export {
   chemex,
   loginBg,
@@ -300,4 +310,5 @@ export {
   barista,
   grinder,
   expressoMachine,
+  MediaImage
 };

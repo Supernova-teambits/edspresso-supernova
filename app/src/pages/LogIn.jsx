@@ -37,6 +37,7 @@ export default function LogIn() {
           .then((results) => {
             setLoading(false);
             setUserRole(results);
+            localStorage.setItem("managerInfo", results.manager_code);
             navigate("/app/dashboard");
           })
           .catch((error) => {
@@ -95,6 +96,7 @@ export default function LogIn() {
             setLoading(false);
             setUserRole(user.data);
             if (user.data.role === "manager") {
+              localStorage.setItem("managerInfo", user.data.manager_code);
               navigate("/app/dashboard");
             } else {
               navigate("/app/myTraining");

@@ -21,8 +21,12 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getTraineeProgress(manager.manager_code);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (manager.manager_code === undefined) {
+      getTraineeProgress(localStorage.getItem("managerInfo"));
+    } else {
+      getTraineeProgress(manager.manager_code);
+    }
+    // eslint-disable-next-line
   }, []);
 
   return (

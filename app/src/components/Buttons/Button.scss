@@ -28,79 +28,32 @@
   }
 }
 
-.WithArrow {
-  @extend .PrimaryBtn;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  span {
-    display: inline-block;
-    text-align: center;
-    flex-grow: 1;
-  }
-  .-arrow-icon {
-    display: inline-block;
-    margin: 0 10px;
-  }
+.PrimaryButton {
+    @extend .button;
+    background-color: $accent-700;
+    color: $neutral-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 6px 8px 6px;
+    border: none;
 }
 
-.PrimaryBtnWithArrow {
-  @extend .WithArrow;
-}
+.BackButton {
+    @extend .button;
+    color: $primary-500;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 6px 8px 6px;
+    border: none;
 
-.PrimaryBtnOutline {
-  @extend .PrimaryBtn;
-  background-color: transparent;
-  color: $primary-500;
-  border: 1px $primary-500 solid;
-
-  &:hover {
-    background-color: $hover-primary-010;
-    cursor: pointer;
-    transform: translateY(-5px);
-  }
-
-  &:disabled {
-    background-color: $disabled-accent;
-    color: $disabled-light-bg;
-    border-color: $disabled-light-bg;
-  }
-}
-
-.PrimaryBtnOutlineWithArrow {
-  @extend .PrimaryBtnOutline;
-  @extend .WithArrow;
-}
-
-.PrimaryBtnText {
-  @extend .PrimaryBtn;
-  background-color: transparent;
-  color: $primary-500;
-
-  &:hover {
-    background-color: $hover-primary-010;
-    cursor: pointer;
-  }
-
-  &:disabled {
-    background-color: $disabled-accent;
-    color: $disabled-light-bg;
-  }
-}
-
-.PrimaryBtnTextWithArrow {
-  @extend .PrimaryBtnText;
-  @extend .WithArrow;
-}
-
-.PrimaryBtnWide {
-  @extend .PrimaryBtn;
-  width: 100%;
-}
-
-.PrimaryBtnTextWide {
-  @extend .PrimaryBtnText;
-  width: 100%;
+    &:hover {
+        background-color: $hover-primary-010;
+        cursor: pointer;
+        transform: translateY(-5px);
+    }
 }

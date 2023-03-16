@@ -1,15 +1,21 @@
 @import "../../sass/main.scss";
 
 .DetailsCardColored {
-    border-radius: 8px;
-    background-color: $secondary-050;
+  border-radius: 8px;
+  background-color: $secondary-050;
 }
 
 .DetailsCardColored-title {
-    @extend .headline-6;
-    color: $primary-500;
+  @extend .headline-6;
+  color: $primary-500;
 }
 
 .DetailsCard {
-    border-radius: 8px;
+  border-radius: 8px;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }

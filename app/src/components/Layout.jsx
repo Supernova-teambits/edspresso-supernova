@@ -8,7 +8,7 @@ const Layout = () => {
         <Header />
         <SideBar />
       </div>
-      <div style={{ marginLeft: '260px' }}>
+      <div style={{ marginLeft: '200px' }}>
         <Outlet />
       </div>
     </div>

@@ -1,21 +1,51 @@
 @import "../../sass/main.scss";
+.MentorVerification {
+  &-title {
+    @extend .headline-4;
+    color: $primary-700;
+  }
 
-.MentorVerification-title {
-  @extend .headline-4;
-  color: $primary-500;
-}
+  &-body {
+    @extend .body-1;
+    color: $neutral-grey-dark-2;
+  }
 
-.MentorVerification-body {
-  @extend .body-1;
-  color: $neutral-grey-dark-2;
-}
+  &-card {
+    background-color: $neutral-white;
+    border-radius: 12px;
+    padding: 20px 18px;
+    width: 420px;
+    min-height: 200px;
 
-.MentorVerification-card {
-  background-color: $neutral-white;
-  border-radius: 12px;
-}
+    &-title {
+      margin-bottom: 16px;
+      @extend .headline-4;
+      color: $primary-500;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+    
+    &-content-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.MentorVerification-card > p {
-  @extend .body-1;
-  color: $primary-500;
+    &-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    > p {
+      @extend .body-1;
+      color: $primary-500;
+    }
+    .passDate {
+      @extend .subtitle-2;
+    }
+
+    .QuizStart-btn:disabled {
+      background-color: $disabled-accent;
+    }
+  }
 }

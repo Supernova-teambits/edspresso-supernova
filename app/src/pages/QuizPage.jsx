@@ -6,6 +6,7 @@ import ResultPage from "./ResultPage";
 import { useMediaQuery } from "react-responsive";
 import { LinearProgress } from "@mui/material";
 import "./QuizPage.scss";
+import { CloseLine, Vector } from "../assets/Icons";
 
 const QuizPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -84,18 +85,24 @@ const QuizPage = () => {
         currentPage <= totalPages ? (
           <>
             <header>
+              <Vector
+                style={{
+                  display: "flex",
+                  position: "absolute",
+                  marginTop: "5px",
+                }}
+              />
               <CloseButton
-                buttonName="X"
+                buttonName={<CloseLine fillColor="#FFF0DE" />}
                 messageHeader="Leave the Test"
                 message="Do you want to leave the test? Your answers will not be saved."
                 buttonStyle={{
                   display: "flex",
                   position: "absolute",
-                  top: 20,
-                  right: 20,
+                  right: 0,
                   width: "50px",
+                  marginTop: "3px",
                   border: "none",
-                  color: "#FFF0DE",
                   backgroundColor: "transparent",
                   boxShadow: "none",
                   "&:hover": {
@@ -120,7 +127,7 @@ const QuizPage = () => {
                     backgroundColor: "#FF9B57",
                     width: "100%",
                   },
-                  marginLeft: "35px",
+                  margin: "0 15px",
                 }}
               />
               <div className="question-mobile">
@@ -153,12 +160,12 @@ const QuizPage = () => {
                     </div>
                   ))}
                 </div>
+                {errorMessage && (
+                  <p style={{ color: "red" }} className="error-message">
+                    Please choose an answer.
+                  </p>
+                )}
               </div>
-              {errorMessage && (
-                <p style={{ color: "red" }} className="error-message">
-                  Please choose an answer.
-                </p>
-              )}
             </main>
             <footer>
               <Pagination
@@ -233,6 +240,7 @@ const QuizPage = () => {
                 messageHeader="Leave the test"
                 message="Do you want to leave the test? Your answers will not be saved."
                 buttonStyle={{
+                  textTransform: "capitalize",
                   border: "none",
                   fontFamily: "Source Sans Pro",
                   fontStyle: "normal",

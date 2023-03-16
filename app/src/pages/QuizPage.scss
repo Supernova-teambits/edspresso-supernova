@@ -51,7 +51,6 @@
 }
 
 .quiz-page main {
-  width: 800px;
   text-align: left;
   padding: 0 200px;
 }
@@ -87,24 +86,18 @@ input[type="radio"]:checked::before {
 }
 
 .question-container h3 {
+  @extend .subtitle-1;
+  margin-top: auto;
+  color: $primary-500;
+}
+
+.question-container p {
+  @extend .body-2;
+  color: $neutral-grey-dark-2;
+}
+
+.options > div {
   margin-bottom: 10px;
-}
-
-.options {
-  display: flex;
-  align-items: left;
-}
-
-.radio-button {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-  flex-basis: calc(25% - 10px);
-  max-width: calc(25% - 10px);
-}
-
-.radio-button input {
-  margin-right: 5px;
 }
 
 .quiz-page footer {
@@ -168,18 +161,13 @@ input[type="radio"]:checked::before {
     @include body-1();
     margin-top: 10px;
     color: $primary-500;
-    margin-left: 35px;
+    margin: 15px;
     text-align: center;
   }
 
   .quiz-page main {
     width: 100%;
     padding: 0 20px;
-  }
-
-  .question-container {
-    margin: 0 auto;
-    width: 90%;
   }
 
   .question-container p,
@@ -200,5 +188,8 @@ input[type="radio"]:checked::before {
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+  .custom-pagination {
+    @include button();
   }
 }

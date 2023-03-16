@@ -9,9 +9,8 @@ const ModalWrapper = styled("div")({
   justifyContent: "center",
   backgroundColor: "white",
   boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
-  padding: "24px",
   borderRadius: "8px",
-  width: "200px",
+  width: "250px",
   height: "200px",
   margin: "auto",
   position: "absolute",
@@ -51,7 +50,7 @@ const CloseButton = ({ buttonName, messageHeader, message, buttonStyle }) => {
         >
           <h3>{messageHeader}</h3>
           <p>{message}</p>
-          <div sx={{ display: "flex", padding: "15px" }}>
+          <div sx={{ display: "flex", padding: "20px" }}>
             <Button sx={{ padding: "15px" }} onClick={handleClose}>
               Cancel
             </Button>

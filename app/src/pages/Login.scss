@@ -5,6 +5,20 @@
   color: $primary-500;
 }
 
+.Login-form-text-field {
+  @extend .body-1-italic;
+  color: #384048;
+}
+
+.Login-form-button {
+  @extend .button;
+  color: $secondary-050;
+  text-transform: "none";
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
 @media (max-width: $max_width_for_mobile) {
   .Login-form-title {
     @include headline-3();

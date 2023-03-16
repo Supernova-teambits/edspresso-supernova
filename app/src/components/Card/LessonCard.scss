@@ -8,21 +8,24 @@
     padding: 8px;
     border-radius: 12px;
 
+    &-img {
+        height: 94px;
+        width: 120px;
+        border-radius: 11px;
+        margin-bottom: 16px;
+    }
+
+    &-title {
+        @extend .subtitle-2;
+        color: $primary-500;
+        margin: 0;
+    }
 }
 
-.LessonCard-title {
-    @extend .subtitle-2;
-    color: $primary-500;
-    margin: 16px 0 8px;
-}
 
-.LessonCard-img {
-    height: 94px;
-    width: 120px;
-    border-radius: 11px;
-}
 
 .LessonCard-ProgressBar {  
+    margin-top: 8px;
 
     &.MuiLinearProgress-colorPrimary {
         background-color: $secondary-100;

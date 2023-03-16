@@ -1,8 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
-import { BackButton, StepPagination } from "../components/Buttons/Button";
-import { StepProgresesDesktop } from "../components/RecipeExecution/StepProgress";
+import {
+  StepPagination,
+  PrimaryBtnTextWithLeftArrow,
+} from "../components/Buttons/Button";
+import { StepProgressDesktop } from "../components/RecipeExecution/StepProgress";
+import "./ProgressUpdate.scss";
 
 const stepArr = [
   {
@@ -46,24 +50,26 @@ const ProgressUpdate = () => {
   if (id === "1") {
     return (
       <>
-        <div>
-          <BackButton
+        <div className="RecipeDetails-header">
+          <PrimaryBtnTextWithLeftArrow
             label="My Learnings"
             onClick={() => navigate("/app/myTraining")}
           />
-          <h4>Chemex method</h4>
+          <h4 className="Lesson-title">Chemex method</h4>
         </div>
 
         <Grid container>
           {matches ? (
             <>
               <Grid item xs={12} md={4}>
-                <StepProgresesDesktop stepArr={stepArr} done={1} />
+                <StepProgressDesktop stepArr={stepArr} done={1} />
               </Grid>
               <Grid item xs={12} md={8}>
-                <h5>{message[0].heading}</h5>
-                <h6>{message[0].subtitle}</h6>
-                <p>{message[0].message1}</p>
+                <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[0].subtitle}
+                </h6>
+                <p className="ProgressUpdate-content">{message[0].message1}</p>
                 <img
                   src={chemex}
                   alt="Coffee cup on wooden table at dawn"
@@ -74,15 +80,17 @@ const ProgressUpdate = () => {
           ) : (
             <>
               <Grid item xs={12} md={4}>
-                <h5>{message[0].heading}</h5>
-                <h6>{message[0].subtitle}</h6>
-                <StepProgresesDesktop stepArr={stepArr} done={0} />
-                <p>{message[0].message1}</p>
+                <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[0].subtitle}
+                </h6>
+                <StepProgressDesktop stepArr={stepArr} done={0} />
+                <p className="ProgressUpdate-content">{message[0].message1}</p>
               </Grid>
             </>
           )}
 
-          <Grid item>
+          <Grid item xs={12} className="Step-StepPagination">
             <StepPagination
               labelLeft="Back"
               onClickLeft={() => {
@@ -100,25 +108,27 @@ const ProgressUpdate = () => {
   } else {
     return (
       <>
-        <div>
-          <BackButton
+        <div className="RecipeDetails-header">
+          <PrimaryBtnTextWithLeftArrow
             label="My Learnings"
             onClick={() => navigate("/app/myTraining")}
           />
-          <h4>Chemex method</h4>
+          <h4 className="Lesson-title">Chemex method</h4>
         </div>
 
         <Grid container>
           {matches ? (
             <>
               <Grid item xs={12} md={4}>
-                <StepProgresesDesktop stepArr={stepArr} done={5} />
+                <StepProgressDesktop stepArr={stepArr} done={5} />
               </Grid>
               <Grid item xs={12} md={8}>
-                <h5>{message[1].heading}</h5>
-                <p>{message[1].message1}</p>
-                <h6>{message[1].subheading}</h6>
-                <p>{message[1].message2}</p>
+                <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                <p className="ProgressUpdate-content">{message[1].message1}</p>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[1].subheading}
+                </h6>
+                <p className="ProgressUpdate-content">{message[1].message2}</p>
                 <img
                   src={chemex}
                   alt="Coffee cup on wooden table at dawn"
@@ -129,16 +139,18 @@ const ProgressUpdate = () => {
           ) : (
             <>
               <Grid item xs={12} md={4}>
-                <h5>{message[1].heading}</h5>
-                <p>{message[1].message1}</p>
-                <StepProgresesDesktop stepArr={stepArr} done={0} />
-                <h6>{message[1].subheading}</h6>
-                <p>{message[1].message2}</p>
+                <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                <p className="ProgressUpdate-content">{message[1].message1}</p>
+                <StepProgressDesktop stepArr={stepArr} done={0} />
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[1].subheading}
+                </h6>
+                <p className="ProgressUpdate-content">{message[1].message2}</p>
               </Grid>
             </>
           )}
 
-          <Grid item>
+          <Grid item xs={12} className="Step-StepPagination">
             <StepPagination
               labelLeft="Lesson Page"
               onClickLeft={() => {

@@ -19,7 +19,12 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
   return (
     <div
       className="pagination"
-      style={{ display: "flex", justifyContent: "space-evenly" }}
+      style={{
+        display: "flex",
+        height: "inherit",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+      }}
     >
       {!isFirstPage ? (
         <button
@@ -39,7 +44,12 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
           }}
         >
           <ArrowLineLeft fillColor="#10494C" style={{ marginRight: "4px" }} />
-          <span style={{ flex: 1, textAlign: "center" }}>Back</span>
+          <span
+            className="custom-pagination"
+            style={{ flex: 1, textAlign: "center" }}
+          >
+            Back
+          </span>
         </button>
       ) : (
         <button
@@ -54,10 +64,16 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
             borderRadius: "8px",
             textAlign: "center",
             border: "none",
+            background: "transparent",
           }}
         >
           <ArrowLineLeft fillColor="#0000004D" style={{ marginRight: "4px" }} />
-          <span style={{ flex: 1, textAlign: "center" }}>Back</span>
+          <span
+            className="custom-pagination"
+            style={{ flex: 1, textAlign: "center" }}
+          >
+            Back
+          </span>
         </button>
       )}
       {isLastPage ? (
@@ -71,12 +87,18 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
             width: "148px",
             height: "40px",
             background: "#B84B11",
+            color: "#FFFFFF",
             borderRadius: "8px",
             textAlign: "center",
             border: "none",
           }}
         >
-          Submit
+          <span
+            className="custom-pagination"
+            style={{ flex: 1, textAlign: "center" }}
+          >
+            Submit
+          </span>
         </button>
       ) : (
         <button
@@ -89,12 +111,18 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
             width: "148px",
             height: "40px",
             background: "#B84B11",
+            color: "#FFFFFF",
             borderRadius: "8px",
             textAlign: "center",
             border: "none",
           }}
         >
-          <span style={{ flex: 1, textAlign: "center" }}>Next</span>
+          <span
+            className="custom-pagination"
+            style={{ flex: 1, textAlign: "center" }}
+          >
+            Next
+          </span>
           <ArrowLineRight fillColor="#FFFFFF" style={{ marginLeft: "4px" }} />
         </button>
       )}

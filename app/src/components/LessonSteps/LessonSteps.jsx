@@ -6,7 +6,7 @@ import { Box, Grid, useMediaQuery } from "@mui/material";
 
 import {
   ProgressBar,
-  StepProgresesDesktop,
+  StepProgressDesktop,
 } from "../RecipeExecution/StepProgress";
 import {
   PainText,
@@ -14,9 +14,10 @@ import {
   IngredientsCard,
   DescWithRef,
   RatioCalculater,
-} from "../RecipeExecution/StepsMedia";
+} from "../RecipeExecution/StepMedia";
 import TipsCard from "../Card/TipsCard";
-import { BackButton, StepPagination } from "../Buttons/Button";
+import { PrimaryBtnTextWithLeftArrow, StepPagination } from "../Buttons/Button";
+import "./LessonSteps.scss";
 
 export const StepSubContent = ({ content }) => {
   let component;
@@ -69,12 +70,12 @@ export const StepHeader = ({ lesson, index }) => {
 
   return (
     <div>
-      <BackButton
+      <PrimaryBtnTextWithLeftArrow
         label="My Learnings"
         onClick={() => navigate("/app/myTraining")}
       />
-      <h4>{lesson.title}</h4>
-      {matches ? null : <p>{step[index].title}</p>}
+      <h4 className="Lesson-title">{lesson.title}</h4>
+      {matches ? null : <p className="Lesson-title-sub">{step[index].title}</p>}
     </div>
   );
 };
@@ -100,7 +101,7 @@ export const Step1 = () => {
         <Grid item xs={12} md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[0].note} />
             </>
           ) : null}
@@ -112,7 +113,7 @@ export const Step1 = () => {
             <TipsCard content={step[0].content_detail[0].note} />
           )}
         </Grid>
-        <Grid item>
+        <Grid item xs={12} className="Step-StepPagination">
           <StepPagination
             labelLeft="Back"
             onClickLeft={() => {
@@ -149,7 +150,7 @@ export const Step2 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[1].note} />
             </>
           ) : null}
@@ -160,7 +161,7 @@ export const Step2 = () => {
             <TipsCard content={step[0].content_detail[1].note} />
           )}
         </Grid>
-        <Grid item>
+        <Grid item xs={12} className="Step-StepPagination">
           <StepPagination
             labelLeft="Back"
             onClickLeft={() => {
@@ -197,7 +198,7 @@ export const Step3 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[2].note} />
             </>
           ) : null}
@@ -208,7 +209,7 @@ export const Step3 = () => {
             <TipsCard content={step[0].content_detail[2].note} />
           )}
         </Grid>
-        <Grid item>
+        <Grid item xs={12} className="Step-StepPagination">
           <StepPagination
             labelLeft="Back"
             onClickLeft={() => {
@@ -245,7 +246,7 @@ export const Step4 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <StepProgressDesktop stepArr={stepArr} done={1} />
               <TipsCard content={step[1].content_detail[0].note} />
             </>
           ) : null}
@@ -257,16 +258,18 @@ export const Step4 = () => {
             <TipsCard content={step[1].content_detail[0].note} />
           )}
         </Grid>
-        <StepPagination
-          labelLeft="Back"
-          onClickLeft={() => {
-            navigate("/app/step/3");
-          }}
-          labelRight="Next"
-          onClickRight={() => {
-            navigate("/app/step/5"); // to progress record
-          }}
-        />
+        <Grid item xs={12} className="Step-StepPagination">
+          <StepPagination
+            labelLeft="Back"
+            onClickLeft={() => {
+              navigate("/app/step/3");
+            }}
+            labelRight="Next"
+            onClickRight={() => {
+              navigate("/app/step/5");
+            }}
+          />
+        </Grid>
       </Grid>
     </>
   );
@@ -292,7 +295,7 @@ export const Step5 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <StepProgressDesktop stepArr={stepArr} done={1} />
               <TipsCard content={step[1].content_detail[1].note} />
             </>
           ) : null}
@@ -304,16 +307,18 @@ export const Step5 = () => {
             <TipsCard content={step[1].content_detail[1].note} />
           )}
         </Grid>
-        <StepPagination
-          labelLeft="Back"
-          onClickLeft={() => {
-            navigate("/app/step/4");
-          }}
-          labelRight="Next"
-          onClickRight={() => {
-            navigate("/app/progress/2"); // to progress record
-          }}
-        />
+        <Grid item xs={12} className="Step-StepPagination">
+          <StepPagination
+            labelLeft="Back"
+            onClickLeft={() => {
+              navigate("/app/step/4");
+            }}
+            labelRight="Next"
+            onClickRight={() => {
+              navigate("/app/progress/2"); // to progress record
+            }}
+          />
+        </Grid>
       </Grid>
     </>
   );

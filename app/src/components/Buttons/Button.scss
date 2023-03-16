@@ -1,39 +1,107 @@
 @import "../../sass/main.scss";
 
-.StepPagenation-Back {
-    @extend .button;
+.StepPagination-btn {
+  display: flex;
+  gap: 8px;
 }
 
-.StepPagenation-Next {
-    @extend .button;
+.PrimaryBtn {
+  height: 40px;
+  min-width: 144px;
+  border-radius: 8px;
+  padding: 10px 11px;
+  background-color: $accent-700;
+  color: $neutral-white;
+  border: none;
+  @extend .button;
+
+  &:hover {
+    background-color: $hover-accent;
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $neutral-grey-light-2;
+    transform: none;
+  }
 }
 
-.PrimaryButton {
-    @extend .button;
-    background-color: $accent-700;
-    color: $neutral-white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 8px 6px 8px 6px;
-    border: none;
+.WithArrow {
+  @extend .PrimaryBtn;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    flex-grow: 1;
+  }
+  .-arrow-icon {
+    display: inline-block;
+    margin-left: 10px;
+  }
 }
 
-.BackButton {
-    @extend .button;
-    color: $primary-500;
-    background-color: rgba(0, 0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 8px 6px 8px 6px;
-    border: none;
+.PrimaryBtnWithArrow {
+  @extend .WithArrow;
+}
 
-    &:hover {
-        background-color: $hover-primary-010;
-        cursor: pointer;
-        transform: translateY(-5px);
-    }
+.PrimaryBtnOutline {
+  @extend .PrimaryBtn;
+  background-color: transparent;
+  color: $primary-500;
+  border: 1px $primary-500 solid;
+
+  &:hover {
+    background-color: $hover-primary-010;
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $disabled-light-bg;
+    border-color: $disabled-light-bg;
+  }
+}
+
+.PrimaryBtnOutlineWithArrow {
+  @extend .PrimaryBtnOutline;
+  @extend .WithArrow;
+}
+
+.PrimaryBtnText {
+  @extend .PrimaryBtn;
+  background-color: transparent;
+  color: $primary-500;
+
+  &:hover {
+    background-color: $hover-primary-010;
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $disabled-light-bg;
+  }
+}
+
+.PrimaryBtnTextWithArrow {
+  @extend .PrimaryBtnText;
+  @extend .WithArrow;
+}
+
+.PrimaryBtnWide {
+  @extend .PrimaryBtn;
+  width: 100%;
+}
+
+.PrimaryBtnTextWide {
+  @extend .PrimaryBtnText;
+  width: 100%;
 }

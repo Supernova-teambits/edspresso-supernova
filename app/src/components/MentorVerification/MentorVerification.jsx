@@ -5,6 +5,7 @@ import { BASE_URL } from "../../utils/Constants";
 import { Grid, Breadcrumbs, Typography } from "@mui/material";
 import { Help, ArrowLineRight } from "../../assets/Icons";
 import "./MentorVerification.scss";
+import { PrimaryBtn, PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
 
 const MentoVerification = () => {
   const navigate = useNavigate();
@@ -78,48 +79,64 @@ const MentoVerification = () => {
   console.log("score: ", score);
   console.log("disable: ", isDisabled);
 
+  // retrieve date
+  const now = new Date();
+
   return (
     <>
-      <div>
+      <div className="MentorVerification">
         <h4 className="MentorVerification-title">Test your knowledge</h4>
         <p className="MentorVerification-body">
           You can start the test when you are ready
         </p>
-        <p className="MentorVerification-body-1">
+        <p className="MentorVerification-body">
           You need at least 80% to approve the test and get a ecrtification.
         </p>
 
         <Grid container>
           <Grid item md={6}>
             <div className="MentorVerification-card">
-              <h4 className="MentorVerification-title">Cerification Quiz</h4>
-              <p className="MentorVerification-body-1">
+              <h4 className="MentorVerification-card-title">
+                Cerification Quiz
+              </h4>
+              <p className="MentorVerification-card-body-1">
                 Chemex brewing method, Ratio, Pouring, Chemex consideration.
               </p>
-
-              <p>
-                <Help fillColor="#10494C" />
-                Finish this lesson to be able to do a test.
-              </p>
+              {isDisabled ? (
+                <p className="MentorVerification-card-content-icon">
+                  <Help fillColor="#10494C" />
+                  Finish this lesson to be able to do a test.
+                </p>
+              ) : null}
               {score < 80 ? (
-                <>
-                  <button disabled={isDisabled} onClick={handleQuizStart}>
-                    {buttonLabel}
-                  </button>
+                <div className="MentorVerification-card-btns">
+                  <PrimaryBtn
+                    disabled={isDisabled}
+                    label={buttonLabel}
+                    onClick={handleQuizStart}
+                  />
                   {score !== 0 && score < 80 && (
-                    <button onClick={handleCheckLastResults}>
-                      Check last results
-                    </button>
+                    <PrimaryBtnTextWithRightArrow
+                      label="Check last results"
+                      onClick={handleCheckLastResults}
+                    />
                   )}
-                </>
+                </div>
               ) : (
-                <p>Passed on 03/11/2023</p>
+                <p className="passDate">
+                  Passed on
+                  {` ${now.getDate()}/${
+                    now.getMonth() + 1
+                  }/${now.getFullYear()}`}
+                </p>
               )}
             </div>
           </Grid>
           <Grid item md={6}>
             <div className="MentorVerification-card">
-              <h3 className="MentorVerification-title">Mentor Verification</h3>
+              <h3 className="MentorVerification-card-title">
+                Mentor Verification
+              </h3>
               <Breadcrumbs
                 separator={<ArrowLineRight fillColor="#709294" />}
                 aria-label="breadcrumb"
@@ -127,7 +144,7 @@ const MentoVerification = () => {
                 {breadcrumbs}
               </Breadcrumbs>
 
-              <p> 
+              <p className="MentorVerification-card-content-icon">
                 <Help fillColor="#10494C" />
                 After finishing your test, a mentor will verify your answers.
               </p>

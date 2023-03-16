@@ -1,7 +1,10 @@
+import "./TipsCard.scss";
 
 export default function TipsCard({ content }) {
-  return <div>
-      <h6>Tips</h6>
-      <p>{ content }</p>
-  </div>;
+  return (
+    <div className="TipsCard">
+      <h6 className="TipsCard-title">Tips</h6>
+      <p className="TipsCard-content">{content}</p>
+    </div>
+  );
 }

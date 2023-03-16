@@ -11,7 +11,7 @@ import {
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import MentoVerification from "./MentorVerification/MentorVerification";
 
-import { PrimaryButton, BackButton } from "./Buttons/Button";
+import { PrimaryBtnWide, PrimaryBtnTextWithLeftArrow } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
@@ -31,32 +31,26 @@ const RecipeDetails = () => {
   return (
     <>
       <div className="RecipeDetails-header">
-        <BackButton
+        <PrimaryBtnTextWithLeftArrow
           label="My Learnings"
           onClick={() => navigate("/app/myTraining")}
         />
-        <h4 className="RecipeDetails-title">Chemex method</h4>
+        <h4 className="Lesson-title">Chemex method</h4>
       </div>
 
       <Grid container>
         <Grid item md={4}>
           {/* image and desc */}
-          <div>
-            <img
-              className="RecipeDetails-img"
-              src={chemex}
-              alt="chemex"
-              width={250}
-            />
-            <PrimaryButton
-              className="RecipeDetails-start-btn"
+          <div className="RecipeDetails-img-btn">
+            <img src={chemex} alt="chemex" width={250} />
+            <PrimaryBtnWide
               label={"Start Lesson"}
               onClick={() => navigate("/app/step/1")}
             />
           </div>
         </Grid>
         <Grid item md={8}>
-          <h4 className="RecipeDetails-title">About the lesson</h4>
+          <h4 className="Lesson-title">About the lesson</h4>
           <p className="RecipeDetails-body">
             The Chemex Coffeemaker is a manual pour-over style glass
             coffeemaker, invented by Peter Schlumbohm in 1941, manufactured by
@@ -90,13 +84,8 @@ const RecipeDetails = () => {
           <Grid item md={8}>
             <Grid container>
               <DetailsCard title="Preparation Time" text="6 minutes" size={4} />
-              <DetailsCard title="Mentor" link="Flavia C." to="/" size={4} />
-              <DetailsCard
-                title="Category"
-                link="Brewing Methods"
-                to="/category"
-                size={4}
-              />
+              <DetailsCard title="Mentor" text="Flavia C." size={4} />
+              <DetailsCard title="Category" text="Brewing Methods" size={4} />
             </Grid>
             <Grid container>
               <DetailsCardColored

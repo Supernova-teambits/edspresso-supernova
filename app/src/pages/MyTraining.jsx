@@ -35,7 +35,7 @@ const MyTraining = () => {
       <div className="My-Learnings-container-colored">
         <Grid container>
           <Grid item xs={8}>
-            <h4 className="My-Lernings-title">My Learnings</h4>
+            <h4 className="Lesson-title">My Learnings</h4>
           </Grid>
           <Grid item xs={4}>
             <SearchBar

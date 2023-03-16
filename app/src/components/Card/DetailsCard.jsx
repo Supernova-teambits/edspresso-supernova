@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Chip, Grid, Box } from "@mui/material";
 import { Coffee, Profile } from "../../assets/Icons";
 import "./DetailsCard.scss";
@@ -50,14 +49,18 @@ export const DetailsCardColored = ({
   );
 };
 
-export const DetailsCard = ({ title, text, to, link, size }) => {
+export const DetailsCard = ({ title, text, size }) => {
   return (
     <>
       <Grid className="DetailsCard" item md={size}>
         <h4 className="DetailsCardColored-title">{title}</h4>
-        {title === "Mentor" ? <Profile fillColor="#171717" /> : null}
-        {text && <p>{text}</p>}
-        {link && <Link to={to}>{link}</Link>}
+        {title === "Mentor" ? (
+          <p className="DetailsCard-icon">
+            <Profile fillColor="#171717" /> {text}
+          </p>
+        ) : (
+          <p>{text}</p>
+        )}
       </Grid>
     </>
   );

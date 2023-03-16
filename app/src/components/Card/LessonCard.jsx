@@ -28,7 +28,7 @@ export default function LessonCard({
 
           <div>
             <p className="LessonCard-title">{title}</p>
-            {value && <p>{value}</p>}
+            {value && <p className="LessonCard-title" >{value}</p>}
             {0 < progress && progress < 100 ? (
               <LinearProgress
                 className="LessonCard-ProgressBar"

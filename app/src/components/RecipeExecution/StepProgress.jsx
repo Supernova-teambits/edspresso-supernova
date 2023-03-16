@@ -3,12 +3,12 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
   LinearProgress,
 } from "@mui/material";
 import { Check, Coffee } from "../../assets/Icons";
+import "./StepProgress.scss";
 
-export const StepProgresesDesktop = ({ stepArr, done }) => {
+export const StepProgressDesktop = ({ stepArr, done }) => {
   const steps = stepArr.map((step, index) => {
     let style = {};
     if (index === done) {
@@ -16,7 +16,7 @@ export const StepProgresesDesktop = ({ stepArr, done }) => {
         fontWeight: "bold",
       };
       return (
-        <ListItem key={index} style={style}>
+        <ListItem className="-current" key={index} style={style}>
           <ListItemIcon>
             <Coffee fillColor="#10494C" />
           </ListItemIcon>
@@ -34,7 +34,7 @@ export const StepProgresesDesktop = ({ stepArr, done }) => {
       );
     } else {
       return (
-        <ListItem key={index} style={style}>
+        <ListItem className="-rest" key={index} style={style}>
           <ListItemIcon>
             <Coffee fillColor="#709294" />
           </ListItemIcon>
@@ -43,16 +43,20 @@ export const StepProgresesDesktop = ({ stepArr, done }) => {
       );
     }
   });
-  return <List>{steps}</List>;
+  return <List className="StepProgressDesktop">{steps}</List>;
 };
 
 export const ProgressBar = ({ value, totalStep, currentStep, title }) => {
   return (
     <>
-      <LinearProgress variant="determinate" value={value} />
-      <Typography>
+      <LinearProgress
+        className="StepProgressBar"
+        variant="determinate"
+        value={value}
+      />
+      <p className="ProgressBar-sub">
         Step {currentStep} of {totalStep} - {title}
-      </Typography>
+      </p>
     </>
   );
 };

@@ -17,6 +17,8 @@ import { userRoleState } from "../recoil/atoms";
 import AlertDialog from "../components/Dialog/AlertDialog";
 import { MAX_WIDTH_FOR_MOBILE } from "../utils/Constants";
 import "./Login.scss";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "../utils/ThemeUtil";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ export default function LogIn() {
   const handleAlertClose = () => {
     setAlertOpen(false);
   };
+
   const createManager = (name, managerCode, userRoleId) => {
     createManagerInfo(name, managerCode)
       .then((managerInfo) => {
@@ -114,7 +117,7 @@ export default function LogIn() {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Grid
         container
         direction="column"
@@ -132,6 +135,7 @@ export default function LogIn() {
         <Grid
           item
           sx={{
+            my: 8,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -139,18 +143,11 @@ export default function LogIn() {
         >
           {isMobile ? <LoginLogoMobile /> : <LoginLogoDesktop />}
         </Grid>
-        <Grid
-          item
-          xs={10}
-          sm={5}
-          component={Paper}
-          elevation={6}
-          borderRadius={6}
-        >
+        <Grid item sm={5} component={Paper} elevation={6} borderRadius={6}>
           <Box
             sx={{
-              my: 8,
-              mx: 4,
+              my: 4,
+              mx: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -161,11 +158,12 @@ export default function LogIn() {
               component="form"
               noValidate
               onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+              sx={{ mt: 8 }}
             >
               <TextField
+                className="Login-form-text-field"
+                color="primary500"
                 margin="normal"
-                required
                 fullWidth
                 id="name"
                 label="Name"
@@ -174,8 +172,9 @@ export default function LogIn() {
                 autoFocus
               />
               <TextField
+                className="Login-form-text-field"
+                color="primary500"
                 margin="normal"
-                required
                 fullWidth
                 name="password"
                 label="Password"
@@ -184,12 +183,13 @@ export default function LogIn() {
                 autoComplete="current-password"
               />
               <Button
+                className="Login-form-button"
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                color="accent700"
               >
-                Sign In
+                <p>Login</p>
               </Button>
             </Box>
           </Box>
@@ -201,6 +201,6 @@ export default function LogIn() {
         desc={"The username or password you entered is incorrect."}
         onClose={handleAlertClose}
       />
-    </>
+    </ThemeProvider>
   );
 }

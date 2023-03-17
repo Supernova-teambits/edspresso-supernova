@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import step from "../../pages/dummy-steps";
-import assigned_lessons from "../../pages/dummy-lesson";
 
 import { Box, Grid, useMediaQuery } from "@mui/material";
 
 import {
   ProgressBar,
-  StepProgresesDesktop,
+  StepProgressDesktop,
 } from "../RecipeExecution/StepProgress";
 import {
   PainText,
@@ -14,9 +13,10 @@ import {
   IngredientsCard,
   DescWithRef,
   RatioCalculater,
-} from "../RecipeExecution/StepsMedia";
+} from "../RecipeExecution/StepMedia";
 import TipsCard from "../Card/TipsCard";
-import { BackButton, StepPagination } from "../Buttons/Button";
+import { PrimaryBtnTextWithLeftArrow } from "../Buttons/Button";
+import "./LessonSteps.scss";
 
 export const StepSubContent = ({ content }) => {
   let component;
@@ -68,25 +68,21 @@ export const StepHeader = ({ lesson, index }) => {
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <div>
-      <BackButton
+    <div className="StepHeader">
+      <PrimaryBtnTextWithLeftArrow
         label="My Learnings"
         onClick={() => navigate("/app/myTraining")}
       />
-      <h4>{lesson.title}</h4>
-      {matches ? null : <p>{step[index].title}</p>}
+      <h4 className="Lesson-title">{lesson.title}</h4>
+      {matches ? null : <p className="Lesson-title-sub">{step[index].title}</p>}
     </div>
   );
 };
 
 export const Step1 = () => {
-  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
-
   return (
-    <>
-      <StepHeader lesson={assigned_lessons[0]} index={0} />
-
+    <div className="StepContent">
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -100,7 +96,7 @@ export const Step1 = () => {
         <Grid item xs={12} md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[0].note} />
             </>
           ) : null}
@@ -112,30 +108,16 @@ export const Step1 = () => {
             <TipsCard content={step[0].content_detail[0].note} />
           )}
         </Grid>
-        <Grid item>
-          <StepPagination
-            labelLeft="Back"
-            onClickLeft={() => {
-              navigate("/app/lesson/1");
-            }}
-            labelRight="Next"
-            onClickRight={() => {
-              navigate("/app/step/2");
-            }}
-          />
-        </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
 export const Step2 = () => {
-  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <>
-      <StepHeader lesson={assigned_lessons[0]} index={0} />
+    <div className="StepContent">
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -149,41 +131,27 @@ export const Step2 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[1].note} />
             </>
           ) : null}
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <StepSubContent content={step[0].content_detail[1].sub_content[0]} />
           {matches ? null : (
             <TipsCard content={step[0].content_detail[1].note} />
           )}
         </Grid>
-        <Grid item>
-          <StepPagination
-            labelLeft="Back"
-            onClickLeft={() => {
-              navigate("/app/step/1");
-            }}
-            labelRight="Next"
-            onClickRight={() => {
-              navigate("/app/step/3");
-            }}
-          />
-        </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
 export const Step3 = () => {
-  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <>
-      <StepHeader lesson={assigned_lessons[0]} index={0} />
+    <div className="StepContent">
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -197,41 +165,27 @@ export const Step3 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={0} />
+              <StepProgressDesktop stepArr={stepArr} done={0} />
               <TipsCard content={step[0].content_detail[2].note} />
             </>
           ) : null}
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <StepSubContent content={step[0].content_detail[2].sub_content[0]} />
           {matches ? null : (
             <TipsCard content={step[0].content_detail[2].note} />
           )}
         </Grid>
-        <Grid item>
-          <StepPagination
-            labelLeft="Back"
-            onClickLeft={() => {
-              navigate("/app/step/2");
-            }}
-            labelRight="Next"
-            onClickRight={() => {
-              navigate("/app/progress/1"); // to progress record
-            }}
-          />
-        </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
 export const Step4 = () => {
-  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <>
-      <StepHeader lesson={assigned_lessons[0]} index={1} />
+    <div className="StepContent">
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -245,40 +199,28 @@ export const Step4 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <StepProgressDesktop stepArr={stepArr} done={1} />
               <TipsCard content={step[1].content_detail[0].note} />
             </>
           ) : null}
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <StepSubContent content={step[1].content_detail[0].sub_content[0]} />
           <StepSubContent content={step[1].content_detail[0].sub_content[1]} />
           {matches ? null : (
             <TipsCard content={step[1].content_detail[0].note} />
           )}
         </Grid>
-        <StepPagination
-          labelLeft="Back"
-          onClickLeft={() => {
-            navigate("/app/step/3");
-          }}
-          labelRight="Next"
-          onClickRight={() => {
-            navigate("/app/step/5"); // to progress record
-          }}
-        />
       </Grid>
-    </>
+    </div>
   );
 };
 
 export const Step5 = () => {
-  const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <>
-      <StepHeader lesson={assigned_lessons[0]} index={1} />
+    <div className="StepContent">
       <Box sx={{ width: "100%" }}>
         <ProgressBar
           variant="determinate"
@@ -292,29 +234,19 @@ export const Step5 = () => {
         <Grid item md={4}>
           {matches ? (
             <>
-              <StepProgresesDesktop stepArr={stepArr} done={1} />
+              <StepProgressDesktop stepArr={stepArr} done={1} />
               <TipsCard content={step[1].content_detail[1].note} />
             </>
           ) : null}
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <StepSubContent content={step[1].content_detail[1].sub_content[0]} />
           <StepSubContent content={step[1].content_detail[1].sub_content[1]} />
           {matches ? null : (
             <TipsCard content={step[1].content_detail[1].note} />
           )}
         </Grid>
-        <StepPagination
-          labelLeft="Back"
-          onClickLeft={() => {
-            navigate("/app/step/4");
-          }}
-          labelRight="Next"
-          onClickRight={() => {
-            navigate("/app/progress/2"); // to progress record
-          }}
-        />
       </Grid>
-    </>
+    </div>
   );
 };

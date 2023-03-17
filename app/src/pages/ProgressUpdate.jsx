@@ -1,8 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
-import { BackButton, StepPagination } from "../components/Buttons/Button";
-import { StepProgresesDesktop } from "../components/RecipeExecution/StepProgress";
+import { StepPagination } from "../components/Buttons/Button";
+import { StepProgressDesktop } from "../components/RecipeExecution/StepProgress";
+import "./ProgressUpdate.scss";
+import { LessonHeader } from "../components/Header/LessonHeader";
 
 const stepArr = [
   {
@@ -46,111 +48,129 @@ const ProgressUpdate = () => {
   if (id === "1") {
     return (
       <>
-        <div>
-          <BackButton
-            label="My Learnings"
-            onClick={() => navigate("/app/myTraining")}
-          />
-          <h4>Chemex method</h4>
+        <div class="LayoutWrapper__header">
+          <LessonHeader title="Chemex method" />
         </div>
-
-        <Grid container>
-          {matches ? (
-            <>
-              <Grid item xs={12} md={4}>
-                <StepProgresesDesktop stepArr={stepArr} done={1} />
-              </Grid>
-              <Grid item xs={12} md={8}>
-                <h5>{message[0].heading}</h5>
-                <h6>{message[0].subtitle}</h6>
-                <p>{message[0].message1}</p>
-                <img
-                  src={chemex}
-                  alt="Coffee cup on wooden table at dawn"
-                  height={428}
-                />
-              </Grid>
-            </>
-          ) : (
-            <>
-              <Grid item xs={12} md={4}>
-                <h5>{message[0].heading}</h5>
-                <h6>{message[0].subtitle}</h6>
-                <StepProgresesDesktop stepArr={stepArr} done={0} />
-                <p>{message[0].message1}</p>
-              </Grid>
-            </>
-          )}
-
-          <Grid item>
-            <StepPagination
-              labelLeft="Back"
-              onClickLeft={() => {
-                navigate("/app/step/3");
-              }}
-              labelRight="Next chapter"
-              onClickRight={() => {
-                navigate("/app/step/4");
-              }}
-            />
+        <div className="ProgressUpdate">
+          <Grid container>
+            {matches ? (
+              <>
+                <Grid item xs={12} md={4}>
+                  <StepProgressDesktop stepArr={stepArr} done={1} />
+                </Grid>
+                <Grid item xs={12} md={8}>
+                  <div className="ProgressUpdate">
+                    <h5 className="ProgressUpdate-title">
+                      {message[0].heading}
+                    </h5>
+                    <h6 className="ProgressUpdate-sub-title">
+                      {message[0].subtitle}
+                    </h6>
+                    <p className="ProgressUpdate-content">
+                      {message[0].message1}
+                    </p>
+                  </div>
+                  <img
+                    src={chemex}
+                    alt="Coffee cup on wooden table at dawn"
+                    height={428}
+                    className="progressUpdate-img"
+                  />
+                </Grid>
+              </>
+            ) : (
+              <>
+                <Grid item xs={12} md={4}>
+                  <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
+                  <h6 className="ProgressUpdate-sub-title">
+                    {message[0].subtitle}
+                  </h6>
+                  <StepProgressDesktop stepArr={stepArr} done={0} />
+                  <p className="ProgressUpdate-content">
+                    {message[0].message1}
+                  </p>
+                </Grid>
+              </>
+            )}
           </Grid>
-        </Grid>
+        </div>
+        <div className="LayoutWrapper__lesson__btn">
+          <StepPagination
+            labelLeft="Back"
+            onClickLeft={() => {
+              navigate("/app/step/3");
+            }}
+            labelRight="Next chapter"
+            onClickRight={() => {
+              navigate("/app/step/4");
+            }}
+          />
+        </div>
       </>
     );
   } else {
     return (
       <>
-        <div>
-          <BackButton
-            label="My Learnings"
-            onClick={() => navigate("/app/myTraining")}
-          />
-          <h4>Chemex method</h4>
+        <div class="LayoutWrapper__header">
+          <LessonHeader title="Chemex method" />
         </div>
-
-        <Grid container>
-          {matches ? (
-            <>
-              <Grid item xs={12} md={4}>
-                <StepProgresesDesktop stepArr={stepArr} done={5} />
-              </Grid>
-              <Grid item xs={12} md={8}>
-                <h5>{message[1].heading}</h5>
-                <p>{message[1].message1}</p>
-                <h6>{message[1].subheading}</h6>
-                <p>{message[1].message2}</p>
-                <img
-                  src={chemex}
-                  alt="Coffee cup on wooden table at dawn"
-                  height={428}
-                />
-              </Grid>
-            </>
-          ) : (
-            <>
-              <Grid item xs={12} md={4}>
-                <h5>{message[1].heading}</h5>
-                <p>{message[1].message1}</p>
-                <StepProgresesDesktop stepArr={stepArr} done={0} />
-                <h6>{message[1].subheading}</h6>
-                <p>{message[1].message2}</p>
-              </Grid>
-            </>
-          )}
-
-          <Grid item>
-            <StepPagination
-              labelLeft="Lesson Page"
-              onClickLeft={() => {
-                navigate("/app/lesson/1");
-              }}
-              labelRight="Star Quiz"
-              onClickRight={() => {
-                navigate("/app/step/6");
-              }}
-            />
+        <div className="ProgressUpdate">
+          <Grid container>
+            {matches ? (
+              <>
+                <Grid item xs={12} md={4}>
+                  <StepProgressDesktop stepArr={stepArr} done={5} />
+                </Grid>
+                <Grid item xs={12} md={8}>
+                  <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                  <p className="ProgressUpdate-content">
+                    {message[1].message1}
+                  </p>
+                  <h6 className="ProgressUpdate-sub-title">
+                    {message[1].subheading}
+                  </h6>
+                  <p className="ProgressUpdate-content">
+                    {message[1].message2}
+                  </p>
+                  <img
+                    src={chemex}
+                    alt="Coffee cup on wooden table at dawn"
+                    height={428}
+                    className="progressUpdate-img"
+                  />
+                </Grid>
+              </>
+            ) : (
+              <>
+                <Grid item xs={12} md={4}>
+                  <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                  <p className="ProgressUpdate-content">
+                    {message[1].message1}
+                  </p>
+                  <StepProgressDesktop stepArr={stepArr} done={0} />
+                  <h6 className="ProgressUpdate-sub-title">
+                    {message[1].subheading}
+                  </h6>
+                  <p className="ProgressUpdate-content">
+                    {message[1].message2}
+                  </p>
+                </Grid>
+              </>
+            )}
           </Grid>
-        </Grid>
+        </div>
+        <div className="LayoutWrapper__lesson__btn">
+          <StepPagination
+            labelLeft="Lesson Page"
+            onClickLeft={() => {
+              navigate("/app/lesson/1");
+            }}
+            labelRight="Star Quiz"
+            onClickRight={() => {
+              navigate("/app/step/6");
+            }}
+          />
+        </div>
       </>
     );
   }

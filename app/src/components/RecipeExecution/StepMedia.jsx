@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./StepMedia.scss";
 import Carousel from "react-material-ui-carousel";
 import {
   Radio,
@@ -14,14 +13,14 @@ import {
 
 import LessonCard from "../Card/LessonCard";
 import { DoubleArrowLeft, DoubleArrowRight } from "../../assets/Icons";
-
+import "./StepMedia.scss";
 
 // Step 1
 export const PainText = ({ content }) => {
   return (
     <>
-      <h4>{content.title}</h4>
-      <p>{content.content}</p>
+      <h4 className="StepMedia-title">{content.title}</h4>
+      <p className="StepMedia-content">{content.content}</p>
     </>
   );
 };
@@ -34,7 +33,7 @@ export const IngredientsCard = ({ content }) => {
     <>
       {matches ? (
         <>
-          <h4>{content.title}</h4>
+          <h4 className="StepMedia-title">{content.title}</h4>
           <Grid container>
             {content.content.map((el, index) => (
               <LessonCard
@@ -50,7 +49,7 @@ export const IngredientsCard = ({ content }) => {
         <>
           <Grid container>
             <Grid item xs={12}>
-              <h4>{content.title}</h4>
+              <h4 className="StepMedia-title">{content.title}</h4>
               <ul>
                 {content.content.map((el, index) => (
                   <li key={index}>
@@ -70,7 +69,7 @@ export const IngredientsCard = ({ content }) => {
 export const MediaCarousel = ({ content }) => {
   return (
     <>
-      <h4>{content.title}</h4>
+      <h4 className="StepMedia-title">{content.title}</h4>
       <p>{content.content[0].description}</p>
       <Carousel className="MediaCarousel">
         {content.content[0].medias.map((item, i) => (
@@ -94,9 +93,9 @@ function Item({ item }) {
 export const DescWithRef = ({ content }) => {
   return (
     <>
-      <h4>{content.title}</h4>
-      <p>{content.content[0].description}</p>
-      <p>{content.content[0].reference}</p>
+      <h4 className="StepMedia-title">{content.title}</h4>
+      <p className="DescWithRef-content">{content.content[0].description}</p>
+      <p className="DescWithRef-ref">{content.content[0].reference}</p>
     </>
   );
 };
@@ -162,9 +161,12 @@ export const RatioCalculater = ({ content }) => {
   };
 
   return (
-    <>
-      <h6>Calculate how much coffee and water do you need:</h6>
+    <div className="RatioCalculater">
+      <h6 className="RatioCalculater-sub-title">
+        Calculate how much coffee and water do you need:
+      </h6>
       <TextField
+        className="RatioCalculater-input"
         id="outlined-search"
         type="search"
         label="Coffee (g)"
@@ -172,11 +174,15 @@ export const RatioCalculater = ({ content }) => {
         onChange={handleCoffeeAmountChange}
       />
       {arrowLeft ? (
-        <DoubleArrowLeft fillColor="#10494C" />
+        <DoubleArrowLeft className="RatioCalculater-icon" fillColor="#10494C" />
       ) : (
-        <DoubleArrowRight fillColor="#10494C" />
+        <DoubleArrowRight
+          className="RatioCalculater-icon"
+          fillColor="#10494C"
+        />
       )}
       <TextField
+        className="RatioCalculater-input"
         id="outlined-search"
         type="search"
         label="Water (ml)"
@@ -184,7 +190,9 @@ export const RatioCalculater = ({ content }) => {
         onChange={handleWaterAmountChange}
       />
 
-      <h6>Know the ratio value? Select below instead:</h6>
+      <h6 className="RatioCalculater-sub-title">
+        Know the ratio value? Select below instead:
+      </h6>
 
       <FormControl>
         <RadioGroup
@@ -200,6 +208,6 @@ export const RatioCalculater = ({ content }) => {
           <FormControlLabel value="10" control={<Radio />} label="1:10" />
         </RadioGroup>
       </FormControl>
-    </>
+    </div>
   );
 };

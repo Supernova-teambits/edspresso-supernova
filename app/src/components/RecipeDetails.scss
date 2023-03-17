@@ -1,42 +1,51 @@
 @import "../sass/main.scss";
 
-.RecipeDetails-header{
-    background-color: $secondary-050;
-}
+.RecipeDetails {
+  max-width: 858px;
+  margin: 0 auto;
 
-.RecipeDetails-title {
-    @extend .headline-4;
-    color: $primary-500;
-}
-
-.RecipeDetails-body {
+  &-body {
     @extend .body-2;
     color: $neutral-grey-dark-2;
+  }
+
+  &-title {
+    @extend .headline-4;
+    color: $primary-500;
+  }
+
+  &-img-btn {
+    max-width: 264px;
+
+    > img {
+      max-height: 250px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 11px;
+    }
+  }
 }
 
-.RecipeDetails-img {
-    height: 250px;
-    width: 264px;
-    object-fit: cover;
-    border-radius: 11px;
+.Lesson-title {
+  @extend .headline-4;
+  color: $primary-500;
+  padding: 8px;
+  margin: 0;
 }
 
-.RecipeDetails-start-btn {
-    width: 146px;
-    height: 40px;
-}
-
-.Accordion-text-container > div{
-    display: flex;
-        justify-content: center;
+.Accordion-text-container > div {
+  display: flex;
+  justify-content: center;
 }
 
 .Accordion-text {
-    align-items: center;
-    @extend .button;
-    color: $primary-500;
+  align-items: center;
+  @extend .button;
+  color: $primary-500;
+  display: flex;
+  justify-content: center;
 }
 
 .RecipeDetails-Test-section {
-    background-color: $secondary-100;
+  background-color: $secondary-100;
 }

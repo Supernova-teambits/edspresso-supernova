@@ -1,0 +1,16 @@
+@import "../../sass/main.scss";
+
+.StepHeader {
+  max-width: 858px;
+  margin: 0 auto;
+}
+
+.StepContent {
+  max-width: 858px;
+  margin: 0 auto;
+}
+
+.Lesson-title-sub {
+  @extend .body-1;
+  color: $primary-500;
+}

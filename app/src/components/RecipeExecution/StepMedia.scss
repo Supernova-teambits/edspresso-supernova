@@ -1,37 +1,81 @@
-.MediaCarousel {
-    max-width: 557px;
+@import "../../sass/main.scss";
 
-    .Project {
-        max-width: 100%;
-        position: relative;
-        height: 428px;
-        overflow: hidden;
-        padding: 20px;
-
-        img {
-            max-width: 460px;
-            position: relative;
-            max-height: 360px;
-        }
-    }
+.StepMedia-title {
+  @extend .headline-4;
+  color: $primary-500;
 }
 
+.StepMedia-content {
+  @extend .body-2;
+  color: $neutral-grey-dark-2;
+}
+
+.MediaCarousel {
+  max-width: 557px;
+
+  .Project {
+    max-width: 100%;
+    position: relative;
+    height: 428px;
+    overflow: hidden;
+    padding: 20px;
+
+    img {
+      max-width: 460px;
+      position: relative;
+      max-height: 360px;
+    }
+  }
+}
 
 @media screen and (max-width: 600px) {
-    .MediaCarousel {
-        max-width: 328px;
+  .MediaCarousel {
+    max-width: 328px;
 
-        .Project {
-                max-width: 100%;
-                position: relative;
-                height: auto;
-                overflow: hidden;
-        
-                img {
-                    max-width: 264px;
-                    position: relative;
-                    max-height: 232px;
-                }
-            }
+    .Project {
+      max-width: 100%;
+      position: relative;
+      height: auto;
+      overflow: hidden;
+
+      img {
+        max-width: 264px;
+        position: relative;
+        max-height: 232px;
+      }
     }
+  }
+}
+
+.DescWithRef-content {
+  @extend .body-1;
+  color: $primary-500;
+}
+
+.DescWithRef-ref {
+  @extend .body-1;
+  font-size: 12px;
+  color: $primary-500;
+}
+
+.RatioCalculater {
+  &-sub-title {
+    @extend .headline-6;
+    color: $primary-500;
+  }
+
+  &-input {
+    border: 1px solid $primary-300;
+    height: 48px;
+    width: 257px;
+    border-radius: 4px;
+  }
+
+  &-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 12px;
+    margin: 0 16px;
+  }
 }

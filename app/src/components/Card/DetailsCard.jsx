@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Chip, Grid, Box } from "@mui/material";
+import { Chip, Grid, Stack } from "@mui/material";
 import { Coffee, Profile } from "../../assets/Icons";
 import "./DetailsCard.scss";
 
@@ -28,36 +27,47 @@ export const DetailsCardColored = ({
 }) => {
   return (
     <>
-      <Grid item md={size} className="DetailsCardColored">
-        <h4 className="DetailsCardColored-title">{title}</h4>
-        {text && <p className="DetailsCardColored-body">{text}</p>}
-        {difficulty && DifficultyIcon(difficulty)}
-        {requirements && (
-          <Box
-            sx={{
-              display: "flex",
-            }}
-            component="ul"
-          >
-            {requirements.map((data, index) => {
-              let icon;
-              return <Chip key={index} icon={icon} label={data} />;
-            })}
-          </Box>
-        )}
+      <Grid item md={size}>
+        <div className="DetailsCardColored">
+          <h4 className="DetailsCardColored-title">{title}</h4>
+          {text && <p className="DetailsCardColored-body">{text}</p>}
+          {difficulty && <div>{DifficultyIcon(difficulty)}</div>}
+          {requirements && (
+            <Stack direction="row" spacing={1}>
+              {requirements.map((data, index) => {
+                let icon;
+                return (
+                  <Chip
+                    style={{
+                      backgroundColor: "#EAF2F2",
+                      color: "#0A2C2E",
+                    }}
+                    key={index}
+                    icon={icon}
+                    label={data}
+                  />
+                );
+              })}
+            </Stack>
+          )}
+        </div>
       </Grid>
     </>
   );
 };
 
-export const DetailsCard = ({ title, text, to, link, size }) => {
+export const DetailsCard = ({ title, text, size }) => {
   return (
     <>
       <Grid className="DetailsCard" item md={size}>
         <h4 className="DetailsCardColored-title">{title}</h4>
-        {title === "Mentor" ? <Profile fillColor="#171717" /> : null}
-        {text && <p>{text}</p>}
-        {link && <Link to={to}>{link}</Link>}
+        {title === "Mentor" ? (
+          <p className="DetailsCard-icon">
+            <Profile fillColor="#171717" /> {text}
+          </p>
+        ) : (
+          <p>{text}</p>
+        )}
       </Grid>
     </>
   );

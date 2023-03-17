@@ -1,0 +1,13 @@
+@import "../../sass/main.scss";
+
+.LessonHeader {
+//   max-width: 858px;
+  padding: 20px 0;
+  
+  &-title {
+    @extend .headline-4;
+    color: $primary-500;
+    padding: 8px;
+    margin: 0;
+  }
+}

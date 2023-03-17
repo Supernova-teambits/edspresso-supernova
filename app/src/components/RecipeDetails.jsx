@@ -7,15 +7,16 @@ import {
   Accordion,
   AccordionSummary,
   useMediaQuery,
+  Stack,
+  Chip,
 } from "@mui/material";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
-import MentoVerification from "./MentorVerification/MentorVerification";
 
-import { PrimaryBtnWide, PrimaryBtnTextWithLeftArrow } from "./Buttons/Button";
+import { PrimaryBtnWide } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
-import { ArrowLineRight } from "../assets/Icons";
+import { ArrowLineRight, Check } from "../assets/Icons";
 import "./RecipeDetails.scss";
 
 const RecipeDetails = () => {
@@ -29,15 +30,7 @@ const RecipeDetails = () => {
   };
 
   return (
-    <>
-      <div className="RecipeDetails-header">
-        <PrimaryBtnTextWithLeftArrow
-          label="My Learnings"
-          onClick={() => navigate("/app/myTraining")}
-        />
-        <h4 className="Lesson-title">Chemex method</h4>
-      </div>
-
+    <div className="RecipeDetails">
       <Grid container>
         <Grid item md={4}>
           {/* image and desc */}
@@ -58,7 +51,7 @@ const RecipeDetails = () => {
           </p>
 
           {/* training & ingredient/equip details */}
-          <Grid container>
+          <Grid container className="Grid-container">
             <DetailsCardColored title="Status" text="Not Status" size={4} />
             <DetailsCardColored title="Progress" text="0%" size={4} />
             <DetailsCardColored title="Difficulty" difficulty={5} size={4} />
@@ -81,23 +74,43 @@ const RecipeDetails = () => {
           </p>
         </AccordionSummary>
         <Grid container>
-          <Grid item md={8}>
+          <Grid item md={4}></Grid>
+          <Grid item md={8} className="Grid-container">
             <Grid container>
               <DetailsCard title="Preparation Time" text="6 minutes" size={4} />
               <DetailsCard title="Mentor" text="Flavia C." size={4} />
               <DetailsCard title="Category" text="Brewing Methods" size={4} />
             </Grid>
-            <Grid container>
-              <DetailsCardColored
-                title="Certification"
-                text="✔Achieve 80% or above to get a certification"
-                size={6}
-              />
-              <DetailsCardColored
-                title="Requirement"
-                requirements={["Coffee Basics", "Grinder and weight"]}
-                size={6}
-              />
+            <Grid container className="Grid-container">
+              <Grid item md={6} xs={12} className="DetailsCardColored">
+                <h4 className="DetailsCardColored-title">Certification</h4>
+                <p className="DetailsCardColored-body DetailsCard-icon">
+                  <Check fillColor="#171717" />
+                  Achieve 80% or above to get a certification
+                </p>
+              </Grid>
+
+              <Grid item md={6} xs={12} className="DetailsCardColored">
+                <h4 className="DetailsCardColored-title">Requirement</h4>
+                <Stack direction="row" spacing={1}>
+                  {["Coffee Basics", "Grinder and weight"].map(
+                    (data, index) => {
+                      let icon;
+                      return (
+                        <Chip
+                          style={{
+                            backgroundColor: "#EAF2F2",
+                            color: "#0A2C2E",
+                          }}
+                          key={index}
+                          icon={icon}
+                          label={data}
+                        />
+                      );
+                    }
+                  )}
+                </Stack>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -124,11 +137,7 @@ const RecipeDetails = () => {
           )}
         </div>
       </Accordion>
-      {/* test verification section */}
-      <div className="RecipeDetails-Test-section">
-        <MentoVerification />
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -1,9 +1,8 @@
 @import "../sass/main.scss";
 
 .RecipeDetails {
-  &-header {
-    background-color: $secondary-050;
-  }
+  margin-top: 24px;
+//   max-width: 858px;
 
   &-body {
     @extend .body-2;
@@ -31,7 +30,12 @@
   @extend .headline-4;
   color: $primary-500;
   padding: 8px;
+  margin: 0;
 }
+
+// .Grid-container {
+//     justify-content: space-between;
+// }
 
 .Accordion-text-container > div {
   display: flex;
@@ -42,6 +46,8 @@
   align-items: center;
   @extend .button;
   color: $primary-500;
+  display: flex;
+  justify-content: center;
 }
 
 .RecipeDetails-Test-section {

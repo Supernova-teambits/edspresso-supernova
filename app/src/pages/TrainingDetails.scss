@@ -1,0 +1,28 @@
+@import "../sass/main.scss";
+
+.LayoutContainer {
+  width: 100%;
+}
+
+.LayoutWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &.header {
+    margin: 0;
+    background-color: $accent-700;
+  }
+
+
+}
+
+  .LayoutRecipeDetails {
+    max-width: 858px;
+    margin: 0 auto;
+  }
+  
+.LayoutContent {
+  display: flex;
+  flex-direction: column;
+  min-width: calc(100vh - 248px);
+}

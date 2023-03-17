@@ -30,14 +30,16 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <DashboardDetail />
+    <div style={{ maxWidth: '944px', margin: '0 auto' }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <DashboardDetail />
+        </Grid>
+        <Grid item xs={12}>
+          <Analytics />
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <Analytics />
-      </Grid>
-    </Grid>
+    </div>
   );
 };
 

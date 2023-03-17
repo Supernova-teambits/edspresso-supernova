@@ -16,7 +16,10 @@ import {
   RatioCalculater,
 } from "../RecipeExecution/StepMedia";
 import TipsCard from "../Card/TipsCard";
-import { PrimaryBtnTextWithLeftArrow, StepPagination } from "../Buttons/Button";
+import {
+  PrimaryBtnTextWithLeftArrow,
+  StepPagination,
+} from "../Buttons/Button";
 import "./LessonSteps.scss";
 
 export const StepSubContent = ({ content }) => {

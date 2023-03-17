@@ -42,7 +42,7 @@
   }
   .-arrow-icon {
     display: inline-block;
-    margin-left: 10px;
+    margin: 0 10px;
   }
 }
 
@@ -82,7 +82,6 @@
   &:hover {
     background-color: $hover-primary-010;
     cursor: pointer;
-    transform: translateY(-5px);
   }
 
   &:disabled {

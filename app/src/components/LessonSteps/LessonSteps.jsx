@@ -16,7 +16,10 @@ import {
   RatioCalculater,
 } from "../RecipeExecution/StepMedia";
 import TipsCard from "../Card/TipsCard";
-import { PrimaryBtnTextWithLeftArrow, StepPagination } from "../Buttons/Button";
+import {
+  PrimaryBtnTextWithLeftArrow,
+  StepPagination,
+} from "../Buttons/Button";
 import "./LessonSteps.scss";
 
 export const StepSubContent = ({ content }) => {
@@ -85,7 +88,7 @@ export const Step1 = () => {
   const matches = useMediaQuery("(min-width:600px)");
 
   return (
-    <>
+    <div className="StepContent">
       <StepHeader lesson={assigned_lessons[0]} index={0} />
 
       <Box sx={{ width: "100%" }}>
@@ -126,7 +129,7 @@ export const Step1 = () => {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

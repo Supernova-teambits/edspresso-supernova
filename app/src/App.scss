@@ -1,13 +1,6 @@
 @import "./sass/variables";
 @import "./sass/mixins";
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
 .App {
   text-align: center;
 }

@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
 import { chemex } from "../assets/images";
-import {
-  StepPagination,
-  PrimaryBtnTextWithLeftArrow,
-} from "../components/Buttons/Button";
+import { StepPagination } from "../components/Buttons/Button";
 import { StepProgressDesktop } from "../components/RecipeExecution/StepProgress";
 import "./ProgressUpdate.scss";
+import { LessonHeader } from "../components/LessonHeader/LessonHeader";
 
 const stepArr = [
   {
@@ -49,14 +47,8 @@ const ProgressUpdate = () => {
 
   if (id === "1") {
     return (
-      <>
-        <div className="RecipeDetails-header">
-          <PrimaryBtnTextWithLeftArrow
-            label="My Learnings"
-            onClick={() => navigate("/app/myTraining")}
-          />
-          <h4 className="Lesson-title">Chemex method</h4>
-        </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <LessonHeader title="Chemex method" />
 
         <Grid container>
           {matches ? (
@@ -103,18 +95,12 @@ const ProgressUpdate = () => {
             />
           </Grid>
         </Grid>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
-        <div className="RecipeDetails-header">
-          <PrimaryBtnTextWithLeftArrow
-            label="My Learnings"
-            onClick={() => navigate("/app/myTraining")}
-          />
-          <h4 className="Lesson-title">Chemex method</h4>
-        </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <LessonHeader title="Chemex method" />
 
         <Grid container>
           {matches ? (
@@ -163,7 +149,7 @@ const ProgressUpdate = () => {
             />
           </Grid>
         </Grid>
-      </>
+      </div>
     );
   }
 };

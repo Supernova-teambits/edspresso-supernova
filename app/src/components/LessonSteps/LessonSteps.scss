@@ -1,6 +1,11 @@
 @import "../../sass/main.scss";
 
 
+.StepContent {
+
+  max-width: 858px
+}
+
 .Lesson-title-sub {
     @extend .body-1;   
     color: $primary-500;
@@ -11,6 +16,6 @@
       display: flex;
   align-items: right;
   height: 100%;
-  padding: 32px 200px;
+  padding: 32px 0;
   justify-content: flex-end;
 }

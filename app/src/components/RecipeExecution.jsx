@@ -30,7 +30,13 @@ const RecipeExecution = () => {
       navigate("/app/myTraining");
   }
 
-  return component;
+  return (
+    <div className="LayoutContainer">
+      <div className="LayoutHeader"></div>
+      <div className="LayoutContent"> {component}</div>
+      <div className="LayoutFooter"></div>
+    </div>
+  );
 };
 
 export default RecipeExecution;

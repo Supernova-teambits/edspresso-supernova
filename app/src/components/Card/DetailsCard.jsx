@@ -1,4 +1,4 @@
-import { Chip, Grid, Box } from "@mui/material";
+import { Chip, Grid, Stack } from "@mui/material";
 import { Coffee, Profile } from "../../assets/Icons";
 import "./DetailsCard.scss";
 
@@ -27,23 +27,30 @@ export const DetailsCardColored = ({
 }) => {
   return (
     <>
-      <Grid item md={size} className="DetailsCardColored">
-        <h4 className="DetailsCardColored-title">{title}</h4>
-        {text && <p className="DetailsCardColored-body">{text}</p>}
-        {difficulty && DifficultyIcon(difficulty)}
-        {requirements && (
-          <Box
-            sx={{
-              display: "flex",
-            }}
-            component="ul"
-          >
-            {requirements.map((data, index) => {
-              let icon;
-              return <Chip key={index} icon={icon} label={data} />;
-            })}
-          </Box>
-        )}
+      <Grid item md={size}>
+        <div className="DetailsCardColored">
+          <h4 className="DetailsCardColored-title">{title}</h4>
+          {text && <p className="DetailsCardColored-body">{text}</p>}
+          {difficulty && <div>{DifficultyIcon(difficulty)}</div>}
+          {requirements && (
+            <Stack direction="row" spacing={1}>
+              {requirements.map((data, index) => {
+                let icon;
+                return (
+                  <Chip
+                    style={{
+                      backgroundColor: "#EAF2F2",
+                      color: "#0A2C2E",
+                    }}
+                    key={index}
+                    icon={icon}
+                    label={data}
+                  />
+                );
+              })}
+            </Stack>
+          )}
+        </div>
       </Grid>
     </>
   );

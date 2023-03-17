@@ -1,8 +1,17 @@
+import {
+  FormControl,
+  Grid,
+  MenuItem,
+  Select,
+  ThemeProvider,
+} from "@mui/material";
 import { useRecoilState } from "recoil";
 import {
   lessonTitleFilterState,
   lessonTimeFilterState,
 } from "../../recoil/atoms";
+import { theme } from "../../utils/ThemeUtil";
+import "./Analytics.scss";
 
 const lessons = [
   "All lessons",
@@ -33,22 +42,49 @@ const TraineeProgressFilter = () => {
   };
 
   return (
-    <>
-      <select value={lessonTitleFilter} onChange={updateLessonTitleFilter}>
-        {lessons.map((lesson) => (
-          <option key={lesson} value={lesson}>
-            {lesson}
-          </option>
-        ))}
-      </select>
-      <select value={lessonTimeFilter} onChange={updateLessonTimeFilter}>
-        {times.map((time) => (
-          <option key={time} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
-    </>
+    <ThemeProvider theme={theme}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <FormControl fullWidth>
+            <Select
+              color="primary500"
+              value={lessonTitleFilter}
+              onChange={updateLessonTitleFilter}
+            >
+              {lessons.map((lesson) => (
+                <MenuItem
+                  key={lesson}
+                  value={lesson}
+                  className="Analytics-filter-text"
+                >
+                  {lesson}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <FormControl fullWidth>
+            <Select
+              color="primary500"
+              value={lessonTimeFilter}
+              onChange={updateLessonTimeFilter}
+            >
+              {times.map((time) => (
+                <MenuItem
+                  key={time}
+                  value={time}
+                  className=".Analytics-filter-text"
+                >
+                  {time}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 };
 

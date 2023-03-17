@@ -28,8 +28,8 @@ const getTimeFilteredList = (list, timeFilter) => {
       break;
   }
   return list.filter((item) => {
-    const completedDate = new Date(item.completed_date);
-    const timeDiff = today.getTime() - completedDate.getTime();
+    const startedDate = new Date(item.started_date);
+    const timeDiff = today.getTime() - startedDate.getTime();
     dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
     // eslint-disable-next-line no-eval
     return eval(condition);

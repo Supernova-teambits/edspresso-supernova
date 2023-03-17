@@ -12,14 +12,12 @@ import {
   Help,
   Logout,
 } from "../assets/Icons";
-import Header from "./Header";
 
 function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
 
   const adminMenu = (
     <div className="sidebar-menu">
-      <Header />
       <h4>
         <User fillColor="#FFF0DE" />
         Admin
@@ -71,7 +69,6 @@ function Sidebar() {
   const traineeMenu = (
     <>
       <div className="sidebar-menu">
-        <Header />
         <h4>
           <User fillColor="#FFF0DE" />
           Trainee

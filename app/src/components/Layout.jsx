@@ -4,15 +4,13 @@ import SideBar from "./SideBar";
 const Layout = () => {
   return (
     <div style={{ display: "flex" }}>
-      <div>
+      <SideBar />
+      <div class='content' style={{ width: '100%' }}>
         <Header />
-        <SideBar />
-      </div>
-      <div style={{ marginLeft: '260px' }}>
         <Outlet />
       </div>
     </div>
   );
-};
+}
 
 export default Layout;

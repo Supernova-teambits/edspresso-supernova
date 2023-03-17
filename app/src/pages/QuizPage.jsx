@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import quizData from "./dummy-question";
 import CloseButton from "../components/Buttons/CloseButton";
-import Pagination from "../components/Buttons/Pagination";
+import { Pagination } from "../components/Buttons/Pagination";
 import ResultPage from "./ResultPage";
 import { useMediaQuery } from "react-responsive";
 import { LinearProgress } from "@mui/material";
@@ -84,7 +84,7 @@ const QuizPage = () => {
       {isMobile ? (
         currentPage <= totalPages ? (
           <>
-            <header>
+            <header className="quiz-header">
               <Vector
                 style={{
                   display: "flex",
@@ -114,7 +114,7 @@ const QuizPage = () => {
               <h3>QUIZ</h3>
               <h2>3 Cups Chemex</h2>
             </header>
-            <div className="header-middle-mobile">
+            <div className="qz-header-middle-mobile">
               <LinearProgress
                 variant="determinate"
                 value={(currentPage / totalPages) * 100}
@@ -130,7 +130,7 @@ const QuizPage = () => {
                   margin: "0 15px",
                 }}
               />
-              <div className="question-mobile">
+              <div className="qz-question-mobile">
                 Question {currentPage} of {totalPages} -{" "}
                 {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
                 {timeLeft % 60}
@@ -138,11 +138,11 @@ const QuizPage = () => {
               </div>
             </div>
 
-            <main>
-              <div className="question-container">
+            <main className="quiz-main">
+              <div className="qz-question-container">
                 <p>Select one option in each question.</p>
                 <h3>{currentQuiz.question}</h3>
-                <div className="options">
+                <div className="qz-options">
                   {currentQuiz.options.map((option, index) => (
                     <div key={index}>
                       <label>
@@ -161,20 +161,22 @@ const QuizPage = () => {
                   ))}
                 </div>
                 {errorMessage && (
-                  <p style={{ color: "red" }} className="error-message">
+                  <p style={{ color: "#B00020" }} className="qz-error-message">
                     Please choose an answer.
                   </p>
                 )}
               </div>
             </main>
-            <footer>
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onBack={handleBack}
-                onNext={handleNext}
-                onSubmit={handleSubmit}
-              />
+            <footer className="quiz-footer">
+              <div className="qz-footer-wrapper">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onBack={handleBack}
+                  onNext={handleNext}
+                  onSubmit={handleSubmit}
+                />
+              </div>
             </footer>
           </>
         ) : (
@@ -186,13 +188,13 @@ const QuizPage = () => {
         )
       ) : currentPage <= totalPages ? (
         <>
-          <header>
-            <div class="header-wrapper">
-              <div class="header-left">
+          <header className="quiz-header">
+            <div class="qz-header-wrapper">
+              <div class="qz-header-left">
                 <h3>QUIZ</h3>
                 <h2>3 Cups Chemex</h2>
               </div>
-              <div className="header-middle">
+              <div className="qz-header-middle">
                 <strong>
                   Time Left {Math.floor(timeLeft / 60)}:
                   {timeLeft % 60 < 10 ? "0" : ""}
@@ -202,15 +204,15 @@ const QuizPage = () => {
               </div>
             </div>
           </header>
-          <main>
+          <main className="quiz-main">
             <p>Select one option in each question.</p>
             {quizData.map((question) => (
-              <div key={question.id} className="question-container">
+              <div key={question.id} className="qz-question-container">
                 <h3>{question.question}</h3>
-                <div className="options">
+                <div className="qz-options">
                   {question.options.map((option, index) => (
                     <div key={index}>
-                      <label className="radio-button">
+                      <label className="qz-radio-button">
                         <input
                           type="radio"
                           name={`answer-${question.id}`}
@@ -226,15 +228,15 @@ const QuizPage = () => {
                   ))}
                 </div>
                 {errorMessage && !answers[question.id] && (
-                  <p style={{ color: "red" }} className="error-message">
+                  <p style={{ color: "#B00020" }} className="qz-error-message">
                     Please choose an answer.
                   </p>
                 )}
               </div>
             ))}
           </main>
-          <footer>
-            <div class="footer-wrapper">
+          <footer className="quiz-footer">
+            <div className="qz-footer-wrapper">
               <CloseButton
                 buttonName="Cancel"
                 messageHeader="Leave the test"
@@ -257,7 +259,7 @@ const QuizPage = () => {
                   },
                 }}
               />
-              <button className="submit-btn" onClick={handleSubmit}>
+              <button className="qz-submit-btn" onClick={handleSubmit}>
                 Submit
               </button>
             </div>

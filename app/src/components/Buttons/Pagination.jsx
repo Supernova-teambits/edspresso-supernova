@@ -1,6 +1,12 @@
 import { ArrowLineLeft, ArrowLineRight } from "../../assets/Icons";
 
-const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
+export const Pagination = ({
+  currentPage,
+  totalPages,
+  onBack,
+  onNext,
+  onSubmit,
+}) => {
   const isLastPage = currentPage === totalPages;
   const isFirstPage = currentPage === 1;
 
@@ -26,56 +32,35 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
         justifyContent: "space-evenly",
       }}
     >
-      {!isFirstPage ? (
-        <button
-          onClick={handleBack}
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            padding: "8px 6px",
-            width: "148px",
-            height: "40px",
-            background: "transparent",
-            borderRadius: "8px",
-            textAlign: "center",
-            color: "#10494C",
-            border: "none",
-          }}
+      <button
+        onClick={handleBack}
+        disabled={isFirstPage}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "8px 6px",
+          width: "148px",
+          height: "40px",
+          background: "transparent",
+          borderRadius: "8px",
+          textAlign: "center",
+          color: isFirstPage ? "#0000004D" : "#10494C",
+          border: "none",
+          marginRight: "20px",
+        }}
+      >
+        <ArrowLineLeft
+          fillColor={isFirstPage ? "#0000004D" : "#10494C"}
+          style={{ marginRight: "4px" }}
+        />
+        <span
+          className="qz-custom-pagination"
+          style={{ flex: 1, textAlign: "center" }}
         >
-          <ArrowLineLeft fillColor="#10494C" style={{ marginRight: "4px" }} />
-          <span
-            className="custom-pagination"
-            style={{ flex: 1, textAlign: "center" }}
-          >
-            Back
-          </span>
-        </button>
-      ) : (
-        <button
-          disabled
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            padding: "8px 6px",
-            width: "148px",
-            height: "40px",
-            borderRadius: "8px",
-            textAlign: "center",
-            border: "none",
-            background: "transparent",
-          }}
-        >
-          <ArrowLineLeft fillColor="#0000004D" style={{ marginRight: "4px" }} />
-          <span
-            className="custom-pagination"
-            style={{ flex: 1, textAlign: "center" }}
-          >
-            Back
-          </span>
-        </button>
-      )}
+          Back
+        </span>
+      </button>
       {isLastPage ? (
         <button
           onClick={handleSubmit}
@@ -91,10 +76,11 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
             borderRadius: "8px",
             textAlign: "center",
             border: "none",
+            marginLeft: "20px",
           }}
         >
           <span
-            className="custom-pagination"
+            className="qz-custom-pagination"
             style={{ flex: 1, textAlign: "center" }}
           >
             Submit
@@ -115,10 +101,11 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
             borderRadius: "8px",
             textAlign: "center",
             border: "none",
+            marginLeft: "20px",
           }}
         >
           <span
-            className="custom-pagination"
+            className="qz-custom-pagination"
             style={{ flex: 1, textAlign: "center" }}
           >
             Next
@@ -130,4 +117,80 @@ const Pagination = ({ currentPage, totalPages, onBack, onNext, onSubmit }) => {
   );
 };
 
-export default Pagination;
+export const ResultPagination = ({
+  labelLeft,
+  onClickLeft,
+  labelRight,
+  onClickRight,
+  isFirstPage,
+  isLastPage,
+}) => {
+  return (
+    <div
+      className="pagination"
+      style={{
+        display: "flex",
+        height: "inherit",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+      }}
+    >
+      <button
+        onClick={onClickLeft}
+        disabled={isFirstPage}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "8px 6px",
+          width: "148px",
+          height: "40px",
+          background: "transparent",
+          borderRadius: "8px",
+          textAlign: "center",
+          color: isFirstPage ? "#0000004D" : "#10494C",
+          border: "none",
+        }}
+      >
+        <ArrowLineLeft
+          fillColor={isFirstPage ? "#0000004D" : "#10494C"}
+          style={{ marginRight: "4px" }}
+        />
+        <span
+          className="rs-custom-pagination"
+          style={{ flex: 1, textAlign: "center" }}
+        >
+          {labelLeft}
+        </span>
+      </button>
+      <button
+        onClick={onClickRight}
+        disabled={isLastPage}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "8px 6px",
+          width: "148px",
+          height: "40px",
+          background: "transparent",
+          borderRadius: "8px",
+          textAlign: "center",
+          color: isLastPage ? "#0000004D" : "#10494C",
+          border: "none",
+        }}
+      >
+        <span
+          className="rs-custom-pagination"
+          style={{ flex: 1, textAlign: "center" }}
+        >
+          {labelRight}
+        </span>
+        <ArrowLineRight
+          fillColor={isLastPage ? "#0000004D" : "#10494C"}
+          style={{ marginLeft: "4px" }}
+        />
+      </button>
+    </div>
+  );
+};

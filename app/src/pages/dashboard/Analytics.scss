@@ -1,0 +1,47 @@
+@import "../../sass/main.scss";
+
+.Analytics-title {
+  @extend .headline-5;
+  color: $primary-500;
+}
+
+.Analytics-filter-text {
+  @extend .subtitle-2;
+  color: $neutral-grey-dark-2;
+}
+
+.Analytics-chart-title {
+  @extend .subtitle-1;
+  color: $primary-500;
+}
+
+.Analytics-stat-container {
+  text-align: center;
+}
+
+.Analytics-stat-title {
+  @extend .subtitle-1;
+  color: $primary-500;
+}
+
+.Analytics-stat-text {
+  font-family: $subtitle-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .Analytics-chart-title {
+    @include subtitle-2();
+  }
+
+  .Analytics-stat-title {
+    @include body-1-bold();
+  }
+
+  .Analytics-stat-text {
+    font-size: 20px;
+  }
+}

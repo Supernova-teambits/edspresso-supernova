@@ -2,15 +2,16 @@ import { Grid } from "@mui/material";
 import TraineeLearningProcess from "./TraineeLearningProcess";
 import TraineeProgressChart from "./TraineeProgressChart";
 import TraineeProgressStats from "./TraineeProgressStats";
+import "./Analytics.scss";
 
 const Analytics = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <h2>Analytics</h2>
+        <p className="Analytics-title">Analytics</p>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ mb: 4 }}>
           <TraineeProgressChart />
           <TraineeProgressStats />
         </Grid>

@@ -1,8 +1,8 @@
 @import "../sass/main.scss";
 
 .RecipeDetails {
-  margin-top: 24px;
-//   max-width: 858px;
+  max-width: 858px;
+  margin: 0 auto;
 
   &-body {
     @extend .body-2;
@@ -32,10 +32,6 @@
   padding: 8px;
   margin: 0;
 }
-
-// .Grid-container {
-//     justify-content: space-between;
-// }
 
 .Accordion-text-container > div {
   display: flex;

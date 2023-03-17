@@ -1,16 +1,33 @@
 @import "../sass/main.scss";
 
+.ProgressUpdate {
+  margin: 0 auto;
+  max-width: 868px;
+}
+
 .ProgressUpdate-title {
-    @extend .headline-5;
-    color: $primary-500;
+  @extend .headline-5;
+  color: $primary-500;
+  margin: 8px 0 16px;
+  padding: 8px;
 }
 
 .ProgressUpdate-sub-title {
-    @extend .headline-6;
-    color: $primary-500;
+  @extend .headline-6;
+  color: $primary-500;
+  margin: 8px;
 }
 
 .ProgressUpdate-content {
-    @extend .body-1;
-    color: $neutral-grey-dark-2;
+  @extend .body-1;
+  color: $neutral-grey-dark-2;
+  margin: 8px;
+  margin-bottom: 32px;
+}
+
+.progressUpdate-img {
+  width: 557px;
+  max-height: 428px;
+  object-fit: cover;
+  border-radius: 11px;
 }

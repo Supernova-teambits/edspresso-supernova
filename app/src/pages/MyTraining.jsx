@@ -31,38 +31,48 @@ const MyTraining = () => {
   );
 
   return (
-    <>
-      <div className="My-Learnings-container-colored">
-        <Grid container>
-          <Grid item xs={8}>
-            <h4 className="Lesson-title">My Learnings</h4>
+    <div className="MyLearning">
+      <div className="MyLearning__Layout__header">
+        <div className="MyLearning__Layout__header__width">
+          <Grid container>
+            <Grid item xs={8}>
+              <h4 className="Lesson-title">My Learnings</h4>
+            </Grid>
+            <Grid item xs={4}>
+              <SearchBar
+                className="MyLearnings-searchBar"
+                value={searchText}
+                onChange={handleSearch}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <SearchBar
-              className="MyLearnings-searchBar"
-              value={searchText}
-              onChange={handleSearch}
-            />
-          </Grid>
-        </Grid>
-        <CardCollection
-          title="Ongoing Lessons"
-          lessons={searchText ? filteredArray(ongoing) : ongoing}
-        />
+        </div>
       </div>
-      <div>
-        <CardCollection
-          title="Lessons to take"
-          lessons={searchText ? filteredArray(toTake) : toTake}
-        />
+      <div className="MyLearning__Layout__bgcolor">
+        <div className="MyLearning__Layout__content">
+          <CardCollection
+            title="Ongoing Lessons"
+            lessons={searchText ? filteredArray(ongoing) : ongoing}
+          />
+        </div>
       </div>
-      <div className="My-Learnings-container-colored">
-        <CardCollection
-          title="Completed Lessons"
-          lessons={searchText ? filteredArray(completed) : completed}
-        />
+      <div className="MyLearning__Layout__bgwhite">
+        <div className="MyLearning__Layout__content">
+          <CardCollection
+            title="Lessons to take"
+            lessons={searchText ? filteredArray(toTake) : toTake}
+          />
+        </div>
       </div>
-    </>
+      <div className="MyLearning__Layout__bgcolor">
+        <div className="MyLearning__Layout__content lesson__completed">
+          <CardCollection
+            title="Completed Lessons"
+            lessons={searchText ? filteredArray(completed) : completed}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 

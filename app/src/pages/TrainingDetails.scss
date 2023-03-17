@@ -1,28 +1,20 @@
 @import "../sass/main.scss";
 
-.LayoutContainer {
-  width: 100%;
-}
-
 .LayoutWrapper {
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100%;
 
-  &.header {
-    margin: 0;
-    background-color: $accent-700;
+  &__header {
+    padding: 20px;
+    background-color: $secondary-050;
+    margin-bottom: 24px;
   }
 
-
-}
-
-  .LayoutRecipeDetails {
-    max-width: 858px;
-    margin: 0 auto;
+  &__content {
+    margin-bottom: 24px;
   }
-  
-.LayoutContent {
-  display: flex;
-  flex-direction: column;
-  min-width: calc(100vh - 248px);
+
+  &__footer {
+    padding: 20px;
+    background-color: $secondary-100;
+  }
 }

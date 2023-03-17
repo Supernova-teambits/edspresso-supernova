@@ -1,10 +1,5 @@
 @import "../../sass/main.scss";
 
-.StepPagination-btn {
-  display: flex;
-  gap: 8px;
-}
-
 .PrimaryBtn {
   height: 40px;
   min-width: 144px;
@@ -18,7 +13,6 @@
   &:hover {
     background-color: $hover-accent;
     cursor: pointer;
-    transform: translateY(-5px);
   }
 
   &:disabled {
@@ -58,8 +52,6 @@
 
   &:hover {
     background-color: $hover-primary-010;
-    cursor: pointer;
-    transform: translateY(-5px);
   }
 
   &:disabled {
@@ -81,7 +73,6 @@
 
   &:hover {
     background-color: $hover-primary-010;
-    cursor: pointer;
   }
 
   &:disabled {
@@ -103,4 +94,18 @@
 .PrimaryBtnTextWide {
   @extend .PrimaryBtnText;
   width: 100%;
+}
+
+.StepPagination-btn {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 858px;
+  margin: 0 auto;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .StepPagination-btn {
+    justify-content: center;
+  }
 }

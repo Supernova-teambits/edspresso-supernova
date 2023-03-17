@@ -60,4 +60,3 @@ export const ProgressBar = ({ value, totalStep, currentStep, title }) => {
     </>
   );
 };
-

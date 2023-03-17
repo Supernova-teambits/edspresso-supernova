@@ -7,12 +7,12 @@ const CardCollection = ({ title, lessons }) => {
   const MAX_CARDS = 6;
 
   return (
-    <div>
-      <h5 className="My-Learnings-subtitle">{title}</h5>
+    <div className="CardCollestion">
+      <h5 className="CardCollestion-subtitle">{title}</h5>
       {MAX_CARDS < lessons.length ? (
         <Link to={`/${title.toLowerCase()}`}>See all</Link>
       ) : null}
-      <Grid container spacing={1}>
+      <Grid container spacing={4}>
         {lessons.slice().map((lesson, index) => {
           if (index < MAX_CARDS) {
             return (

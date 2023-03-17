@@ -1,41 +1,39 @@
 @import "../../sass/main.scss";
 
 .LessonCard {
-    @extend .md;
-    background-color: #fff;
-    width: 136px;
-    height: 168px;
-    padding: 8px;
-    border-radius: 12px;
+  @extend .md;
+  background-color: #fff;
+  width: 136px;
+  height: 168px;
+  padding: 8px;
+  border-radius: 12px;
 
-    &-img {
-        height: 94px;
-        width: 120px;
-        border-radius: 11px;
-        margin-bottom: 16px;
-    }
+  &-img {
+    height: 94px;
+    width: 120px;
+    border-radius: 11px;
+    margin-bottom: 16px;
+  }
 
-    &-title {
-        @extend .subtitle-2;
-        color: $primary-500;
-        margin: 0;
-    }
+  &-title {
+    @extend .subtitle-2;
+    color: $primary-500;
+    margin: 0;
+  }
 }
 
+.LessonCard-ProgressBar {
+  margin-top: 8px;
 
+  &.MuiLinearProgress-colorPrimary {
+    background-color: $secondary-100;
+    width: 122px;
+    height: 8px;
+    border-radius: 8px;
 
-.LessonCard-ProgressBar {  
-    margin-top: 8px;
-
-    &.MuiLinearProgress-colorPrimary {
-        background-color: $secondary-100;
-        width: 122px;
-        height: 8px;
-        border-radius: 8px;
-        
-        .MuiLinearProgress-barColorPrimary {
-            background-color: $accent-400;
-            border-radius: 8px; 
-        }
+    .MuiLinearProgress-barColorPrimary {
+      background-color: $accent-400;
+      border-radius: 8px;
     }
+  }
 }

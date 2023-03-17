@@ -1,20 +1,6 @@
 import { ArrowLineLeft, ArrowLineRight } from "../../assets/Icons";
 import "./Button.scss";
 
-export const StepPagination = ({
-  labelLeft,
-  onClickLeft,
-  labelRight,
-  onClickRight,
-}) => {
-  return (
-    <div className="StepPagination-btn">
-      <PrimaryBtnTextWithLeftArrow label={labelLeft} onClick={onClickLeft} />
-      <PrimaryBtnWithRightArrow label={labelRight} onClick={onClickRight} />
-    </div>
-  );
-};
-
 export const PrimaryBtn = ({ label, onClick, disabled }) => {
   return (
     <button className="PrimaryBtn" onClick={onClick} disabled={disabled}>
@@ -142,5 +128,19 @@ export const PrimaryBtnTextWide = ({ label, onClick, disabled }) => {
     >
       <span>{label}</span>
     </button>
+  );
+};
+
+export const StepPagination = ({
+  labelLeft,
+  onClickLeft,
+  labelRight,
+  onClickRight,
+}) => {
+  return (
+    <div className="StepPagination-btn">
+      <PrimaryBtnTextWithLeftArrow label={labelLeft} onClick={onClickLeft} />
+      <PrimaryBtnWithRightArrow label={labelRight} onClick={onClickRight} />
+    </div>
   );
 };

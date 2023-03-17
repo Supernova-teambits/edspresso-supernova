@@ -1,5 +1,9 @@
 @import "../../sass/main.scss";
+
 .MentorVerification {
+  margin: 0 auto;
+  max-width: 858px;
+
   &-title {
     @extend .headline-4;
     color: $primary-700;
@@ -24,7 +28,7 @@
       margin: 0;
       margin-bottom: 16px;
     }
-    
+
     &-content-icon {
       display: flex;
       align-items: center;

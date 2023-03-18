@@ -16,7 +16,7 @@ const Analytics = () => {
           <TraineeProgressStats />
         </Grid>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} sx={{ mb: 4 }}>
         <TraineeLearningProcess />
       </Grid>
     </Grid>

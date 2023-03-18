@@ -58,7 +58,7 @@ const ProgressUpdate = () => {
                 <Grid item xs={12} md={4}>
                   <StepProgressDesktop stepArr={stepArr} done={1} />
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={8} className="StepContent-subcontent">
                   <div className="ProgressUpdate">
                     <h5 className="ProgressUpdate-title">
                       {message[0].heading}
@@ -119,9 +119,9 @@ const ProgressUpdate = () => {
             {matches ? (
               <>
                 <Grid item xs={12} md={4}>
-                  <StepProgressDesktop stepArr={stepArr} done={5} />
+                  <StepProgressDesktop stepArr={stepArr} done={4} />
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={8} className="StepContent-subcontent">
                   <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
                   <p className="ProgressUpdate-content">
                     {message[1].message1}

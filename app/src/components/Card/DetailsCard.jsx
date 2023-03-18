@@ -27,7 +27,7 @@ export const DetailsCardColored = ({
 }) => {
   return (
     <>
-      <Grid item md={size}>
+      <Grid item xs={4}>
         <div className="DetailsCardColored">
           <h4 className="DetailsCardColored-title">{title}</h4>
           {text && <p className="DetailsCardColored-body">{text}</p>}
@@ -56,10 +56,10 @@ export const DetailsCardColored = ({
   );
 };
 
-export const DetailsCard = ({ title, text, size }) => {
+export const DetailsCard = ({ title, text }) => {
   return (
     <>
-      <Grid className="DetailsCard" item md={size}>
+      <Grid className="DetailsCard" item xs={4}>
         <h4 className="DetailsCardColored-title">{title}</h4>
         {title === "Mentor" ? (
           <p className="DetailsCard-icon">

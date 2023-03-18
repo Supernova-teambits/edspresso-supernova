@@ -31,3 +31,9 @@
   object-fit: cover;
   border-radius: 11px;
 }
+
+@media (max-width: $max_width_for_mobile) {
+  .ProgressUpdate {
+    margin: 0 16px;
+  }
+}

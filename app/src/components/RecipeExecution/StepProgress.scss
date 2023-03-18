@@ -21,7 +21,6 @@
 }
 
 .StepProgressDesktop {
-  width: 90%;
   @extend .subtitle-2;
   color: $primary-500;
 
@@ -32,5 +31,11 @@
 
   .-rest {
     color: $primary-300;
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .ProgressBar-sub {
+    text-align: center;
   }
 }

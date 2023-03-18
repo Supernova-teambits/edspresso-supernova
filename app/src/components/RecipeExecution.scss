@@ -5,3 +5,20 @@
   padding: 32px 0;
   background-color: $secondary-050;
 }
+
+@media (max-width: $max_width_for_mobile) {
+  .LayoutWrapper__header:has(.StepHeader) {
+    background-color: $neutral-white;
+  }
+
+  .LayoutWrapper__content {
+    margin: 0 auto;
+    padding: 16px;
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .LayoutWrapper__lesson__btn {
+    margin-top: 0;
+  }
+}

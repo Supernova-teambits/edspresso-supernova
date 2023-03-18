@@ -7,6 +7,7 @@
   &-body {
     @extend .body-2;
     color: $neutral-grey-dark-2;
+    padding: 0 8px;
   }
 
   &-title {
@@ -46,6 +47,13 @@
   justify-content: center;
 }
 
-.RecipeDetails-Test-section {
-  background-color: $secondary-100;
+.DetailsCardWideColored-container {
+  background-color: $secondary-050;
+  border-radius: 8px;
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .DetailsCardWideColored-container {
+    background-color: $neutral-white;
+  }
 }

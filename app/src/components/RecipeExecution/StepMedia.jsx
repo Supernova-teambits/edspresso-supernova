@@ -46,7 +46,7 @@ export const IngredientsCard = ({ content }) => {
           </Grid>
         </>
       ) : (
-        <>
+        <div className="IngredientsCard">
           <Grid container>
             <Grid item xs={12}>
               <h4 className="StepMedia-title">{content.title}</h4>
@@ -59,7 +59,7 @@ export const IngredientsCard = ({ content }) => {
               </ul>
             </Grid>
           </Grid>
-        </>
+        </div>
       )}
     </>
   );

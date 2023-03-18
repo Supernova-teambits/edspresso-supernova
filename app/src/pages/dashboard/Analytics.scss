@@ -15,21 +15,47 @@
   color: $primary-500;
 }
 
-.Analytics-stat-container {
-  text-align: center;
+.Analytics-stat {
+  &-container {
+    text-align: center;
+  }
+
+  &-title {
+    @extend .subtitle-1;
+    color: $primary-500;
+  }
+
+  &-text {
+    font-family: $subtitle-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+  }
 }
 
-.Analytics-stat-title {
-  @extend .subtitle-1;
-  color: $primary-500;
-}
+.Analytics-learning-process {
+  &-title {
+    @extend .subtitle-1;
+    color: $primary-500;
+  }
 
-.Analytics-stat-text {
-  font-family: $subtitle-font;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 20px;
+  &-lesson-container {
+    background-color: $primary-300;
+    margin: 0px -16px;
+  }
+
+  &-lesson-title {
+    @extend .subtitle-1;
+    color: $secondary-050;
+    margin-left: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  &-status-label {
+    @extend .caption;
+  }
 }
 
 @media (max-width: $max_width_for_mobile) {
@@ -37,11 +63,13 @@
     @include subtitle-2();
   }
 
-  .Analytics-stat-title {
-    @include body-1-bold();
-  }
+  .Analytics-stat {
+    &-title {
+      @include body-1-bold();
+    }
 
-  .Analytics-stat-text {
-    font-size: 20px;
+    &-text {
+      font-size: 20px;
+    }
   }
 }

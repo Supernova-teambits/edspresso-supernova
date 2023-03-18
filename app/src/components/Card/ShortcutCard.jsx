@@ -9,7 +9,7 @@ import { ArrowLineRight } from "../../assets/Icons";
 import './AdminDashboard.scss'
 
 const ShortcutCard = (props) => {
-  const { imageComponent, imageSrc, buttonText, buttonOnClick } = props;
+  const { imageComponent, buttonText, buttonOnClick } = props;
 
   return (
     <Card class="shortcut-card">

@@ -10,7 +10,7 @@
 .admin_dash_img {
   margin-left: 24px;
 }
-h1 {
+.admin_dash_img h1 {
   @extend .headline-3;
   color: $neutral-white;
   width: 135.57px;
@@ -20,7 +20,7 @@ h1 {
   margin-top: 23.19px;
 }
 
-h2 {
+.admin_dash_img h2 {
   @extend .headline-6;
   color: $neutral-white;
   width: 179px;

@@ -31,7 +31,7 @@ const RecipeDetails = () => {
 
   return (
     <div className="RecipeDetails">
-      <Grid container>
+      <Grid container justifyContent="center">
         <Grid item md={4}>
           {/* image and desc */}
           <div className="RecipeDetails-img-btn">
@@ -51,92 +51,102 @@ const RecipeDetails = () => {
           </p>
 
           {/* training & ingredient/equip details */}
-          <Grid container className="Grid-container">
-            <DetailsCardColored title="Status" text="Not Status" size={4} />
-            <DetailsCardColored title="Progress" text="0%" size={4} />
-            <DetailsCardColored title="Difficulty" difficulty={5} size={4} />
+          <Grid container justifyContent="center" style={{ padding: "0 8px" }}>
+            <DetailsCardColored title="Status" text="Not Status" />
+            <DetailsCardColored title="Progress" text="0%" />
+            <DetailsCardColored title="Difficulty" difficulty={5} />
           </Grid>
-        </Grid>
-      </Grid>
 
-      <Accordion
-        expanded={expanded === "panel"}
-        onChange={handleChange("panel")}
-      >
-        <AccordionSummary
-          aria-controls="panel-content"
-          id="panel-header"
-          className="Accordion-text-container"
-        >
-          <p className="Accordion-text">
-            {expanded === "panel" ? "See less details" : "See more deatils"}
-            <ArrowLineRight fillColor="#10494C" />
-          </p>
-        </AccordionSummary>
-        <Grid container>
-          <Grid item md={4}></Grid>
-          <Grid item md={8} className="Grid-container">
-            <Grid container>
-              <DetailsCard title="Preparation Time" text="6 minutes" size={4} />
-              <DetailsCard title="Mentor" text="Flavia C." size={4} />
-              <DetailsCard title="Category" text="Brewing Methods" size={4} />
-            </Grid>
-            <Grid container className="Grid-container">
-              <Grid item md={6} xs={12} className="DetailsCardColored">
-                <h4 className="DetailsCardColored-title">Certification</h4>
-                <p className="DetailsCardColored-body DetailsCard-icon">
-                  <Check fillColor="#171717" />
-                  Achieve 80% or above to get a certification
-                </p>
+          <Accordion
+            expanded={expanded === "panel"}
+            onChange={handleChange("panel")}
+            style={{ boxShadow: "none" }}
+          >
+            <AccordionSummary
+              aria-controls="panel-content"
+              id="panel-header"
+              className="Accordion-text-container"
+            >
+              <p className="Accordion-text">
+                {expanded === "panel" ? "See less details" : "See more deatils"}
+                <ArrowLineRight fillColor="#10494C" />
+              </p>
+            </AccordionSummary>
+            <Grid
+              container
+              justifyContent="center"
+              style={{ padding: "0 8px" }}
+            >
+              <Grid item md={12}>
+                <Grid container style={{ marginBottom: "16px" }}>
+                  <DetailsCard title="Preparation Time" text="6 minutes" />
+                  <DetailsCard title="Mentor" text="Flavia C." />
+                  <DetailsCard title="Category" text="Brewing Methods" />
+                </Grid>
+                <Grid
+                  container
+                  justifyContent="center"
+                  className="DetailsCardWideColored-container"
+                >
+                  <Grid item md={6} xs={12} className="DetailsCardWideColored">
+                    <h4 className="DetailsCardColored-title">Certification</h4>
+                    <p className="DetailsCardColored-body DetailsCard-icon">
+                      <Check fillColor="#171717" />
+                      Achieve 80% or above to get a certification
+                    </p>
+                  </Grid>
+
+                  <Grid item md={6} xs={12} className="DetailsCardWideColored">
+                    <h4 className="DetailsCardColored-title">Requirement</h4>
+                    <Stack direction="row" spacing={1}>
+                      {["Coffee Basics", "Grinder and weight"].map(
+                        (data, index) => {
+                          let icon;
+                          return (
+                            <Chip
+                              style={{
+                                backgroundColor: "#EAF2F2",
+                                color: "#0A2C2E",
+                              }}
+                              key={index}
+                              icon={icon}
+                              label={data}
+                            />
+                          );
+                        }
+                      )}
+                    </Stack>
+                  </Grid>
+                </Grid>
               </Grid>
-
-              <Grid item md={6} xs={12} className="DetailsCardColored">
-                <h4 className="DetailsCardColored-title">Requirement</h4>
-                <Stack direction="row" spacing={1}>
-                  {["Coffee Basics", "Grinder and weight"].map(
-                    (data, index) => {
-                      let icon;
-                      return (
-                        <Chip
-                          style={{
-                            backgroundColor: "#EAF2F2",
-                            color: "#0A2C2E",
-                          }}
-                          key={index}
-                          icon={icon}
-                          label={data}
-                        />
-                      );
-                    }
+            </Grid>
+          </Accordion>
+        </Grid>
+        {expanded === "panel" ? (
+          <Grid item>
+            {matches ? (
+              <>
+                <h4 className="RecipeDetails-title">What you will need</h4>
+                <Grid container className="RecipeDetails-ingredient">
+                  {step[0].content_detail[0].sub_content[1].content.map(
+                    (element, index) => (
+                      <LessonCard
+                        key={index}
+                        title={element.title}
+                        value={element.value}
+                      />
+                    )
                   )}
-                </Stack>
-              </Grid>
-            </Grid>
+                </Grid>
+              </>
+            ) : (
+              <StepSubContent
+                content={step[0].content_detail[0].sub_content[1]}
+              />
+            )}
           </Grid>
-        </Grid>
-        <div>
-          {matches ? (
-            <>
-              <h4 className="RecipeDetails-title">What you will need</h4>
-              <Grid container>
-                {step[0].content_detail[0].sub_content[1].content.map(
-                  (element, index) => (
-                    <LessonCard
-                      key={index}
-                      title={element.title}
-                      value={element.value}
-                    />
-                  )
-                )}
-              </Grid>
-            </>
-          ) : (
-            <StepSubContent
-              content={step[0].content_detail[0].sub_content[1]}
-            />
-          )}
-        </div>
-      </Accordion>
+        ) : null}
+      </Grid>
     </div>
   );
 };

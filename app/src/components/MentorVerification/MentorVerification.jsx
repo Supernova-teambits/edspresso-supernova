@@ -85,16 +85,17 @@ const MentoVerification = () => {
   return (
     <>
       <div className="MentorVerification">
-        <h4 className="MentorVerification-title">Test your knowledge</h4>
-        <p className="MentorVerification-body">
-          You can start the test when you are ready
-        </p>
-        <p className="MentorVerification-body">
-          You need at least 80% to approve the test and get a ecrtification.
-        </p>
+        <div className="MentorVerification-text">
+          <h4 className="MentorVerification-title">Test your knowledge</h4>
+          <p className="MentorVerification-body">
+            You can start the test when you are ready
+            <br />
+            You need at least 80% to approve the test and get a ecrtification.
+          </p>
+        </div>
 
-        <Grid container>
-          <Grid item md={6}>
+        <Grid container spacing={2}>
+          <Grid item md={6} xs={12}>
             <div className="MentorVerification-card">
               <h4 className="MentorVerification-card-title">
                 Cerification Quiz
@@ -132,7 +133,7 @@ const MentoVerification = () => {
               )}
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} xs={12}>
             <div className="MentorVerification-card">
               <h3 className="MentorVerification-card-title">
                 Mentor Verification
@@ -140,6 +141,7 @@ const MentoVerification = () => {
               <Breadcrumbs
                 separator={<ArrowLineRight fillColor="#709294" />}
                 aria-label="breadcrumb"
+                style={{ marginBottom: "16px" }}
               >
                 {breadcrumbs}
               </Breadcrumbs>
@@ -148,8 +150,11 @@ const MentoVerification = () => {
                 <Help fillColor="#10494C" />
                 After finishing your test, a mentor will verify your answers.
               </p>
-              <p>Barista Flavia C.</p>
-              <p>27/01/2023</p>
+              <p style={{ margin: "0" }}>
+                Barista Flavia C.
+                <br />
+                27/01/2023
+              </p>
             </div>
           </Grid>
         </Grid>

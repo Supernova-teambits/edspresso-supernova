@@ -7,26 +7,27 @@
   &-title {
     @extend .headline-4;
     color: $primary-700;
+    margin: 0 0 16px;
   }
 
   &-body {
     @extend .body-1;
     color: $neutral-grey-dark-2;
+    margin: 16px 0;
   }
 
   &-card {
+    @extend .md;
     background-color: $neutral-white;
     border-radius: 12px;
     padding: 20px 18px;
-    width: 420px;
-    min-height: 200px;
+    max-width: 420px;
+    min-height: 190px;
 
     &-title {
-      margin-bottom: 16px;
       @extend .headline-4;
       color: $primary-500;
-      margin: 0;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
     }
 
     &-content-icon {
@@ -43,6 +44,7 @@
     > p {
       @extend .body-1;
       color: $primary-500;
+      margin: 0 0 16px;
     }
     .passDate {
       @extend .subtitle-2;
@@ -50,6 +52,18 @@
 
     .QuizStart-btn:disabled {
       background-color: $disabled-accent;
+    }
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .MentorVerification {
+    &-text {
+      width: 420px;
+      margin: 0 auto;
+    }
+    &-card {
+      margin: 0 auto;
     }
   }
 }

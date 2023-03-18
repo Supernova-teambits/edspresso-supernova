@@ -19,8 +19,24 @@
     max-width: 858px;
     margin: 0 auto;
   }
-  
+
   .lesson__completed p {
     color: $disabled-light-bg;
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .MyLearning {
+    &__Layout__header {
+      &__width {
+        max-width: 100%;
+        margin: 0;
+      }
+    }
+
+    &__Layout__content {
+      max-width: 100%;
+      margin: 0;
+    }
   }
 }

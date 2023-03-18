@@ -3,14 +3,30 @@
 .StepHeader {
   max-width: 858px;
   margin: 0 auto;
+
+  > div {
+    display: flex;
+  }
 }
 
 .StepContent {
   max-width: 858px;
   margin: 0 auto;
+
+  &-subcontent {
+    padding-left: 24px;
+  }
 }
 
 .Lesson-title-sub {
   @extend .body-1;
   color: $primary-500;
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .StepContent {
+    &-subcontent {
+      padding-left: 0;
+    }
+  }
 }

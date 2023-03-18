@@ -73,8 +73,12 @@ export const StepHeader = ({ lesson, index }) => {
         label="My Learnings"
         onClick={() => navigate("/app/myTraining")}
       />
-      <h4 className="Lesson-title">{lesson.title}</h4>
-      {matches ? null : <p className="Lesson-title-sub">{step[index].title}</p>}
+      <div>
+        <h4 className="Lesson-title">{lesson.title}</h4>
+        {matches ? null : (
+          <p className="Lesson-title-sub">{step[index].title}</p>
+        )}
+      </div>
     </div>
   );
 };
@@ -101,7 +105,7 @@ export const Step1 = () => {
             </>
           ) : null}
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} className="StepContent-subcontent">
           <StepSubContent content={step[0].content_detail[0].sub_content[0]} />
           <StepSubContent content={step[0].content_detail[0].sub_content[1]} />
           {matches ? null : (
@@ -136,7 +140,7 @@ export const Step2 = () => {
             </>
           ) : null}
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} className="StepContent-subcontent">
           <StepSubContent content={step[0].content_detail[1].sub_content[0]} />
           {matches ? null : (
             <TipsCard content={step[0].content_detail[1].note} />
@@ -170,7 +174,7 @@ export const Step3 = () => {
             </>
           ) : null}
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} className="StepContent-subcontent">
           <StepSubContent content={step[0].content_detail[2].sub_content[0]} />
           {matches ? null : (
             <TipsCard content={step[0].content_detail[2].note} />
@@ -204,7 +208,7 @@ export const Step4 = () => {
             </>
           ) : null}
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} className="StepContent-subcontent">
           <StepSubContent content={step[1].content_detail[0].sub_content[0]} />
           <StepSubContent content={step[1].content_detail[0].sub_content[1]} />
           {matches ? null : (
@@ -239,7 +243,7 @@ export const Step5 = () => {
             </>
           ) : null}
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} className="StepContent-subcontent">
           <StepSubContent content={step[1].content_detail[1].sub_content[0]} />
           <StepSubContent content={step[1].content_detail[1].sub_content[1]} />
           {matches ? null : (

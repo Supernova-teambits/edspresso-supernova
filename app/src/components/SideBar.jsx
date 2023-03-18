@@ -12,17 +12,21 @@ import {
   Help,
   Logout,
 } from "../assets/Icons";
+import { Logo } from "../assets/images";
 
 function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
 
   const adminMenu = (
     <div className="sidebar-menu">
-      <h4>
+      <div class="logo">
+        <Logo />
+      </div>
+      <h4 class="profile">
         <User fillColor="#FFF0DE" />
         Admin
       </h4>
-      <p>_______________________</p>
+      <div class="separator"></div>
       <ul className="menu-item">
         <li>
           <GraphDonut fillColor="#FFF0DE" />
@@ -46,7 +50,7 @@ function Sidebar() {
             Settings
           </a>
         </li>
-        <li style={{ marginTop: "50px" }}>
+        <li style={{ marginTop: "56px" }}>
           <Notification fillColor="#FFF0DE" />
           <a href="/app/dashboard" disabled>
             Notifications
@@ -69,11 +73,14 @@ function Sidebar() {
   const traineeMenu = (
     <>
       <div className="sidebar-menu">
-        <h4>
-          <User fillColor="#FFF0DE" />
+        <div class="logo">
+          <Logo />
+        </div>
+        <h4 class="profile">
+          <User fillColor="#FFF0DE" class="profile" />
           Trainee
         </h4>
-        <p>_______________________</p>
+        <div class="separator"></div>
         <ul className="menu-item">
           <li>
             <Book fillColor="#FFF0DE" />

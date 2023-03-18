@@ -1,12 +1,72 @@
 @import "../../sass/main.scss";
-
-$text-color: $primary-500;
-
-.short-cut-button {
-  background-color: "none";
+.create-lesson-card {
+  width: 504px;
+  height: 240px;
+  left: 288px;
+  top: 95px;
+  position: absolute;
+  padding: 10px;
+}
+.admin_dash_img {
+  margin-left: 24px;
+}
+h1 {
+  @extend .headline-3;
+  color: $neutral-white;
+  width: 135.57px;
+  height: 31.26px;
+  left: 312px;
+  top: 118.19px;
+  margin-top: 23.19px;
 }
 
-h1,
 h2 {
-  color: $text-color;
+  @extend .headline-6;
+  color: $neutral-white;
+  width: 179px;
+  height: 60px;
+  left: 312px;
+  top: 180px;
+  margin-top: 35px;
+}
+
+.create-lesson {
+  @extend .button;
+  background-color: $accent-700;
+  border-radius: 8px;
+  color: $neutral-white;
+  width: 144.61px;
+  height: 40.34px;
+  left: 312px;
+  top: 271.47px;
+  display: flex;
+  align-items: center;
+  padding: 8px 6px;
+  margin-bottom: 23.19px;
+}
+.create-card {
+  width: 504px;
+  height: 240px;
+  left: 288px;
+  top: 95px;
+}
+.short-cut-button {
+  fill: none;
+}
+.shortcut-card {
+  left: 0%;
+  right: 53.85%;
+  top: 0%;
+  bottom: 55%;
+  background: #ffffff;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+}
+.image-container {
+  left: 17.79%;
+  right: 69.95%;
+  top: 4.17%;
+  bottom: 75.83%;
+  justify-content: center;
 }

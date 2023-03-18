@@ -1,15 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardActions,
-  Button,
-} from "@mui/material";
+import { Card, CardMedia, CardActions, Button } from "@mui/material";
 import { ArrowLineRight } from "../../assets/Icons";
-import './AdminDashboard.scss'
+import "./AdminDashboard.scss";
 
 const ShortcutCard = (props) => {
-  const { imageComponent, imageSrc, buttonText, buttonOnClick } = props;
+  const { imageComponent, buttonText, buttonOnClick } = props;
 
   return (
     <Card class="shortcut-card">
@@ -20,14 +15,17 @@ const ShortcutCard = (props) => {
           alignItems: "center",
           justifyContent: "center",
         }}
-
       />
-            {imageComponent}
-      <CardActions >
-        <Button variant="contained" onClick={buttonOnClick} className="short-cut-button">
+      {imageComponent}
+      <CardActions>
+        <Button
+          variant="contained"
+          onClick={buttonOnClick}
+          className="short-cut-button"
+        >
           {buttonText}
         </Button>
-        <ArrowLineRight fillColor={"#10494C"}/>
+        <ArrowLineRight fillColor={"#10494C"} />
       </CardActions>
     </Card>
   );

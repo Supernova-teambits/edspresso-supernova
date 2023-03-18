@@ -12,17 +12,16 @@ const MentoVerification = () => {
 
   const [timeSpent, setTimeSpent] = useState(0);
   const [score, setScore] = useState(0);
-  const [isDisabled, setIsDisablled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      axios.get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`),
-    ])
-      .then(([result]) => {
+    axios
+      .get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`)
+      .then((result) => {
         let progress = result.data;
         setScore(progress.test_result);
         setTimeSpent(progress.completed_time);
-        setIsDisablled(
+        setIsDisabled(
           progress.completed_time === 0 && progress.test_result === 0
         );
         console.log(progress);

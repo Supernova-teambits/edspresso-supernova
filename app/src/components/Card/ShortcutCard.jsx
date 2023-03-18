@@ -9,16 +9,20 @@ import { ArrowLineRight } from "../../assets/Icons";
 import './AdminDashboard.scss'
 
 const ShortcutCard = (props) => {
-  const { imageSrc, buttonText, buttonOnClick } = props;
+  const { imageComponent, imageSrc, buttonText, buttonOnClick } = props;
 
   return (
-    <Card>
+    <Card class="shortcut-card">
       <CardMedia
-        component="img"
         height="100"
-        image={imageSrc}
-        alt="example image"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+
       />
+            {imageComponent}
       <CardActions >
         <Button variant="contained" onClick={buttonOnClick} className="short-cut-button">
           {buttonText}

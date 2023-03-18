@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Grid,
-  Paper,
-  TextField,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Grid, Paper, TextField, useMediaQuery } from "@mui/material";
 import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
@@ -164,7 +157,7 @@ export default function LogIn() {
                 margin="normal"
                 fullWidth
                 id="name"
-                label="Name"
+                label="Username"
                 name="name"
                 autoComplete="name"
                 autoFocus
@@ -180,15 +173,9 @@ export default function LogIn() {
                 id="password"
                 autoComplete="current-password"
               />
-              <Button
-                className="Login-form-button"
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="accent700"
-              >
+              <button className="Login-form-button" type="submit">
                 <p>Login</p>
-              </Button>
+              </button>
             </Box>
           </Box>
         </Grid>

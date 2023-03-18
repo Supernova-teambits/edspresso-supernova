@@ -48,6 +48,10 @@ export const Pagination = ({
           color: isFirstPage ? "#0000004D" : "#10494C",
           border: "none",
           marginRight: "20px",
+          cursor: "pointer",
+          "&:hover": {
+            backgroundColor: "#eaf2f2",
+          },
         }}
       >
         <ArrowLineLeft
@@ -77,6 +81,10 @@ export const Pagination = ({
             textAlign: "center",
             border: "none",
             marginLeft: "20px",
+            cursor: "pointer",
+            "&:hover": {
+              backgroundColor: "#6c2c09",
+            },
           }}
         >
           <span
@@ -102,6 +110,10 @@ export const Pagination = ({
             textAlign: "center",
             border: "none",
             marginLeft: "20px",
+            cursor: "pointer",
+            "&:hover": {
+              backgroundColor: "#6c2c09",
+            },
           }}
         >
           <span
@@ -150,6 +162,7 @@ export const ResultPagination = ({
           textAlign: "center",
           color: isFirstPage ? "#0000004D" : "#10494C",
           border: "none",
+          cursor: "pointer",
         }}
       >
         <ArrowLineLeft
@@ -178,6 +191,7 @@ export const ResultPagination = ({
           textAlign: "center",
           color: isLastPage ? "#0000004D" : "#10494C",
           border: "none",
+          cursor: "pointer",
         }}
       >
         <span

@@ -96,6 +96,7 @@
   font-weight: bold;
   padding-left: 10px;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .result-btn svg {
@@ -146,6 +147,7 @@
   background-color: transparent;
   border: none;
   margin-right: 230px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: $max_width_for_mobile) {

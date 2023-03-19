@@ -1,4 +1,8 @@
+import axios from "axios";
+import { useEffect } from "react";
+import { BASE_URL } from "../../utils/Constants";
 import { useNavigate } from "react-router-dom";
+
 import step from "../../pages/dummy-steps";
 
 import { Box, Grid, useMediaQuery } from "@mui/material";
@@ -222,6 +226,19 @@ export const Step4 = () => {
 
 export const Step5 = () => {
   const matches = useMediaQuery("(min-width:600px)");
+  const dummy_completed_time = ("000" + Math.floor(Math.random() * 1000)).slice(-3);
+
+  // update completed_time
+  useEffect(() => {
+    axios
+      .put(`${BASE_URL}/progress/64014b7e898a8420af6ab7f0`, {
+        completed_time: dummy_completed_time,
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [dummy_completed_time]);
+
 
   return (
     <div className="StepContent">

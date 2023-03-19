@@ -29,7 +29,7 @@ const MentoVerification = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [timeSpent]);
 
   // Breadcumb
   const breadcrumbStyle = {
@@ -58,7 +58,7 @@ const MentoVerification = () => {
 
   // decide button label
   let buttonLabel;
-  if (score > 0 && score < 80) {
+  if (timeSpent > 0 && score < 80) {
     buttonLabel = "Do quiz again";
   } else {
     buttonLabel = "Start quiz";
@@ -115,7 +115,7 @@ const MentoVerification = () => {
                     label={buttonLabel}
                     onClick={handleQuizStart}
                   />
-                  {score !== 0 && score < 80 && (
+                  {timeSpent !== 0 && score < 80 && (
                     <PrimaryBtnTextWithRightArrow
                       label="Check last results"
                       onClick={handleCheckLastResults}

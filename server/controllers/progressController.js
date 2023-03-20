@@ -13,6 +13,7 @@ const getProgressAccordingToManagerCode = (req, res) => {
             results.map(
               ({
                 trainee_name,
+                trainee_photo,
                 lesson_title,
                 progress_status,
                 started_date,
@@ -20,6 +21,7 @@ const getProgressAccordingToManagerCode = (req, res) => {
                 completed_time,
               }) => ({
                 trainee_name,
+                trainee_photo,
                 lesson_title,
                 progress_status,
                 started_date,

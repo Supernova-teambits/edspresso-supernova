@@ -34,7 +34,11 @@ const TraineeLearningProcess = () => {
             <React.Fragment key={item.trainee_name + item.lesson_title}>
               <ListItem style={{ marginTop: "8px", marginBottom: "8px" }}>
                 <ListItemAvatar>
-                  <Avatar src={<User />} />
+                  {item.trainee_photo ? (
+                    <Avatar src={item.trainee_photo} />
+                  ) : (
+                    <Avatar src={<User />} />
+                  )}
                 </ListItemAvatar>
                 <ListItemText
                   primary={item.trainee_name}

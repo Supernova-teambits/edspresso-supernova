@@ -64,6 +64,7 @@ export const filteredProgressByTraineeState = selector({
           if (!result[item.trainee_name]) {
             result[item.trainee_name] = {
               trainee_name: item.trainee_name,
+              trainee_photo: item.trainee_photo,
               statusSum: 0,
               count: 0,
             };
@@ -74,6 +75,7 @@ export const filteredProgressByTraineeState = selector({
         }, {})
       ).map((item) => ({
         trainee_name: item.trainee_name,
+        trainee_photo: item.trainee_photo,
         status:
           item.statusSum / item.count === 0
             ? "Pending"
@@ -85,6 +87,7 @@ export const filteredProgressByTraineeState = selector({
     } else {
       return filteredProgress.map((item) => ({
         trainee_name: item.trainee_name,
+        trainee_photo: item.trainee_photo,
         status:
           item.progress_status === 0
             ? "Pending"

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const ProgressSchema = new Schema({
   trainee_name: { type: String, required: true },
+  trainee_photo: { type: String },
   lesson_title: { type: String, required: true },
   trainee_lesson: { type: String },
   manager_code: { type: String, required: true },

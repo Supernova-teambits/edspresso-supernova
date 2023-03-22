@@ -3,6 +3,7 @@
 .Analytics-title {
   @extend .headline-5;
   color: $primary-500;
+  margin-top: 40px;
 }
 
 .Analytics-filter-text {
@@ -59,6 +60,10 @@
 }
 
 @media (max-width: $max_width_for_mobile) {
+  .Analytics-title {
+    margin-top: 33px;
+  }
+
   .Analytics-chart-title {
     @include subtitle-2();
   }

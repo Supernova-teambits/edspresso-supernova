@@ -11,8 +11,14 @@ const TraineeProgressChart = () => {
     <Grid item xs={12}>
       <Card>
         <CardContent>
-          <p className="Analytics-chart-title">Lessons</p>
-          <TraineeProgressFilter />
+          <Grid container>
+            <Grid item xs={4} md={12}>
+              <p className="Analytics-chart-title">Lessons</p>
+            </Grid>
+            <Grid item xs={8} md={12}>
+              <TraineeProgressFilter />
+            </Grid>
+          </Grid>
           <DonutChart data={progressForChart} />
         </CardContent>
       </Card>

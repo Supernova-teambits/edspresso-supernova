@@ -7,7 +7,7 @@ const TraineeProgressStats = () => {
   const progressStats = useRecoilValue(filteredProgressStatsState);
   return (
     <>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={6}>
         <Card>
           <CardContent className="Analytics-stat-container">
             <p className="Analytics-stat-title">Avg. Completion Rate</p>
@@ -17,7 +17,7 @@ const TraineeProgressStats = () => {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={6}>
         <Card>
           <CardContent className="Analytics-stat-container">
             <p className="Analytics-stat-title">Avg. Time to Complete</p>

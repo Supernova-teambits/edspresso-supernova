@@ -14,6 +14,11 @@ import { User } from "../../assets/Icons";
 import ProgressStatusLabel from "./ProgressStatusLabel";
 import { lessonTitleFilterState } from "../../recoil/atoms";
 import React from "react";
+import {
+  NEUTRAL_GREY_DARK_1,
+  NEUTRAL_GREY_LIGHT_3,
+  NEUTRAL_WHITE,
+} from "../../utils/Constants";
 
 const TraineeLearningProcess = () => {
   const filteredProgressByTraineeList = useRecoilValue(
@@ -37,7 +42,14 @@ const TraineeLearningProcess = () => {
                   {item.trainee_photo ? (
                     <Avatar src={item.trainee_photo} />
                   ) : (
-                    <Avatar src={<User />} />
+                    <Avatar
+                      sx={{
+                        backgroundColor: NEUTRAL_WHITE,
+                        border: `1px solid ${NEUTRAL_GREY_LIGHT_3}`,
+                      }}
+                    >
+                      <User fillColor={NEUTRAL_GREY_DARK_1} />
+                    </Avatar>
                   )}
                 </ListItemAvatar>
                 <ListItemText

@@ -10,7 +10,7 @@ const DonutChart = (props) => {
     return (
       <>
         {data.map((entry, index) => (
-          <section className="DonutChart-Legend">
+          <section key={`${entry.name}-${index}`} className="DonutChart-Legend">
             <Bookmark fillColor={STATUS_COLOR[index]} />
             <section className="DonutChart-Legend-Text-Container">
               <p className="DonutChart-Legend-Main-Text">

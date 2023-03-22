@@ -226,7 +226,7 @@ export const Step4 = () => {
 
 export const Step5 = () => {
   const matches = useMediaQuery("(min-width:600px)");
-  const dummy_completed_time = ("000" + Math.floor(Math.random() * 1000)).slice(-3);
+  const dummy_completed_time = Math.floor(Math.random() * 100) + 1;
 
   // update completed_time
   useEffect(() => {

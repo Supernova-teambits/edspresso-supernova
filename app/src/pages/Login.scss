@@ -12,6 +12,7 @@
 
 .Login-form-button {
   @extend .button;
+  @extend .xl;
   color: $secondary-050;
   text-transform: none;
   border-radius: 10px;
@@ -19,8 +20,7 @@
   margin-bottom: 60px;
   background-color: $accent-700;
   width: 100%;
-  box-shadow: none;
-  outline: none;
+  border: none;
   cursor: pointer;
 }
 

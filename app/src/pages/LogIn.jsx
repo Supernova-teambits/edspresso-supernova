@@ -8,7 +8,6 @@ import { loginBg, LoginLogoDesktop, LoginLogoMobile } from "../assets/images";
 import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import AlertDialog from "../components/Dialog/AlertDialog";
-import { MAX_WIDTH_FOR_MOBILE } from "../utils/Constants";
 import "./Login.scss";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "../utils/ThemeUtil";
@@ -19,7 +18,7 @@ export default function LogIn() {
   const [loading, setLoading] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const setUserRole = useSetRecoilState(userRoleState);
-  const isMobile = useMediaQuery(`(max-width:${MAX_WIDTH_FOR_MOBILE})`);
+  const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
 
   const handleAlertClose = () => {
     setAlertOpen(false);
@@ -113,7 +112,6 @@ export default function LogIn() {
         container
         direction="column"
         component="main"
-        justifyContent="center"
         alignItems="center"
         sx={{
           height: "100vh",
@@ -137,8 +135,9 @@ export default function LogIn() {
         <Grid item sm={5} component={Paper} elevation={6} borderRadius={6}>
           <Box
             sx={{
-              my: 4,
-              mx: 8,
+              width: { xs: 328, sm: 564 },
+              my: { xs: 1, md: 3 },
+              mx: { xs: 1, md: 6 },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -149,29 +148,34 @@ export default function LogIn() {
               component="form"
               noValidate
               onSubmit={handleSubmit}
-              sx={{ mt: 8 }}
+              sx={{
+                mt: { xs: 4, sm: 8 },
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
               <TextField
                 className="Login-form-text-field"
                 color="primary500"
                 margin="normal"
-                fullWidth
                 id="name"
                 label="Username"
                 name="name"
                 autoComplete="name"
                 autoFocus
+                sx={{ mb: 3, width: 320 }}
               />
               <TextField
                 className="Login-form-text-field"
                 color="primary500"
                 margin="normal"
-                fullWidth
                 name="password"
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                sx={{ width: 320 }}
               />
               <button className="Login-form-button" type="submit">
                 <p>Login</p>

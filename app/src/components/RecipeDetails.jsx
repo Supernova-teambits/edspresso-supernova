@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../utils/Constants";
 import step from "../pages/dummy-steps";
-
 import {
   Grid,
   Accordion,
@@ -11,8 +12,7 @@ import {
   Chip,
 } from "@mui/material";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
-
-import { PrimaryBtnWide } from "./Buttons/Button";
+import { PrimaryBtnWide, PrimaryBtnOutlineWide } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
 import { chemex } from "../assets/images";
@@ -24,6 +24,21 @@ const RecipeDetails = () => {
   const navigate = useNavigate();
   // Control accordion expand
   const [expanded, setExpanded] = useState("panel");
+  const [progress, setProgress] = useState(0);
+
+  // retrieve progress_status
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`)
+      .then((result) => {
+        let progress = result.data;
+        setProgress(progress.progress_status);
+        console.log(progress.progress_status);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [progress]);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -36,10 +51,17 @@ const RecipeDetails = () => {
           {/* image and desc */}
           <div className="RecipeDetails-img-btn">
             <img src={chemex} alt="chemex" width={250} />
-            <PrimaryBtnWide
-              label={"Start Lesson"}
-              onClick={() => navigate("/app/step/1")}
-            />
+            {progress > 0 ? (
+              <PrimaryBtnOutlineWide
+                label={"Review Lesson"}
+                onClick={() => navigate("/app/step/1")}
+              />
+            ) : (
+              <PrimaryBtnWide
+                label={"Start Lesson"}
+                onClick={() => navigate("/app/step/1")}
+              />
+            )}
           </div>
         </Grid>
         <Grid item md={8}>
@@ -53,7 +75,7 @@ const RecipeDetails = () => {
           {/* training & ingredient/equip details */}
           <Grid container justifyContent="center" style={{ padding: "0 8px" }}>
             <DetailsCardColored title="Status" text="Not Status" />
-            <DetailsCardColored title="Progress" text="0%" />
+            <DetailsCardColored title="Progress" text={progress + "%"} />
             <DetailsCardColored title="Difficulty" difficulty={5} />
           </Grid>
 

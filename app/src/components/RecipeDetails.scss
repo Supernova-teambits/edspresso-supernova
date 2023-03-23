@@ -2,7 +2,7 @@
 
 .RecipeDetails {
   max-width: 858px;
-  margin: 0 auto;
+  margin: 0 68px 0 366px;
 
   &-body {
     @extend .body-2;
@@ -53,6 +53,10 @@
 }
 
 @media (max-width: $max_width_for_mobile) {
+  .RecipeDetails {
+    margin: 0 auto;
+  }
+
   .DetailsCardWideColored-container {
     background-color: $neutral-white;
   }

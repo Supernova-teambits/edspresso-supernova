@@ -148,7 +148,7 @@ const RecipeDetails = () => {
             {matches ? (
               <>
                 <h4 className="RecipeDetails-title">What you will need</h4>
-                <Grid container className="RecipeDetails-ingredient">
+                <Grid container className="RecipeDetails-ingredient" spacing={1}>
                   {step[0].content_detail[0].sub_content[1].content.map(
                     (element, index) => (
                       <LessonCard

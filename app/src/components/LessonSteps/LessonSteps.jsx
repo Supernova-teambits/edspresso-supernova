@@ -69,7 +69,7 @@ const stepArr = [
 
 export const StepHeader = ({ lesson, index }) => {
   const navigate = useNavigate();
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <div className="StepHeader">
@@ -88,7 +88,7 @@ export const StepHeader = ({ lesson, index }) => {
 };
 
 export const Step1 = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
   return (
     <div className="StepContent">
       <Box sx={{ width: "100%" }}>
@@ -122,7 +122,7 @@ export const Step1 = () => {
 };
 
 export const Step2 = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <div className="StepContent">
@@ -156,7 +156,7 @@ export const Step2 = () => {
 };
 
 export const Step3 = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <div className="StepContent">
@@ -190,7 +190,7 @@ export const Step3 = () => {
 };
 
 export const Step4 = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <div className="StepContent">
@@ -225,7 +225,7 @@ export const Step4 = () => {
 };
 
 export const Step5 = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   // update progress_status
   useEffect(() => {

@@ -95,7 +95,13 @@ const QuizPage = () => {
               <CloseButton
                 buttonName={<CloseLine fillColor="#FFF0DE" />}
                 messageHeader="Leave the Test"
-                message="Do you want to leave the test? Your answers will not be saved."
+                message={
+                  <>
+                    Do you want to leave the test?
+                    <br />
+                    Your answers will not be saved.
+                  </>
+                }
                 buttonStyle={{
                   display: "flex",
                   position: "absolute",
@@ -103,6 +109,7 @@ const QuizPage = () => {
                   width: "50px",
                   marginTop: "3px",
                   border: "none",
+                  cursor: "pointer",
                   backgroundColor: "transparent",
                   boxShadow: "none",
                   "&:hover": {
@@ -145,7 +152,7 @@ const QuizPage = () => {
                 <div className="qz-options">
                   {currentQuiz.options.map((option, index) => (
                     <div key={index}>
-                      <label>
+                      <label className="qz-radio-button">
                         <input
                           type="radio"
                           name="answer"
@@ -155,7 +162,7 @@ const QuizPage = () => {
                             handleAnswer(currentPage, option);
                           }}
                         />
-                        {option}
+                        <span className="qz-option">{option}</span>
                       </label>
                     </div>
                   ))}
@@ -222,7 +229,7 @@ const QuizPage = () => {
                             handleAnswer(question.id, option);
                           }}
                         />
-                        {option}
+                        <span className="qz-option">{option}</span>
                       </label>
                     </div>
                   ))}
@@ -240,21 +247,25 @@ const QuizPage = () => {
               <CloseButton
                 buttonName="Cancel"
                 messageHeader="Leave the test"
-                message="Do you want to leave the test? Your answers will not be saved."
+                message={
+                  <>
+                    Do you want to leave the test?
+                    <br />
+                    Your answers will not be saved.
+                  </>
+                }
                 buttonStyle={{
                   textTransform: "capitalize",
                   border: "none",
-                  fontFamily: "Source Sans Pro",
-                  fontStyle: "normal",
-                  fontWeight: 700,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  color: "#10494c",
+                  height: "40px",
+                  minWidth: "144px",
+                  borderRadius: "8px",
+                  padding: "10px 11px",
                   cursor: "pointer",
                   backgroundColor: "transparent",
                   boxShadow: "none",
                   "&:hover": {
-                    backgroundColor: "transparent",
+                    backgroundColor: "#eaf2f2",
                     boxShadow: "none",
                   },
                 }}

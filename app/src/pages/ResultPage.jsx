@@ -128,20 +128,25 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
                         <div className="rs-options">
                           {question.options.map((option) => (
                             <div key={option}>
-                              <label>
+                              <label className="qz-radio-button">
                                 <input
                                   type="radio"
                                   value={option}
                                   checked={answers[question.id] === option}
                                   readOnly
                                 />
-                                {option}
+                                <span className="qz-option">{option}</span>
+                                {option === question.answer && (
+                                  <span
+                                    className="qz-option"
+                                    style={{
+                                      color: "#709294",
+                                    }}
+                                  >
+                                    &nbsp;(correct answer)
+                                  </span>
+                                )}
                               </label>
-                              {option === question.answer && (
-                                <span style={{ color: "#709294" }}>
-                                  {" (correct answer)"}
-                                </span>
-                              )}
                             </div>
                           ))}
                         </div>
@@ -238,7 +243,7 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
                       <div className="rs-options">
                         {question.options.map((option) => (
                           <div key={option}>
-                            <label>
+                            <label className="qz-radio-button">
                               <input
                                 type="radio"
                                 name={`answer-${question.id}`}
@@ -246,13 +251,18 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
                                 checked={answers[question.id] === option}
                                 readOnly
                               />
-                              {option}
+                              <span className="qz-option">{option}</span>
+                              {option === question.answer && (
+                                <span
+                                  className="qz-option"
+                                  style={{
+                                    color: "#709294",
+                                  }}
+                                >
+                                  &nbsp;(correct answer)
+                                </span>
+                              )}
                             </label>
-                            {option === question.answer && (
-                              <span style={{ color: "#709294" }}>
-                                {" (correct answer)"}
-                              </span>
-                            )}
                           </div>
                         ))}
                       </div>

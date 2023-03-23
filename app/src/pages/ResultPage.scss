@@ -49,6 +49,7 @@
 .result-main {
   width: 100%;
   padding: 0 200px;
+  margin-bottom: 120px;
 }
 
 .result-main h2 {
@@ -126,9 +127,10 @@
 }
 
 .result-footer {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100px;
+  bottom: 0;
   background: $secondary-050;
   display: flex;
   justify-content: space-between;
@@ -146,8 +148,16 @@
   color: $primary-500;
   background-color: transparent;
   border: none;
-  margin-right: 230px;
+  height: 40px;
+  min-width: 144px;
+  border-radius: 8px;
+  padding: 10px 11px;
+  margin-right: 184px;
   cursor: pointer;
+
+  &:hover {
+    background-color: $hover-primary-010;
+  }
 }
 
 @media screen and (max-width: $max_width_for_mobile) {
@@ -176,6 +186,7 @@
   .result-main {
     width: 100%;
     padding: 0 20px;
+    margin-bottom: 0;
   }
 
   .result-topic {
@@ -247,5 +258,9 @@
     width: 144px;
     height: 40px;
     cursor: pointer;
+
+    &:hover {
+      background-color: $hover-accent;
+    }
   }
 }

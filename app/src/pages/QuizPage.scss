@@ -58,6 +58,7 @@
 
 .qz-radio-button {
   cursor: pointer;
+  display: inline-flex;
 }
 
 input[type="radio"] {
@@ -66,7 +67,7 @@ input[type="radio"] {
   appearance: none;
   border: 1px solid $primary-500;
   border-radius: 3px;
-  width: 16px;
+  min-width: 16px;
   height: 16px;
   margin-right: 8px;
   outline: none;
@@ -103,6 +104,10 @@ input[type="radio"]:checked::before {
   color: $neutral-grey-dark-2;
 }
 
+.qz-option {
+  margin-top: 1.5px;
+}
+
 .qz-options > div {
   margin-bottom: 10px;
 }
@@ -120,6 +125,11 @@ input[type="radio"]:checked::before {
   height: 100%;
   padding: 0 200px;
   justify-content: flex-end;
+}
+
+.modal-close-btn {
+  @extend .button;
+  color: $primary-500;
 }
 
 .qz-submit-btn {
@@ -207,5 +217,9 @@ input[type="radio"]:checked::before {
 
   .qz-custom-pagination {
     @include button();
+  }
+
+  .modal-close-btn {
+    display: contents;
   }
 }

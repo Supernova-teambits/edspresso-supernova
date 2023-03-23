@@ -42,138 +42,144 @@ const message = [
 
 const ProgressUpdate = () => {
   const { id } = useParams();
+  if (id === "1") {
+    return <ProgressSaving />;
+  } else {
+    return <ProgressFinish />;
+  }
+};
+
+const ProgressSaving = () => {
   const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:800px)");
-
-  if (id === "1") {
-    return (
-      <>
-        <div class="LayoutWrapper__header">
-          <LessonHeader title="Chemex method" />
-        </div>
-        <div className="ProgressUpdate">
-          <Grid container>
-            {matches ? (
-              <>
-                <Grid item xs={12} md={4}>
-                  <StepProgressDesktop stepArr={stepArr} done={1} />
-                </Grid>
-                <Grid item xs={12} md={8} className="StepContent-subcontent">
-                  <div className="ProgressUpdate">
-                    <h5 className="ProgressUpdate-title">
-                      {message[0].heading}
-                    </h5>
-                    <h6 className="ProgressUpdate-sub-title">
-                      {message[0].subtitle}
-                    </h6>
-                    <p className="ProgressUpdate-content">
-                      {message[0].message1}
-                    </p>
-                  </div>
-                  <img
-                    src={chemex}
-                    alt="Coffee cup on wooden table at dawn"
-                    height={428}
-                    className="progressUpdate-img"
-                  />
-                </Grid>
-              </>
-            ) : (
-              <>
-                <Grid item xs={12} md={4}>
+  return (
+    <>
+      <div class="LayoutWrapper__header">
+        <LessonHeader title="Chemex method" />
+      </div>
+      <div className="ProgressUpdate">
+        <Grid container>
+          {matches ? (
+            <>
+              <Grid item xs={12} md={4}>
+                <StepProgressDesktop stepArr={stepArr} done={1} />
+              </Grid>
+              <Grid item xs={12} md={8} className="StepContent-subcontent">
+                <div className="ProgressUpdate">
                   <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
                   <h6 className="ProgressUpdate-sub-title">
                     {message[0].subtitle}
                   </h6>
-                  <StepProgressDesktop stepArr={stepArr} done={0} />
                   <p className="ProgressUpdate-content">
                     {message[0].message1}
                   </p>
-                </Grid>
-              </>
-            )}
-          </Grid>
-        </div>
-        <div className="LayoutWrapper__lesson__btn">
-          <StepPagination
-            labelLeft="Back"
-            onClickLeft={() => {
-              navigate("/app/step/3");
-            }}
-            labelRight="Next chapter"
-            onClickRight={() => {
-              navigate("/app/step/4");
-            }}
-          />
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div class="LayoutWrapper__header">
-          <LessonHeader title="Chemex method" />
-        </div>
-        <div className="ProgressUpdate">
-          <Grid container>
-            {matches ? (
-              <>
-                <Grid item xs={12} md={4}>
-                  <StepProgressDesktop stepArr={stepArr} done={4} />
-                </Grid>
-                <Grid item xs={12} md={8} className="StepContent-subcontent">
-                  <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
-                  <p className="ProgressUpdate-content">
-                    {message[1].message1}
-                  </p>
-                  <h6 className="ProgressUpdate-sub-title">
-                    {message[1].subheading}
-                  </h6>
-                  <p className="ProgressUpdate-content">
-                    {message[1].message2}
-                  </p>
-                  <img
-                    src={chemex}
-                    alt="Coffee cup on wooden table at dawn"
-                    height={428}
-                    className="progressUpdate-img"
-                  />
-                </Grid>
-              </>
-            ) : (
-              <>
-                <Grid item xs={12} md={4}>
-                  <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
-                  <p className="ProgressUpdate-content">
-                    {message[1].message1}
-                  </p>
-                  <StepProgressDesktop stepArr={stepArr} done={0} />
-                  <h6 className="ProgressUpdate-sub-title">
-                    {message[1].subheading}
-                  </h6>
-                  <p className="ProgressUpdate-content">
-                    {message[1].message2}
-                  </p>
-                </Grid>
-              </>
-            )}
-          </Grid>
-        </div>
-        <div className="LayoutWrapper__lesson__btn">
-          <StepPagination
-            labelLeft="Lesson Page"
-            onClickLeft={() => {
-              navigate("/app/lesson/1");
-            }}
-            labelRight="Star Quiz"
-            onClickRight={() => {
-              navigate("/app/step/6");
-            }}
-          />
-        </div>
-      </>
-    );
-  }
+                </div>
+                <img
+                  src={chemex}
+                  alt="Coffee cup on wooden table at dawn"
+                  height={428}
+                  className="progressUpdate-img"
+                />
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Grid item xs={12} md={4}>
+                <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[0].subtitle}
+                </h6>
+                <StepProgressDesktop stepArr={stepArr} done={0} />
+                <p className="ProgressUpdate-content">{message[0].message1}</p>
+              </Grid>
+            </>
+          )}
+        </Grid>
+      </div>
+      <div className="LayoutWrapper__lesson__btn">
+        <StepPagination
+          labelLeft="Back"
+          onClickLeft={() => {
+            navigate("/app/step/3");
+          }}
+          labelRight="Next chapter"
+          onClickRight={() => {
+            navigate("/app/step/4");
+          }}
+        />
+      </div>
+    </>
+  );
+};
+
+const ProgressFinish = () => {
+  const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width:800px)");
+
+  return (
+    <>
+      <div class="LayoutWrapper__header">
+        <LessonHeader title="Chemex method" />
+      </div>
+      <div className="ProgressUpdate">
+        <Grid container>
+          {matches ? (
+            <>
+              <Grid item xs={12} md={4}>
+                <img
+                  src={chemex}
+                  alt="chemex"
+                  width={250}
+                  className="progressFinish-img"
+                />
+                <StepProgressDesktop stepArr={stepArr} done={4} />
+              </Grid>
+              <Grid item xs={12} md={8} className="StepContent-subcontent">
+                <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                <p className="ProgressUpdate-content">{message[1].message1}</p>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[1].subheading}
+                </h6>
+                <p className="ProgressUpdate-content">
+                  Go ahead and good luck if you are feeling prepared to do the
+                  <b> Certification Quiz</b>. If you need more preparation, you
+                  can review this lesson how many times as you want.
+                </p>
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Grid item xs={12} md={4}>
+                <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
+                <p className="ProgressUpdate-content">{message[1].message1}</p>
+                <StepProgressDesktop stepArr={stepArr} done={0} />
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[1].subheading}
+                </h6>
+                <p className="ProgressUpdate-content">
+                  Go ahead and good luck if you are feeling prepared to do the
+                  <b> Certification Quiz</b>. If you need more preparation, you
+                  can review this lesson how many times as you want.
+                </p>
+              </Grid>
+            </>
+          )}
+        </Grid>
+      </div>
+      <div className="LayoutWrapper__lesson__btn">
+        <StepPagination
+          labelLeft="Lesson Page"
+          onClickLeft={() => {
+            navigate("/app/lesson/1");
+          }}
+          labelRight="Star Quiz"
+          onClickRight={() => {
+            navigate("/app/step/6");
+          }}
+        />
+      </div>
+    </>
+  );
 };
 
 export default ProgressUpdate;

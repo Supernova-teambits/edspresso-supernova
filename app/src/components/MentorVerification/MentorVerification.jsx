@@ -10,7 +10,7 @@ import { PrimaryBtn, PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
 const MentoVerification = () => {
   const navigate = useNavigate();
 
-  const [timeSpent, setTimeSpent] = useState(0);
+  const [timeSpent, setProgress] = useState(0);
   const [score, setScore] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -20,11 +20,10 @@ const MentoVerification = () => {
       .then((result) => {
         let progress = result.data;
         setScore(progress.test_result);
-        setTimeSpent(progress.completed_time);
+        setProgress(progress.progress_status);
         setIsDisabled(
-          progress.completed_time === 0 && progress.test_result === 0
+          progress.progress_status === 0 && progress.test_result === 0
         );
-        console.log(progress);
       })
       .catch((error) => {
         console.log(error);
@@ -74,11 +73,7 @@ const MentoVerification = () => {
     //
   };
 
-  console.log("time: ", timeSpent);
-  console.log("score: ", score);
-  console.log("disable: ", isDisabled);
-
-  // retrieve date
+  // get current date
   const now = new Date();
 
   return (

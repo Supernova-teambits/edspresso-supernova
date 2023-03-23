@@ -96,6 +96,12 @@
   width: 100%;
 }
 
+
+.PrimaryBtnOutlineWide {
+  @extend .PrimaryBtnOutline;
+  width: 100%;
+}
+
 .StepPagination-btn {
   display: flex;
   justify-content: flex-end;

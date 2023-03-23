@@ -131,6 +131,18 @@ export const PrimaryBtnTextWide = ({ label, onClick, disabled }) => {
   );
 };
 
+export const PrimaryBtnOutlineWide = ({ label, onClick, disabled }) => {
+  return (
+    <button
+      className="PrimaryBtnOutlineWide"
+      onClick={onClick}
+      disabled={disabled}
+    >
+      <span>{label}</span>
+    </button>
+  );
+};
+
 export const StepPagination = ({
   labelLeft,
   onClickLeft,

@@ -10,22 +10,21 @@ const ShortcutCard = (props) => {
     <Card class="shortcut-card">
       <CardMedia
         height="100"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      />
-      {imageComponent}
-      <CardActions>
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}
+      >
+        {imageComponent}
+      </CardMedia>
+      <CardActions 
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         <Button
           variant="contained"
           onClick={buttonOnClick}
-          className="short-cut-button"
+          sx={{ background: "none", color: "#10494c", boxShadow: "none" }}
         >
           {buttonText}
         </Button>
-        <ArrowLineRight fillColor={"#10494C"} />
+        <ArrowLineRight fillColor={"#10494C"} sx={{ marginLeft: "10px" }} />
       </CardActions>
     </Card>
   );

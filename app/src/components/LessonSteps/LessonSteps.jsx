@@ -226,19 +226,17 @@ export const Step4 = () => {
 
 export const Step5 = () => {
   const matches = useMediaQuery("(min-width:600px)");
-  const dummy_completed_time = ("000" + Math.floor(Math.random() * 1000)).slice(-3);
 
-  // update completed_time
+  // update progress_status
   useEffect(() => {
     axios
       .put(`${BASE_URL}/progress/64014b7e898a8420af6ab7f0`, {
-        completed_time: dummy_completed_time,
+        progress_status: 100,
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [dummy_completed_time]);
-
+  }, []);
 
   return (
     <div className="StepContent">

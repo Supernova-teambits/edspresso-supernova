@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import "./Sidebar.scss";
@@ -20,27 +20,20 @@ function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const showSidebar = () => setIsNavExpanded(!isNavExpanded);
-  console.log(userRole.role);
-  useEffect(() => {
-    if (userRole && userRole.role) {
-      console.log(userRole.role);
-      localStorage.setItem("userRole", userRole.role);
-    }
-  }, [userRole]);
-  const storedRole = localStorage.getItem("userRole");
+
   const adminMenu = (
-    <div class="sidebar-wrapper">
+    <div className="sidebar-wrapper">
       <div className="sidebar-menu">
-        <div class="logo">
+        <div className="logo">
           <Logo />
         </div>
-        <h4 class="profile">
+        <h4 className="profile">
           <UserNav fillColor="#FFF0DE" />
           Admin
         </h4>
         <div style={{ display: "flex" }}>
-          <div class="separator"></div>
-          <div class="back-nav" onClick={() => setIsNavExpanded(false)}>
+          <div className="separator"></div>
+          <div className="back-nav" onClick={() => setIsNavExpanded(false)}>
             <BackNav fillColor={"#10494C"} />
           </div>
         </div>
@@ -90,18 +83,18 @@ function Sidebar() {
 
   const traineeMenu = (
     <>
-      <div class="sidebar-wrapper">
+      <div className="sidebar-wrapper">
         <div className="sidebar-menu">
-          <div class="logo">
+          <div className="logo">
             <Logo />
           </div>
-          <h4 class="profile">
-            <UserNav fillColor="#FFF0DE" class="profile" />
+          <h4 className="profile">
+            <UserNav fillColor="#FFF0DE" className="profile" />
             Trainee
           </h4>
           <div style={{ display: "flex" }}>
-          <div class="separator"></div>
-          <div class="back-nav" onClick={() => setIsNavExpanded(false)}>
+          <div className="separator"></div>
+          <div className="back-nav" onClick={() => setIsNavExpanded(false)}>
             <BackNav fillColor={"#10494C"} />
           </div>
         </div>
@@ -142,7 +135,7 @@ function Sidebar() {
     <>
       <div className="mobile-menu">
         <div className="hamburger" onClick={showSidebar}>
-          <Navigation fillColor={"#FFF0DE"} class="nav" />
+          <Navigation fillColor={"#FFF0DE"} className="nav" />
         </div>
         <Logo className="mob-logo" />
         <Notification fillColor={"#FFF0DE"} />
@@ -150,7 +143,7 @@ function Sidebar() {
 
       <div className={isNavExpanded ? "sidebar expanded" : "sidebar"}>
         <nav className="sidebar">
-          {storedRole === "manager" ? adminMenu : traineeMenu}
+          {userRole.role === "manager" ? adminMenu : traineeMenu}
         </nav>
       </div>
     </>

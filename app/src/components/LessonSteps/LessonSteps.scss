@@ -2,7 +2,7 @@
 
 .StepHeader {
   max-width: 858px;
-  margin: 0 auto;
+  margin: 0 68px 0 366px;
 
   > div {
     display: flex;
@@ -11,7 +11,7 @@
 
 .StepContent {
   max-width: 858px;
-  margin: 0 auto;
+  margin: 0 68px 0 366px;
 
   &-subcontent {
     padding-left: 24px;
@@ -24,7 +24,12 @@
 }
 
 @media (max-width: $max_width_for_mobile) {
+  .StepHeader {
+    margin: 0 auto;
+  }
+
   .StepContent {
+    margin: 0 auto;
     &-subcontent {
       padding-left: 0;
     }

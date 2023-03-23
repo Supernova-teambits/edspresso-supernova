@@ -27,7 +27,7 @@ export const PainText = ({ content }) => {
 
 // Step 2
 export const IngredientsCard = ({ content }) => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <>

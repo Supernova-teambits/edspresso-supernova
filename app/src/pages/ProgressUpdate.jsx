@@ -51,7 +51,7 @@ const ProgressUpdate = () => {
 
 const ProgressSaving = () => {
   const navigate = useNavigate();
-  const matches = useMediaQuery("(min-width:800px)");
+  const matches = useMediaQuery("(min-width:767px)");
   return (
     <>
       <div class="LayoutWrapper__header">
@@ -114,7 +114,7 @@ const ProgressSaving = () => {
 
 const ProgressFinish = () => {
   const navigate = useNavigate();
-  const matches = useMediaQuery("(min-width:800px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <>

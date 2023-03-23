@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Grid, Paper, TextField, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  Grid,
+  Paper,
+  TextField,
+  useMediaQuery,
+} from "@mui/material";
 import { getUser, updateUser } from "../services/loginService";
 import { createManagerInfo } from "../services/managerService";
 import { createTraineeInfo } from "../services/traineeService";
@@ -17,6 +24,7 @@ export default function LogIn() {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const setUserRole = useSetRecoilState(userRoleState);
   const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
 
@@ -67,6 +75,10 @@ export default function LogIn() {
       });
   };
 
+  const handleInputChange = (event) => {
+    setIsButtonDisabled(event.target.value === "");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -98,6 +110,7 @@ export default function LogIn() {
             }
           }
         } else {
+          setLoading(false);
           setAlertOpen(true);
         }
       })
@@ -166,6 +179,7 @@ export default function LogIn() {
                 name="name"
                 autoComplete="name"
                 autoFocus
+                onChange={handleInputChange}
                 sx={{ mb: 3, width: 320 }}
               />
               <TextField
@@ -179,8 +193,19 @@ export default function LogIn() {
                 autoComplete="current-password"
                 sx={{ width: 320 }}
               />
-              <button className="Login-form-button" type="submit">
-                <p>Login</p>
+              <button
+                className="Login-form-button"
+                type="submit"
+                disabled={isButtonDisabled}
+              >
+                {loading ? (
+                  <CircularProgress
+                    sx={{ padding: "6px" }}
+                    color="secondary050"
+                  />
+                ) : (
+                  <p>Login</p>
+                )}
               </button>
             </Box>
           </Box>

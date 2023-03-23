@@ -5,6 +5,9 @@ export const theme = createTheme({
     primary500: {
       main: "#10494c",
     },
+    secondary050: {
+      main: "#fffbf7",
+    },
     accent700: {
       main: "#b84b11",
     },

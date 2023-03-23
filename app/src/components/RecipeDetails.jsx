@@ -33,7 +33,6 @@ const RecipeDetails = () => {
       .then((result) => {
         let progress = result.data;
         setProgress(progress.progress_status);
-        console.log(progress.progress_status);
       })
       .catch((error) => {
         console.error(error);

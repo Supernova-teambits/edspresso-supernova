@@ -24,7 +24,6 @@ const MentoVerification = () => {
         setIsDisabled(
           progress.progress_status === 0 && progress.test_result === 0
         );
-        console.log(progress);
       })
       .catch((error) => {
         console.log(error);
@@ -74,11 +73,7 @@ const MentoVerification = () => {
     //
   };
 
-  // console.log("progress: ", timeSpent);
-  // console.log("score: ", score);
-  // console.log("disable: ", isDisabled);
-
-  // retrieve date
+  // get current date
   const now = new Date();
 
   return (

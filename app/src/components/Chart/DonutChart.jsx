@@ -1,4 +1,4 @@
-import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
 import { useMediaQuery } from "@mui/material";
 import { Bookmark } from "../../assets/Icons";
 import { STATUS_COLOR } from "../../utils/Constants";

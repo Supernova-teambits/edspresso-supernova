@@ -19,7 +19,15 @@ const TraineeProgressChart = () => {
               <TraineeProgressFilter />
             </Grid>
           </Grid>
-          <DonutChart data={progressForChart} />
+          <section
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginRight: "2vw",
+            }}
+          >
+            <DonutChart data={progressForChart} />
+          </section>
         </CardContent>
       </Card>
     </Grid>

@@ -21,17 +21,19 @@ const ProgressStatusLabel = ({ status }) => {
   }
 
   return (
-    <span
+    <p
       className="Analytics-learning-process-status-label"
       style={{
+        textAlign: "center",
         color: color,
         backgroundColor: backgroundColor,
         padding: "5px",
         borderRadius: "10px",
+        width: "77px",
       }}
     >
       {status}
-    </span>
+    </p>
   );
 };
 

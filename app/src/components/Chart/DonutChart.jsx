@@ -1,10 +1,13 @@
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { useMediaQuery } from "@mui/material";
 import { Bookmark } from "../../assets/Icons";
 import { STATUS_COLOR } from "../../utils/Constants";
 import "./DonutChart.scss";
+import { theme } from "../../utils/ThemeUtil";
 
 const DonutChart = (props) => {
   const { data } = props;
+  const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
 
   const renderContent = (data) => {
     return (
@@ -25,31 +28,31 @@ const DonutChart = (props) => {
   };
 
   return (
-    <ResponsiveContainer width="80%" height={230}>
-      <PieChart>
-        <Legend
-          layout="vertical"
-          align="right"
-          verticalAlign="middle"
-          padding={5}
-          content={renderContent(data)}
-        />
-        <Pie
-          data={data}
-          innerRadius={30}
-          outerRadius={80}
-          paddingAngle={2}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={STATUS_COLOR[index % STATUS_COLOR.length]}
-            />
-          ))}
-        </Pie>
-      </PieChart>
-    </ResponsiveContainer>
+    <PieChart width={isMobile ? 290 : 340} height={230}>
+      <Legend
+        layout="vertical"
+        align="right"
+        verticalAlign="middle"
+        padding={5}
+        content={renderContent(data)}
+      />
+      <Pie
+        cx="45%"
+        cy="50%"
+        data={data}
+        innerRadius={30}
+        outerRadius={80}
+        paddingAngle={2}
+        dataKey="value"
+      >
+        {data.map((entry, index) => (
+          <Cell
+            key={`cell-${index}`}
+            fill={STATUS_COLOR[index % STATUS_COLOR.length]}
+          />
+        ))}
+      </Pie>
+    </PieChart>
   );
 };
 

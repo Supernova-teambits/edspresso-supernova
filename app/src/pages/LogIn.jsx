@@ -102,6 +102,7 @@ export default function LogIn() {
           } else {
             setLoading(false);
             setUserRole(user.data);
+            sessionStorage.setItem("userInfo", JSON.stringify(user.data));
             if (user.data.role === "manager") {
               localStorage.setItem("managerInfo", user.data.manager_code);
               navigate("/app/dashboard");

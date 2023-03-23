@@ -6,6 +6,11 @@ import {
 } from "../atoms";
 
 const today = new Date();
+const todayAtMidnight = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate()
+);
 
 const getTimeFilteredList = (list, timeFilter) => {
   let condition = true;
@@ -29,7 +34,8 @@ const getTimeFilteredList = (list, timeFilter) => {
   }
   return list.filter((item) => {
     const startedDate = new Date(item.started_date);
-    const timeDiff = today.getTime() - startedDate.getTime();
+
+    const timeDiff = todayAtMidnight.getTime() - startedDate.getTime();
     dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
     // eslint-disable-next-line no-eval
     return eval(condition);

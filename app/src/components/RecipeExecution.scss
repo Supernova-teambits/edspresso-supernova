@@ -6,7 +6,7 @@
   background-color: $secondary-050;
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .LayoutWrapper__header:has(.StepHeader) {
     background-color: $neutral-white;
   }
@@ -17,7 +17,7 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .LayoutWrapper__lesson__btn {
     margin-top: 0;
   }

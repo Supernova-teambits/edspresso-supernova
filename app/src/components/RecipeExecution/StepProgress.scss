@@ -34,7 +34,7 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .ProgressBar-sub {
     text-align: center;
   }

@@ -1,8 +1,8 @@
 @import "../../sass/main.scss";
 
 .MentorVerification {
-  margin: 0 auto;
   max-width: 858px;
+  margin: 0 68px 0 366px;
 
   &-title {
     @extend .headline-4;
@@ -56,10 +56,10 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .MentorVerification {
+    margin: 0 auto;
     &-text {
-      width: 420px;
       margin: 0 auto;
     }
     &-card {

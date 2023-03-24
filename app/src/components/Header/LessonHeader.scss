@@ -2,12 +2,18 @@
 
 .LessonHeader {
   max-width: 858px;
-  margin: 0 auto;
+  margin: 0 68px 0 366px;
 
   &-title {
     @extend .headline-4;
     color: $primary-500;
     padding: 8px;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .LessonHeader {
+    margin: 0 auto;
   }
 }

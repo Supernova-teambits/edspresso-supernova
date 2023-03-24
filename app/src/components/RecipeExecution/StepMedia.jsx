@@ -7,12 +7,16 @@ import {
   FormControl,
   Grid,
   TextField,
-  Paper,
   useMediaQuery,
 } from "@mui/material";
 
 import LessonCard from "../Card/LessonCard";
-import { DoubleArrowLeft, DoubleArrowRight } from "../../assets/Icons";
+import {
+  DoubleArrowLeft,
+  DoubleArrowRight,
+  ArrowLineLeft,
+  ArrowLineRight,
+} from "../../assets/Icons";
 import "./StepMedia.scss";
 
 // Step 1
@@ -27,7 +31,7 @@ export const PainText = ({ content }) => {
 
 // Step 2
 export const IngredientsCard = ({ content }) => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:767px)");
 
   return (
     <>
@@ -67,13 +71,54 @@ export const IngredientsCard = ({ content }) => {
 
 // Step 2 & 3
 export const MediaCarousel = ({ content }) => {
+  const medias = content.content[0].medias;
+
   return (
     <>
       <h4 className="StepMedia-title">{content.title}</h4>
       <p>{content.content[0].description}</p>
-      <Carousel className="MediaCarousel">
-        {content.content[0].medias.map((item, i) => (
-          <Item key={i} item={item} />
+      <Carousel
+        className="MediaCarousel"
+        navButtonsAlwaysVisible={true}
+        fullHeightHover={false} // We want the nav buttons wrapper to only be as big as the button element is
+        navButtonsProps={{
+          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+          style: {
+            height: "40px",
+            width: "40px",
+            borderRadius: "8px",
+            padding: "8px 10px",
+            backgroundColor: "#FFF0DE",
+            boxShadow:
+              "0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)",
+            overflow: "visible",
+          },
+        }}
+        NextIcon={<ArrowLineRight fillColor="#0A2C2E" />}
+        PrevIcon={<ArrowLineLeft fillColor="#0A2C2E" />}
+        indicatorIconButtonProps={{
+          style: {
+            color: "#B7C8C9",
+          },
+        }}
+        activeIndicatorIconButtonProps={{
+          style: {
+            color: "#10494C",
+          },
+        }}
+      >
+        {medias.map((item, i) => (
+          <div key={i} style={{ display: "flex" }}>
+            <PrevItem
+              key={`prev-${i}`}
+              prevItem={i === 0 ? medias[medias.length - 1] : medias[i - 1]}
+            />
+            <Item key={`item-${i}`} item={item} />
+            <NextItem
+              key={`next-${i}`}
+              nextItem={i === medias.length - 1 ? medias[0] : medias[i + 1]}
+            />
+          </div>
         ))}
       </Carousel>
     </>
@@ -82,10 +127,28 @@ export const MediaCarousel = ({ content }) => {
 
 function Item({ item }) {
   return (
-    <Paper className="Project">
-      <img src={item.source} alt={item.source} />
-      <p>{item.caption}</p>
-    </Paper>
+    <div className="MediaCarousel-item">
+      <img src={item.source} alt={item.alt} />
+      <p className="MediaCarousel-caption">{item.caption}</p>
+    </div>
+  );
+}
+
+function PrevItem({ prevItem }) {
+  return (
+    <div className="MediaCarousel-prevItem">
+      <img src={prevItem.source} alt={prevItem.alt} />
+      <p className="MediaCarousel-caption"></p>
+    </div>
+  );
+}
+
+function NextItem({ nextItem }) {
+  return (
+    <div className="MediaCarousel-nextItem">
+      <img src={nextItem.source} alt={nextItem.alt} />
+      <p className="MediaCarousel-caption"></p>
+    </div>
   );
 }
 

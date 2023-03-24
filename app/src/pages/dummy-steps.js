@@ -46,25 +46,20 @@ const step = [
                         description: "The following seven grind sizes are all you’ll need to brew great cups using different brewing methods.",
                         medias: [{
                             source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Coarse and extra course should be  the size of your coffee grain."
+                            caption: "Coarse and extra course should be  the size of your coffee grain.",
+                            alt: "Grounded coffee with spoon"
                         }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 2"
+                            source: "https://images.pexels.com/photos/9784906/pexels-photo-9784906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
+                            caption: "Test 2",
+                            alt: "sample photo 2"
                         }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 3"
+                            source: "https://images.pexels.com/photos/7633044/pexels-photo-7633044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
+                            caption: "Test 3",
+                            alt: "sample photo 3"
                         }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 4"
-                        }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 5"
-                        }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 6"
-                        }, {
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
-                            caption: "Test 7"
+                            source: "https://images.pexels.com/photos/3993825/pexels-photo-3993825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
+                            caption: "Test 4",
+                            alt: "sample photo 4"
                         }]
                     }]
                 }
@@ -81,13 +76,16 @@ const step = [
                         description: "Boil water up to 192 ºF (88 ºC), and avoid passing the boiling temperature.",
                         medias: [{
                             source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
-                            caption: "Water temperature plays an important part on the taste of your coffee."
+                            caption: "Water temperature plays an important part on the taste of your coffee.",
+                            alt: "electric kettle"
                         }, {
-                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
-                            caption: "test 2"
+                            source: "https://images.pexels.com/photos/7633044/pexels-photo-7633044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
+                            caption: "test 2",
+                            alt: "sample photo 2"
                         }, {
-                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
-                            caption: "test 3"
+                            source: "https://images.pexels.com/photos/3993825/pexels-photo-3993825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
+                            caption: "test 3",
+                            alt: "sample photo 2"
                         }]
                     }]
                 }

@@ -10,21 +10,37 @@ const ShortcutCard = (props) => {
     <Card class="shortcut-card">
       <CardMedia
         height="100"
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+        className="shortcut-icons"
       >
         {imageComponent}
       </CardMedia>
-      <CardActions 
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      <CardActions
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        <Button class="short-cut-button"
+        <Button
+          class="short-cut-button"
           variant="contained"
           onClick={buttonOnClick}
-          sx={{ background: "none", color: "#10494c", boxShadow: "none" }}
+          sx={{
+            display: "flex",
+            background: "none",
+            color:"#10494C",
+            boxShadow: "none"
+          }}
         >
           {buttonText}
+          <ArrowLineRight fillColor={"#10494C"} />
         </Button>
-        <ArrowLineRight fillColor={"#10494C"} sx={{ marginLeft: "10px" }} />
       </CardActions>
     </Card>
   );

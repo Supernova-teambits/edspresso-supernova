@@ -20,7 +20,6 @@ function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const showSidebar = () => setIsNavExpanded(!isNavExpanded);
-
   const adminMenu = (
     <div className="sidebar-wrapper">
       <div className="sidebar-menu">
@@ -38,28 +37,28 @@ function Sidebar() {
           </div>
         </div>
         <ul className="menu-item">
-          <li>
-            <GraphDonut fillColor="#FFF0DE" />
-            <a href="/app/dashboard">Dashboard</a>
-          </li>
-          <li>
-            <AdminNav fillColor="#FFF0DE" />
-            <a href="/app/dashboard" disabled>
-              Administration
-            </a>
-          </li>
-          <li>
-            <Book fillColor="#FFF0DE" />
-            <a href="/app/dashboard" disabled>
-              Training Management
-            </a>
-          </li>
-          <li>
-            <Setting fillColor="#FFF0DE" />
-            <a href="/app/dashboard" disabled>
-              Settings
-            </a>
-          </li>
+            <li>
+              <GraphDonut fillColor="#FFF0DE" />
+              <a href="/app/dashboard">Dashboard</a>
+            </li>
+            <li>
+              <AdminNav fillColor="#FFF0DE" />
+              <a href="/app/dashboard" disabled>
+                Administration
+              </a>
+            </li>
+            <li>
+              <Book fillColor="#FFF0DE" />
+              <a href="/app/dashboard" disabled>
+                Training Management
+              </a>
+            </li>
+            <li>
+              <Setting fillColor="#FFF0DE" />
+              <a href="/app/dashboard" disabled>
+                Settings
+              </a>
+            </li>
           <li style={{ marginTop: "56px" }}>
             <Notification fillColor="#FFF0DE" />
             <a href="/app/dashboard" disabled>
@@ -100,7 +99,7 @@ function Sidebar() {
           </div>
           <ul className="menu-item">
             <li>
-              <Book fillColor="#FFF0DE" />
+              <Book fillColor="#FFF0DE" className="my-learnings" />
               <a href="/app/myTraining">My Learnings</a>
             </li>
             <li>

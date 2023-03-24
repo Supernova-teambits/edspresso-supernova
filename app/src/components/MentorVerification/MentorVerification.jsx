@@ -87,7 +87,7 @@ const MentoVerification = () => {
           <p className="MentorVerification-body">
             You can start the test when you are ready
             <br />
-            You need at least 80% to approve the test and get a ecrtification.
+            You need at least 80% to approve the test and get a certification.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ const MentoVerification = () => {
           <Grid item md={6} xs={12}>
             <div className="MentorVerification-card">
               <h4 className="MentorVerification-card-title">
-                Cerification Quiz
+                Certification Quiz
               </h4>
               <p className="MentorVerification-card-body-1">
                 Chemex brewing method, Ratio, Pouring, Chemex consideration.

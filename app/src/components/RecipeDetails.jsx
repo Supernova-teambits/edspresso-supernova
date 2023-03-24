@@ -97,7 +97,7 @@ const RecipeDetails = () => {
               className="Accordion-text-container"
             >
               <p className="Accordion-text">
-                {expanded === "panel" ? "See less details" : "See more deatils"}
+                {expanded === "panel" ? "See less details" : "See more details"}
                 <ArrowLineRight fillColor="#10494C" />
               </p>
             </AccordionSummary>

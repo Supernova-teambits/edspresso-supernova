@@ -30,10 +30,10 @@ const quizData = [
     options: [
       "To rinse the coffee beans",
       "To heat up the water",
-      "To release carbon dioxide from the coffee grounds",
-      "To add flavor to the coffee",
+      "To release carbon dioxide",
+      "To add flavor",
     ],
-    answer: "To add flavor to the coffee",
+    answer: "To add flavor",
   },
   {
     id: 5,
@@ -42,10 +42,10 @@ const quizData = [
     options: [
       "Washing it with soap and water",
       "Using a cleaning solution made specifically for coffee equipment",
-      "Putting it in the dishwasher",
+      "Put in the dishwasher",
       "Using a soft-bristled brush to clean the inside",
     ],
-    answer: "Putting it in the dishwasher",
+    answer: "Put in the dishwasher",
   },
 ];
 

@@ -1,10 +1,11 @@
 import { Grid } from "@mui/material";
 import ShortcutCard from "../../components/Card/ShortcutCard";
 import { Dashboard, User, ShortcutCoffee, Admin } from "../../assets/Icons";
+import "../../components/Card/AdminDashboard.scss";
 
 const ShortcutContainer = () => {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} className="shortcut-parent" sx={{'@media (max-width: 767px)': { display: "grid", gridTemplateColumn: "1fr 1fr"}}}>
       <Grid item xs={12} md={6}>
         <ShortcutCard
           imageComponent={<Dashboard fillColor="#171717" />}

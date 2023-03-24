@@ -17,7 +17,7 @@ const ShortcutCard = (props) => {
       <CardActions 
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <Button
+        <Button class="short-cut-button"
           variant="contained"
           onClick={buttonOnClick}
           sx={{ background: "none", color: "#10494c", boxShadow: "none" }}

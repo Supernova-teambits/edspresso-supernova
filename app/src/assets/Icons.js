@@ -45,8 +45,8 @@ export const AvatarLight = ({ fillColor }) => {
 export const Add = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +107,8 @@ export const Admin = ({ fillColor }) => {
 export const ArrowLineDown = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -124,8 +124,8 @@ export const ArrowLineDown = ({ fillColor }) => {
 export const ArrowLineLeft = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -141,8 +141,8 @@ export const ArrowLineLeft = ({ fillColor }) => {
 export const ArrowLineRight = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -158,8 +158,8 @@ export const ArrowLineRight = ({ fillColor }) => {
 export const ArrowLineUp = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -174,8 +174,8 @@ export const ArrowLineUp = ({ fillColor }) => {
 export const ArrowSolidDown = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -187,8 +187,8 @@ export const ArrowSolidDown = ({ fillColor }) => {
 export const ArrowSolidLeft = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -201,8 +201,8 @@ export const ArrowSolidLeft = ({ fillColor }) => {
 export const ArrowSolidRight = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -215,8 +215,8 @@ export const ArrowSolidRight = ({ fillColor }) => {
 export const ArrowSolidUp = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -305,8 +305,8 @@ export const AvatarGreyIcon = ({ fillColor }) => {
 export const Book = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -326,8 +326,8 @@ export const Book = ({ fillColor }) => {
 export const Bookmark = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -343,8 +343,8 @@ export const Bookmark = ({ fillColor }) => {
 export const Check = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -360,8 +360,8 @@ export const Check = ({ fillColor }) => {
 export const CloseLine = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -377,8 +377,8 @@ export const CloseLine = ({ fillColor }) => {
 export const CloseSloid = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -393,21 +393,9 @@ export const CloseSloid = ({ fillColor }) => {
 
 export const Coffee = ({ fillColor }) => {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.62074 18.3122C1.09074 14.9113 2.43074 9.92989 6.18074 6.18884C10.2007 2.17772 15.6207 0.907364 19.0107 2.98795C18.1207 5.87875 16.1407 9.83986 11.9107 11.3103C7.78074 12.7307 4.67074 15.7615 2.62074 18.3222V18.3122Z"
-        fill={fillColor}
-      />
-      <path
-        d="M17.8107 17.8121C13.3107 22.3133 7.07074 23.3436 3.86074 20.1327C3.75074 20.0227 3.63074 19.8927 3.54074 19.7626C5.44074 17.2819 8.47074 14.1811 12.4307 12.8107C17.0307 11.2303 19.2807 7.24914 20.3607 4.10826C23.2907 7.39918 22.2007 13.4309 17.8107 17.8121Z"
-        fill={fillColor}
-      />
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.620737 16.3122C-0.909263 12.9113 0.430737 7.92989 4.18074 4.18884C8.20074 0.177719 13.6207 -1.09264 17.0107 0.987945C16.1207 3.87875 14.1407 7.83986 9.91074 9.31027C5.78074 10.7307 2.67074 13.7615 0.620737 16.3222V16.3122Z" fill={fillColor} />
+      <path d="M15.8107 15.8121C11.3107 20.3133 5.07074 21.3436 1.86074 18.1327C1.75074 18.0227 1.63074 17.8927 1.54074 17.7626C3.44074 15.2819 6.47074 12.1811 10.4307 10.8107C15.0307 9.23025 17.2807 5.24914 18.3607 2.10826C21.2907 5.39918 20.2007 11.4309 15.8107 15.8121Z" fill={fillColor} />
     </svg>
   );
 };
@@ -415,8 +403,8 @@ export const Coffee = ({ fillColor }) => {
 export const Copy = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -457,8 +445,8 @@ export const Dashboard = ({ fillColor }) => {
 export const DotHorizontal = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -482,8 +470,8 @@ export const DotHorizontal = ({ fillColor }) => {
 export const DotVertical = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -507,8 +495,8 @@ export const DotVertical = ({ fillColor }) => {
 export const DoubleArrowLeft = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -528,8 +516,8 @@ export const DoubleArrowLeft = ({ fillColor }) => {
 export const DoubleArrowRight = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -549,8 +537,8 @@ export const DoubleArrowRight = ({ fillColor }) => {
 export const Edit = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -570,8 +558,8 @@ export const Edit = ({ fillColor }) => {
 export const Filter = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -586,8 +574,8 @@ export const Filter = ({ fillColor }) => {
 export const FullscreenExit = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -603,8 +591,8 @@ export const FullscreenExit = ({ fillColor }) => {
 export const Fullscreen = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -620,8 +608,8 @@ export const Fullscreen = ({ fillColor }) => {
 export const GraphDonut = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -645,8 +633,8 @@ export const GraphDonut = ({ fillColor }) => {
 export const Help = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -662,8 +650,8 @@ export const Help = ({ fillColor }) => {
 export const Hub = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -684,8 +672,8 @@ export const Hub = ({ fillColor }) => {
 export const Like = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -701,8 +689,8 @@ export const Like = ({ fillColor }) => {
 export const Logout = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -722,8 +710,8 @@ export const Logout = ({ fillColor }) => {
 export const Navigation = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -738,8 +726,8 @@ export const Navigation = ({ fillColor }) => {
 export const Notification = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -759,8 +747,8 @@ export const Notification = ({ fillColor }) => {
 export const Profile = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -780,8 +768,8 @@ export const Profile = ({ fillColor }) => {
 export const Search = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -797,8 +785,8 @@ export const Search = ({ fillColor }) => {
 export const Setting = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -814,8 +802,8 @@ export const Setting = ({ fillColor }) => {
 export const StarHalf = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -831,8 +819,8 @@ export const StarHalf = ({ fillColor }) => {
 export const StarLine = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -848,8 +836,8 @@ export const StarLine = ({ fillColor }) => {
 export const StarSolid = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -865,8 +853,8 @@ export const StarSolid = ({ fillColor }) => {
 export const Trash = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -911,8 +899,8 @@ export const User = ({ fillColor }) => {
 export const Visibility = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -965,8 +953,8 @@ export const Vector = ({ fillColor, style }) => {
 export const AdminNav = ({ fillColor }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

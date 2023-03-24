@@ -9,10 +9,14 @@ function DifficultyIcon(difficulty) {
   return (
     <>
       {[...Array(numColoredIcons)].map((_, index) => (
-        <Coffee key={`dark-${index}`} fillColor="#10494C" />
+        <div className="Coffee-icon" key={`dark-${index}`}>
+          <Coffee fillColor="#10494C" />
+        </div>
       ))}
       {[...Array(numOutlinedIcons)].map((_, index) => (
-        <Coffee key={`light-${index}`} fillColor="#B7C8C9" />
+        <div className="Coffee-icon" key={`light-${index}`}>
+          <Coffee fillColor="#B7C8C9" />
+        </div>
       ))}
     </>
   );
@@ -31,7 +35,9 @@ export const DetailsCardColored = ({
         <div className="DetailsCardColored">
           <h4 className="DetailsCardColored-title">{title}</h4>
           {text && <p className="DetailsCardColored-body">{text}</p>}
-          {difficulty && <div>{DifficultyIcon(difficulty)}</div>}
+          {difficulty && (
+            <div className="Difficulty-icons">{DifficultyIcon(difficulty)}</div>
+          )}
           {requirements && (
             <Stack direction="row" spacing={1}>
               {requirements.map((data, index) => {
@@ -42,7 +48,7 @@ export const DetailsCardColored = ({
                       backgroundColor: "#EAF2F2",
                       color: "#0A2C2E",
                     }}
-                    key={index}
+                    key={`chip-` + index}
                     icon={icon}
                     label={data}
                   />

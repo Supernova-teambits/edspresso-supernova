@@ -51,6 +51,7 @@
 .DetailsCardWideColored-container {
   background-color: $secondary-050;
   border-radius: 8px;
+  padding: 8px;
 }
 
 @media screen and (max-width: $max_width_for_mobile) {
@@ -60,5 +61,12 @@
 
   .DetailsCardWideColored-container {
     background-color: $neutral-white;
+  }
+  .DetailsCardWideColored:first-of-type {
+    margin-bottom: 32px;
+  }
+
+  .RecipeDetails-ingredientsList{
+    width: 100%;
   }
 }

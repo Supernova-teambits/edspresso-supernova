@@ -72,7 +72,12 @@ const RecipeDetails = () => {
           </p>
 
           {/* training & ingredient/equip details */}
-          <Grid container justifyContent="center" style={{ padding: "0 8px" }}>
+          <Grid
+            container
+            justifyContent="center"
+            style={{ padding: "0 8px" }}
+            spacing={{ xs: 0.5, md: 2 }}
+          >
             <DetailsCardColored
               title="Status"
               text={progress === 0 ? "Not Started" : "Finished"}
@@ -147,14 +152,15 @@ const RecipeDetails = () => {
           </Accordion>
         </Grid>
         {expanded === "panel" ? (
-          <Grid item>
+          <Grid item className="RecipeDetails-ingredientsList">
             {matches ? (
               <>
                 <h4 className="RecipeDetails-title">What you will need</h4>
                 <Grid
                   container
                   className="RecipeDetails-ingredient"
-                  spacing={1}
+                  spacing={{ xs: 2, md: 3 }}
+                  columns={{ xs: 4, sm: 8, md: 12 }}
                 >
                   {step[0].content_detail[0].sub_content[1].content.map(
                     (element, index) => (

@@ -5,7 +5,10 @@ import { BASE_URL } from "../../utils/Constants";
 import { Grid, Breadcrumbs, Typography } from "@mui/material";
 import { Help, ArrowLineRight } from "../../assets/Icons";
 import "./MentorVerification.scss";
-import { PrimaryBtn, PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
+import {
+  PrimaryBtnWithRightArrow,
+  PrimaryBtnTextWithRightArrow,
+} from "../Buttons/Button";
 
 const MentoVerification = () => {
   const navigate = useNavigate();
@@ -105,7 +108,7 @@ const MentoVerification = () => {
               ) : null}
               {score < 80 ? (
                 <div className="MentorVerification-card-btns">
-                  <PrimaryBtn
+                  <PrimaryBtnWithRightArrow
                     disabled={isDisabled}
                     label={buttonLabel}
                     onClick={handleQuizStart}

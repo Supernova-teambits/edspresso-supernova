@@ -91,7 +91,7 @@ export const MediaCarousel = ({ content }) => {
             backgroundColor: "#FFF0DE",
             boxShadow:
               "0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)",
-            overflow: "visible"
+            overflow: "visible",
           },
         }}
         NextIcon={<ArrowLineRight fillColor="#0A2C2E" />}
@@ -106,17 +106,16 @@ export const MediaCarousel = ({ content }) => {
             color: "#10494C",
           },
         }}
-        
       >
         {medias.map((item, i) => (
-          <div style={{ display: "flex" }}>
+          <div key={i} style={{ display: "flex" }}>
             <PrevItem
-              key={i}
+              key={`prev-${i}`}
               prevItem={i === 0 ? medias[medias.length - 1] : medias[i - 1]}
             />
-            <Item key={i} item={item} />
+            <Item key={`item-${i}`} item={item} />
             <NextItem
-              key={i}
+              key={`next-${i}`}
               nextItem={i === medias.length - 1 ? medias[0] : medias[i + 1]}
             />
           </div>

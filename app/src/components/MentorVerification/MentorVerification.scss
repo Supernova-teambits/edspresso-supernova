@@ -56,7 +56,7 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .MentorVerification {
     margin: 0 auto;
     &-text {

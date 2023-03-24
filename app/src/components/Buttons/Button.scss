@@ -106,12 +106,13 @@
   display: flex;
   justify-content: flex-end;
   max-width: 858px;
-  margin: 0 auto;
+  margin: 0 68px 0 366px;
   gap: 8px;
 }
 
 @media (max-width: 600px) {
   .StepPagination-btn {
     justify-content: center;
+    margin: 0 auto;
   }
 }

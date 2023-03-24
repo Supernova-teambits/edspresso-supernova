@@ -19,7 +19,7 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .LayoutWrapper {
     &__header {
       padding: 20px;

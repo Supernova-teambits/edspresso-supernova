@@ -25,7 +25,7 @@
   }
 }
 
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .MyLearning {
     &__Layout__header {
       &__width {

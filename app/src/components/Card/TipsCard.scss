@@ -21,9 +21,8 @@
   }
 }
 
-
-@media (max-width: $max_width_for_mobile) {
+@media screen and (max-width: $max_width_for_mobile) {
   .TipsCard {
-  width: 100%;
- }
+    width: 100%;
+  }
 }

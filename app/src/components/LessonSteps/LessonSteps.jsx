@@ -51,7 +51,7 @@ export const StepSubContent = ({ content }) => {
 // Step titles
 const stepArr = [
   {
-    title: "Prepare Coffee",
+    title: "Prepare coffee and Chemex",
   },
   {
     title: "Ratio Calculation",

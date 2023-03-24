@@ -8,7 +8,7 @@ import { LessonHeader } from "../components/Header/LessonHeader";
 
 const stepArr = [
   {
-    title: "Prepare Coffee",
+    title: "Prepare coffee and Chemex",
   },
   {
     title: "Ratio Calculation",
@@ -33,7 +33,7 @@ const message = [
   },
   {
     heading: "You've finished the lesson!",
-    message1: "Congratulatinos! You've made it until the end.",
+    message1: "Congratulations! You’ve made it until the end.",
     subheading: "Test your knowledge",
     message2:
       "Go ahead and good luck if you are feeling prepared to do the Certification Quiz. If you need more preparation, you can review this lesson how many times as you want.",
@@ -65,15 +65,11 @@ const ProgressSaving = () => {
                 <StepProgressDesktop stepArr={stepArr} done={1} />
               </Grid>
               <Grid item xs={12} md={8} className="StepContent-subcontent">
-                <div className="ProgressUpdate">
-                  <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
-                  <h6 className="ProgressUpdate-sub-title">
-                    {message[0].subtitle}
-                  </h6>
-                  <p className="ProgressUpdate-content">
-                    {message[0].message1}
-                  </p>
-                </div>
+                <h5 className="ProgressUpdate-title">{message[0].heading}</h5>
+                <h6 className="ProgressUpdate-sub-title">
+                  {message[0].subtitle}
+                </h6>
+                <p className="ProgressUpdate-content">{message[0].message1}</p>
                 <img
                   src={chemex}
                   alt="Coffee cup on wooden table at dawn"
@@ -172,7 +168,7 @@ const ProgressFinish = () => {
           onClickLeft={() => {
             navigate("/app/lesson/1");
           }}
-          labelRight="Star Quiz"
+          labelRight="Start Quiz"
           onClickRight={() => {
             navigate("/app/step/6");
           }}

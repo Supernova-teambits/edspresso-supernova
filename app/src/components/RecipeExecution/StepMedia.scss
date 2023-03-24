@@ -10,50 +10,97 @@
   color: $neutral-grey-dark-2;
 }
 
-// .IngredientsCard {
-//   > .StepMedia-title {
-//   }
-// }
-
 .MediaCarousel {
   max-width: 557px;
 
-  .Project {
-    max-width: 100%;
-    position: relative;
-    height: 428px;
-    overflow: hidden;
-    padding: 20px;
+  .MediaCarousel-item {
+    text-align: center;
+    min-width: 90%;
+    height: 360px;
+    padding: 0 16px;
 
     img {
-      max-width: 460px;
-      position: relative;
-      max-height: 360px;
+      margin: 0 auto;
+      width: 100%;
+      height: 90%;
+      object-fit: cover;
+      border-radius: 11px;
+    }
+
+    .MediaCarousel-caption {
+      @extend .caption;
+    }
+  }
+
+  .MediaCarousel-prevItem,
+  .MediaCarousel-nextItem {
+    max-width: 25px;
+    height: 360px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 90%;
+    }
+  }
+  .MediaCarousel-prevItem {
+    img {
+      border-radius: 4px 8px 8px 4px;
+    }
+  }
+  .MediaCarousel-nextItem {
+    img {
+      border-radius: 8px 4px 4px 8px;
     }
   }
 }
 
-@media screen and (max-width: 600px) {
-  
-
+@media screen and (max-width: $max_width_for_mobile) {
   .StepMedia-title {
     font-size: 16px;
     line-height: 20px;
   }
 
   .MediaCarousel {
-    max-width: 328px;
+    min-width: 328px;
+    margin-bottom: 24px;
 
-    .Project {
-      max-width: 100%;
-      position: relative;
-      height: auto;
-      overflow: hidden;
+    .MediaCarousel-item {
+      padding: 0 8px;
 
       img {
-        max-width: 264px;
-        position: relative;
-        max-height: 232px;
+        margin: 0 auto;
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 11px;
+      }
+
+      .MediaCarousel-caption {
+        @extend .caption;
+      }
+    }
+
+    .MediaCarousel-prevItem,
+    .MediaCarousel-nextItem {
+      max-width: 25px;
+      position: relative;
+      height: 360px;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 90%;
+      }
+    }
+    .MediaCarousel-prevItem {
+      img {
+        border-radius: 4px 8px 8px 4px;
+      }
+    }
+    .MediaCarousel-nextItem {
+      img {
+        border-radius: 8px 4px 4px 8px;
       }
     }
   }

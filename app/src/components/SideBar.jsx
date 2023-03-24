@@ -93,11 +93,11 @@ function Sidebar() {
             Trainee
           </h4>
           <div style={{ display: "flex" }}>
-          <div className="separator"></div>
-          <div className="back-nav" onClick={() => setIsNavExpanded(false)}>
-            <BackNav fillColor={"#10494C"} />
+            <div className="separator"></div>
+            <div className="back-nav" onClick={() => setIsNavExpanded(false)}>
+              <BackNav fillColor={"#10494C"} />
+            </div>
           </div>
-        </div>
           <ul className="menu-item">
             <li>
               <Book fillColor="#FFF0DE" />
@@ -141,14 +141,11 @@ function Sidebar() {
         <Notification fillColor={"#FFF0DE"} />
       </div>
 
-      <div className={isNavExpanded ? "sidebar expanded" : "sidebar"}>
-        <nav className="sidebar">
-          {userRole.role === "manager" ? adminMenu : traineeMenu}
-        </nav>
-      </div>
+      <nav className={isNavExpanded ? "sidebar expanded" : "sidebar"}>
+        {userRole.role === "manager" ? adminMenu : traineeMenu}
+      </nav>
     </>
   );
 }
 
 export default Sidebar;
-

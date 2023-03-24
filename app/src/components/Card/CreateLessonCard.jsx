@@ -20,14 +20,11 @@ const CreateLessonCard = () => {
         </div>
       </CardContent>
       <div class="card-media1">
-        <CardMedia
-          className="card-media1"
-          component={bgAdmin}
-          sx={{ position: "absolute" }}
-        />
+        <div class="card-media2">
+          <CardMedia className="card-media2" component={bgAdmin} />
+        </div>
       </div>
     </Card>
   );
 };
-
 export default CreateLessonCard;

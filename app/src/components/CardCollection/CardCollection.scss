@@ -1,12 +1,21 @@
 @import "../../sass/main.scss";
 
 .CardCollestion {
-  padding: 16px 0;
-  margin-bottom: 20px;
+  padding: 16px 16px 0 16px;
 
   &-subtitle {
     @extend .headline-5;
     color: $primary-500;
     margin: 0 0 24px 0;
+  }
+
+  &-container {
+    padding: 0;
+    overflow: scroll;
+    scrollbar-width: none; // スクロールバーを非表示にする
+    -ms-overflow-style: none; // IE11の場合も対応する
+    &::-webkit-scrollbar {
+      width: 0px; // Chromeの場合のスクロールバーの幅を0にする
+    }
   }
 }

@@ -28,9 +28,22 @@
 @media screen and (max-width: $max_width_for_mobile) {
   .MyLearning {
     &__Layout__header {
+      background-color: $neutral-white;
       &__width {
         max-width: 100%;
-        margin: 0;
+        margin: 0 16px;
+
+        .Lesson-title {
+          // heading-4
+          text-align: center;
+          font-size: 24px;
+          line-height: 25px;
+          margin-bottom: 40px;
+        }
+
+        .MyLearning-searchBar {
+          margin-bottom: 36px;
+        }
       }
     }
 

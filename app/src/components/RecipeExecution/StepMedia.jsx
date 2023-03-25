@@ -252,6 +252,7 @@ export const RatioCalculater = ({ content }) => {
             type="search"
             label="Coffee (g)"
             value={coffeeAmount}
+            onChange={handleCoffeeAmountChange}
             sx={{
               width: "45%",
               height: "48px",

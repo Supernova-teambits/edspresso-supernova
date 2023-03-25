@@ -35,15 +35,11 @@ const MyTraining = () => {
       <div className="MyLearning__Layout__header">
         <div className="MyLearning__Layout__header__width">
           <Grid container>
-            <Grid item xs={8}>
+            <Grid item md={8} xs={12}>
               <h4 className="Lesson-title">My Learnings</h4>
             </Grid>
-            <Grid item xs={4}>
-              <SearchBar
-                className="MyLearnings-searchBar"
-                value={searchText}
-                onChange={handleSearch}
-              />
+            <Grid item md={4} xs={12} className="MyLearning-searchBar">
+              <SearchBar value={searchText} onChange={handleSearch} />
             </Grid>
           </Grid>
         </div>

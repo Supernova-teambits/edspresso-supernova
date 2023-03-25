@@ -231,7 +231,7 @@ export const RatioCalculater = ({ content }) => {
   };
 
   // Input field width
-  const inputWidth = isMobile ? "45%" : "45%";
+  // const inputWidth = isMobile ? "45%" : "45%";
 
   // Allow icon size
   const iconSize = isMobile ? "9.5" : "12";
@@ -252,15 +252,8 @@ export const RatioCalculater = ({ content }) => {
             type="search"
             label="Coffee (g)"
             value={coffeeAmount}
-            onChange={handleCoffeeAmountChange}
-            // InputProps={{
-            //   style: {
-            //     border: "1px solid #709294",
-            //     borderRadius: "4px",
-            //   },
-            // }}
             sx={{
-              width: inputWidth,
+              width: "45%",
               height: "48px",
             }}
             color="primary500"
@@ -287,14 +280,8 @@ export const RatioCalculater = ({ content }) => {
             label="Water (ml)"
             value={waterAmount}
             onChange={handleWaterAmountChange}
-            // InputProps={{
-            //   style: {
-            //     border: "1px solid #709294",
-            //     borderRadius: "4px",
-            //   },
-            // }}
             sx={{
-              width: inputWidth,
+              width: "45%",
               height: "48px",
             }}
             color="primary500"

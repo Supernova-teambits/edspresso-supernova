@@ -12,10 +12,9 @@ export default function LessonCard({
   progress,
   to,
   value,
-  size = 2,
 }) {
   return (
-    <Grid item xs={size}>
+    <Grid item>
       <div className="LessonCard">
         <Link to={to}>
           {icon ? (

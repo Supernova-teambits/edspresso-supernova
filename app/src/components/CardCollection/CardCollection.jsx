@@ -12,7 +12,12 @@ const CardCollection = ({ title, lessons }) => {
       {MAX_CARDS < lessons.length ? (
         <Link to={`/${title.toLowerCase()}`}>See all</Link>
       ) : null}
-      <Grid container spacing={4}>
+      <Grid
+        container
+        spacing={1}
+        wrap="nowrap"
+        className="CardCollestion-container"
+      >
         {lessons.slice().map((lesson, index) => {
           if (index < MAX_CARDS) {
             return (

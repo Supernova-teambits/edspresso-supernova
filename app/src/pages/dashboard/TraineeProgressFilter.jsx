@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Grid,
-  MenuItem,
-  Select,
-  ThemeProvider,
-} from "@mui/material";
+import { FormControl, Grid, ThemeProvider } from "@mui/material";
 import { useRecoilState } from "recoil";
 import {
   lessonTitleFilterState,

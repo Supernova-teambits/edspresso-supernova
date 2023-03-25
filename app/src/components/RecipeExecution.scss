@@ -15,10 +15,9 @@
     margin: 0 auto;
     padding: 16px;
   }
-}
 
-@media screen and (max-width: $max_width_for_mobile) {
   .LayoutWrapper__lesson__btn {
     margin-top: 0;
+    background-color: transparent;
   }
 }

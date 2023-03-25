@@ -492,11 +492,11 @@ export const DotVertical = ({ fillColor }) => {
   );
 };
 
-export const DoubleArrowLeft = ({ fillColor }) => {
+export const DoubleArrowLeft = ({ fillColor, width, height }) => {
   return (
     <svg
-      width="20"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -513,11 +513,11 @@ export const DoubleArrowLeft = ({ fillColor }) => {
   );
 };
 
-export const DoubleArrowRight = ({ fillColor }) => {
+export const DoubleArrowRight = ({ fillColor, width, height }) => {
   return (
     <svg
-      width="20"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -18,18 +18,18 @@
     background-color: $hover-primary-010;
     border-radius: 8px;
     padding: 8px;
-    margin:0 0 8px 0;
+    margin: 0 0 8px 0;
   }
 
- ul {
+  ul {
     @extend .subtitle-2;
-        list-style: none;
-        padding: 0;
-        color: $primary-500;
+    list-style: none;
+    padding: 0;
+    color: $primary-500;
 
-        li {
-          padding: 16px 8px;
-        }
+    li {
+      padding: 16px 8px;
+    }
   }
 
   ul li:nth-child(odd) {
@@ -137,6 +137,9 @@
       }
     }
   }
+
+  .RatioCalculater {
+  }
 }
 
 .DescWithRef-content {
@@ -154,20 +157,29 @@
   &-sub-title {
     @extend .headline-6;
     color: $primary-500;
+    margin: 32px 0 16px;
   }
 
-  &-input {
-    border: 1px solid $primary-300;
-    height: 48px;
-    width: 257px;
-    border-radius: 4px;
+  &-input-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &input {
+      // border: 1px solid $primary-300;
+      // border-radius: 4px;
+    }
   }
 
   &-icon {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 12px;
     margin: 0 16px;
+  }
+
+  &-ratio-radio-button {
+    @extend .body-2;
+    color: $neutral-grey-dark-2;
   }
 }

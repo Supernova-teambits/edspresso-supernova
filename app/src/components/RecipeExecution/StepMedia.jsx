@@ -9,6 +9,8 @@ import {
   TextField,
   useMediaQuery,
 } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "../../utils/ThemeUtil";
 
 import LessonCard from "../Card/LessonCard";
 import {
@@ -18,6 +20,9 @@ import {
   ArrowLineRight,
 } from "../../assets/Icons";
 import "./StepMedia.scss";
+
+// Responsive break point
+const max_width_for_mobile = 767;
 
 // Step 1
 export const PainText = ({ content }) => {
@@ -165,6 +170,8 @@ export const DescWithRef = ({ content }) => {
 
 // Step 5
 export const RatioCalculater = ({ content }) => {
+  const isMobile = useMediaQuery(`(max-width:${max_width_for_mobile}px)`);
+
   // control inputs
   const [ratio, setRatio] = useState(content.content[0].default_ratio);
   const [coffeeAmount, setCoffeeAmount] = useState("");
@@ -223,52 +230,153 @@ export const RatioCalculater = ({ content }) => {
     }
   };
 
+  // Input field width
+  const inputWidth = isMobile ? "45%" : "45%";
+
+  // Allow icon size
+  const iconSize = isMobile ? "9.5" : "12";
+
+  // Radio label width
+  const labelWidth = isMobile ? "20%" : "45%";
+
   return (
     <div className="RatioCalculater">
       <h6 className="RatioCalculater-sub-title">
         Calculate how much coffee and water do you need:
       </h6>
-      <TextField
-        className="RatioCalculater-input"
-        id="outlined-search"
-        type="search"
-        label="Coffee (g)"
-        value={coffeeAmount}
-        onChange={handleCoffeeAmountChange}
-      />
-      {arrowLeft ? (
-        <DoubleArrowLeft className="RatioCalculater-icon" fillColor="#10494C" />
-      ) : (
-        <DoubleArrowRight
-          className="RatioCalculater-icon"
-          fillColor="#10494C"
-        />
-      )}
-      <TextField
-        className="RatioCalculater-input"
-        id="outlined-search"
-        type="search"
-        label="Water (ml)"
-        value={waterAmount}
-        onChange={handleWaterAmountChange}
-      />
-
+      <ThemeProvider theme={theme}>
+        <div className="RatioCalculater-input-field">
+          <TextField
+            className="RatioCalculater-input-fiels input"
+            id="outlined-search"
+            type="search"
+            label="Coffee (g)"
+            value={coffeeAmount}
+            onChange={handleCoffeeAmountChange}
+            // InputProps={{
+            //   style: {
+            //     border: "1px solid #709294",
+            //     borderRadius: "4px",
+            //   },
+            // }}
+            sx={{
+              width: inputWidth,
+              height: "48px",
+            }}
+            color="primary500"
+          />
+          {arrowLeft ? (
+            <DoubleArrowLeft
+              width={iconSize}
+              height={iconSize}
+              className="RatioCalculater-icon"
+              fillColor="#10494C"
+            />
+          ) : (
+            <DoubleArrowRight
+              width={iconSize}
+              height={iconSize}
+              className="RatioCalculater-icon"
+              fillColor="#10494C"
+            />
+          )}
+          <TextField
+            className="RatioCalculater-input-fiels input"
+            id="outlined-search"
+            type="search"
+            label="Water (ml)"
+            value={waterAmount}
+            onChange={handleWaterAmountChange}
+            // InputProps={{
+            //   style: {
+            //     border: "1px solid #709294",
+            //     borderRadius: "4px",
+            //   },
+            // }}
+            sx={{
+              width: inputWidth,
+              height: "48px",
+            }}
+            color="primary500"
+          />
+        </div>
+      </ThemeProvider>
       <h6 className="RatioCalculater-sub-title">
         Know the ratio value? Select below instead:
       </h6>
 
-      <FormControl>
+      <FormControl
+        className="RatioCalculater-ratio-radio-button"
+        sx={{ width: "100%" }}
+      >
         <RadioGroup
           row
           aria-label="ratio"
           name="ratio"
           value={ratio}
           onChange={handleRatioChange}
+          sx={{ justifyContent: "space-between" }}
         >
-          <FormControlLabel value="6" control={<Radio />} label="1:6" />
-          <FormControlLabel value="12" control={<Radio />} label="1:12" />
-          <FormControlLabel value="17" control={<Radio />} label="1:17" />
-          <FormControlLabel value="10" control={<Radio />} label="1:10" />
+          <FormControlLabel
+            value="6"
+            control={
+              <Radio
+                sx={{
+                  color: "#10494C",
+                  "&.Mui-checked": {
+                    color: "#10494C",
+                  },
+                }}
+              />
+            }
+            label="1:6"
+            sx={{ width: labelWidth }}
+          />
+          <FormControlLabel
+            value="12"
+            control={
+              <Radio
+                sx={{
+                  color: "#10494C",
+                  "&.Mui-checked": {
+                    color: "#10494C",
+                  },
+                }}
+              />
+            }
+            sx={{ width: labelWidth }}
+            label="1:12"
+          />
+          <FormControlLabel
+            value="17"
+            control={
+              <Radio
+                sx={{
+                  color: "#10494C",
+                  "&.Mui-checked": {
+                    color: "#10494C",
+                  },
+                }}
+              />
+            }
+            sx={{ width: labelWidth }}
+            label="1:17"
+          />
+          <FormControlLabel
+            value="10"
+            control={
+              <Radio
+                sx={{
+                  color: "#10494C",
+                  "&.Mui-checked": {
+                    color: "#10494C",
+                  },
+                }}
+              />
+            }
+            sx={{ width: labelWidth }}
+            label="1:10"
+          />
         </RadioGroup>
       </FormControl>
     </div>

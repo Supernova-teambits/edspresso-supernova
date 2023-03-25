@@ -21,8 +21,8 @@
     background-color: $neutral-white;
     border-radius: 12px;
     padding: 20px 18px;
-    max-width: 420px;
-    min-height: 190px;
+    width: 100%;
+    min-height: 200px;
 
     &-title {
       @extend .headline-4;

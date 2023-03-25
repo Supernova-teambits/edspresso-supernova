@@ -46,41 +46,43 @@ const TraineeProgressFilter = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <FormControl fullWidth>
-            <Select
-              color="primary500"
+            <select
+              id="lesson-title-select"
               value={lessonTitleFilter}
               onChange={updateLessonTitleFilter}
+              className="Analytics-filter-select"
             >
               {lessons.map((lesson) => (
-                <MenuItem
+                <option
                   key={lesson}
                   value={lesson}
                   className="Analytics-filter-text"
                 >
                   {lesson}
-                </MenuItem>
+                </option>
               ))}
-            </Select>
+            </select>
           </FormControl>
         </Grid>
 
         <Grid item xs={12} md={6}>
           <FormControl fullWidth>
-            <Select
-              color="primary500"
+            <select
+              id="lesson-title-select"
               value={lessonTimeFilter}
               onChange={updateLessonTimeFilter}
+              className="Analytics-filter-select"
             >
               {times.map((time) => (
-                <MenuItem
+                <option
                   key={time}
                   value={time}
-                  className=".Analytics-filter-text"
+                  className="Analytics-filter-text"
                 >
                   {time}
-                </MenuItem>
+                </option>
               ))}
-            </Select>
+            </select>
           </FormControl>
         </Grid>
       </Grid>

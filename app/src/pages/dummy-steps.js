@@ -18,7 +18,7 @@ const step = [
                         value: "3 Cups"
                     }, {
                         title: "Grinder",
-                        value: "Midium"
+                        value: "Medium"
                     }, {
                         title: "Coffee Beans",
                         value: "64 grams"

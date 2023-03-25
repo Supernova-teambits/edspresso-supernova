@@ -1,5 +1,6 @@
 @import "../../sass/main.scss";
 
+// General
 .StepMedia-title {
   @extend .headline-4;
   color: $primary-500;
@@ -10,6 +11,37 @@
   color: $neutral-grey-dark-2;
 }
 
+// IngredientList
+.IngredientsCard {
+  background-color: $secondary-050;
+  .StepMedia-title {
+    background-color: $hover-primary-010;
+    border-radius: 8px;
+    padding: 8px;
+    margin:0 0 8px 0;
+  }
+
+ ul {
+    @extend .subtitle-2;
+        list-style: none;
+        padding: 0;
+        color: $primary-500;
+
+        li {
+          padding: 16px 8px;
+        }
+  }
+
+  ul li:nth-child(odd) {
+    background-color: $hover-primary-010;
+  }
+
+  ul li:nth-child(even) {
+    background-color: $neutral-white;
+  }
+}
+
+// Media Carousel
 .MediaCarousel {
   max-width: 557px;
 
@@ -61,6 +93,7 @@
     line-height: 20px;
   }
 
+  // Media Carousel
   .MediaCarousel {
     min-width: 328px;
     margin-bottom: 24px;

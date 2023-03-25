@@ -23,7 +23,10 @@
       width: 100%;
       object-fit: cover;
       border-radius: 11px;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
+    }
+    >button {
+      margin: 8px 0;
     }
   }
 }
@@ -51,14 +54,58 @@
 .DetailsCardWideColored-container {
   background-color: $secondary-050;
   border-radius: 8px;
+  padding: 8px;
 }
 
 @media screen and (max-width: $max_width_for_mobile) {
   .RecipeDetails {
     margin: 0 auto;
+
+    &-body {
+      @extend .body-2;
+      color: $neutral-grey-dark-2;
+      padding: 0;
+    }
+
+    &-title {
+      @extend .headline-4;
+      color: $primary-500;
+    }
+
+    &-img-btn {
+      margin-bottom: 16px;
+    }
+  }
+
+  .Lesson-title {
+    // headline-6;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .Accordion-text-container > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Accordion-text {
+    align-items: center;
+    @extend .button;
+    color: $primary-500;
+    display: flex;
+    justify-content: center;
   }
 
   .DetailsCardWideColored-container {
     background-color: $neutral-white;
+  }
+  .DetailsCardWideColored:first-of-type {
+    margin-bottom: 32px;
+  }
+
+  .RecipeDetails-ingredientsList {
+    width: 100%;
   }
 }

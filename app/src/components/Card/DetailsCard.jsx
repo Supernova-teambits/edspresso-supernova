@@ -9,10 +9,14 @@ function DifficultyIcon(difficulty) {
   return (
     <>
       {[...Array(numColoredIcons)].map((_, index) => (
-        <Coffee key={`dark-${index}`} fillColor="#10494C" />
+        <div className="Coffee-icon" key={`dark-${index}`}>
+          <Coffee fillColor="#10494C" />
+        </div>
       ))}
       {[...Array(numOutlinedIcons)].map((_, index) => (
-        <Coffee key={`light-${index}`} fillColor="#B7C8C9" />
+        <div className="Coffee-icon" key={`light-${index}`}>
+          <Coffee fillColor="#B7C8C9" />
+        </div>
       ))}
     </>
   );
@@ -28,10 +32,12 @@ export const DetailsCardColored = ({
   return (
     <>
       <Grid item xs={4}>
-        <div className="DetailsCardColored">
-          <h4 className="DetailsCardColored-title">{title}</h4>
-          {text && <p className="DetailsCardColored-body">{text}</p>}
-          {difficulty && <div>{DifficultyIcon(difficulty)}</div>}
+        <div className="DetailsCard-Colored">
+          <h4 className="DetailsCard-Colored-title">{title}</h4>
+          {text && <p className="DetailsCard-Colored-body">{text}</p>}
+          {difficulty && (
+            <div className="Difficulty-icons">{DifficultyIcon(difficulty)}</div>
+          )}
           {requirements && (
             <Stack direction="row" spacing={1}>
               {requirements.map((data, index) => {
@@ -42,7 +48,7 @@ export const DetailsCardColored = ({
                       backgroundColor: "#EAF2F2",
                       color: "#0A2C2E",
                     }}
-                    key={index}
+                    key={`chip-` + index}
                     icon={icon}
                     label={data}
                   />
@@ -60,13 +66,13 @@ export const DetailsCard = ({ title, text }) => {
   return (
     <>
       <Grid className="DetailsCard" item xs={4}>
-        <h4 className="DetailsCardColored-title">{title}</h4>
+        <h4 className="DetailsCard-title">{title}</h4>
         {title === "Mentor" ? (
-          <p className="DetailsCard-icon">
+          <p className="DetailsCard-icon DetailsCard-Colored-body">
             <Profile fillColor="#171717" /> {text}
           </p>
         ) : (
-          <p>{text}</p>
+          <p className="DetailsCard-Colored-body">{text}</p>
         )}
       </Grid>
     </>

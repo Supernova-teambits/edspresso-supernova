@@ -5,7 +5,10 @@ import { BASE_URL } from "../../utils/Constants";
 import { Grid, Breadcrumbs, Typography } from "@mui/material";
 import { Help, ArrowLineRight } from "../../assets/Icons";
 import "./MentorVerification.scss";
-import { PrimaryBtn, PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
+import {
+  PrimaryBtnWithRightArrow,
+  PrimaryBtnTextWithRightArrow,
+} from "../Buttons/Button";
 
 const MentoVerification = () => {
   const navigate = useNavigate();
@@ -84,7 +87,7 @@ const MentoVerification = () => {
           <p className="MentorVerification-body">
             You can start the test when you are ready
             <br />
-            You need at least 80% to approve the test and get a ecrtification.
+            You need at least 80% to approve the test and get a certification.
           </p>
         </div>
 
@@ -92,7 +95,7 @@ const MentoVerification = () => {
           <Grid item md={6} xs={12}>
             <div className="MentorVerification-card">
               <h4 className="MentorVerification-card-title">
-                Cerification Quiz
+                Certification Quiz
               </h4>
               <p className="MentorVerification-card-body-1">
                 Chemex brewing method, Ratio, Pouring, Chemex consideration.
@@ -105,7 +108,7 @@ const MentoVerification = () => {
               ) : null}
               {score < 80 ? (
                 <div className="MentorVerification-card-btns">
-                  <PrimaryBtn
+                  <PrimaryBtnWithRightArrow
                     disabled={isDisabled}
                     label={buttonLabel}
                     onClick={handleQuizStart}

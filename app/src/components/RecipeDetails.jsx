@@ -65,14 +65,22 @@ const RecipeDetails = () => {
         </Grid>
         <Grid item md={8}>
           <h4 className="Lesson-title">About the lesson</h4>
-          <p className="RecipeDetails-body">
-            The Chemex Coffeemaker is a manual pour-over style glass
-            coffeemaker, invented by Peter Schlumbohm in 1941, manufactured by
-            the Chemex Corporation in Chicopee, Massachusetts.
-          </p>
+
+          {matches ? (
+            <p className="RecipeDetails-body">
+              The Chemex Coffeemaker is a manual pour-over style glass
+              coffeemaker, invented by Peter Schlumbohm in 1941, manufactured by
+              the Chemex Corporation in Chicopee, Massachusetts.
+            </p>
+          ) : null}
 
           {/* training & ingredient/equip details */}
-          <Grid container justifyContent="center" style={{ padding: "0 8px" }}>
+          <Grid
+            container
+            justifyContent="center"
+            style={{ padding: "0" }}
+            spacing={{ xs: 0.5, md: 2 }}
+          >
             <DetailsCardColored
               title="Status"
               text={progress === 0 ? "Not Started" : "Finished"}
@@ -92,7 +100,7 @@ const RecipeDetails = () => {
               className="Accordion-text-container"
             >
               <p className="Accordion-text">
-                {expanded === "panel" ? "See less details" : "See more deatils"}
+                {expanded === "panel" ? "See less details" : "See more details"}
                 <ArrowLineRight fillColor="#10494C" />
               </p>
             </AccordionSummary>
@@ -113,15 +121,15 @@ const RecipeDetails = () => {
                   className="DetailsCardWideColored-container"
                 >
                   <Grid item md={6} xs={12} className="DetailsCardWideColored">
-                    <h4 className="DetailsCardColored-title">Certification</h4>
-                    <p className="DetailsCardColored-body DetailsCard-icon">
+                    <h4 className="DetailsCard-Colored-title">Certification</h4>
+                    <p className="DetailsCard-Colored-body DetailsCard-icon">
                       <Check fillColor="#171717" />
                       Achieve 80% or above to get a certification
                     </p>
                   </Grid>
 
                   <Grid item md={6} xs={12} className="DetailsCardWideColored">
-                    <h4 className="DetailsCardColored-title">Requirement</h4>
+                    <h4 className="DetailsCard-Colored-title">Requirement</h4>
                     <Stack direction="row" spacing={1}>
                       {["Coffee Basics", "Grinder and weight"].map(
                         (data, index) => {
@@ -143,18 +151,28 @@ const RecipeDetails = () => {
                   </Grid>
                 </Grid>
               </Grid>
+
+              {matches ? null : (
+                <p className="RecipeDetails-body">
+                  The Chemex Coffeemaker is a manual pour-over style glass
+                  coffeemaker, invented by Peter Schlumbohm in 1941,
+                  manufactured by the Chemex Corporation in Chicopee,
+                  Massachusetts.
+                </p>
+              )}
             </Grid>
           </Accordion>
         </Grid>
         {expanded === "panel" ? (
-          <Grid item>
+          <Grid item className="RecipeDetails-ingredientsList">
             {matches ? (
               <>
                 <h4 className="RecipeDetails-title">What you will need</h4>
                 <Grid
                   container
                   className="RecipeDetails-ingredient"
-                  spacing={1}
+                  spacing={{ xs: 2, md: 3 }}
+                  columns={{ xs: 4, sm: 8, md: 12 }}
                 >
                   {step[0].content_detail[0].sub_content[1].content.map(
                     (element, index) => (

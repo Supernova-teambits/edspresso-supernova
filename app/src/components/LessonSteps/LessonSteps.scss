@@ -6,6 +6,7 @@
 
   > div {
     display: flex;
+    align-items: baseline;
   }
 }
 
@@ -26,6 +27,18 @@
 @media screen and (max-width: $max_width_for_mobile) {
   .StepHeader {
     margin: 0 auto;
+
+    > button {
+      margin-bottom: 16px;
+    }
+    
+    .Lesson-title {
+      margin: 0 0 0 16px;
+    }
+
+    .Lesson-title-sub {
+      margin: 0 0 0 8px;
+    }
   }
 
   .StepContent {

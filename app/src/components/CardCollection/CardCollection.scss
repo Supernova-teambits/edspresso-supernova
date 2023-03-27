@@ -12,10 +12,10 @@
   &-container {
     padding: 0;
     overflow: scroll;
-    scrollbar-width: none; // スクロールバーを非表示にする
-    -ms-overflow-style: none; // IE11の場合も対応する
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
     &::-webkit-scrollbar {
-      width: 0px; // Chromeの場合のスクロールバーの幅を0にする
+      width: 0px; 
     }
   }
 }

@@ -63,9 +63,10 @@ export const filteredProgressByTraineeState = selector({
   get: ({ get }) => {
     const filteredProgress = get(filteredProgressState);
     const titleFilter = get(lessonTitleFilterState);
+    let filteredItems;
 
     if (titleFilter === "All lessons") {
-      const filteredItems = Object.values(
+      filteredItems = Object.values(
         filteredProgress.reduce((result, item) => {
           if (!result[item.trainee_name]) {
             result[item.trainee_name] = {
@@ -89,9 +90,8 @@ export const filteredProgressByTraineeState = selector({
             ? "Completed"
             : "In progress",
       }));
-      return filteredItems;
     } else {
-      return filteredProgress.map((item) => ({
+      filteredItems = filteredProgress.map((item) => ({
         trainee_name: item.trainee_name,
         trainee_photo: item.trainee_photo,
         status:
@@ -102,6 +102,12 @@ export const filteredProgressByTraineeState = selector({
             : "In progress",
       }));
     }
+    filteredItems.sort((a, b) => {
+      if (a.status > b.status) return 1;
+      if (a.status < b.status) return -1;
+      return 0;
+    });
+    return filteredItems;
   },
 });
 

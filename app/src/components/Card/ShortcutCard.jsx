@@ -1,11 +1,11 @@
 import React from "react";
-import { Card, CardMedia, CardActions, Button } from "@mui/material";
-import { ArrowLineRight } from "../../assets/Icons";
+import { Card, CardMedia, CardActions } from "@mui/material";
 import "./AdminDashboard.scss";
-
+import { PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
 const ShortcutCard = (props) => {
   const { imageComponent, buttonText, buttonOnClick } = props;
-
+  const buttonStyle = {
+    color: "#fff"};
   return (
     <Card class="shortcut-card">
       <CardMedia
@@ -27,23 +27,15 @@ const ShortcutCard = (props) => {
           justifyContent: "center",
         }}
       >
-        <Button
-          class="short-cut-button"
-          variant="contained"
-          onClick={buttonOnClick}
-          sx={{
-            display: "flex",
-            background: "none",
-            color:"#10494C",
-            boxShadow: "none"
-          }}
-        >
-          {buttonText}
-          <ArrowLineRight fillColor={"#10494C"} />
-        </Button>
+        <div class="short-cut-button" >
+          <PrimaryBtnTextWithRightArrow
+            label={buttonText}
+            onClick={buttonOnClick}
+            style={buttonStyle}
+          />
+        </div>
       </CardActions>
     </Card>
   );
 };
-
 export default ShortcutCard;

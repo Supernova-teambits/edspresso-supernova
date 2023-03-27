@@ -16,7 +16,7 @@ import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import { PrimaryBtnWide, PrimaryBtnOutlineWide } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
-import { ArrowLineRight, Check } from "../assets/Icons";
+import { ArrowLineDown, ArrowLineUp, Check } from "../assets/Icons";
 import "./RecipeDetails.scss";
 
 const RecipeDetails = () => {
@@ -101,7 +101,11 @@ const RecipeDetails = () => {
             >
               <p className="Accordion-text">
                 {expanded === "panel" ? "See less details" : "See more details"}
-                <ArrowLineRight fillColor="#10494C" />
+                {expanded === "panel" ? (
+                  <ArrowLineDown fillColor="#10494C" width="20" height="20" />
+                ) : (
+                  <ArrowLineUp fillColor="#10494C" width="20" height="20" />
+                )}
               </p>
             </AccordionSummary>
             <Grid
@@ -171,8 +175,8 @@ const RecipeDetails = () => {
                 <Grid
                   container
                   className="RecipeDetails-ingredient"
-                  spacing={{ xs: 2, md: 3 }}
-                  columns={{ xs: 4, sm: 8, md: 12 }}
+                  spacing={1}
+                  wrap="nowrap"
                 >
                   {step[0].content_detail[0].sub_content[1].content.map(
                     (element, index) => (

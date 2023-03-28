@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   CircularProgress,
   Grid,
   Paper,
   TextField,
+  ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
 import { getUser, updateUser } from "../services/loginService";
@@ -16,17 +17,25 @@ import { useSetRecoilState } from "recoil";
 import { userRoleState } from "../recoil/atoms";
 import AlertDialog from "../components/Dialog/AlertDialog";
 import "./Login.scss";
-import { ThemeProvider } from "@emotion/react";
 import { theme } from "../utils/ThemeUtil";
 
 export default function LogIn() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userType = searchParams.get("userType");
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const setUserRole = useSetRecoilState(userRoleState);
   const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
+  let testUserName;
+  const testUserPassword = userType ? "12345" : "";
+  if (userType === "manager") {
+    testUserName = "Dada";
+  } else if (userType === "trainee") {
+    testUserName = "Jay Lee";
+  }
 
   const handleAlertClose = () => {
     setAlertOpen(false);
@@ -73,10 +82,6 @@ export default function LogIn() {
         setLoading(false);
         console.log(error);
       });
-  };
-
-  const handleInputChange = (event) => {
-    setIsButtonDisabled(event.target.value === "");
   };
 
   const handleSubmit = (event) => {
@@ -179,8 +184,8 @@ export default function LogIn() {
                 label="Username"
                 name="name"
                 autoComplete="name"
+                defaultValue={testUserName}
                 autoFocus
-                onChange={handleInputChange}
                 sx={{ mb: 3, width: 320 }}
               />
               <TextField
@@ -192,13 +197,10 @@ export default function LogIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                defaultValue={testUserPassword}
                 sx={{ width: 320 }}
               />
-              <button
-                className="Login-form-button"
-                type="submit"
-                disabled={isButtonDisabled}
-              >
+              <button className="Login-form-button" type="submit">
                 {loading ? (
                   <CircularProgress
                     sx={{ padding: "6px" }}

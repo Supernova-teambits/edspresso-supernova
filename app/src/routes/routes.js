@@ -8,11 +8,16 @@ import TrainingDetails from "../pages/TrainingDetails";
 import RecipeExecution from "../components/RecipeExecution";
 import ProgressUpdate from "../pages/ProgressUpdate";
 import QuizPage from "../pages/QuizPage";
+import UserTestLogin from "../pages/UserTestLogin";
 
 const routes = [
   {
     path: "/",
     element: <Navigate replace to="/login" />,
+  },
+  {
+    path: "/userTestlogin",
+    element: <UserTestLogin />,
   },
   {
     path: "/login",

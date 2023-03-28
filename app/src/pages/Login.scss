@@ -25,6 +25,12 @@
   height: 48px;
 }
 
+.User-test-login-form-button {
+  @extend .Login-form-button;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 @media (max-width: $max_width_for_mobile) {
   .Login-form-title {
     @include headline-3();

@@ -1,7 +1,7 @@
 @import "../../sass/main.scss";
 
 .CardCollestion {
-  padding: 16px 16px 0 16px;
+  padding: 16px 0;
 
   &-subtitle {
     @extend .headline-5;
@@ -17,5 +17,11 @@
     &::-webkit-scrollbar {
       width: 0px; 
     }
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .CardCollestion {
+    padding: 16px 16px 0 16px;
   }
 }

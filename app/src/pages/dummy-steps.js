@@ -1,3 +1,15 @@
+import chemex_body from "../assets/images/chemex_body.jpg";
+import grinder from "../assets/images/grinder.jpg";
+import coffee_beans from "../assets/images/coffee_beans.jpg";
+import kettle from "../assets/images/kettle.jpg";
+import chemex_filter from "../assets/images/chemex_filter.jpg";
+import ground_coffee_spoon from "../assets/images/ground_coffee_spoon.jpg";
+import fine_grinding from "../assets/images/fine_grinding.jpg";
+import medium_grinding from "../assets/images/medium_grinding.jpg";
+import corase_grinding from "../assets/images/corase_grinding.jpg";
+import temp_control_kettle from "../assets/images/temp_control_kettle.jpg";
+import electric_kettle from "../assets/images/electric_kettle.jpg";
+
 const step = [
     {
         id: 1,
@@ -15,22 +27,28 @@ const step = [
                     title: "What you will need",
                     content: [{
                         title: "Chemex",
-                        value: "3 Cups"
+                        value: "3 Cups",
+                        image_src: chemex_body
                     }, {
                         title: "Grinder",
-                        value: "Medium"
+                        value: "Medium",
+                        image_src: grinder
                     }, {
                         title: "Coffee Beans",
-                        value: "64 grams"
+                        value: "64 grams",
+                        image_src: coffee_beans
                     }, {
                         title: "Weight",
                         value: "Oz"
                     }, {
                         title: "Kettle",
-                        value: "4 Oz Water"
+                        value: "4 Oz Water",
+                        image_src: kettle
                     }, {
                         title: "Chemex Filter",
-                        value: "1 qty"
+                        value: "1 qty",
+                        image_src: chemex_filter
+
                     }]
                 },
             ],
@@ -43,23 +61,23 @@ const step = [
                     content_type: "media_carousel",
                     title: "Grind Coffee",
                     content: [{
-                        description: "The following seven grind sizes are all you’ll need to brew great cups using different brewing methods.",
+                        description: "The following grind sizes are all you’ll need to brew great cups using different brewing methods.",
                         medias: [{
-                            source: "https://images.squarespace-cdn.com/content/v1/5ec5f286b052685927a93b23/1590075519938-ZCJIPD30O7L0REDHVWD6/andrea-tummons-ehymerU7QFI-unsplash.jpg?format=2500w", // path
+                            source: ground_coffee_spoon,
                             caption: "Coarse and extra course should be  the size of your coffee grain.",
                             alt: "Grounded coffee with spoon"
                         }, {
-                            source: "https://images.pexels.com/photos/9784906/pexels-photo-9784906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
-                            caption: "Test 2",
-                            alt: "sample photo 2"
+                            source: fine_grinding,
+                            caption: "Fine ground coffee",
+                            alt: "Fine ground coffee"
                         }, {
-                            source: "https://images.pexels.com/photos/7633044/pexels-photo-7633044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
-                            caption: "Test 3",
-                            alt: "sample photo 3"
+                            source: medium_grinding,
+                            caption: "Medium ground coffee",
+                            alt: "Medium ground coffee"
                         }, {
-                            source: "https://images.pexels.com/photos/3993825/pexels-photo-3993825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
-                            caption: "Test 4",
-                            alt: "sample photo 4"
+                            source: corase_grinding,
+                            caption: "Coarse ground coffee",
+                            alt: "Coarse ground coffee"
                         }]
                     }]
                 }
@@ -75,17 +93,13 @@ const step = [
                     content: [{
                         description: "Boil water up to 192 ºF (88 ºC), and avoid passing the boiling temperature.",
                         medias: [{
-                            source: "https://images.unsplash.com/photo-1643114786355-ff9e52736eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", // path
+                            source: electric_kettle,
                             caption: "Water temperature plays an important part on the taste of your coffee.",
                             alt: "electric kettle"
                         }, {
-                            source: "https://images.pexels.com/photos/7633044/pexels-photo-7633044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
-                            caption: "test 2",
-                            alt: "sample photo 2"
-                        }, {
-                            source: "https://images.pexels.com/photos/3993825/pexels-photo-3993825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // path
-                            caption: "test 3",
-                            alt: "sample photo 2"
+                            source: temp_control_kettle,
+                            caption: "You could also use an electric kettle with temperature control to boil water to the desired temperature.",
+                            alt: "Temperature control electric kettle"
                         }]
                     }]
                 }

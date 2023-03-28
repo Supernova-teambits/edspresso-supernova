@@ -11,11 +11,11 @@ import {
   Stack,
   Chip,
 } from "@mui/material";
+import chemex from "../assets/images/chemex.jpg";
 import { DetailsCardColored, DetailsCard } from "./Card/DetailsCard";
 import { PrimaryBtnWide, PrimaryBtnOutlineWide } from "./Buttons/Button";
 import { StepSubContent } from "./LessonSteps/LessonSteps";
 import LessonCard from "./Card/LessonCard";
-import { chemex } from "../assets/images";
 import { ArrowLineRight, Check } from "../assets/Icons";
 import "./RecipeDetails.scss";
 
@@ -180,6 +180,7 @@ const RecipeDetails = () => {
                         key={index}
                         title={element.title}
                         value={element.value}
+                        icon={element.image_src}
                       />
                     )
                   )}

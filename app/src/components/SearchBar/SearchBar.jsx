@@ -18,6 +18,7 @@ export default function SearchBar({ value, onChange }) {
         sx={{
           // height: "48px",
           width: inputWidth,
+          backgroundColor:"#fff",
           border: "1px solid #709294",
           borderRadius: "8px",
           fontFamily: "Source Sans Pro",

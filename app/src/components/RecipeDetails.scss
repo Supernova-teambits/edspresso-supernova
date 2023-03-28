@@ -38,7 +38,7 @@
   margin: 0;
 }
 
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+.MuiAccordion-root:before {
   display: none;
 }
 
@@ -53,6 +53,10 @@
   color: $primary-500;
   display: flex;
   justify-content: center;
+
+  svg {
+    margin-left: 5px;
+  }
 }
 
 .DetailsCardWideColored-container {
@@ -111,5 +115,15 @@
 
   .RecipeDetails-ingredientsList {
     width: 100%;
+
+    .RecipeDetails-ingredient {
+      padding: 0;
+      overflow: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
   }
 }

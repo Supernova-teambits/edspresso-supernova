@@ -8,6 +8,10 @@
     &__width {
       max-width: 858px;
       margin: 0 68px 0 366px;
+
+      .Lesson-title {
+        padding: 16px 0;
+      }
     }
   }
 
@@ -16,6 +20,7 @@
   }
 
   &__Layout__content {
+    height: 260px;
     max-width: 858px;
     margin: 0 68px 0 366px;
   }

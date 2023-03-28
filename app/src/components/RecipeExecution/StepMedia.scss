@@ -4,11 +4,13 @@
 .StepMedia-title {
   @extend .headline-4;
   color: $primary-500;
+  margin: 8px 0 24px 0;
 }
 
 .StepMedia-content {
   @extend .body-2;
   color: $neutral-grey-dark-2;
+  margin-bottom: 32px;
 }
 
 // IngredientList
@@ -87,13 +89,56 @@
   }
 }
 
+.DescWithRef-content {
+  @extend .body-1;
+  color: $primary-500;
+}
+
+.DescWithRef-ref {
+  @extend .body-1;
+  font-size: 12px;
+  color: $primary-500;
+  margin-bottom: 24px;
+}
+
+.RatioCalculater {
+  &-sub-title {
+    @extend .headline-6;
+    color: $primary-500;
+    margin: 32px 0 16px;
+  }
+
+  &-input-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 16px;
+  }
+
+  &-ratio-radio-button {
+    @extend .body-2;
+    color: $neutral-grey-dark-2;
+  }
+}
+
 @media screen and (max-width: $max_width_for_mobile) {
   .StepMedia-title {
     font-size: 16px;
     line-height: 20px;
+    margin-bottom: 16px;
   }
 
   // Media Carousel
+  .StepMedia-content {
+    margin-bottom: 16px;
+  }
+
   .MediaCarousel {
     min-width: 328px;
     margin-bottom: 24px;
@@ -138,43 +183,7 @@
     }
   }
 
-  .RatioCalculater {
-  }
-}
-
-.DescWithRef-content {
-  @extend .body-1;
-  color: $primary-500;
-}
-
-.DescWithRef-ref {
-  @extend .body-1;
-  font-size: 12px;
-  color: $primary-500;
-}
-
-.RatioCalculater {
-  &-sub-title {
-    @extend .headline-6;
-    color: $primary-500;
-    margin: 32px 0 16px;
-  }
-
-  &-input-field {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &-icon {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 0 16px;
-  }
-
-  &-ratio-radio-button {
-    @extend .body-2;
-    color: $neutral-grey-dark-2;
+  .DescWithRef-ref {
+    margin-bottom: 16px;
   }
 }

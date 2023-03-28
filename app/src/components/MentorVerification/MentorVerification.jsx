@@ -13,54 +13,55 @@ import {
 const MentoVerification = () => {
   const navigate = useNavigate();
 
-  const [timeSpent, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [score, setScore] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  // Breadcumb font color
+  const [unverified, setUnverified] = useState("#709294");
+  const [onprogress, setOnprogress] = useState("#709294");
+  const [verified, setVerified] = useState("#709294");
 
   useEffect(() => {
     axios
       .get(`${BASE_URL}/progress/trainee/64014b7e898a8420af6ab7f0`)
       .then((result) => {
-        let progress = result.data;
-        setScore(progress.test_result);
-        setProgress(progress.progress_status);
+        let progressData = result.data;
+        setScore(progressData.test_result);
+        setProgress(progressData.progress_status);
         setIsDisabled(
-          progress.progress_status === 0 && progress.test_result === 0
+          progressData.progress_status === 0 && progressData.test_result === 0
         );
+        if (0 < progress && score < 80) {
+          setUnverified("#10494C");
+          setOnprogress("#E1E2E3");
+          setVerified("#E1E2E3");
+        } else if (80 <= score) {
+          setUnverified("#E1E2E3");
+          setOnprogress("#10494C");
+          setVerified("#E1E2E3");
+        }
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [timeSpent]);
-
-  // Breadcumb
-  const breadcrumbStyle = {
-    fontWeight: timeSpent >= 1 && score < 80 ? "bold" : "normal",
-  };
+  }, [progress, score]);
 
   const breadcrumbs = [
-    <Typography
-      key="1"
-      color="inherit"
-      style={timeSpent >= 1 ? breadcrumbStyle : {}}
-    >
+    <Typography key="1" color="inherit" style={{ color: unverified }}>
       Unverified
     </Typography>,
-    <Typography
-      key="2"
-      color="inherit"
-      style={score >= 80 ? { fontWeight: "bold" } : {}}
-    >
+    <Typography key="2" color="inherit" style={{ color: onprogress }}>
       On Progress
     </Typography>,
-    <Typography key="3" color="inherit">
+    <Typography key="3" color="inherit" style={{ color: verified }}>
       Verified
     </Typography>,
   ];
 
   // decide button label
   let buttonLabel;
-  if (timeSpent > 0 && score < 80) {
+  if (progress > 0 && score < 80) {
     buttonLabel = "Do quiz again";
   } else {
     buttonLabel = "Start quiz";
@@ -113,7 +114,7 @@ const MentoVerification = () => {
                     label={buttonLabel}
                     onClick={handleQuizStart}
                   />
-                  {timeSpent !== 0 && score < 80 && (
+                  {progress !== 0 && score < 80 && (
                     <PrimaryBtnTextWithRightArrow
                       label="Check last results"
                       onClick={handleCheckLastResults}
@@ -138,11 +139,11 @@ const MentoVerification = () => {
               <Breadcrumbs
                 separator={<ArrowLineRight fillColor="#709294" />}
                 aria-label="breadcrumb"
-                style={{ marginBottom: "16px" }}
+                sx={{ marginBottom: "16px" }}
+                className="MentorVerification-card-breadcrumbs"
               >
                 {breadcrumbs}
               </Breadcrumbs>
-
               <p className="MentorVerification-card-content-icon">
                 <Help fillColor="#10494C" />
                 After finishing your test, a mentor will verify your answers.

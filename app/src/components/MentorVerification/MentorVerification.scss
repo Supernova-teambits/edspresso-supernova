@@ -41,6 +41,12 @@
       gap: 8px;
     }
 
+    &-breadcrumbs {
+      .MuiBreadcrumbs-li > .MuiTypography-root {
+        @extend .subtitle-1;
+      }
+    }
+
     > p {
       @extend .body-1;
       color: $primary-500;

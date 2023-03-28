@@ -87,8 +87,10 @@ export default function LogIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if (data.get("name") === "") {
+      return;
+    }
     setLoading(true);
-
     getUser(data.get("name"), data.get("password"))
       .then((user) => {
         if (user.data.loginSuccess) {

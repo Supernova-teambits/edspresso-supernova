@@ -20,6 +20,7 @@ function Sidebar() {
   const userRole = useRecoilValue(userRoleState);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const showSidebar = () => setIsNavExpanded(!isNavExpanded);
+  const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const adminMenu = (
     <div className="sidebar-wrapper">
       <div className="sidebar-menu">
@@ -37,42 +38,80 @@ function Sidebar() {
           </div>
         </div>
         <ul className="menu-item">
-            <li>
+          <li
+            className={selectedMenuItem === "dashboard" ? "selected" : ""}
+            onClick={() => setSelectedMenuItem("dashboard")}
+          >
+            <div className="hide-icon">
               <GraphDonut fillColor="#FFF0DE" />
-              <a href="/app/dashboard">Dashboard</a>
-            </li>
-            <li>
+            </div>
+            <div className="hover-icon">
+              <GraphDonut fillColor="#10494C" />
+            </div>
+            <a href="/app/dashboard">Dashboard</a>
+          </li>
+          <li>
+            <div className="hide-icon">
               <AdminNav fillColor="#FFF0DE" />
-              <a href="/app/dashboard" disabled>
-                Administration
-              </a>
-            </li>
-            <li>
+            </div>
+            <div className="hover-icon">
+              <AdminNav fillColor="#10494C" />
+            </div>
+            <a href="/app/dashboard" disabled>
+              Administration
+            </a>
+          </li>
+          <li>
+            <div className="hide-icon">
               <Book fillColor="#FFF0DE" />
-              <a href="/app/dashboard" disabled>
-                Training Management
-              </a>
-            </li>
-            <li>
+            </div>
+            <div className="hover-icon">
+              <Book fillColor="#10494C" />
+            </div>
+            <a href="/app/dashboard" disabled>
+              Training Management
+            </a>
+          </li>
+          <li>
+            <div className="hide-icon">
               <Setting fillColor="#FFF0DE" />
-              <a href="/app/dashboard" disabled>
-                Settings
-              </a>
-            </li>
-          <li style={{ marginTop: "56px" }}>
-            <Notification fillColor="#FFF0DE" />
+            </div>
+            <div className="hover-icon">
+              <Setting fillColor="#10494C" />
+            </div>
+            <a href="/app/dashboard" disabled>
+              Settings
+            </a>
+          </li>
+          <li style={{ marginTop: "32px" }}>
+            <div className="hide-icon">
+              <Notification fillColor="#FFF0DE" />
+            </div>
+            <div className="hover-icon">
+              <Notification fillColor="#10494C" />
+            </div>
             <a href="/app/dashboard" disabled>
               Notifications
             </a>
           </li>
           <li>
-            <Help fillColor="#FFF0DE" />
+            <div className="hide-icon">
+              <Help fillColor="#FFF0DE" />
+            </div>
+            <div className="hover-icon">
+              <Help fillColor="#10494C" />
+            </div>
             <a href="/app/dashboard" disabled>
               Help
             </a>
           </li>
           <li>
-            <Logout fillColor="#FFF0DE" />
+            <div className="hide-icon">
+              <Logout fillColor="#FFF0DE" />
+            </div>
+            <div className="hover-icon">
+              <Logout fillColor="#10494C" />
+            </div>
             <a href="/">Logout</a>
           </li>
         </ul>
@@ -98,30 +137,57 @@ function Sidebar() {
             </div>
           </div>
           <ul className="menu-item">
+            <div className="list">
+              <li>
+                <div className="hide-icon">
+                  <Book fillColor="#FFF0DE" />
+                </div>
+                <div className="hover-icon">
+                  <Book fillColor="#10494C" />
+                </div>
+                <a href="/app/myTraining">My Learnings</a>
+              </li>
+            </div>
             <li>
-              <Book fillColor="#FFF0DE" className="my-learnings" />
-              <a href="/app/myTraining">My Learnings</a>
-            </li>
-            <li>
-              <GraphDonut fillColor="#FFF0DE" />
+              <div className="hide-icon">
+                <GraphDonut fillColor="#FFF0DE" />
+              </div>
+              <div className="hover-icon">
+                <GraphDonut fillColor="#10494C" />
+              </div>
               <a href="/app/myTraining" disabled>
                 Trainee Progress
               </a>
             </li>
-            <li style={{ marginTop: "50px" }}>
-              <Notification fillColor="#FFF0DE" />
-              <a className="menu-item" href="/app/myTraining" disabled>
+            <li style={{ marginTop: "32px" }}>
+              <div className="hide-icon">
+                <Notification fillColor="#FFF0DE" />
+              </div>
+              <div className="hover-icon">
+                <Notification fillColor="#10494C" />
+              </div>
+              <a href="/app/myTraining" disabled>
                 Notifications
               </a>
             </li>
             <li>
-              <Help fillColor="#FFF0DE" />
+              <div className="hide-icon">
+                <Help fillColor="#FFF0DE" />
+              </div>
+              <div className="hover-icon">
+                <Help fillColor="#10494C" />
+              </div>
               <a href="/app/myTraining" disabled>
                 Help
               </a>
             </li>
             <li>
-              <Logout fillColor="#FFF0DE" />
+              <div className="hide-icon">
+                <Logout fillColor="#FFF0DE" />
+              </div>
+              <div className="hover-icon">
+                <Logout fillColor="#10494C" />
+              </div>
               <a href="/">Logout</a>
             </li>
           </ul>

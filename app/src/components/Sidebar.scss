@@ -13,7 +13,6 @@ $sidebar-border-radius: 0px 20px 20px 0px;
 .sidebar {
   top: 0;
   left: 0;
-
   padding: $sidebar-padding;
   background-color: $primary-500;
   box-shadow: $sidebar-shadow;
@@ -25,14 +24,25 @@ $sidebar-border-radius: 0px 20px 20px 0px;
   .sidebar-menu {
     @extend .headline-6;
     color: $secondary-100;
-
+    .menu-item li {
+      height: 40px;
+      padding: 0px 8px 0px 8px;
+    }
+    .hover-icon {
+      display: none;
+    }
     li:hover {
       background-color: $secondary-100;
       color: $primary-500;
       border-radius: 8px;
-      padding: 0px 8px 0px 8px;
+      .hide-icon {
+        display: none;
+      }
+      .hover-icon {
+        display: block;
+      }
       svg {
-        color: $primary-500;
+        fill: $primary-500;
       }
     }
     h4 {
@@ -50,33 +60,18 @@ $sidebar-border-radius: 0px 20px 20px 0px;
       }
     }
 
-    .profile1 {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      width: 114px;
-      height: 40px;
-      margin-top: 96px;
-      padding: 0;
-    }
-    .profile2 {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      width: 114px;
-      height: 40px;
-      margin-top: 82.57px;
-      padding: 0;
-    }
     .separator {
       width: 224px;
       height: 0px;
       border-top: 2px solid #949499;
-      margin-top: 58px;
-      margin-bottom: 58px;
+      margin-top: 48px;
+      margin-bottom: 48px;
       right: 16px;
       left: 16px;
       top: 194.57px;
+    }
+    .menu-item li:hover a {
+      color: $primary-500;
     }
 
     p {
@@ -102,9 +97,7 @@ $sidebar-border-radius: 0px 20px 20px 0px;
         margin-bottom: 16px;
 
         svg {
-          width: 16px;
-          height: 16px;
-          margin-right: 16px;
+          margin-right: 18px;
         }
         a {
           color: $secondary-100;
@@ -116,17 +109,12 @@ $sidebar-border-radius: 0px 20px 20px 0px;
             background-color: $secondary-100;
             border-radius: 8px;
             color: $primary-500;
-            transition: 0.1s;
-            .my-learnings {
-              fill: $primary-500;
-            }
           }
         }
       }
     }
   }
 }
-// }
 .ham-burger {
   display: none;
 }
@@ -145,7 +133,6 @@ $sidebar-border-radius: 0px 20px 20px 0px;
     right: 8.33%;
     top: 16.67%;
     bottom: 16.67%;
-
     height: 50px;
     align-items: center;
   }
@@ -197,10 +184,8 @@ $sidebar-border-radius: 0px 20px 20px 0px;
     height: 100%;
     justify-content: center;
     align-items: flex-end;
-    // margin-left: 31px;
     z-index: 4;
     right: 0;
-
   }
 }
 

@@ -15,7 +15,6 @@ export default function UserTestLogin() {
   const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
 
   const handleClick = (value) => {
-    console.log("[knulp]value", value);
     navigate(`/login?userType=${value}`);
   };
 

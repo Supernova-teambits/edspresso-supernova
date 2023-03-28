@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid, useMediaQuery } from "@mui/material";
-import { chemex } from "../assets/images";
+import chemex from "../assets/images/chemex.jpg";
 import { StepPagination } from "../components/Buttons/Button";
 import { StepProgressDesktop } from "../components/RecipeExecution/StepProgress";
 import "./ProgressUpdate.scss";

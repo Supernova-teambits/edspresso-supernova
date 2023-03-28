@@ -49,7 +49,7 @@ export const IngredientsCard = ({ content }) => {
                 key={index}
                 title={el.title}
                 value={el.value}
-                size={4}
+                icon={el.image_src}
               />
             ))}
           </Grid>
@@ -81,7 +81,7 @@ export const MediaCarousel = ({ content }) => {
   return (
     <>
       <h4 className="StepMedia-title">{content.title}</h4>
-      <p>{content.content[0].description}</p>
+      <p className="StepMedia-MediaCarousel-paragraph">{content.content[0].description}</p>
       <Carousel
         className="MediaCarousel"
         navButtonsAlwaysVisible={true}
@@ -237,7 +237,7 @@ export const RatioCalculater = ({ content }) => {
   const iconSize = isMobile ? "9.5" : "12";
 
   // Radio label width
-  const labelWidth = isMobile ? "20%" : "45%";
+  const labelWidth = isMobile ? "45%" : "20%";
 
   return (
     <div className="RatioCalculater">

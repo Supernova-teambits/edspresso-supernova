@@ -76,7 +76,7 @@ export const MediaCarousel = ({ content }) => {
   return (
     <>
       <h4 className="StepMedia-title">{content.title}</h4>
-      <p>{content.content[0].description}</p>
+      <p className="StepMedia-content">{content.content[0].description}</p>
       <Carousel
         className="MediaCarousel"
         navButtonsAlwaysVisible={true}

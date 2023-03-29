@@ -144,10 +144,12 @@ const MentoVerification = () => {
               >
                 {breadcrumbs}
               </Breadcrumbs>
-              <p className="MentorVerification-card-content-icon">
-                <Help fillColor="#10494C" />
-                After finishing your test, a mentor will verify your answers.
-              </p>
+              {80 <= score ? null : (
+                <p className="MentorVerification-card-content-icon">
+                  <Help fillColor="#10494C" />
+                  After finishing your test, a mentor will verify your answers.
+                </p>
+              )}
               <p style={{ margin: "0" }}>
                 Barista Flavia C.
                 <br />

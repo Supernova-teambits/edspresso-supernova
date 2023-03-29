@@ -26,7 +26,13 @@ const TraineeProgressChart = () => {
               marginRight: "2vw",
             }}
           >
-            <DonutChart data={progressForChart} />
+            {progressForChart.length === 0 ? (
+              <p className="Analytics-no-content">
+                No lessons the selected time
+              </p>
+            ) : (
+              <DonutChart data={progressForChart} />
+            )}
           </section>
         </CardContent>
       </Card>

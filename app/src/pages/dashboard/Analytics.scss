@@ -6,6 +6,13 @@
   margin-top: 40px;
 }
 
+.Analytics-no-content {
+  @extend .subtitle-1;
+  color: $primary-500;
+  margin-top: 40px;
+  text-align: center;
+}
+
 .Analytics-filter-text {
   @extend .subtitle-2;
   color: $neutral-grey-dark-2;

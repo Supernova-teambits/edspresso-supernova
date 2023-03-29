@@ -68,11 +68,11 @@ export const DetailsCard = ({ title, text }) => {
       <Grid className="DetailsCard" item xs={4}>
         <h4 className="DetailsCard-title">{title}</h4>
         {title === "Mentor" ? (
-          <p className="DetailsCard-icon DetailsCard-Colored-body">
+          <p className="DetailsCard-icon DetailsCard-body">
             <Profile fillColor="#171717" /> {text}
           </p>
         ) : (
-          <p className="DetailsCard-Colored-body">{text}</p>
+          <p className="DetailsCard-body">{text}</p>
         )}
       </Grid>
     </>

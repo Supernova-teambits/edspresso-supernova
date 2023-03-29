@@ -22,7 +22,6 @@
     border-radius: 12px;
     padding: 20px 18px;
     width: 100%;
-    min-height: 200px;
 
     &-title {
       @extend .headline-4;
@@ -50,10 +49,10 @@
     > p {
       @extend .body-1;
       color: $primary-500;
-      margin: 0 0 16px;
     }
     .passDate {
       @extend .subtitle-2;
+      color: $neutral-grey-dark-2;
     }
 
     .QuizStart-btn:disabled {
@@ -70,6 +69,13 @@
     }
     &-card {
       margin: 0 auto;
+
+      &-breadcrumbs {
+        .MuiBreadcrumbs-li > .MuiTypography-root {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
     }
   }
 }

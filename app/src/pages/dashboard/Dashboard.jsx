@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { traineeProgressState, userRoleState } from "../../recoil/atoms";
 import { getProgressAccToMngrCode } from "../../services/progressService";
+import "./Dashboard.scss";
 
 const Dashboard = () => {
   const manager = useRecoilValue(userRoleState);
@@ -30,7 +31,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div style={{ maxWidth: "944px", margin: "0 auto" }}>
+    <section className="Dashboard-container">
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12}>
           <DashboardDetail />
@@ -39,7 +40,7 @@ const Dashboard = () => {
           <Analytics />
         </Grid>
       </Grid>
-    </div>
+    </section>
   );
 };
 

@@ -17,7 +17,10 @@ const DonutChart = (props) => {
             <Bookmark fillColor={STATUS_COLOR[index]} />
             <section className="DonutChart-Legend-Text-Container">
               <p className="DonutChart-Legend-Main-Text">
-                {entry.value} trainee
+                {entry.value}{" "}
+                {entry.value === 0 || entry.value === 1
+                  ? "trainee"
+                  : "trainees"}
               </p>
               <p className="DonutChart-Legend-Sub-Text">{entry.name}</p>
             </section>

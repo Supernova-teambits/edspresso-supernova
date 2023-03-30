@@ -28,7 +28,7 @@ const TraineeLearningProcess = () => {
   return (
     <Card>
       <CardContent>
-        <p className="Analytics-learning-process-title">Learning process</p>
+        <p className="Analytics-learning-process-title">Learning Progress</p>
         <section className="Analytics-learning-process-lesson-container">
           <p className="Analytics-learning-process-lesson-title">
             {lessonTitle}

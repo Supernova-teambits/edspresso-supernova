@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import quizData from "./dummy-question";
 import CloseButton from "../components/Buttons/CloseButton";
 import { Pagination } from "../components/Buttons/Pagination";
@@ -18,19 +18,6 @@ const QuizPage = () => {
   const isMobile = useMediaQuery({
     query: "(max-width: 767px)",
   });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft((prevTimeLeft) => {
-        if (prevTimeLeft <= 0) {
-          clearInterval(interval);
-          return 0;
-        }
-        return prevTimeLeft - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleAnswer = (questionId, answer) => {
     setAnswers((prevAnswers) => ({
@@ -54,7 +41,7 @@ const QuizPage = () => {
     setErrorMessage(false);
   };
 
-  const calculateScore = () => {
+  const calculateScore = useCallback(() => {
     let finalScore = 0;
     quizData.forEach((question) => {
       if (answers[question.id] === question.answer) {
@@ -62,7 +49,7 @@ const QuizPage = () => {
       }
     });
     setScore(finalScore);
-  };
+  }, [answers]);
 
   const handleSubmit = () => {
     const unansweredQuestions = quizData.filter(
@@ -76,6 +63,21 @@ const QuizPage = () => {
       setErrorMessage(true);
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft((prevTimeLeft) => {
+        if (prevTimeLeft <= 0) {
+          clearInterval(interval);
+          calculateScore();
+          setCurrentPage(totalPages + 1);
+          return 0;
+        }
+        return prevTimeLeft - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [totalPages, calculateScore]);
 
   const currentQuiz = quizData.find((question) => question.id === currentPage);
 

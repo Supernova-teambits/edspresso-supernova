@@ -65,10 +65,8 @@ $sidebar-border-radius: 0px 20px 20px 0px;
       width: 224px;
       height: 0px;
       border-top: 2px solid #949499;
-      margin-top: 48px;
+      margin-top: 58px;
       margin-bottom: 48px;
-      right: 16px;
-      left: 16px;
       top: 194.57px;
     }
     .menu-item li:hover a {
@@ -188,6 +186,10 @@ $sidebar-border-radius: 0px 20px 20px 0px;
     align-items: flex-end;
     z-index: 4;
     right: 0;
+    position: absolute;
+    bottom: 80.33%;
+    left: 24;
+    left: 25.76%;
   }
 }
 

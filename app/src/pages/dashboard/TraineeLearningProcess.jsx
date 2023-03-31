@@ -19,6 +19,7 @@ import {
   NEUTRAL_GREY_LIGHT_3,
   NEUTRAL_WHITE,
 } from "../../utils/Constants";
+import "./Analytics.scss";
 
 const TraineeLearningProcess = () => {
   const filteredProgressByTraineeList = useRecoilValue(
@@ -26,7 +27,7 @@ const TraineeLearningProcess = () => {
   );
   const lessonTitle = useRecoilValue(lessonTitleFilterState);
   return (
-    <Card>
+    <Card class="Analytics-card-container">
       <CardContent>
         <p className="Analytics-learning-process-title">Learning Progress</p>
         <section className="Analytics-learning-process-lesson-container">

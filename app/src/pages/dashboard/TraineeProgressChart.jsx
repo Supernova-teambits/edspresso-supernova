@@ -9,7 +9,7 @@ const TraineeProgressChart = () => {
   const progressForChart = useRecoilValue(filteredProgressForChart);
   return (
     <Grid item xs={12}>
-      <Card>
+      <Card class="Analytics-card-container">
         <CardContent>
           <Grid container>
             <Grid item xs={4} md={12}>

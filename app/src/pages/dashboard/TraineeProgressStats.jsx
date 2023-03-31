@@ -8,8 +8,8 @@ const TraineeProgressStats = () => {
   return (
     <>
       <Grid item xs={6}>
-        <Card>
-          <CardContent className="Analytics-stat-container">
+        <Card class="Analytics-card-container">
+          <CardContent class="Analytics-stat-container">
             <p className="Analytics-stat-title">Avg. Completion Rate</p>
             <p className="Analytics-stat-text">
               {progressStats.percentageCompleted}
@@ -18,8 +18,8 @@ const TraineeProgressStats = () => {
         </Card>
       </Grid>
       <Grid item xs={6}>
-        <Card>
-          <CardContent className="Analytics-stat-container">
+        <Card class="Analytics-card-container">
+          <CardContent class="Analytics-stat-container">
             <p className="Analytics-stat-title">Avg. Time to Complete</p>
             <p className="Analytics-stat-text">
               {progressStats.avgTimeToCompleted}

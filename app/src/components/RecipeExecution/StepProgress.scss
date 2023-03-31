@@ -14,22 +14,25 @@
 }
 
 .ProgressBar-sub {
-  @extend .body-1;
   color: $primary-500;
   text-align: right;
   margin: 8px 0;
 }
 
 .StepProgressDesktop {
-  @extend .subtitle-2;
   color: $primary-500;
 
-  .-current {
+  // List item text
+  .MuiListItemText-root .MuiListItemText-primary {
+    @extend .subtitle-2;
+  }
+
+  &-current {
     background-color: $secondary-200;
     border-radius: 8px;
   }
 
-  .-rest {
+  &-rest {
     color: $primary-300;
   }
 }

@@ -43,7 +43,7 @@ export const IngredientsCard = ({ content }) => {
       {matches ? (
         <>
           <h4 className="StepMedia-title">{content.title}</h4>
-          <Grid container spacing={1} xs={{width: "100%"}}>
+          <Grid container spacing={1} sx={{width: "100%"}}>
             {content.content.map((el, index) => (
               <LessonCard
                 key={index}

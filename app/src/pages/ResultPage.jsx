@@ -273,8 +273,9 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
             </main>
             <footer className="result-footer">
               <span className="note-text">
-                Note: You can access to these results from the lesson details
-                page.
+                {passed
+                  ? ""
+                  : "Note: You can access to these results from the lesson details page."}
               </span>
               <button
                 className="rs-close-btn"

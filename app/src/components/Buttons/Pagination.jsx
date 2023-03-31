@@ -28,6 +28,7 @@ export const Pagination = ({
       style={{
         display: "flex",
         height: "inherit",
+        width: "inherit",
         alignItems: "center",
         justifyContent: "space-evenly",
       }}

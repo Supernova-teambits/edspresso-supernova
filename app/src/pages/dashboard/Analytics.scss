@@ -13,32 +13,6 @@
   text-align: center;
 }
 
-.Analytics-filter-text {
-  @extend .subtitle-2;
-  color: $neutral-grey-dark-2;
-}
-
-.Analytics-filter-select {
-  @extend .subtitle-2;
-  color: $neutral-grey-dark-2;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.23);
-  padding: 12px 40px 12px 16px;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-}
-
-.Analytics-filter-select:focus {
-  outline: none;
-  border: 2px solid $primary-500;
-}
-
 .Analytics-chart-title {
   @extend .subtitle-1;
   color: $primary-500;

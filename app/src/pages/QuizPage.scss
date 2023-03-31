@@ -132,9 +132,25 @@ input[type="radio"]:checked::before {
   justify-content: flex-end;
 }
 
+.modal-btn-wrapper {
+  display: flex;
+}
+
 .modal-close-btn {
+  @extend .body-2;
+  color: $primary-500;
+}
+
+.modal-cancel-btn {
   @extend .button;
   color: $primary-500;
+  text-transform: capitalize;
+}
+
+.modal-leave-btn {
+  @extend .button;
+  color: $neutral-white;
+  text-transform: capitalize;
 }
 
 .qz-submit-btn {
@@ -225,7 +241,7 @@ input[type="radio"]:checked::before {
     @include button();
   }
 
-  .modal-close-btn {
+  .modal-cancel-btn {
     display: contents;
   }
 }

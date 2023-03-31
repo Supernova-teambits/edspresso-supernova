@@ -10,8 +10,8 @@ const ModalWrapper = styled("div")({
   backgroundColor: "white",
   boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
   borderRadius: "8px",
-  width: "250px",
-  height: "220px",
+  width: "280px",
+  height: "128px",
   margin: "auto",
   position: "absolute",
   top: 0,
@@ -20,7 +20,7 @@ const ModalWrapper = styled("div")({
   right: 0,
 });
 
-const CloseButton = ({ buttonName, messageHeader, message, buttonStyle }) => {
+const CloseButton = ({ buttonName, message, buttonStyle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -32,7 +32,7 @@ const CloseButton = ({ buttonName, messageHeader, message, buttonStyle }) => {
   return (
     <>
       <Button sx={buttonStyle} variant="contained" onClick={handleOpen}>
-        <p className="modal-close-btn">{buttonName}</p>
+        <p className="modal-cancel-btn">{buttonName}</p>
       </Button>
       <Modal
         open={isOpen}
@@ -46,39 +46,42 @@ const CloseButton = ({ buttonName, messageHeader, message, buttonStyle }) => {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
-
-            "@media (max-width: 768px)": {
-              width: "60%",
-              height: "25%",
-            },
           }}
         >
-          <h3>{messageHeader}</h3>
           <p className="modal-close-btn">{message}</p>
-          <div sx={{ display: "flex", padding: "20px" }}>
+          <div className="modal-btn-wrapper">
             <Button
               sx={{
-                padding: "0px 15px",
-                "@media (max-width: 768px)": {
-                  margin: "10px 0",
-                  padding: "10px",
-                },
+                borderRadius: "8px",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                padding: "8px 6px",
+                width: "122.5px",
+                height: "34px",
               }}
               onClick={handleClose}
             >
-              <p className="modal-close-btn">Cancel</p>
+              <p className="modal-cancel-btn">Cancel</p>
             </Button>
             <Button
               sx={{
-                padding: "0px 15px",
-                "@media (max-width: 768px)": {
-                  margin: "10px 0",
-                  padding: "10px",
+                background: "#B84B11",
+                borderRadius: "8px",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                padding: "8px 6px",
+                width: "122.5px",
+                height: "34px",
+                cursor: "pointer",
+                "&:hover": {
+                  backgroundColor: "#6c2c09",
                 },
               }}
               onClick={handleLeaveQuiz}
             >
-              <p className="modal-close-btn">Leave</p>
+              <p className="modal-leave-btn">Leave</p>
             </Button>
           </div>
         </ModalWrapper>

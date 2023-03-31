@@ -246,7 +246,6 @@ const QuizPage = () => {
             <div className="qz-footer-wrapper">
               <CloseButton
                 buttonName="Cancel"
-                messageHeader="Leave the test"
                 message={
                   <>
                     Do you want to leave the test?

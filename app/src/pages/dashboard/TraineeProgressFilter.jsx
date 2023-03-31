@@ -1,4 +1,4 @@
-import { FormControl, Grid, ThemeProvider } from "@mui/material";
+import { Grid, ThemeProvider } from "@mui/material";
 import { useRecoilState } from "recoil";
 import {
   lessonTitleFilterState,
@@ -6,6 +6,7 @@ import {
 } from "../../recoil/atoms";
 import { theme } from "../../utils/ThemeUtil";
 import "./Analytics.scss";
+import FilterSelect from "../../components/Select/FilterSelect";
 
 const lessons = [
   "All lessons",
@@ -39,45 +40,21 @@ const TraineeProgressFilter = () => {
     <ThemeProvider theme={theme}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <FormControl fullWidth>
-            <select
-              id="lesson-title-select"
-              value={lessonTitleFilter}
-              onChange={updateLessonTitleFilter}
-              className="Analytics-filter-select"
-            >
-              {lessons.map((lesson) => (
-                <option
-                  key={lesson}
-                  value={lesson}
-                  className="Analytics-filter-text"
-                >
-                  {lesson}
-                </option>
-              ))}
-            </select>
-          </FormControl>
+          <FilterSelect
+            id={"lesson-title-select"}
+            defaultValue={lessonTitleFilter}
+            onChangeFunc={updateLessonTitleFilter}
+            option={lessons}
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormControl fullWidth>
-            <select
-              id="lesson-title-select"
-              value={lessonTimeFilter}
-              onChange={updateLessonTimeFilter}
-              className="Analytics-filter-select"
-            >
-              {times.map((time) => (
-                <option
-                  key={time}
-                  value={time}
-                  className="Analytics-filter-text"
-                >
-                  {time}
-                </option>
-              ))}
-            </select>
-          </FormControl>
+          <FilterSelect
+            id={"lesson-title-select"}
+            defaultValue={lessonTimeFilter}
+            onChangeFunc={updateLessonTimeFilter}
+            option={times}
+          />
         </Grid>
       </Grid>
     </ThemeProvider>

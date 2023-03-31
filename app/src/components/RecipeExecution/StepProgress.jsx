@@ -16,11 +16,17 @@ export const StepProgressDesktop = ({ stepArr, done }) => {
         fontWeight: "bold",
       };
       return (
-        <ListItem className="-current" key={index} style={style}>
+        <ListItem
+          className="StepProgressDesktop-current"
+          key={index}
+          style={style}
+        >
           <ListItemIcon style={{ minWidth: "34px" }}>
             <Coffee fillColor="#10494C" />
           </ListItemIcon>
-          <ListItemText>{step.title}</ListItemText>
+          <ListItemText className="StepProgressDesktop-text">
+            {step.title}
+          </ListItemText>
         </ListItem>
       );
     } else if (index < done) {
@@ -29,16 +35,24 @@ export const StepProgressDesktop = ({ stepArr, done }) => {
           <ListItemIcon style={{ minWidth: "34px" }}>
             <Check fillColor="#10494C" />
           </ListItemIcon>
-          <ListItemText>{step.title}</ListItemText>
+          <ListItemText className="StepProgressDesktop-text">
+            {step.title}
+          </ListItemText>
         </ListItem>
       );
     } else {
       return (
-        <ListItem className="-rest" key={index} style={style}>
+        <ListItem
+          className="StepProgressDesktop-rest"
+          key={index}
+          style={style}
+        >
           <ListItemIcon style={{ minWidth: "34px" }}>
             <Coffee fillColor="#709294" />
           </ListItemIcon>
-          <ListItemText>{step.title}</ListItemText>
+          <ListItemText className="StepProgressDesktop-text">
+            {step.title}
+          </ListItemText>
         </ListItem>
       );
     }

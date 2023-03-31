@@ -56,6 +56,10 @@
   padding: 0 200px;
 }
 
+.quiz-main p {
+  @extend .body-2;
+}
+
 .qz-radio-button {
   cursor: pointer;
   display: inline-flex;
@@ -105,6 +109,7 @@ input[type="radio"]:checked::before {
 }
 
 .qz-option {
+  @extend .body-2;
   margin-top: 1.5px;
 }
 

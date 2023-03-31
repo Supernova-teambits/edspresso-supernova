@@ -5,7 +5,8 @@ import { PrimaryBtnTextWithRightArrow } from "../Buttons/Button";
 const ShortcutCard = (props) => {
   const { imageComponent, buttonText, buttonOnClick } = props;
   const buttonStyle = {
-    color: "#fff"};
+    color: "#fff",
+  };
   return (
     <Card class="shortcut-card">
       <CardMedia
@@ -15,6 +16,7 @@ const ShortcutCard = (props) => {
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
+          paddingTop: "10px",
         }}
         className="shortcut-icons"
       >
@@ -27,7 +29,7 @@ const ShortcutCard = (props) => {
           justifyContent: "center",
         }}
       >
-        <div class="short-cut-button" >
+        <div class="short-cut-button">
           <PrimaryBtnTextWithRightArrow
             label={buttonText}
             onClick={buttonOnClick}

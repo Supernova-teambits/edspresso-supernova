@@ -184,6 +184,10 @@
   .shortcut-card {
     box-shadow: none;
     display: grid;
+    div
+  {
+    padding: 0;
+  }
 
     .shortcut-icons {
       display: none;
@@ -229,4 +233,3 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-

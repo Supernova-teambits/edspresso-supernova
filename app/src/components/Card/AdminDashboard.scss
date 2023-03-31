@@ -6,25 +6,32 @@
   @extend .headline-5;
 }
 .create-lesson-card {
-  width: 472px;
   height: 240px;
   position: absolute;
   .admin_dash_img {
     display: block;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
     margin-left: 24px;
     position: absolute;
     z-index: 2;
-    object-fit: contain;
   }
   .recipe-text1 {
     display: block;
   }
   .recipe-text2 {
     display: none;
+    white-space: nowrap;
+  }
+}
+.card-media3 {
+  display: none;
+}
+@media (min-width: 767px) {
+  .create-lesson-card {
+    width: 472px;
+  }
+  .recipe-text2 {
+    display: none;
+    white-space: nowrap;
   }
 }
 
@@ -32,15 +39,16 @@
   .recipe-text1 {
     display: none;
   }
-
   .recipe-text2 {
     display: block;
-    font-size: 12px;
   }
   .hide-on-desktop {
     display: block;
   }
   .hide-on-mobile {
+    display: none;
+  }
+  .card-media2 {
     display: none;
   }
 }
@@ -50,8 +58,7 @@
     display: none;
   }
   .hide-on-mobile {
-    display: block;
-    size: 12px;
+    display: flex;
   }
   .shortcut-card {
     height: 108px;
@@ -69,10 +76,32 @@
   position: relative;
 }
 .card-media2 {
+  display: block;
   position: absolute;
   right: 18.95px;
   bottom: 0;
 }
+@media (min-width: 767px) {
+  .card-media4 svg {
+    display: none;
+  }
+}
+@media (max-width: $max_width_for_mobile) {
+  .card-media4 svg {
+    position: absolute;
+    bottom: 0;
+    right: 18.9px;
+  }
+  .create-lesson-card {
+    .card-media2 {
+      display: none;
+    }
+  }
+  .create-lesson button {
+    height: 24px;
+  }
+}
+
 .admin_dash_img h1 {
   @extend .headline-3;
   color: $neutral-white;
@@ -82,23 +111,23 @@
   @extend .headline-6;
   color: $neutral-white;
 }
-
-.create-lesson {
-  margin-top: 31.47px;
+@media (min-width: 767px) {
+  .create-lesson {
+    margin-top: 31.47px;
+  }
+  .create-card {
+    height: 240px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
-.orange-button {
-  margin-top: 31.47px;
-}
-
 .create-card {
-  height: 240px;
   left: 288px;
   top: 95px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  align-items: center;
   overflow: hidden;
   svg {
     object-fit: contain;
@@ -126,14 +155,24 @@
     .create-lesson {
       z-index: 2;
     }
-    .create-lesson-for-mob {
-      height: 24px;
+    .card-media1 {
+      width: 100%;
+      height: 136px;
+    }
+    .card-media2 {
+      display: none;
     }
     .admin_dash_img h1 {
       font-size: 20px;
+      line-height: 23px;
+      left: 10.56%;
+      right: 61.11%;
+      top: 11.64%;
+      bottom: 87.23%;
     }
     .recipe-text2 {
-      display: block;
+      display: grid;
+      line-height: 16px;
     }
     .recipe-text1 {
       display: none;
@@ -190,3 +229,4 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+

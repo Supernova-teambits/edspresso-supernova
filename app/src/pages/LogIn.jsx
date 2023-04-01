@@ -131,12 +131,8 @@ export default function LogIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid
-        container
-        direction="column"
-        component="main"
-        alignItems="center"
-        sx={{
+      <section
+        style={{
           height: "100vh",
           backgroundImage: loginBg,
           backgroundRepeat: "no-repeat",
@@ -144,78 +140,80 @@ export default function LogIn() {
           backgroundPosition: "center",
         }}
       >
-        <Grid
-          item
-          sx={{
-            my: 8,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {isMobile ? <LoginLogoMobile /> : <LoginLogoDesktop />}
-        </Grid>
-        <Grid item sm={5} component={Paper} elevation={6} borderRadius={6}>
-          <Box
+        <Grid container direction="column" component="main" alignItems="center">
+          <Grid
+            item
             sx={{
-              width: { xs: 328, sm: 564 },
-              my: { xs: 1, md: 3 },
-              mx: { xs: 1, md: 6 },
+              my: 8,
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <p className="Login-form-title">Login</p>
+            {isMobile ? <LoginLogoMobile /> : <LoginLogoDesktop />}
+          </Grid>
+          <Grid item sm={5} component={Paper} elevation={6} borderRadius={6}>
             <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
               sx={{
-                mt: { xs: 4, sm: 8 },
+                width: { xs: 328, sm: 564 },
+                my: { xs: 1, md: 3 },
+                mx: { xs: 1, md: 6 },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
             >
-              <TextField
-                className="Login-form-text-field"
-                color="primary500"
-                margin="normal"
-                id="name"
-                label="Username"
-                name="name"
-                autoComplete="name"
-                defaultValue={testUserName}
-                autoFocus
-                sx={{ mb: 3, width: 320 }}
-              />
-              <TextField
-                className="Login-form-text-field"
-                color="primary500"
-                margin="normal"
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                defaultValue={testUserPassword}
-                sx={{ width: 320 }}
-              />
-              <button className="Login-form-button" type="submit">
-                {loading ? (
-                  <CircularProgress
-                    sx={{ padding: "6px" }}
-                    color="secondary050"
-                  />
-                ) : (
-                  <p>Login</p>
-                )}
-              </button>
+              <p className="Login-form-title">Login</p>
+              <Box
+                component="form"
+                noValidate
+                onSubmit={handleSubmit}
+                sx={{
+                  mt: { xs: 4, sm: 8 },
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <TextField
+                  className="Login-form-text-field"
+                  color="primary500"
+                  margin="normal"
+                  id="name"
+                  label="Username"
+                  name="name"
+                  autoComplete="name"
+                  defaultValue={testUserName}
+                  autoFocus
+                  sx={{ mb: 3, width: 320 }}
+                />
+                <TextField
+                  className="Login-form-text-field"
+                  color="primary500"
+                  margin="normal"
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  defaultValue={testUserPassword}
+                  sx={{ width: 320 }}
+                />
+                <button className="Login-form-button" type="submit">
+                  {loading ? (
+                    <CircularProgress
+                      sx={{ padding: "6px" }}
+                      color="secondary050"
+                    />
+                  ) : (
+                    <p>Login</p>
+                  )}
+                </button>
+              </Box>
             </Box>
-          </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </section>
       <AlertDialog
         open={alertOpen}
         title={"Login Failed"}

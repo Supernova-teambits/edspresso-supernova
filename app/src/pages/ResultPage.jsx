@@ -143,9 +143,18 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
                                       color: "#709294",
                                     }}
                                   >
-                                    &nbsp;(correct answer)
+                                    &nbsp;(Correct)
                                   </span>
                                 )}
+                                {option === answers[question.id] &&
+                                  option !== question.answer && (
+                                    <span
+                                      className="qz-option"
+                                      style={{ color: "#B00020" }}
+                                    >
+                                      &nbsp;(Selected)
+                                    </span>
+                                  )}
                               </label>
                             </div>
                           ))}
@@ -259,9 +268,18 @@ const ResultPage = ({ score, totalQuestions, answers }) => {
                                     color: "#709294",
                                   }}
                                 >
-                                  &nbsp;(correct answer)
+                                  &nbsp;(Correct)
                                 </span>
                               )}
+                              {option === answers[question.id] &&
+                                option !== question.answer && (
+                                  <span
+                                    className="qz-option"
+                                    style={{ color: "#B00020" }}
+                                  >
+                                    &nbsp;(Selected)
+                                  </span>
+                                )}
                             </label>
                           </div>
                         ))}

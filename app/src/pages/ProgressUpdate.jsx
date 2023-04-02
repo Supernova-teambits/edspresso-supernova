@@ -53,7 +53,7 @@ const ProgressSaving = () => {
   const navigate = useNavigate();
   const matches = useMediaQuery("(min-width:767px)");
   return (
-    <>
+    <div className="LayoutContainer">
       <div class="LayoutWrapper__header">
         <LessonHeader title="Chemex method" />
       </div>
@@ -104,7 +104,7 @@ const ProgressSaving = () => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 };
 
@@ -113,7 +113,7 @@ const ProgressFinish = () => {
   const matches = useMediaQuery("(min-width:767px)");
 
   return (
-    <>
+    <div className="LayoutContainer">
       <div class="LayoutWrapper__header">
         <LessonHeader title="Chemex method" />
       </div>
@@ -174,7 +174,7 @@ const ProgressFinish = () => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

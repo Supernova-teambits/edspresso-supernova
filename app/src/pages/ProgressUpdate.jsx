@@ -148,7 +148,7 @@ const ProgressFinish = () => {
               <Grid item xs={12} md={4}>
                 <h5 className="ProgressUpdate-title">{message[1].heading}</h5>
                 <p className="ProgressUpdate-content">{message[1].message1}</p>
-                <StepProgressDesktop stepArr={stepArr} done={0} />
+                <StepProgressDesktop stepArr={stepArr} done={4} />
                 <h6 className="ProgressUpdate-sub-title">
                   {message[1].subheading}
                 </h6>

@@ -133,9 +133,9 @@ const RecipeDetails = () => {
                   </Grid>
 
                   <Grid item md={6} xs={12} className="DetailsCardWideColored">
-                    <h4 className="DetailsCard-Colored-title">Requirement</h4>
+                    <h4 className="DetailsCard-Colored-title">Requirements</h4>
                     <Stack direction="row" spacing={1}>
-                      {["Coffee Basics", "Grinder and weight"].map(
+                      {["Coffee Basics", "Grinder and Weight"].map(
                         (data, index) => {
                           let icon;
                           return (

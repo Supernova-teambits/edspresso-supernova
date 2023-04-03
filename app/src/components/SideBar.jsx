@@ -195,12 +195,6 @@ function Sidebar() {
       </div>
     </>
   );
-  // const links = document.querySelectorAll(".sidebar-menu a");
-  // links.forEach((link) => {
-  //   link.addEventListener("click", (event) => {
-  //     event.preventDefault();
-  //   });
-  // });
 
   return (
     <>

@@ -102,9 +102,9 @@ const RecipeDetails = () => {
               <p className="Accordion-text">
                 {expanded === "panel" ? "See less details" : "See more details"}
                 {expanded === "panel" ? (
-                  <ArrowLineDown fillColor="#10494C" width="20" height="20" />
-                ) : (
                   <ArrowLineUp fillColor="#10494C" width="20" height="20" />
+                ) : (
+                  <ArrowLineDown fillColor="#10494C" width="20" height="20" />
                 )}
               </p>
             </AccordionSummary>

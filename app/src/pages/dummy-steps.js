@@ -52,7 +52,7 @@ const step = [
                     }]
                 },
             ],
-            note: "Talk to your manage in case you don’t have the necessary equipment."
+            note: "Talk to your manager in case you don’t have the necessary equipment."
         }, {
             substep_id: 2,
             title: "Grind Coffee",

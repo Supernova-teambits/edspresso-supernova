@@ -57,7 +57,7 @@ function Sidebar() {
             <div className="hover-icon">
               <AdminNav fillColor="#10494C" />
             </div>
-            <a href="/app/dashboard" disabled>
+            <a href="/app" onClick={(e) => e.preventDefault()}>
               Administration
             </a>
           </li>
@@ -68,7 +68,7 @@ function Sidebar() {
             <div className="hover-icon">
               <Book fillColor="#10494C" />
             </div>
-            <a href="/app/dashboard" disabled>
+            <a href="/app" onClick={(e) => e.preventDefault()}>
               Training Management
             </a>
           </li>
@@ -79,7 +79,7 @@ function Sidebar() {
             <div className="hover-icon">
               <Setting fillColor="#10494C" />
             </div>
-            <a href="/app/dashboard" disabled>
+            <a href="/app" onClick={(e) => e.preventDefault()}>
               Settings
             </a>
           </li>
@@ -90,7 +90,7 @@ function Sidebar() {
             <div className="hover-icon">
               <Notification fillColor="#10494C" />
             </div>
-            <a href="/app/dashboard" disabled>
+            <a href="/app" onClick={(e) => e.preventDefault()}>
               Notifications
             </a>
           </li>
@@ -101,7 +101,7 @@ function Sidebar() {
             <div className="hover-icon">
               <Help fillColor="#10494C" />
             </div>
-            <a href="/app/dashboard" disabled>
+            <a href="/app" onClick={(e) => e.preventDefault()}>
               Help
             </a>
           </li>
@@ -155,7 +155,7 @@ function Sidebar() {
               <div className="hover-icon">
                 <GraphDonut fillColor="#10494C" />
               </div>
-              <a href="/app/myTraining" disabled>
+              <a href="/app" onClick={(e) => e.preventDefault()}>
                 Trainee Progress
               </a>
             </li>
@@ -166,7 +166,7 @@ function Sidebar() {
               <div className="hover-icon">
                 <Notification fillColor="#10494C" />
               </div>
-              <a href="/app/myTraining" disabled>
+              <a href="/app" onClick={(e) => e.preventDefault()}>
                 Notifications
               </a>
             </li>
@@ -177,7 +177,7 @@ function Sidebar() {
               <div className="hover-icon">
                 <Help fillColor="#10494C" />
               </div>
-              <a href="/app/myTraining" disabled>
+              <a href="/app" onClick={(e) => e.preventDefault()}>
                 Help
               </a>
             </li>
@@ -195,6 +195,12 @@ function Sidebar() {
       </div>
     </>
   );
+  // const links = document.querySelectorAll(".sidebar-menu a");
+  // links.forEach((link) => {
+  //   link.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //   });
+  // });
 
   return (
     <>

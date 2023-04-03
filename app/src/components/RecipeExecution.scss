@@ -17,6 +17,10 @@
 }
 
 @media screen and (max-width: $max_width_for_mobile) {
+  .LayoutContainer {
+    height: auto;
+  }
+
   .LayoutWrapper__header:has(.StepHeader) {
     background-color: $neutral-white;
     margin-top: 16px;

@@ -32,7 +32,7 @@ const assigned_lessons = [{
 },
 {
     id: 4,
-    title: "aeropress",
+    title: "Aeropress",
     progress_status: 60,
     image_src: aeropress
 },

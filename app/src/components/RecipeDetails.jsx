@@ -140,10 +140,6 @@ const RecipeDetails = () => {
                           let icon;
                           return (
                             <Chip
-                              style={{
-                                backgroundColor: "#EAF2F2",
-                                color: "#0A2C2E",
-                              }}
                               key={index}
                               icon={icon}
                               label={data}

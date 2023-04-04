@@ -55,7 +55,7 @@ export default function UserTestLogin() {
           >
             <Card>
               <CardContent>
-                <p className="Login-form-title">Login as Manager</p>
+                <p className="Login-form-title">Login as Admin</p>
                 <button
                   className="User-test-login-form-button"
                   onClick={() => handleClick("manager")}

@@ -28,7 +28,7 @@ const TraineeProgressChart = () => {
           >
             {progressForChart.length === 0 ? (
               <p className="Analytics-no-content">
-                No lessons the selected time
+                No progress in the selected lesson.
               </p>
             ) : (
               <DonutChart data={progressForChart} />

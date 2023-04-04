@@ -1,0 +1,81 @@
+@import "../../sass/main.scss";
+
+.MentorVerification {
+  max-width: 858px;
+  margin: 0 68px 0 366px;
+
+  &-title {
+    @extend .headline-4;
+    color: $primary-700;
+    margin: 0 0 16px;
+  }
+
+  &-body {
+    @extend .body-1;
+    color: $neutral-grey-dark-2;
+    margin: 16px 0;
+  }
+
+  &-card {
+    @extend .md;
+    background-color: $neutral-white;
+    border-radius: 12px;
+    padding: 20px 18px;
+    width: 100%;
+
+    &-title {
+      @extend .headline-4;
+      color: $primary-500;
+      margin: 0 0 16px;
+    }
+
+    &-content-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    &-breadcrumbs {
+      .MuiBreadcrumbs-li > .MuiTypography-root {
+        @extend .subtitle-1;
+      }
+    }
+
+    > p {
+      @extend .body-1;
+      color: $primary-500;
+    }
+    .passDate {
+      @extend .subtitle-2;
+      color: $neutral-grey-dark-2;
+    }
+
+    .QuizStart-btn:disabled {
+      background-color: $disabled-accent;
+    }
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .MentorVerification {
+    margin: 0 auto;
+    &-text {
+      margin: 0 auto;
+    }
+    &-card {
+      margin: 0 auto;
+
+      &-breadcrumbs {
+        .MuiBreadcrumbs-li > .MuiTypography-root {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

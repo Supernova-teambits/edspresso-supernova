@@ -1,0 +1,235 @@
+@import "../../sass/main.scss";
+@import "../../components/Sidebar.scss";
+
+.dashboard-title {
+  color: $primary-500;
+  @extend .headline-5;
+}
+.create-lesson-card {
+  height: 240px;
+  position: absolute;
+  .admin_dash_img {
+    display: block;
+    margin-left: 24px;
+    position: absolute;
+    z-index: 2;
+  }
+  .recipe-text1 {
+    display: block;
+  }
+  .recipe-text2 {
+    display: none;
+    white-space: nowrap;
+  }
+}
+.card-media3 {
+  display: none;
+}
+@media (min-width: 767px) {
+  .create-lesson-card {
+    width: 472px;
+  }
+  .recipe-text2 {
+    display: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .recipe-text1 {
+    display: none;
+  }
+  .recipe-text2 {
+    display: block;
+  }
+  .hide-on-desktop {
+    display: block;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .card-media2 {
+    display: none;
+  }
+}
+
+@media (min-width: 767px) {
+  .hide-on-desktop {
+    display: none;
+  }
+  .hide-on-mobile {
+    display: flex;
+  }
+  .shortcut-card {
+    height: 108px;
+  }
+}
+
+.card-media1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $primary-500;
+  z-index: 1;
+  position: relative;
+}
+.card-media2 {
+  display: block;
+  position: absolute;
+  right: 18.95px;
+  bottom: 0;
+}
+@media (min-width: 767px) {
+  .card-media4 svg {
+    display: none;
+  }
+}
+@media (max-width: $max_width_for_mobile) {
+  .card-media4 svg {
+    position: absolute;
+    bottom: 0;
+    right: 18.9px;
+  }
+  .create-lesson-card {
+    .card-media2 {
+      display: none;
+    }
+  }
+  .create-lesson button {
+    height: 24px;
+  }
+}
+
+.admin_dash_img h1 {
+  @extend .headline-3;
+  color: $neutral-white;
+}
+
+.admin_dash_img h2 {
+  @extend .headline-6;
+  color: $neutral-white;
+}
+@media (min-width: 767px) {
+  .create-lesson {
+    margin-top: 31.47px;
+  }
+  .create-card {
+    height: 240px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+.create-card {
+  left: 288px;
+  top: 95px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  svg {
+    object-fit: contain;
+  }
+}
+
+.shortcut-card {
+  left: 0%;
+  right: 53.85%;
+  top: 0%;
+  bottom: 55%;
+  background: $neutral-white;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  align-items: center;
+  margin: auto;
+}
+.short-cut-button:hover {
+  background-color: $hover-primary-010;
+  border-radius: 6px;
+}
+@media (max-width: $max_width_for_mobile) {
+  .create-card {
+    .create-lesson {
+      z-index: 2;
+    }
+    .card-media1 {
+      width: 100%;
+      height: 136px;
+    }
+    .card-media2 {
+      display: none;
+    }
+    .admin_dash_img h1 {
+      font-size: 20px;
+      line-height: 23px;
+      left: 10.56%;
+      right: 61.11%;
+      top: 11.64%;
+      bottom: 87.23%;
+    }
+    .recipe-text2 {
+      display: grid;
+      line-height: 16px;
+    }
+    .recipe-text1 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .shortcut-card {
+    box-shadow: none;
+    display: grid;
+    div
+  {
+    padding: 0;
+  }
+
+    .shortcut-icons {
+      display: none;
+    }
+  }
+}
+.icon-shortcut {
+  justify-self: center;
+  align-items: center;
+}
+.short-cut-button {
+  @extend .button;
+  border: none;
+  background: none;
+  color: $primary-500;
+  box-shadow: "none";
+  display: "flex";
+}
+@media (max-width: $max_width_for_mobile) {
+  .short-cut-button {
+    background: $primary-300;
+    position: relative;
+    border-radius: 8px;
+    color: $neutral-white;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    color: $neutral-white;
+    font-size: 14px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    span {
+      color: $neutral-white;
+      margin-right: 10px;
+    }
+  }
+}
+@media (max-width: $max_width_for_mobile) {
+  .shortcut-parent {
+    display: "grid";
+    grid-template-columns: 1fr 1fr;
+  }
+}

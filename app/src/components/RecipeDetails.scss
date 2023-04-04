@@ -1,0 +1,143 @@
+@import "../sass/main.scss";
+
+.RecipeDetails {
+  max-width: 858px;
+  margin: 0 68px 0 366px;
+
+  &-body {
+    @extend .body-2;
+    color: $neutral-grey-dark-2;
+    padding: 0 8px;
+  }
+
+  &-title {
+    @extend .headline-4;
+    color: $primary-500;
+  }
+
+  &-img-btn {
+    max-width: 264px;
+
+    > img {
+      max-height: 250px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 11px;
+      margin-bottom: 8px;
+    }
+    > button {
+      margin: 8px 0;
+    }
+  }
+}
+
+.Lesson-title {
+  @extend .headline-4;
+  color: $primary-500;
+  padding: 8px;
+  margin: 0;
+}
+
+.MuiAccordion-root:before {
+  display: none;
+}
+
+.Accordion-text-container > div {
+  display: flex;
+  justify-content: center;
+}
+
+.Accordion-text {
+  align-items: center;
+  @extend .button;
+  color: $primary-500;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    margin-left: 5px;
+  }
+}
+
+.DetailsCardWideColored-container {
+  background-color: $secondary-050;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+// Requirements Chip
+.DetailsCardWideColored .MuiChip-root 
+{
+  background-color: #eaf2f2;
+  color: #0a2c2e;
+  border-radius: 8px;
+  height: auto;
+
+  > .MuiChip-label {
+    @extend .caption;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .RecipeDetails {
+    margin: 0 auto;
+
+    &-body {
+      @extend .body-2;
+      color: $neutral-grey-dark-2;
+      padding: 0;
+    }
+
+    &-title {
+      @extend .headline-4;
+      color: $primary-500;
+    }
+
+    &-img-btn {
+      margin-bottom: 16px;
+    }
+  }
+
+  .Lesson-title {
+    // headline-6;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .Accordion-text-container > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Accordion-text {
+    align-items: center;
+    @extend .button;
+    color: $primary-500;
+    display: flex;
+    justify-content: center;
+  }
+
+  .DetailsCardWideColored-container {
+    background-color: $neutral-white;
+  }
+  .DetailsCardWideColored:first-of-type {
+    margin-bottom: 32px;
+  }
+
+  .RecipeDetails-ingredientsList {
+    width: 100%;
+
+    .RecipeDetails-ingredient {
+      padding: 0;
+      overflow: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
+  }
+}

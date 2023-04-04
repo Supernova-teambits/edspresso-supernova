@@ -1,0 +1,247 @@
+@import "../sass/main.scss";
+
+.quiz-header {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: $primary-500;
+}
+
+.qz-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 200px;
+}
+
+.qz-header-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qz-header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.quiz-header h3 {
+  @extend .subtitle-2;
+  text-align: justify;
+  color: $secondary-200;
+  margin: 0;
+}
+
+.quiz-header h2 {
+  @extend .headline-4;
+  text-align: justify;
+  color: $secondary-200;
+  margin: 0;
+  height: auto;
+}
+
+.qz-header-middle {
+  @extend .headline-5;
+  text-align: justify;
+  color: $secondary-200;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.quiz-main {
+  text-align: left;
+  padding: 0 200px;
+}
+
+.quiz-main p {
+  @extend .body-2;
+}
+
+.qz-radio-button {
+  cursor: pointer;
+  display: inline-flex;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid $primary-500;
+  border-radius: 3px;
+  min-width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: $primary-500;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.qz-question-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.qz-question-container h3 {
+  @extend .subtitle-1;
+  margin-top: auto;
+  color: $primary-500;
+}
+
+.qz-question-container p {
+  @extend .body-2;
+  color: $neutral-grey-dark-2;
+}
+
+.qz-option {
+  @extend .body-2;
+  margin-top: 1.5px;
+}
+
+.qz-options > div {
+  margin-bottom: 10px;
+}
+
+.quiz-footer {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: $secondary-050;
+}
+
+.qz-footer-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 200px;
+  justify-content: flex-end;
+}
+
+.modal-btn-wrapper {
+  display: flex;
+}
+
+.modal-close-btn {
+  @extend .body-2;
+  color: $primary-500;
+}
+
+.modal-cancel-btn {
+  @extend .button;
+  color: $primary-500;
+  text-transform: capitalize;
+}
+
+.modal-leave-btn {
+  @extend .button;
+  color: $neutral-white;
+  text-transform: capitalize;
+}
+
+.qz-submit-btn {
+  @extend .button;
+  margin-left: 20px;
+  background: $accent-700;
+  border-radius: 8px;
+  padding: 8px 6px;
+  border: none;
+  color: $neutral-white;
+  width: 144px;
+  height: 40px;
+  &:hover {
+    background-color: $hover-accent;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .quiz-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: $primary-500;
+    padding: 20px;
+  }
+
+  .quiz-header h3 {
+    @include button();
+    text-align: center;
+    color: $secondary-200;
+    margin: 0;
+  }
+
+  .quiz-header h2 {
+    @include button();
+    text-align: center;
+    color: $secondary-200;
+    margin: 0;
+  }
+
+  .qz-header-middle-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .qz-question-mobile {
+    @include body-1();
+    margin-top: 10px;
+    color: $primary-500;
+    margin: 15px;
+    text-align: center;
+  }
+
+  .quiz-main {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .qz-question-container p,
+  h3 {
+    text-align: left;
+  }
+
+  .qz-options {
+    flex-wrap: wrap;
+  }
+
+  .qz-radio-button {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .quiz-footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .qz-footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .qz-custom-pagination {
+    @include button();
+  }
+
+  .modal-cancel-btn {
+    display: contents;
+  }
+}

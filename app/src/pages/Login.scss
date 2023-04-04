@@ -1,0 +1,38 @@
+@import "../sass/main.scss";
+
+.Login-form-title {
+  @extend .headline-2;
+  color: $primary-500;
+}
+
+.Login-form-text-field {
+  @extend .body-1-italic;
+  color: #384048;
+}
+
+.Login-form-button {
+  @extend .button;
+  @extend .xl;
+  color: $secondary-050;
+  text-transform: none;
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: $accent-700;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  height: 48px;
+}
+
+.User-test-login-form-button {
+  @extend .Login-form-button;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: $max_width_for_mobile) {
+  .Login-form-title {
+    @include headline-3();
+  }
+}

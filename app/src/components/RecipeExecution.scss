@@ -1,0 +1,38 @@
+@import "../sass/main.scss";
+
+.LayoutContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.LayoutWrapper__content {
+  flex-grow: 1;
+  margin-bottom: 84px;
+}
+
+.LayoutWrapper__lesson__btn {
+  padding: 32px 0;
+  background-color: $secondary-050;
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .LayoutContainer {
+    height: auto;
+  }
+
+  .LayoutWrapper__header:has(.StepHeader) {
+    background-color: $neutral-white;
+    margin-top: 16px;
+  }
+
+  .LayoutWrapper__content {
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .LayoutWrapper__lesson__btn {
+    margin-top: 0;
+    background-color: transparent;
+  }
+}

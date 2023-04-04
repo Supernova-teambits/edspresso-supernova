@@ -1,0 +1,189 @@
+@import "../../sass/main.scss";
+
+// General
+.StepMedia-title {
+  @extend .headline-4;
+  color: $primary-500;
+  margin: 8px 0 24px 0;
+}
+
+.StepMedia-content {
+  @extend .body-2;
+  color: $neutral-grey-dark-2;
+  margin-bottom: 32px;
+}
+
+// IngredientList
+.IngredientsCard {
+  background-color: $secondary-050;
+  .StepMedia-title {
+    background-color: $hover-primary-010;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0 0 8px 0;
+  }
+
+  ul {
+    @extend .subtitle-2;
+    list-style: none;
+    padding: 0;
+    color: $primary-500;
+
+    li {
+      padding: 16px 8px;
+    }
+  }
+
+  ul li:nth-child(odd) {
+    background-color: $hover-primary-010;
+  }
+
+  ul li:nth-child(even) {
+    background-color: $neutral-white;
+  }
+}
+
+// Media Carousel
+.MediaCarousel {
+  max-width: 557px;
+
+  .MediaCarousel-item {
+    text-align: center;
+    min-width: 90%;
+    height: 360px;
+    padding: 0 16px;
+
+    img {
+      margin: 0 auto;
+      width: 100%;
+      height: 90%;
+      object-fit: cover;
+      border-radius: 11px;
+    }
+
+    .MediaCarousel-caption {
+      @extend .caption;
+    }
+  }
+
+  .MediaCarousel-prevItem,
+  .MediaCarousel-nextItem {
+    max-width: 25px;
+    height: 360px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 90%;
+    }
+  }
+  .MediaCarousel-prevItem {
+    img {
+      border-radius: 4px 8px 8px 4px;
+    }
+  }
+  .MediaCarousel-nextItem {
+    img {
+      border-radius: 8px 4px 4px 8px;
+    }
+  }
+}
+
+.DescWithRef-content {
+  @extend .body-1;
+  color: $primary-500;
+}
+
+.DescWithRef-ref {
+  @extend .body-1;
+  font-size: 12px;
+  color: $primary-500;
+  margin-bottom: 24px;
+}
+
+.RatioCalculater {
+  &-sub-title {
+    @extend .headline-6;
+    color: $primary-500;
+    margin: 32px 0 16px;
+  }
+
+  &-input-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 16px;
+  }
+
+  &-ratio-radio-button {
+    @extend .body-2;
+    color: $neutral-grey-dark-2;
+  }
+}
+
+@media screen and (max-width: $max_width_for_mobile) {
+  .StepMedia-title {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+
+  // Media Carousel
+  .StepMedia-content {
+    margin-bottom: 16px;
+  }
+
+  .MediaCarousel {
+    min-width: 328px;
+    margin-bottom: 24px;
+
+    .MediaCarousel-item {
+      padding: 0 8px;
+
+      img {
+        margin: 0 auto;
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 11px;
+      }
+
+      .MediaCarousel-caption {
+        @extend .caption;
+      }
+    }
+
+    .MediaCarousel-prevItem,
+    .MediaCarousel-nextItem {
+      max-width: 25px;
+      position: relative;
+      height: 360px;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 90%;
+      }
+    }
+    .MediaCarousel-prevItem {
+      img {
+        border-radius: 4px 8px 8px 4px;
+      }
+    }
+    .MediaCarousel-nextItem {
+      img {
+        border-radius: 8px 4px 4px 8px;
+      }
+    }
+  }
+
+  .DescWithRef-ref {
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,118 @@
+@import "../../sass/main.scss";
+
+.PrimaryBtn {
+  height: 40px;
+  min-width: 144px;
+  border-radius: 8px;
+  padding: 10px 6px;
+  background-color: $accent-700;
+  color: $neutral-white;
+  border: none;
+  @extend .button;
+
+  &:hover {
+    background-color: $hover-accent;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $neutral-grey-light-2;
+    transform: none;
+  }
+}
+
+.WithArrow {
+  @extend .PrimaryBtn;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    flex-grow: 1;
+  }
+  .-arrow-icon {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+.PrimaryBtnWithArrow {
+  @extend .WithArrow;
+}
+
+.PrimaryBtnOutline {
+  @extend .PrimaryBtn;
+  background-color: transparent;
+  color: $primary-500;
+  border: 1px $primary-500 solid;
+
+  &:hover {
+    background-color: $hover-primary-010;
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $disabled-light-bg;
+    border-color: $disabled-light-bg;
+  }
+}
+
+.PrimaryBtnOutlineWithArrow {
+  @extend .PrimaryBtnOutline;
+  @extend .WithArrow;
+}
+
+.PrimaryBtnText {
+  @extend .PrimaryBtn;
+  background-color: transparent;
+  color: $primary-500;
+
+  &:hover {
+    background-color: $hover-primary-010;
+  }
+
+  &:disabled {
+    background-color: $disabled-accent;
+    color: $disabled-light-bg;
+  }
+}
+
+.PrimaryBtnTextWithArrow {
+  @extend .PrimaryBtnText;
+  @extend .WithArrow;
+}
+
+.PrimaryBtnWide {
+  @extend .PrimaryBtn;
+  width: 100%;
+}
+
+.PrimaryBtnTextWide {
+  @extend .PrimaryBtnText;
+  width: 100%;
+}
+
+
+.PrimaryBtnOutlineWide {
+  @extend .PrimaryBtnOutline;
+  width: 100%;
+}
+
+.StepPagination-btn {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 858px;
+  margin: 0 68px 0 366px;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .StepPagination-btn {
+    justify-content: center;
+    margin: 0 auto;
+  }
+}

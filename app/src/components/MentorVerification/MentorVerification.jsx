@@ -62,9 +62,9 @@ const MentoVerification = () => {
   // decide button label
   let buttonLabel;
   if (progress > 0 && score < 80) {
-    buttonLabel = "Do quiz again";
+    buttonLabel = "Retake Quiz";
   } else {
-    buttonLabel = "Start quiz";
+    buttonLabel = "Start Quiz";
   }
 
   //  handle「Do quiz again」button

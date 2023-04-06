@@ -106,7 +106,9 @@ const MentoVerification = () => {
                   <Help fillColor="#10494C" />
                   Finish this lesson to be able to do a test.
                 </p>
-              ) : null}
+              ) : (
+                <p>&nbsp;</p>
+              )}
               {score < 80 ? (
                 <div className="MentorVerification-card-btns">
                   <PrimaryBtnWithRightArrow

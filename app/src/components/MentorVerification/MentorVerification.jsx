@@ -62,9 +62,9 @@ const MentoVerification = () => {
   // decide button label
   let buttonLabel;
   if (progress > 0 && score < 80) {
-    buttonLabel = "Do quiz again";
+    buttonLabel = "Retake Quiz";
   } else {
-    buttonLabel = "Start quiz";
+    buttonLabel = "Start Quiz";
   }
 
   //  handle「Do quiz again」button
@@ -106,7 +106,9 @@ const MentoVerification = () => {
                   <Help fillColor="#10494C" />
                   Finish this lesson to be able to do a test.
                 </p>
-              ) : null}
+              ) : (
+                <p>&nbsp;</p>
+              )}
               {score < 80 ? (
                 <div className="MentorVerification-card-btns">
                   <PrimaryBtnWithRightArrow

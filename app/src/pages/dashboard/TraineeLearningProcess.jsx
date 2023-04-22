@@ -36,7 +36,9 @@ const TraineeLearningProcess = () => {
           </p>
         </section>
         {filteredProgressByTraineeList.length === 0 ? (
-          <p className="Analytics-no-content">No lessons the selected time</p>
+          <p className="Analytics-no-content">
+            No progress in the selected lesson.
+          </p>
         ) : (
           <List>
             {filteredProgressByTraineeList.map((item, index) => (

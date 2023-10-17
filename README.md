@@ -19,17 +19,20 @@ Edspresso - a web application designed to help coffee shop owners enhance their 
 
 Edspresso has three main features:
 
-- ☕ **Train** 
-    - With the Train feature, coffee shop owners can assign lessons for their baristas to learn. 
-    - Baristas can access the lessons and complete them at their own pace.
+- ☕ **Coffee Training** 
+    - Trainees can access a comprehensive library of lessons anytime, allowing flexibility in their learning schedule.
+    ‐ Each lesson provides a structured, step-by-step guide, ensuring a seamless learning experience.
+    - Rich content, including photos, coffee bean to water ratio calculator, and supplementary materials, enhances engagement and understanding.
 
-- 📝 **Test** 
-    - The Test feature allows baristas to take quizzes and test their knowledge. 
-    - The quizzes are designed to reinforce the lessons and help baristas retain the information.
+- 📝 **Quiz** 
+    - Trainees can evaluate their understanding through quizzes associated with each lesson.
+    - Instant feedback on quiz performance helps trainees identify strengths and areas for improvement.
+    - Upon completing a quiz, trainees' results can be verified by managers, ensuring accountability and comprehension.
 
 - 📊 **Track** 
-    - With the Track feature, coffee shop owners can monitor the progress of each barista and see analytical statistics for each assigned lesson.
-    - This feature helps coffee shop owners identify areas where baristas may need additional training.
+    - Managers can filter training results by course and time period, gaining insights into performance variations.
+    - A detailed list view provides a comprehensive breakdown of individual and group achievements, aiding in targeted interventions.
+    ‐ Visualize training outcomes through intuitive graphs, facilitating quick interpretation of trends and patterns.
 
 ## Production application
 
